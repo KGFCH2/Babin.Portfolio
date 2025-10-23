@@ -165,6 +165,3 @@ Feel free to **learn, remix, and inspire** from it 💙
 
 ---
 
-💬 Would you like me to add those add-ons (badges + deploy workflow + stylelint config) right now?  
-That’ll make this README 100% *developer-grade polished* 💥
- (See <attachments> above for file contents. You may not need to search or read the file again.)
