@@ -81,10 +81,15 @@ const Splash: React.FC<SplashProps> = ({ durationMs = 3500, onFinish }) => {
                     <div className="splash__shape" />
                     {/* Decorative hero image: put your attachment into public/preloader-hero.png */}
                     <img
-                        src="public/Babin_Profile.jpg"
+                        src="/Babin_Profile.jpg"
                         alt="Babin avatar"
                         className="splash__hero"
                         aria-hidden="true"
+                        onError={(e) => {
+                            // hide image if it fails to load in production (case/casing/path issues)
+                            const el = e.currentTarget as HTMLImageElement;
+                            el.style.display = 'none';
+                        }}
                     />
                 </div>
 
