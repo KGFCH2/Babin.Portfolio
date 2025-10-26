@@ -1,20 +1,25 @@
-# 🌟 Babin.Portfolio — Personal Portfolio for Babin Bid
+<h1 align="center">🌟 Babin.Portfolio — Personal Portfolio for Babin Bid</h1>
 
-Welcome to **Babin.Portfolio**, my **personal portfolio website** built with **React + TypeScript + Vite ⚡**.  
-It showcases my **projects**, **skills**, **research**, and **contact details** — all wrapped in a **modern, elegant, and responsive UI** powered by **Tailwind CSS 🎨**.
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=24&duration=3000&pause=1000&color=00FFFF&center=true&vCenter=true&width=700&lines=👨‍💻+Computer+Science+Engineer+👨‍💻;🚀+Web+Developer+🚀;🎨+UI%2FUX+Innovator+🎨;🤖+AI+%26+Tech+Enthusiast+🤖;📍+Adamas+University%2C+Kolkata+📍" alt="Typing Animation" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/KGFCH2/Babin.Portfolio/stargazers"><img src="https://img.shields.io/github/stars/KGFCH2/Babin.Portfolio?color=yellow&style=for-the-badge"></a>
+  <a href="https://github.com/KGFCH2/Babin.Portfolio/network/members"><img src="https://img.shields.io/github/forks/KGFCH2/Babin.Portfolio?color=blue&style=for-the-badge"></a>
+  <a href="https://github.com/KGFCH2/Babin.Portfolio/issues"><img src="https://img.shields.io/github/issues/KGFCH2/Babin.Portfolio?color=red&style=for-the-badge"></a>
+  <a href="https://github.com/KGFCH2/Babin.Portfolio"><img src="https://img.shields.io/github/last-commit/KGFCH2/Babin.Portfolio?color=green&style=for-the-badge"></a>
+</p>
 
 ---
 
 ## 🚀 Overview
 
-This portfolio reflects my journey as a **B.Tech 3rd-Year Computer Science Engineering Student** at **Adamas University, Kolkata 🇮🇳**.  
-It blends **technology, design, and performance**, featuring:
+Welcome to **Babin.Portfolio**, a next-gen personal portfolio website built with **React + TypeScript + Vite ⚡**.  
+It’s designed to showcase **projects, skills, and research**, all wrapped in a **modern, aesthetic, and ultra-fast interface** powered by **Tailwind CSS**.
 
-- 🌌 A **futuristic preloader**  
-- ✨ **Animated particle backgrounds**  
-- 🌓 **Dark/Light mode**  
-- 💡 **Interactive projects & research showcases**  
-- ⚡ **Lightning-fast performance**
+> ✨ A fusion of technology, creativity, and futuristic UI/UX — crafted by **Babin Bid**,  
+> B.Tech 3rd-Year Computer Science Engineering Student @ Adamas University, Kolkata 🇮🇳.
 
 ---
 
@@ -31,6 +36,16 @@ It blends **technology, design, and performance**, featuring:
 | 🧮 Data Visualization | ![Recharts](https://img.shields.io/badge/Recharts-FF4B00?style=for-the-badge&logoColor=white) |
 | 🔧 Dev Tools | ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white) ![PostCSS](https://img.shields.io/badge/PostCSS-DD3A0A?style=for-the-badge&logo=postcss&logoColor=white) ![Autoprefixer](https://img.shields.io/badge/Autoprefixer-DB5C00?style=for-the-badge&logoColor=white) |
 
+---
+
+## ✨ Key Features
+
+- ⚡ **Responsive Design** — Perfect across all devices  
+- 🪩 **Futuristic Preloader** — Neon morphing shapes + particles  
+- 🌌 **Animated Backgrounds** — Lightweight and smooth  
+- 🌓 **Dark / Light Mode** — Seamless theme transitions  
+- 💬 **Accessible Design** — Keyboard + Screen Reader Support  
+- 🚀 **Optimized Performance** — Lazy loading + compression  
 
 ---
 
@@ -51,7 +66,7 @@ public/
  ┣ 📄 Babin Bid Resume.pdf                                               → Downloadable resume
  ┣ 📄 Babin_Favicon_New.png                                              → Favicon
  ┣ 📄 Babin_Profile.jpg                                                  → Profile image 
- ┗ 📄 ML-Based Price Prediction for Agri-Horticultural Commodities.pdf   → Downloadable research paper
+ ┗ 📄 ML-Based Price Prediction for Agri-Horticultural Commodities.pdf   → Research paper
 ```
 
  ---
