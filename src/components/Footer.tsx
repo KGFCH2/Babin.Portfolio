@@ -12,7 +12,8 @@ const Footer = () => {
               <h3 className="text-xl font-bold text-gradient">Portfolio</h3>
               <p className="text-muted-foreground">
                 B.Tech Student at Adamas University, passionate about
-                technology and innovation.
+                technology
+              <br />and innovation.
               </p>
             </div>
 
@@ -26,6 +27,7 @@ const Footer = () => {
                   "About",
                   "Projects",
                   "Research",
+                  "Materials",
                   "Contact",
                 ].map((item) => (
                   <li key={item} className="inline-block">
@@ -62,7 +64,7 @@ const Footer = () => {
                   <Linkedin className="h-6 w-6" />
                 </a>
                 <a
-                  href="mailto:babin.bid@stu.adamasuniversity.ac.in"
+                  href="mailto:babinbid05@gmail.com"
                   title="Email"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
