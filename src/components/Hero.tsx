@@ -4,7 +4,7 @@ import { Download, Github, Linkedin, Mail } from "lucide-react";
 import { previewThenDownload } from "@/lib/utils";
 
 const Hero = () => {
-  const handleDownloadResume = () => previewThenDownload("/Babin Bid Resume.pdf", "Babin Bid Resume.pdf");
+  const handleDownloadResume = () => previewThenDownload("/Babin_Bid_Resume.pdf", "Babin_Bid_Resume.pdf");
 
   return (
     <section

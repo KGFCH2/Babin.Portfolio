@@ -128,7 +128,7 @@ const About = () => {
                   <div className="mt-6 flex gap-3">
                     <button
                       className="px-4 py-2 rounded-md gradient-primary text-primary-foreground font-semibold shadow-glow hover:scale-105 transition-smooth"
-                      onClick={() => previewThenDownload('/Babin Bid Resume.pdf', 'Babin Bid Resume.pdf')}
+                      onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
                     >
                       View Resume
                     </button>
