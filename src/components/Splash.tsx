@@ -81,7 +81,7 @@ const Splash: React.FC<SplashProps> = ({ durationMs = 3500, onFinish }) => {
                     <div className="splash__shape" />
                     {/* Decorative hero image: put your attachment into public/preloader-hero.png */}
                     <img
-                        src="/Babin_Profile.jpg"
+                        src="/Babin.jpeg"
                         alt="Babin avatar"
                         className="splash__hero"
                         aria-hidden="true"

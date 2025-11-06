@@ -68,7 +68,7 @@ const About = () => {
                   </div>
                   <div className="flex items-start gap-6 relative">
                     <div className={`w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white text-2xl font-bold shadow-lg overflow-hidden avatar-glow transform transition-transform duration-700 ${inView ? 'scale-105' : 'scale-90'}`}>
-                      <img src="/Babin_Profile.jpg" alt="Avatar" className="w-full h-full object-cover avatar-pulse rounded-full" />
+                      <img src="/Babin.jpeg" alt="Avatar" className="w-full h-full object-cover avatar-pulse rounded-full" />
                     </div>
                     {/* floating badges removed per request */}
                     <div className="flex-1">
