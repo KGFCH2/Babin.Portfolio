@@ -2,9 +2,10 @@ import { TypeAnimation } from "react-type-animation";
 import { Button } from "@/components/ui/button";
 import { Download, Github, Linkedin, Mail } from "lucide-react";
 import { previewThenDownload } from "@/lib/utils";
+import SectionTitle from "./SectionTitle";
 
 const Hero = () => {
-  const handleDownloadResume = () => previewThenDownload("/Babin_Bid_Resume.pdf", "Babin_Bid_Resume.pdf");
+  const handleDownloadResume = () => previewThenDownload("/Babin Bid Resume.pdf", "Babin Bid Resume.pdf");
 
   return (
     <section
@@ -18,7 +19,10 @@ const Hero = () => {
               Hi, I'm
             </h2>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400">Babin Bid</span>
+              <SectionTitle
+                text="Babin Bid"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400"
+              />
             </h1>
             <div className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground min-h-[160px] flex items-center justify-center">
               <div className="whitespace-nowrap">
