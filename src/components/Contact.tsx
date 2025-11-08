@@ -105,7 +105,7 @@ const Contact = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
-              <div className="space-y-4">
+              <div className="h-full flex flex-col gap-6">
                 {contactInfo.map((info, index) => (
                   <Card
                     key={index}
