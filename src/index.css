@@ -114,6 +114,27 @@ All colors MUST be HSL.
 
 @layer utilities {
 
+  /* Wave animation for section titles - bouncy spring effect */
+  @keyframes wave {
+    0% {
+      opacity: 0;
+      transform: translateY(24px) scaleY(0.8);
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0) scaleY(1);
+    }
+  }
+
+  .animate-wave {
+    animation: wave 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
   /* faster mandala rotation variant for the About section */
   .mandala-rotate-fast::before {
     animation-duration: 36s;
