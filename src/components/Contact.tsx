@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import SectionTitle from "./SectionTitle";
 
 const Contact = () => {
   const { ref, inView } = useInView({
@@ -93,9 +94,22 @@ const Contact = () => {
         >
           <div className="text-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400">Get</span>
-              <span className="mx-2 text-blueviolet">In</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400">Touch</span>
+              <SectionTitle
+                segments={[
+                  {
+                    text: "Get",
+                    className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400",
+                  },
+                  {
+                    text: " In ",
+                    className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600",
+                  },
+                  {
+                    text: "Touch",
+                    className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400",
+                  },
+                ]}
+              />
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Feel free to reach out for collaborations, opportunities, or just
