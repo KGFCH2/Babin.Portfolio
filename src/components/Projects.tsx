@@ -9,6 +9,7 @@ import {
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import SectionTitle from "./SectionTitle";
 
 const Projects = () => {
   const { ref, inView } = useInView({
@@ -141,8 +142,18 @@ const Projects = () => {
         >
           <div className="text-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-blueviolet">My</span>
-              <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400">Projects</span>
+              <SectionTitle
+                segments={[
+                  {
+                    text: "My",
+                    className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600",
+                  },
+                  {
+                    text: " Projects",
+                    className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400",
+                  },
+                ]}
+              />
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Here are some of my recent and old projects showcasing my skills and experience
