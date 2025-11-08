@@ -3,12 +3,15 @@ import { Card } from "@/components/ui/card";
 import { ChevronDown, Code, Database, Layout, Server, User } from "lucide-react";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { previewThenDownload } from "@/lib/utils";
+import { useState } from "react";
 
 const About = () => {
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
+
+  const [openPanel, setOpenPanel] = useState<string | null>(null);
 
   const skills = [
     {
@@ -36,210 +39,219 @@ const About = () => {
   return (
     <section id="about" className="py-20 relative section-divider-top" ref={ref}>
       <div className="container mx-auto px-4">
-        <div className="about-blobs" aria-hidden>
-          <div className="blob blob-1" />
-          <div className="blob blob-2" />
-          <div className="blob blob-3" />
-        </div>
         <div
           className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
             }`}
         >
           <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-5xl md:text-6xl font-bold mb-4">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400">About</span>
-              <span className="ml-2 text-blueviolet">Me</span>
+              <span className="ml-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600">Me</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A passionate B.Tech student specializing in Computer Science & Engineering at
-              Adamas University, Kolkata, India
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
+              Computer Science & Engineering student | Full-Stack Developer | Problem Solver
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            <div className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Left: Image with enhanced animation */}
+            <div className="flex justify-center md:justify-start">
               <div className="group relative">
-                {/* Neon edge glow (outside the box) */}
-                <span className="pointer-events-none absolute -inset-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="absolute inset-0 m-1 rounded-lg blur-[28px] bg-gradient-to-r from-violet-700/40 via-violet-800/30 to-violet-900/20 mix-blend-screen" />
+                {/* Glowing background on hover */}
+                <div className="absolute -inset-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-0 rounded-2xl blur-xl bg-gradient-to-br from-orange-500/40 via-blue-500/40 to-emerald-500/40 animate-pulse" />
+                </div>
+                {/* Image container with border and shadow */}
+                <div className="relative">
+                  <img
+                    src="/Babin.jpeg"
+                    alt="Babin Bid"
+                    className="w-80 h-80 md:w-96 md:h-96 rounded-2xl object-cover shadow-2xl border-4 border-background/50 avatar-pulse"
+                  />
+                  {/* Floating accent badge */}
+                  <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-orange-400 to-emerald-400 rounded-full px-6 py-3 shadow-lg font-semibold text-sm text-background transform hover:scale-110 transition-transform">
+                    ✨ Available
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Professional info */}
+            <div className="space-y-6">
+              {/* Intro Card */}
+              <div className="group relative">
+                <span className="pointer-events-none absolute -inset-1 rounded-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300">
+                  <span className="absolute inset-0 m-1 rounded-lg blur-2xl bg-gradient-to-r from-blue-500/30 to-purple-500/30 mix-blend-screen" />
                 </span>
-                <Card className="relative z-10 p-6 bg-gradient-to-br from-purple-600/10 via-indigo-600/5 to-transparent border-border/50 overflow-hidden">
-                  <div className="absolute -right-20 -top-20 opacity-20 transform rotate-12">
-                    <div className="w-48 h-48 rounded-full bg-gradient-to-br from-deep via-violet-900 to-violet-950 blur-3xl" />
+                <Card className="relative z-10 p-6 border-border/50">
+                  <h3 className="text-2xl font-bold mb-2">Babin Bid</h3>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    B.Tech CSE • Adamas University, Kolkata
+                  </p>
+                  <p className="text-foreground/90 leading-relaxed">
+                    Curious developer passionate about crafting elegant solutions to complex problems. Fascinated by mathematics, AI/ML, and quantum concepts. I thrive on building meaningful projects and sharing knowledge with the community.
+                  </p>
+                  <div className="mt-4 flex gap-2 flex-wrap">
+                    <span className="px-3 py-1 rounded-full text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Full-Stack Dev</span>
+                    <span className="px-3 py-1 rounded-full text-xs bg-blue-500/20 text-blue-300 border border-blue-500/30">Problem Solver</span>
+                    <span className="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30">Innovator</span>
                   </div>
-                  <div className="flex items-start gap-6 relative">
-                    <div className={`w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white text-2xl font-bold shadow-lg overflow-hidden avatar-glow transform transition-transform duration-700 ${inView ? 'scale-105' : 'scale-90'}`}>
-                      <img src="/Babin.jpeg" alt="Avatar" className="w-full h-full object-cover avatar-pulse rounded-full" />
-                    </div>
-                    {/* floating badges removed per request */}
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-foreground">Babin Bid</h3>
-                      <p className="text-sm text-muted-foreground">B.Tech CSE student • Adamas University</p>
-                      <p className="mt-3 text-muted-foreground">
-                        ≻ Curious mind exploring the universe of code, quantum physics & mathematical beauty 💞
-                        <br />
-                        ≻ Cricket & Badminton lover | Drawing keeps my creativity flowing.
-                        <p>
-                          ≻ Interest in <strong>Mathematical Problems</strong>, AI/ML, Python, Web Development 🌐
-                          <br />
-                          ≻ Building creative solutions and exploring research.
-                        </p>
-                      </p>
-                      <div className="mt-4 space-y-2">
-                        <div className="text-sm text-muted-foreground"><b>Primary Skills</b></div>
-                        {[
-                          { name: 'Swiching Circuits', val: 95 },
-                          { name: 'Mathematics (including Calculus)', val: 90 },
-                          { name: 'Frontend Development', val: 90 },
-                          { name: 'Discrete Structure & Logic', val: 88 },
-                          { name: 'Data Structure & Algorithms (DSA)', val: 85 },
-                          { name: 'Python', val: 85 },
-                        ].map((s) => (
-                          <div key={s.name} className="space-y-1">
-                            <div className="flex items-center justify-between text-sm text-muted-foreground">
-                              <span>{s.name}</span>
-                              <span className="font-medium text-foreground">{s.val}%</span>
-                            </div>
-
-                            <div className="w-full bg-muted/30 rounded-full h-1.5 overflow-hidden">
-                              {/* Keep native progress for screen readers, hide visually */}
-                              <progress
-                                className="sr-only"
-                                value={s.val}
-                                max={100}
-                                aria-label={`Proficiency in ${s.name}: ${s.val} percent`}
-                              />
-
-                              {/* Visible custom bar (solid green) - width set inline for percent */}
-                              <div
-                                className="h-1.5 bg-emerald-600 rounded-full shadow-sm ring-1 ring-emerald-700/20 border border-black/80 dark:border-transparent"
-                                role="progressbar"
-                                aria-valuenow={s.val}
-                                aria-valuemin={0}
-                                aria-valuemax={100}
-                                aria-label={`Proficiency in ${s.name}: ${s.val} percent`}
-                                style={{ width: `${s.val}%` }}
-                              />
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mt-6 flex gap-3">
-                    <button
-                      className="px-4 py-2 rounded-md gradient-primary text-primary-foreground font-semibold shadow-glow hover:scale-105 transition-smooth"
-                      onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
-                    >
-                      View Resume
-                    </button>
-                    <button
-                      className="px-4 py-2 rounded-md border border-border/50 text-foreground hover:bg-primary/5 transition-smooth"
-                      onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    >
-                      Contact Me
-                    </button>
-                  </div>
-
                 </Card>
               </div>
 
-              {/* Currently Learning moved to the right column */}
+              {/* Primary Skills Card */}
+              <div className="group relative">
+                <span className="pointer-events-none absolute -inset-1 rounded-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300">
+                  <span className="absolute inset-0 m-1 rounded-lg blur-2xl bg-gradient-to-r from-orange-500/30 to-yellow-500/30 mix-blend-screen" />
+                </span>
+                <Card className="relative z-10 p-6 border-border/50">
+                  <h4 className="font-bold mb-4 text-lg">💡 Primary Skills</h4>
+                  <div className="space-y-3">
+                    {[
+                      { name: 'Switching Circuits', val: 95 },
+                      { name: 'Mathematics & Calculus', val: 90 },
+                      { name: 'Frontend Development', val: 90 },
+                      { name: 'Data Structures & Algorithms', val: 85 },
+                      { name: 'Python Programming', val: 85 },
+                    ].map((s) => (
+                      <div key={s.name} className="space-y-1">
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-foreground">{s.name}</span>
+                          <span className="font-semibold text-emerald-400">{s.val}%</span>
+                        </div>
+                        <div className="w-full bg-muted/40 rounded-full h-2 overflow-hidden">
+                          <progress
+                            className="sr-only"
+                            value={s.val}
+                            max={100}
+                            aria-label={`Proficiency: ${s.val}%`}
+                          />
+                          <div
+                            className="h-2 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full shadow-glow"
+                            style={{ width: `${s.val}%` }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </Card>
+              </div>
 
-              {/* Hobbies moved to right column */}
-            </div>
-
-            <div className="space-y-4">
-              {/* Programming & Design Tools section removed */}
-              <Collapsible defaultOpen={false}>
-                <div className="group relative">
-                  <span className="pointer-events-none absolute -inset-1 rounded-lg opacity-0 group-hover:opacity-80 transition-opacity duration-300">
-                    <span className="absolute inset-0 m-1 rounded-lg blur-[28px] bg-gradient-to-r from-violet-700/40 via-violet-800/30 to-violet-900/20 mix-blend-screen" />
-                  </span>
-                  <Card className="relative z-10 p-0 border-border/50 overflow-hidden">
-                    <CollapsibleTrigger className="w-full px-4 py-3 flex items-center justify-between text-left">
-                      <span className="text-lg font-semibold">💻 Currently Learning</span>
-                      <ChevronDown className="h-5 w-5 text-muted-foreground" />
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="px-4 pb-4 pt-0">
-                      <p className="text-muted-foreground">
-                        HTML • CSS • JavaScript 🖊️💻 | Python 🐍 | Computer Architecture & Organization 🖥️ | Computer Networks 🌐
-                      </p>
-                    </CollapsibleContent>
-                  </Card>
-                </div>
-              </Collapsible>
-
-              <Collapsible defaultOpen={false}>
-                <div className="group relative">
-                  <span className="pointer-events-none absolute -inset-1 rounded-lg opacity-0 group-hover:opacity-80 transition-opacity duration-300">
-                    <span className="absolute inset-0 m-1 rounded-lg blur-[28px] bg-gradient-to-r from-violet-700/40 via-violet-800/30 to-violet-900/20 mix-blend-screen" />
-                  </span>
-                  <Card className="relative z-10 p-0 border-border/50 overflow-hidden">
-                    <CollapsibleTrigger className="w-full px-4 py-3 flex items-center justify-between text-left">
-                      <span className="text-lg font-semibold">🚀 Upskilling Platforms</span>
-                      <ChevronDown className="h-5 w-5 text-muted-foreground" />
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="px-4 pb-4 pt-0">
-                      <p className="text-muted-foreground">Google Cloud Skill Boost, Microsoft Learn, Oracle MyLearn, HP Life, Simplilearn, Skill India Digital Hub, SWAYAM, IBM SkillBuild, AWS Skill Builder, Cisco Networking Academy, Infosys Springboard, Qualcomm Academy</p>
-                    </CollapsibleContent>
-                  </Card>
-                </div>
-              </Collapsible>
-
-              <Collapsible defaultOpen={false}>
-                <div className="group relative">
-                  <span className="pointer-events-none absolute -inset-1 rounded-lg opacity-0 group-hover:opacity-80 transition-opacity duration-300">
-                    <span className="absolute inset-0 m-1 rounded-lg blur-[28px] bg-gradient-to-r from-violet-700/40 via-violet-800/30 to-violet-900/20 mix-blend-screen" />
-                  </span>
-                  <Card className="relative z-10 p-0 border-border/50 overflow-hidden">
-                    <CollapsibleTrigger className="w-full px-4 py-3 flex items-center justify-between text-left">
-                      <span className="text-lg font-semibold">💫 Hobbies</span>
-                      <ChevronDown className="h-5 w-5 text-muted-foreground" />
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="px-4 pb-4 pt-0">
-                      <p className="text-muted-foreground">Cricket 🏏 | Badminton 🏸 | Drawing 🎨🖌️</p>
-                    </CollapsibleContent>
-                  </Card>
-                </div>
-              </Collapsible>
-
-              <Collapsible defaultOpen={false}>
-                <div className="group relative">
-                  <span className="pointer-events-none absolute -inset-1 rounded-lg opacity-0 group-hover:opacity-80 transition-opacity duration-300">
-                    <span className="absolute inset-0 m-1 rounded-lg blur-[28px] bg-gradient-to-r from-violet-700/40 via-violet-800/30 to-violet-900/20 mix-blend-screen" />
-                  </span>
-                  <Card className="relative z-10 p-0 border-border/50 overflow-hidden">
-                    <CollapsibleTrigger className="w-full px-4 py-3 flex items-center justify-between text-left">
-                      <span className="text-lg font-semibold">🎓 Bootcamps & Competitions</span>
-                      <ChevronDown className="h-5 w-5 text-muted-foreground" />
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="px-4 pb-4 pt-0">
-                      <p className="text-muted-foreground">LetsUpgrade, Scalar, Microsoft Cloud & AI Bootcamp, myGov Quizzes, myBharat Competitions</p>
-                    </CollapsibleContent>
-                  </Card>
-                </div>
-              </Collapsible>
-
-              <Collapsible defaultOpen={false}>
-                <div className="group relative">
-                  <span className="pointer-events-none absolute -inset-1 rounded-lg opacity-0 group-hover:opacity-80 transition-opacity duration-300">
-                    <span className="absolute inset-0 m-1 rounded-lg blur-[28px] bg-gradient-to-r from-violet-700/40 via-violet-800/30 to-violet-900/20 mix-blend-screen" />
-                  </span>
-                  <Card className="relative z-10 p-0 border-border/50 overflow-hidden">
-                    <CollapsibleTrigger className="w-full px-4 py-3 flex items-center justify-between text-left">
-                      <span className="text-lg font-semibold">🌟 Professional Focus</span>
-                      <ChevronDown className="h-5 w-5 text-muted-foreground" />
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="px-4 pb-4 pt-0">
-                      <p className="text-muted-foreground">Active on GitHub | Building full-stack web development skills | Open to internships, projects & collaborations</p>
-                    </CollapsibleContent>
-                  </Card>
-                </div>
-              </Collapsible>
+              {/* Action Buttons */}
+              <div className="flex gap-3 flex-wrap">
+                <button
+                  className="flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold hover:shadow-glow transition-all hover:scale-105"
+                  onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
+                >
+                  📄 View Resume
+                </button>
+                <button
+                  className="flex-1 px-4 py-3 rounded-lg border border-border/50 text-foreground font-semibold hover:bg-primary/10 transition-all"
+                  onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  💬 Get in Touch
+                </button>
+              </div>
             </div>
           </div>
+
+          {/* Professional Accordion Section */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold mb-6 text-center">📚 Professional Highlights</h3>
+            <div className="max-w-3xl mx-auto space-y-3">
+              {/* Knowledge In */}
+              <Collapsible open={openPanel === "knowledge"} onOpenChange={(open) => setOpenPanel(open ? "knowledge" : null)}>
+                <div className="group">
+                  <CollapsibleTrigger className="w-full">
+                    <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg border border-border/50 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                      <span className="text-lg font-semibold text-left">🧠 Knowledge In</span>
+                      <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "knowledge" ? "rotate-180" : ""}`} />
+                    </div>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="overflow-hidden">
+                    <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
+                      <p className="text-foreground/90 leading-relaxed">
+                        🔧 <strong>Programming Languages:</strong> C • C++ • Java • Python • JavaScript <br />
+                        🌐 <strong>Web Development:</strong> HTML • CSS • React • Tailwind CSS <br />
+                        🛠️ <strong>Backend & Database:</strong> Node.js • MySQL • Python Libraries (NumPy • Pandas • Matplotlib • Scikit-learn • XGBoost • TensorFlow • Flask) <br />
+                        🚀 <strong>Deployment Platforms:</strong> Vercel • Streamlit <br />
+                        🔗 <strong>APIs & Integrations:</strong> Google Gemini API • OpenWeatherMap API • WeatherAPI.com <br />
+                        📐 <strong>Computer Science:</strong> Data Structures & Algorithms • Mathematics & Calculus • Switching Circuits <br />
+                        🎨 <strong>Design & Tools:</strong> MS Word • PowerPoint • Excel • Paint • VS Code • GitHub • Canva <br />
+                        💻 <strong>Coding Platforms:</strong> LeetCode • Hackerrank • Codolio
+                      </p>
+                    </div>
+                  </CollapsibleContent>
+                </div>
+              </Collapsible>
+
+              {/* Upskilling & Certifications */}
+              <Collapsible open={openPanel === "upskilling"} onOpenChange={(open) => setOpenPanel(open ? "upskilling" : null)}>
+                <div className="group">
+                  <CollapsibleTrigger className="w-full">
+                    <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-500/10 to-green-500/10 rounded-lg border border-border/50 hover:border-emerald-500/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                      <span className="text-lg font-semibold text-left">🚀 Upskilling & Certifications</span>
+                      <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "upskilling" ? "rotate-180" : ""}`} />
+                    </div>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="overflow-hidden">
+                    <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
+                      <div className="space-y-2 text-foreground/90">
+                        <p><strong>Learning Platforms:</strong> Google Cloud Skill Boost • Microsoft Learn • Oracle MyLearn • IBM SkillBuild • AWS Skill Builder</p>
+                        <p><strong>Bootcamps:</strong> Microsoft Cloud & AI Bootcamp • LetsUpgrade • Scalar • Simplilearn</p>
+                        <p><strong>Academic Programs:</strong> HP Life • SWAYAM • Cisco Networking Academy • Infosys Springboard • Qualcomm Academy</p>
+                      </div>
+                    </div>
+                  </CollapsibleContent>
+                </div>
+              </Collapsible>
+
+              {/* Interests & Passions */}
+              <Collapsible open={openPanel === "interests"} onOpenChange={(open) => setOpenPanel(open ? "interests" : null)}>
+                <div className="group">
+                  <CollapsibleTrigger className="w-full">
+                    <div className="flex items-center justify-between p-4 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-lg border border-border/50 hover:border-pink-500/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                      <span className="text-lg font-semibold text-left">⚡ Interests & Passions</span>
+                      <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "interests" ? "rotate-180" : ""}`} />
+                    </div>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="overflow-hidden">
+                    <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
+                      <div className="space-y-2 text-foreground/90">
+                        <p><strong>Subjects:</strong> AI/ML • Quantum Computing • Mathematics • Quantum Physics • Data Structures & Algorithms (DSA)</p>
+                        <p><strong>Hobbies:</strong> 🏏 Cricket • 🏸 Badminton • 🎨 Drawing & Digital Art</p>
+                      </div>
+                    </div>
+                  </CollapsibleContent>
+                </div>
+              </Collapsible>
+
+              {/* Professional Focus */}
+              <Collapsible open={openPanel === "focus"} onOpenChange={(open) => setOpenPanel(open ? "focus" : null)}>
+                <div className="group">
+                  <CollapsibleTrigger className="w-full">
+                    <div className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 rounded-lg border border-border/50 hover:border-orange-500/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                      <span className="text-lg font-semibold text-left">🎯 Professional Focus</span>
+                      <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "focus" ? "rotate-180" : ""}`} />
+                    </div>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="overflow-hidden">
+                    <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
+                      <p className="text-foreground/90 leading-relaxed">
+                        ✅ Active contributor on GitHub with multiple full-stack projects<br />
+                        ✅ Open to <strong>internships, freelance projects & collaborations</strong><br />
+                        ✅ Passionate about solving real-world problems with elegant code
+                      </p>
+                    </div>
+                  </CollapsibleContent>
+                </div>
+              </Collapsible>
+
+            </div>
+          </div>
+
+          {/* Closing quote */}
           <blockquote className="mt-6 italic text-center text-sm text-foreground/80 tricolor-border-left">
-            “Driven by curiosity, grounded in Indian values, and inspired by global innovation.”
+            "Driven by curiosity, grounded in Indian values, and inspired by global innovation."
           </blockquote>
         </div>
       </div>
