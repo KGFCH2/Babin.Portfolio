@@ -4,6 +4,7 @@ import { ChevronDown, Code, Database, Layout, Server, User } from "lucide-react"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { previewThenDownload } from "@/lib/utils";
 import { useState } from "react";
+import SectionTitle from "./SectionTitle";
 
 const About = () => {
   const { ref, inView } = useInView({
@@ -45,8 +46,18 @@ const About = () => {
         >
           <div className="text-center space-y-4">
             <h2 className="text-5xl md:text-6xl font-bold mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400">About</span>
-              <span className="ml-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600">Me</span>
+              <SectionTitle
+                segments={[
+                  {
+                    text: "About",
+                    className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400",
+                  },
+                  {
+                    text: " Me",
+                    className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600",
+                  },
+                ]}
+              />
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
               Computer Science & Engineering student | Full-Stack Developer | Problem Solver
@@ -54,7 +65,7 @@ const About = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Left: Image with enhanced animation */}
-            <div className="flex justify-center md:justify-start">
+            <div className="flex justify-center md:justify-start pt-24">
               <div className="group relative">
                 {/* Glowing background on hover */}
                 <div className="absolute -inset-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -176,7 +187,7 @@ const About = () => {
                         🚀 <strong>Deployment Platforms:</strong> Vercel • Streamlit <br />
                         🔗 <strong>APIs & Integrations:</strong> Google Gemini API • OpenWeatherMap API • WeatherAPI.com <br />
                         📐 <strong>Computer Science:</strong> Data Structures & Algorithms • Mathematics & Calculus • Switching Circuits <br />
-                        🎨 <strong>Design & Tools:</strong> MS Word • PowerPoint • Excel • Paint • VS Code • GitHub • Canva <br />
+                        🎨 <strong>Design & Tools:</strong> MS Word • MS PowerPoint • MS Excel • Paint • VS Code • GitHub • Canva <br />
                         💻 <strong>Coding Platforms:</strong> LeetCode • Hackerrank • Codolio
                       </p>
                     </div>
