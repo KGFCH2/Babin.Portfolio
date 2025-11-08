@@ -13,7 +13,7 @@ const Footer = () => {
               <p className="text-muted-foreground">
                 B.Tech Student at Adamas University, passionate about
                 technology
-              <br />and innovation.
+                <br />and innovation.
               </p>
             </div>
 
@@ -23,9 +23,9 @@ const Footer = () => {
               </h3>
               <ul className="flex flex-wrap items-center gap-4 md:justify-center">
                 {[
-                  "Home",
                   "About",
                   "Projects",
+                  "Skills",
                   "Research",
                   "Materials",
                   "Contact",
