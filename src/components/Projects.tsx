@@ -67,7 +67,7 @@ const Projects = () => {
     {
       title: "ImpactSense (Earthquake Impact Prediction)",
       description:
-        "ImpactSense is a machine-learning system to estimate earthquake impact (damage/risk) using geophysical and environmental data — an internship organisation project.",
+        "ImpactSense is a machine-learning system to estimate earthquake impact using geophysical and environmental data — an internship project.",
       tech: ["Python", "NumPy", "Pandas", "scikit-learn", "XGBoost"],
       github: "https://github.com/KGFCH2/ImpactSense_Earthquake_Impact_Prediction",
       demo: null,
@@ -162,10 +162,10 @@ const Projects = () => {
                 .sort((a, b) => a.title.localeCompare(b.title))
                 .map((project, index) => (
                   <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                    <div className="p-2">
-                      <Card className="overflow-hidden border-border/50 shadow-card hover:shadow-glow transition-smooth group">
+                    <div className="p-2 h-full">
+                      <Card className="h-full overflow-hidden border-border/50 shadow-card hover:shadow-glow transition-smooth group flex flex-col">
                         {project.thumbnail ? (
-                          <div className="h-48 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
+                          <div className="h-56 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
                             <img
                               src={encodeURI(project.thumbnail)}
                               alt={`${project.title} thumbnail`}
@@ -175,34 +175,36 @@ const Projects = () => {
                             />
                           </div>
                         ) : (
-                          <div className="h-48 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
+                          <div className="h-56 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
                             <span className="text-foreground font-bold text-2xl">{project.title}</span>
                           </div>
                         )}
                         {/* separator line between image and content (more visible) */}
                         <div className="w-full border-t-2 border-muted/30" />
-                        <div className="p-6 space-y-4">
-                          <h3 className="text-xl font-bold text-foreground">
-                            {project.title}
-                          </h3>
-                          <p className="text-muted-foreground">
-                            {project.description}
-                          </p>
-                          <div className="flex flex-wrap gap-2">
-                            {project.tech.map((tech, techIndex) => (
-                              <span
-                                key={techIndex}
-                                className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20"
-                              >
-                                {tech}
-                              </span>
-                            ))}
+                        <div className="p-6 flex flex-col flex-grow">
+                          <div className="space-y-4 flex-grow">
+                            <h3 className="text-xl font-bold text-foreground">
+                              {project.title}
+                            </h3>
+                            <p className="text-muted-foreground">
+                              {project.description}
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                              {project.tech.map((tech, techIndex) => (
+                                <span
+                                  key={techIndex}
+                                  className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
                           </div>
-                          <div className="flex gap-3 pt-2">
+                          <div className="flex gap-3 items-center mt-auto pt-4">
                             <Button
                               variant="outline"
                               size="sm"
-                              className="flex-1 border-primary/50 hover:bg-primary/10"
+                              className="flex-1 h-9 border-primary/50 hover:bg-primary/10"
                               asChild
                             >
                               <a
@@ -217,7 +219,7 @@ const Projects = () => {
                             {project.demo ? (
                               <Button
                                 size="sm"
-                                className="flex-1 gradient-primary text-primary-foreground"
+                                className="flex-1 h-9 gradient-primary text-primary-foreground hover:opacity-90"
                                 asChild
                               >
                                 <a
@@ -230,7 +232,13 @@ const Projects = () => {
                                 </a>
                               </Button>
                             ) : (
-                              <Button size="sm" className="flex-1 opacity-60 cursor-not-allowed" disabled>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                className="flex-1 h-9 opacity-60 cursor-not-allowed border-dashed bg-purple-500/10 border-purple-500/30 text-purple-400"
+                                disabled
+                              >
+                                <ExternalLink className="mr-2 h-4 w-4" />
                                 Demo
                               </Button>
                             )}
