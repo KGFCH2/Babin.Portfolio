@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionTitle from "./SectionTitle";
 
 const Skills: React.FC = () => {
     const skills = [
@@ -16,23 +17,22 @@ const Skills: React.FC = () => {
         { name: 'React', category: 'Web' },
         { name: 'Vite', category: 'Web' },
         { name: 'Tailwind', category: 'Web' },
+        { name: 'Framer Motion', category: 'Web' },
 
         // Backend & Frameworks
         { name: 'Node.js', category: 'Backend' },
         { name: 'Flask', category: 'Backend' },
         { name: 'FastAPI', category: 'Backend' },
-        { name: 'Django', category: 'Backend' },
 
         // Database
         { name: 'MySQL', category: 'Database' },
-        { name: 'PostgreSQL', category: 'Database' },
-        { name: 'MongoDB', category: 'Database' },
 
         // Data Science & ML
         { name: 'NumPy', category: 'Data Science' },
         { name: 'Pandas', category: 'Data Science' },
         { name: 'Matplotlib', category: 'Data Science' },
         { name: 'Seaborn', category: 'Data Science' },
+        { name: 'Plotly', category: 'Data Science' },
         { name: 'Scikit-learn', category: 'ML' },
         { name: 'XGBoost', category: 'ML' },
         { name: 'TensorFlow', category: 'ML' },
@@ -40,6 +40,7 @@ const Skills: React.FC = () => {
         // Deployment & Platforms
         { name: 'Vercel', category: 'Deployment' },
         { name: 'Streamlit', category: 'Deployment' },
+        { name: 'Netlify', category: 'Deployment' },
 
         // Tools & IDEs
         { name: 'VS Code', category: 'Tools' },
@@ -48,10 +49,9 @@ const Skills: React.FC = () => {
 
         // Design Tools
         { name: 'Canva', category: 'Design' },
-        { name: 'Figma', category: 'Design' },
         { name: 'MS Word', category: 'Design' },
-        { name: 'PowerPoint', category: 'Design' },
-        { name: 'Excel', category: 'Design' },
+        { name: 'MS PowerPoint', category: 'Design' },
+        { name: 'MS Excel', category: 'Design' },
         { name: 'Paint', category: 'Design' },
 
         // Coding Platforms
@@ -60,8 +60,7 @@ const Skills: React.FC = () => {
         { name: 'Codolio', category: 'Platforms' },
 
         // Additional Libraries
-        { name: 'Plotly', category: 'Data Science' },
-        { name: 'Framer Motion', category: 'Web' },
+
     ];
 
     const getCategoryGradient = (category: string) => {
@@ -84,8 +83,18 @@ const Skills: React.FC = () => {
         <section id="skills" className="py-20 relative overflow-hidden section-divider-top section-divider-offset-md">
             <div className="container mx-auto px-6">
                 <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400">Technical</span>
-                    <span className="ml-2 text-gradient">Skills</span>
+                    <SectionTitle
+                        segments={[
+                            {
+                                text: "Technical",
+                                className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400",
+                            },
+                            {
+                                text: " Skills",
+                                className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600",
+                            },
+                        ]}
+                    />
                 </h2>
                 <p className="text-center text-muted-foreground mb-12 text-lg">Building the future with modern technologies</p>
 
