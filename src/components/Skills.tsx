@@ -2,37 +2,80 @@ import React from 'react';
 
 const Skills: React.FC = () => {
     const skills = [
+        // Programming Languages
         { name: 'C', category: 'Programming' },
         { name: 'C++', category: 'Programming' },
         { name: 'Java', category: 'Programming' },
         { name: 'Python', category: 'Programming' },
-        { name: 'JavaScript', category: 'Web' },
+        { name: 'JavaScript', category: 'Programming' },
+
+        // Web Development
+        { name: 'HTML', category: 'Web' },
+        { name: 'CSS', category: 'Web' },
         { name: 'TypeScript', category: 'Web' },
         { name: 'React', category: 'Web' },
         { name: 'Vite', category: 'Web' },
-        { name: 'HTML', category: 'Web' },
-        { name: 'CSS', category: 'Web' },
         { name: 'Tailwind', category: 'Web' },
-        { name: 'SQL', category: 'Database' },
+
+        // Backend & Frameworks
+        { name: 'Node.js', category: 'Backend' },
+        { name: 'Flask', category: 'Backend' },
+        { name: 'FastAPI', category: 'Backend' },
+        { name: 'Django', category: 'Backend' },
+
+        // Database
+        { name: 'MySQL', category: 'Database' },
+        { name: 'PostgreSQL', category: 'Database' },
+        { name: 'MongoDB', category: 'Database' },
+
+        // Data Science & ML
         { name: 'NumPy', category: 'Data Science' },
         { name: 'Pandas', category: 'Data Science' },
         { name: 'Matplotlib', category: 'Data Science' },
         { name: 'Seaborn', category: 'Data Science' },
         { name: 'Scikit-learn', category: 'ML' },
+        { name: 'XGBoost', category: 'ML' },
+        { name: 'TensorFlow', category: 'ML' },
+
+        // Deployment & Platforms
+        { name: 'Vercel', category: 'Deployment' },
+        { name: 'Streamlit', category: 'Deployment' },
+
+        // Tools & IDEs
         { name: 'VS Code', category: 'Tools' },
         { name: 'GitHub', category: 'Tools' },
+        { name: 'Git', category: 'Tools' },
+
+        // Design Tools
         { name: 'Canva', category: 'Design' },
+        { name: 'Figma', category: 'Design' },
+        { name: 'MS Word', category: 'Design' },
+        { name: 'PowerPoint', category: 'Design' },
+        { name: 'Excel', category: 'Design' },
+        { name: 'Paint', category: 'Design' },
+
+        // Coding Platforms
+        { name: 'LeetCode', category: 'Platforms' },
+        { name: 'Hackerrank', category: 'Platforms' },
+        { name: 'Codolio', category: 'Platforms' },
+
+        // Additional Libraries
+        { name: 'Plotly', category: 'Data Science' },
+        { name: 'Framer Motion', category: 'Web' },
     ];
 
     const getCategoryGradient = (category: string) => {
         const map: Record<string, string> = {
             Programming: 'from-indigo-500 to-purple-500',
             Web: 'from-emerald-400 to-cyan-500',
+            Backend: 'from-orange-500 to-red-500',
             Database: 'from-yellow-400 to-orange-500',
             'Data Science': 'from-sky-400 to-indigo-500',
             ML: 'from-pink-500 to-violet-600',
+            Deployment: 'from-teal-400 to-blue-500',
             Tools: 'from-slate-400 to-slate-700',
             Design: 'from-rose-400 to-fuchsia-500',
+            Platforms: 'from-green-400 to-emerald-600',
         };
         return map[category] || 'from-primary to-secondary';
     };
