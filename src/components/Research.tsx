@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FileText, Award, Users, TrendingUp, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import SectionTitle from "./SectionTitle";
 
 const Research = () => {
   const [showPaper, setShowPaper] = React.useState(false);
@@ -60,8 +61,18 @@ const Research = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-blueviolet">Research</span>
-            <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400">Publications</span>
+            <SectionTitle
+              segments={[
+                {
+                  text: "Research",
+                  className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600",
+                },
+                {
+                  text: " Publications",
+                  className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400",
+                },
+              ]}
+            />
           </h2>
           <p className="text-xl text-muted-foreground">
             Contributing to academic knowledge and innovation
