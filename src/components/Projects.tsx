@@ -51,6 +51,23 @@ const Projects = () => {
       thumbnail: "/projects/PersonaPath.png",
     },
     {
+      title: "SkyCast AI",
+      description:
+        "Intelligent Real-Time Weather Dashboard built with Streamlit. Features real-time weather data, interactive forecasts with Plotly charts, auto-location detection, multi-provider support (OpenWeatherMap or WeatherAPI), and AI-driven insights. Deployable Streamlit app with unit conversion and responsive visualizations.",
+      tech: ["Python", "Streamlit", "AI/ML", "Data Visualization", "Plotly"],
+      github: "https://github.com/KGFCH2/SkyCast_AI",
+      demo: "https://sky-cast-ai-new.streamlit.app/",
+      features: [
+        "Real-time weather data & forecasts",
+        "Interactive Plotly visualizations",
+        "Auto-location detection & manual input",
+        "Multi-provider API support",
+        "AI-driven insights & alerts",
+        "Unit conversion (Celsius/Fahrenheit)",
+      ],
+      thumbnail: "/projects/SkyCast_AI.png",
+    },
+    {
       title: "AquaWatch",
       description:
         "AquaWatch monitors and raises awareness about the water crisis across Indian states — alerts, resources, emergency contacts and actionable solutions.",
