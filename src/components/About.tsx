@@ -74,7 +74,7 @@ const About = () => {
                 {/* Image container with border and shadow */}
                 <div className="relative">
                   <img
-                    src="/Babin.jpeg"
+                    src="/Babin_New.jpeg"
                     alt="Babin Bid"
                     className="w-80 h-80 md:w-96 md:h-96 rounded-2xl object-cover shadow-2xl border-4 border-background/50 avatar-pulse"
                   />
