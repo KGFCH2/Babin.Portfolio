@@ -93,7 +93,7 @@ const Header = () => {
           }}
           className="text-2xl font-bold text-gradient"
         >
-          Babin.Portfolio
+          B.Portfolio
         </a>
 
         {/* Desktop Navigation */}
