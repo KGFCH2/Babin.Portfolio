@@ -17,6 +17,35 @@ const Projects = () => {
     triggerOnce: true,
   });
 
+  // Return base + gradient hover classes for badges; hover applies a gradient background
+  const getBadgeClasses = (tech: string) => {
+    const key = tech.toLowerCase();
+    switch (key) {
+      case "python":
+        return "bg-yellow-50 text-yellow-800 border-yellow-200 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-600 hover:text-white";
+      case "react":
+        return "bg-cyan-50 text-cyan-800 border-cyan-200 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-cyan-600 hover:text-white";
+      case "typescript":
+        return "bg-sky-50 text-sky-800 border-sky-200 hover:bg-gradient-to-r hover:from-sky-400 hover:to-sky-600 hover:text-white";
+      case "tailwind":
+      case "tailwindcss":
+        return "bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-emerald-600 hover:text-white";
+      case "streamlit":
+        return "bg-rose-50 text-rose-800 border-rose-200 hover:bg-gradient-to-r hover:from-rose-400 hover:to-rose-600 hover:text-white";
+      case "plotly":
+        return "bg-indigo-50 text-indigo-800 border-indigo-200 hover:bg-gradient-to-r hover:from-indigo-400 hover:to-indigo-600 hover:text-white";
+      case "xgboost":
+        return "bg-orange-50 text-orange-800 border-orange-200 hover:bg-gradient-to-r hover:from-orange-400 hover:to-orange-600 hover:text-white";
+      case "flask":
+        return "bg-amber-50 text-amber-800 border-amber-200 hover:bg-gradient-to-r hover:from-amber-400 hover:to-amber-600 hover:text-white";
+      case "scikit-learn":
+      case "scikit":
+        return "bg-violet-50 text-violet-800 border-violet-200 hover:bg-gradient-to-r hover:from-violet-400 hover:to-violet-600 hover:text-white";
+      default:
+        return "bg-primary/10 text-primary border-primary/20 hover:bg-gradient-to-r hover:from-primary/60 hover:to-violet-500 hover:text-white";
+    }
+  };
+
   const projects = [
     {
       title: "CargoConnect",
@@ -125,6 +154,24 @@ const Projects = () => {
       thumbnail: "/projects/Stock_Market.png",
     },
     {
+      title: "Heart Disease Prediction System",
+      description:
+        "A fast, accurate machine learning system for predicting heart disease risk using XGBoost on tabular health data. Intuitive GUI and production-ready performance.",
+      tech: ["Python", "XGBoost", "scikit-learn", "GUI"],
+      github: "https://github.com/KGFCH2/Heart_Disease_Prediction_System",
+      demo: null,
+      features: [
+        "Model: XGBoost (eXtreme Gradient Boosting)",
+        "Accuracy: 78.65% on test set",
+        "Training Time: 1.02 seconds",
+        "Prediction Speed: 0.34 ms (real-time)",
+        "Memory Usage: ~50 MB",
+        "Input Features: 7 health parameters",
+        "Status: Production Ready",
+      ],
+      thumbnail: "/projects/Heart Disease Prediction System.png",
+    },
+    {
       title: "CropAI India",
       description:
         "CropAI India: AI-powered agricultural intelligence for Indian farming — crop analytics, market insights, and predictive features.",
@@ -221,7 +268,7 @@ const Projects = () => {
                               {project.tech.map((tech, techIndex) => (
                                 <span
                                   key={techIndex}
-                                  className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20"
+                                  className={`${getBadgeClasses(tech)} px-3 py-1 text-sm rounded-full border transition-colors duration-200`}
                                 >
                                   {tech}
                                 </span>
