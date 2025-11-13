@@ -1,4 +1,5 @@
 import { useInView } from "react-intersection-observer";
+import { useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -8,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Star } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 
 const Projects = () => {
@@ -16,6 +17,8 @@ const Projects = () => {
     threshold: 0.1,
     triggerOnce: true,
   });
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedTech, setSelectedTech] = useState<string | null>(null);
 
   // Return base + gradient hover classes for badges; hover applies a gradient background
   const getBadgeClasses = (tech: string) => {
@@ -219,10 +222,70 @@ const Projects = () => {
                 ]}
               />
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
               Here are some of my recent and old projects showcasing my skills and experience
             </p>
+
+            {/* Interactive Project Search */}
+            <div className="max-w-2xl mx-auto mb-8 space-y-4">
+              <input
+                type="text"
+                placeholder="🔍 Search projects..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full px-4 py-3 rounded-lg border border-border/50 bg-card/50 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+              />
+            </div>
           </div>
+
+          {/* Filter results info */}
+          {(searchTerm || selectedTech) && (
+            <div className="text-center mb-4 space-y-2">
+              <p className="text-sm text-muted-foreground">
+                {searchTerm && `Search: "${searchTerm}"`}
+                {searchTerm && selectedTech && ' • '}
+                {selectedTech && `Tech: ${selectedTech}`}
+              </p>
+              <button
+                onClick={() => {
+                  setSearchTerm('');
+                  setSelectedTech(null);
+                }}
+                className="text-xs text-primary hover:underline"
+              >
+                Clear filters
+              </button>
+            </div>
+          )}
+
+          {/* Get all unique technologies */}
+          {Array.from(new Set(projects.flatMap(p => p.tech))).length > 0 && (
+            <div className="flex flex-wrap gap-2 justify-center mb-8">
+              <button
+                onClick={() => setSelectedTech(null)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedTech === null
+                    ? 'bg-primary text-primary-foreground shadow-lg'
+                    : 'bg-muted text-foreground hover:bg-muted/80'
+                  }`}
+              >
+                All Projects
+              </button>
+              {Array.from(new Set(projects.flatMap(p => p.tech)))
+                .sort()
+                .map(tech => (
+                  <button
+                    key={tech}
+                    onClick={() => setSelectedTech(selectedTech === tech ? null : tech)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedTech === tech
+                        ? 'bg-primary text-primary-foreground shadow-lg'
+                        : 'bg-muted text-foreground hover:bg-muted/80'
+                      }`}
+                  >
+                    {tech}
+                  </button>
+                ))}
+            </div>
+          )}
 
           <Carousel
             opts={{
@@ -233,6 +296,12 @@ const Projects = () => {
           >
             <CarouselContent>
               {projects
+                .filter(project => {
+                  const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    project.description.toLowerCase().includes(searchTerm.toLowerCase());
+                  const matchesTech = !selectedTech || project.tech.includes(selectedTech);
+                  return matchesSearch && matchesTech;
+                })
                 .slice()
                 .sort((a, b) => a.title.localeCompare(b.title))
                 .map((project, index) => (
