@@ -1,11 +1,28 @@
 import { TypeAnimation } from "react-type-animation";
 import { Button } from "@/components/ui/button";
-import { Download, Github, Linkedin, Mail } from "lucide-react";
+import { Download, Github, Linkedin, Mail, ChevronDown } from "lucide-react";
 import { previewThenDownload } from "@/lib/utils";
 import SectionTitle from "./SectionTitle";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   const handleDownloadResume = () => previewThenDownload("/Babin_Bid_Resume.pdf", "Babin_Bid_Resume.pdf");
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.querySelector(`#${sectionId}`);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section
@@ -125,10 +142,16 @@ const Hero = () => {
               <Mail className="h-6 w-6" />
             </a>
           </div>
+
+          {/* Interactive scroll indicator */}
+          <div className="pt-6 animate-bounce cursor-pointer" onClick={() => scrollToSection('about')}>
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground mb-2">Explore More</p>
+              <ChevronDown className="h-6 w-6 text-primary mx-auto" />
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Animated gradient background removed to avoid duplicate divider with About section */}
     </section>
   );
 };
