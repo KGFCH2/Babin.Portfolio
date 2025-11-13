@@ -1,9 +1,11 @@
 node_modules
 .git
 .DS_Store
+/* 
 *.log
 npm-debug.log*
+*/
 .env.local
-.env.*.local
+".env.*.local"
 dist
 .cache
