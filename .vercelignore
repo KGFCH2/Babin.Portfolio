@@ -13,11 +13,3 @@ yarn-error.log*
 README.md
 LICENSE
 .github
-public
-src
-vite.config.ts
-tsconfig.json
-tailwind.config.ts
-postcss.config.js
-eslint.config.js
-components.json
