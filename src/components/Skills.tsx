@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SectionTitle from "./SectionTitle";
 
 const Skills: React.FC = () => {
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+    const [searchTerm, setSearchTerm] = useState('');
     const skills = [
         // Programming Languages
         { name: 'C', category: 'Programming' },
@@ -79,6 +81,14 @@ const Skills: React.FC = () => {
         return map[category] || 'from-primary to-secondary';
     };
 
+    const allCategories = Array.from(new Set(skills.map(s => s.category)));
+
+    const filteredSkills = skills.filter(skill => {
+        const matchesCategory = !selectedCategory || skill.category === selectedCategory;
+        const matchesSearch = skill.name.toLowerCase().includes(searchTerm.toLowerCase());
+        return matchesCategory && matchesSearch;
+    });
+
     return (
         <section id="skills" className="py-20 relative overflow-hidden section-divider-top section-divider-offset-md">
             <div className="container mx-auto px-6">
@@ -96,10 +106,47 @@ const Skills: React.FC = () => {
                         ]}
                     />
                 </h2>
-                <p className="text-center text-muted-foreground mb-12 text-lg">Building the future with modern technologies</p>
+                <p className="text-center text-muted-foreground mb-8 text-lg">Building the future with modern technologies</p>
+
+                {/* Interactive Search and Filter */}
+                <div className="max-w-2xl mx-auto mb-12 space-y-4">
+                    <input
+                        type="text"
+                        placeholder="🔍 Search skills..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="w-full px-4 py-3 rounded-lg border border-border/50 bg-card/50 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                    />
+                    <div className="flex flex-wrap gap-2 justify-center">
+                        <button
+                            onClick={() => setSelectedCategory(null)}
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === null
+                                    ? 'bg-primary text-primary-foreground shadow-lg'
+                                    : 'bg-muted text-foreground hover:bg-muted/80'
+                                }`}
+                        >
+                            All Skills
+                        </button>
+                        {allCategories.map(category => (
+                            <button
+                                key={category}
+                                onClick={() => setSelectedCategory(category)}
+                                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === category
+                                        ? 'bg-primary text-primary-foreground shadow-lg'
+                                        : 'bg-muted text-foreground hover:bg-muted/80'
+                                    }`}
+                            >
+                                {category}
+                            </button>
+                        ))}
+                    </div>
+                    <p className="text-center text-sm text-muted-foreground">
+                        Showing {filteredSkills.length} of {skills.length} skills
+                    </p>
+                </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                    {skills.map((skill, index) => {
+                    {filteredSkills.length > 0 ? filteredSkills.map((skill, index) => {
                         const gradient = getCategoryGradient(skill.category);
                         const delayClass = `anim-delay-${Math.min(500, Math.round(index * 50))}`;
 
@@ -125,7 +172,11 @@ const Skills: React.FC = () => {
                                 </div>
                             </article>
                         );
-                    })}
+                    }) : (
+                        <div className="col-span-full text-center py-12">
+                            <p className="text-lg text-muted-foreground">No skills found matching your search.</p>
+                        </div>
+                    )}
                 </div>
 
                 {/* Decorative Elements */}
