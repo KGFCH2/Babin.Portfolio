@@ -2,6 +2,7 @@ import { ThemeProvider } from "next-themes";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import InteractiveStats from "@/components/InteractiveStats";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Research from "@/components/Research";
@@ -18,6 +19,7 @@ const Index = () => {
         <Header />
         <main>
           <Hero />
+          <InteractiveStats />
           <About />
           <Projects />
           <Skills />
