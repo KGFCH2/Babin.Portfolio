@@ -16,15 +16,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    target: "esnext",
     chunkSizeWarningLimit: 1000,
     sourcemap: false,
-    rollupOptions: {
-      output: {
-        entryFileNames: "assets/[name].[hash].js",
-        chunkFileNames: "assets/[name].[hash].js",
-        assetFileNames: "assets/[name].[hash][extname]",
-      },
-    },
   },
 }));
