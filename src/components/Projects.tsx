@@ -264,8 +264,8 @@ const Projects = () => {
               <button
                 onClick={() => setSelectedTech(null)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedTech === null
-                    ? 'bg-primary text-primary-foreground shadow-lg'
-                    : 'bg-muted text-foreground hover:bg-muted/80'
+                  ? 'bg-primary text-primary-foreground shadow-lg'
+                  : 'bg-muted text-foreground hover:bg-muted/80'
                   }`}
               >
                 All Projects
@@ -277,8 +277,8 @@ const Projects = () => {
                     key={tech}
                     onClick={() => setSelectedTech(selectedTech === tech ? null : tech)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedTech === tech
-                        ? 'bg-primary text-primary-foreground shadow-lg'
-                        : 'bg-muted text-foreground hover:bg-muted/80'
+                      ? 'bg-primary text-primary-foreground shadow-lg'
+                      : 'bg-muted text-foreground hover:bg-muted/80'
                       }`}
                   >
                     {tech}
@@ -337,7 +337,7 @@ const Projects = () => {
                               {project.tech.map((tech, techIndex) => (
                                 <span
                                   key={techIndex}
-                                  className={`${getBadgeClasses(tech)} px-3 py-1 text-sm rounded-full border transition-colors duration-200`}
+                                  className={`${getBadgeClasses(tech)} px-3 py-1 text-sm rounded-full border transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1`}
                                 >
                                   {tech}
                                 </span>
