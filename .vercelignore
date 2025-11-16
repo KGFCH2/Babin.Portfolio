@@ -1,15 +1,15 @@
-node_modules
-.git
-.gitignore
-.DS_Store
-*.log
-npm-debug.log*
-yarn-error.log*
+﻿node_modules
+    .git
+    .gitignore
+    .DS_Store
+    *.log
+npm - debug.log *
+    yarn - error.log *
 .env.local
-.env.*.local
-.vercelignore
-.eslintignore
-.prettierignore
+        .env.*.local
+            .vercelignore
+            .eslintignore
+        .prettierignore
 README.md
 LICENSE
-.github
+    .github

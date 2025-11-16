@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "./ThemeToggle";
@@ -45,6 +45,16 @@ const Header = () => {
     return () => observer.disconnect();
   }, []);
 
+  const navItems = useMemo(() => [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
+    { name: "Research", href: "#research" },
+    { name: "Materials", href: "#materials" },
+    { name: "Contact", href: "#contact" },
+  ], []);
+
   // Update line position when active section changes or on mount
   useEffect(() => {
     const activeIndex = navItems.findIndex(item => item.href === `#${activeSection}`);
@@ -59,17 +69,7 @@ const Header = () => {
         left: linkRect.left - listRect.left,
       });
     }
-  }, [activeSection]);
-
-  const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Research", href: "#research" },
-    { name: "Materials", href: "#materials" },
-    { name: "Contact", href: "#contact" },
-  ];
+  }, [activeSection, navItems]);
 
   const scrollToSection = (href: string) => {
     setIsMobileMenuOpen(false);

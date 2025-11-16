@@ -25,11 +25,15 @@ const ParticlesBackground = () => {
       if (document.hidden) {
         try {
           containerRef.current.pause();
-        } catch (e) { }
+        } catch (e) {
+          // Silently handle pause errors
+        }
       } else {
         try {
           containerRef.current.play();
-        } catch (e) { }
+        } catch (e) {
+          // Silently handle play errors
+        }
       }
     };
 
@@ -59,10 +63,10 @@ const ParticlesBackground = () => {
       reduce.addEventListener("change", handler);
     } else {
       // older browsers
-      // @ts-ignore
-      small.addListener(handler);
-      // @ts-ignore
-      reduce.addListener(handler);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (small as any).addListener(handler);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (reduce as any).addListener(handler);
     }
 
     return () => {
@@ -70,10 +74,10 @@ const ParticlesBackground = () => {
         small.removeEventListener("change", handler);
         reduce.removeEventListener("change", handler);
       } else {
-        // @ts-ignore
-        small.removeListener(handler);
-        // @ts-ignore
-        reduce.removeListener(handler);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (small as any).removeListener(handler);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (reduce as any).removeListener(handler);
       }
     };
   }, []);

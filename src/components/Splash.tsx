@@ -109,7 +109,11 @@ const Splash: React.FC<SplashProps> = ({ durationMs = 3500, onFinish }) => {
                         <span
                             className="splash__particle"
                             key={i}
-                            style={{ ['--i' as any]: i, ['--tx' as any]: `${tx}px`, ['--ty' as any]: `${ty}px` }}
+                            style={{
+                                '--i': i,
+                                '--tx': `${tx}px`,
+                                '--ty': `${ty}px`,
+                            } as React.CSSProperties}
                         />
                     );
                 })}
