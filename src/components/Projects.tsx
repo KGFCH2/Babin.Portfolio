@@ -348,7 +348,7 @@ const Projects = () => {
                             <Button
                               variant="outline"
                               size="sm"
-                              className="flex-1 h-9 border-primary/50 hover:bg-primary/10"
+                              className="flex-1 h-9 border-primary/50 hover:bg-primary/10 transform transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg active:scale-95"
                               asChild
                             >
                               <a
@@ -363,7 +363,7 @@ const Projects = () => {
                             {project.demo ? (
                               <Button
                                 size="sm"
-                                className="flex-1 h-9 gradient-primary text-primary-foreground hover:opacity-90"
+                                className="flex-1 h-9 gradient-primary text-primary-foreground hover:opacity-90 transform transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg active:scale-95"
                                 asChild
                               >
                                 <a
