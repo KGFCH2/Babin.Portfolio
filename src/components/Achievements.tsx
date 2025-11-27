@@ -23,47 +23,55 @@ const Achievements = () => {
         return 'image';
     };
 
-    const awardsCategories = [
-        "Awards & Recognitions",
-        "Unstop",
-        "Hack2Skill"
-    ];
+    const getFilteredData = () => {
+        const awardsCategories = ["Awards & Recognitions"];
+        const badgeCategories = ["Microsoft Badges", "Microsoft Trophies", "Holopin", "HP Life Badges"];
 
-    const badgesCategories = [
-        "Microsoft Badges",
-        "Holopin"
-    ];
+        const isBadgeItem = (item: { title: string }) => {
+            const title = item.title.toLowerCase();
+            return title.includes('badge') || title.includes('trophy');
+        };
 
-    const filteredAchievements = achievementsData.map(category => {
-        if (filter === 'all') return category;
+        return achievementsData.map(cat => {
+            // Rename LU
+            const categoryName = cat.category === "LinkedIn Learning (LU)" ? "Let's Upgrade" : cat.category;
+            const modifiedCat = { ...cat, category: categoryName };
 
-        if (filter === 'awards') {
-            return awardsCategories.includes(category.category) ? category : null;
-        }
+            if (filter === 'all') return modifiedCat;
 
-        if (filter === 'badges') {
-            if (badgesCategories.includes(category.category)) return category;
-            // Check for items with "Badge" in title
-            const badgeItems = category.items.filter(item => item.title.toLowerCase().includes('badge'));
-            if (badgeItems.length > 0) {
-                return { ...category, items: badgeItems };
+            if (filter === 'awards') {
+                return awardsCategories.includes(cat.category) ? modifiedCat : null;
             }
-            return null;
-        }
 
-        if (filter === 'certificates') {
-            if (awardsCategories.includes(category.category)) return null;
-            if (badgesCategories.includes(category.category)) return null;
-
-            // Filter out badge items from remaining categories
-            const certItems = category.items.filter(item => !item.title.toLowerCase().includes('badge'));
-            if (certItems.length > 0) {
-                return { ...category, items: certItems };
+            if (filter === 'badges') {
+                if (badgeCategories.includes(cat.category)) return modifiedCat;
+                // Check for badge items in other categories
+                const badgeItems = cat.items.filter(item => isBadgeItem(item));
+                if (badgeItems.length > 0) {
+                    return { ...modifiedCat, items: badgeItems };
+                }
+                return null;
             }
-            return null;
-        }
-        return null;
-    }).filter((cat): cat is typeof achievementsData[0] => cat !== null);
+
+            if (filter === 'certificates') {
+                // Exclude Awards categories
+                if (awardsCategories.includes(cat.category)) return null;
+                // Exclude Badge categories
+                if (badgeCategories.includes(cat.category)) return null;
+
+                // For remaining categories, exclude badge items
+                const nonBadgeItems = cat.items.filter(item => !isBadgeItem(item));
+                if (nonBadgeItems.length > 0) {
+                    return { ...modifiedCat, items: nonBadgeItems };
+                }
+                return null;
+            }
+
+            return modifiedCat;
+        }).filter((cat): cat is typeof achievementsData[0] => cat !== null);
+    };
+
+    const filteredAchievements = getFilteredData();
 
     const handleZoomIn = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -160,18 +168,18 @@ const Achievements = () => {
                                 All
                             </Button>
                             <Button
-                                variant={filter === 'certificates' ? "default" : "outline"}
-                                onClick={() => setFilter('certificates')}
-                                className="min-w-[100px]"
-                            >
-                                Certificates
-                            </Button>
-                            <Button
                                 variant={filter === 'awards' ? "default" : "outline"}
                                 onClick={() => setFilter('awards')}
                                 className="min-w-[100px]"
                             >
-                                Awards/Hackathons/Programs
+                                Awards
+                            </Button>
+                            <Button
+                                variant={filter === 'certificates' ? "default" : "outline"}
+                                onClick={() => setFilter('certificates')}
+                                className="min-w-[100px]"
+                            >
+                                Certificates/Hackathons/Programs/Bootcamps
                             </Button>
                             <Button
                                 variant={filter === 'badges' ? "default" : "outline"}

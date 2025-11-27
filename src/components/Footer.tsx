@@ -30,16 +30,19 @@ const Footer = () => {
                   "Research",
                   "Materials",
                   "Contact",
-                ].map((item) => (
-                  <li key={item} className="inline-block">
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className="text-muted-foreground hover:text-primary transition-smooth nav-underline"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
+                ].map((item) => {
+                  const href = item === "Achievements" ? "/achievements" : `/#${item.toLowerCase()}`;
+                  return (
+                    <li key={item} className="inline-block">
+                      <a
+                        href={href}
+                        className="text-muted-foreground hover:text-primary transition-smooth nav-underline"
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
