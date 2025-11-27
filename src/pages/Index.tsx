@@ -10,14 +10,17 @@ import Materials from "@/components/Materials";
 import Contact from "@/components/Contact";
 import Skills from "@/components/Skills";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
+import SkipToContent from "@/components/SkipToContent";
 
 const Index = () => {
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <div className="relative min-h-screen">
+        <SkipToContent />
         <ParticlesBackground />
         <Header />
-        <main>
+        <main id="main-content">
           <Hero />
           <InteractiveStats />
           <About />
@@ -28,6 +31,7 @@ const Index = () => {
           <Contact />
         </main>
         <Footer />
+        <BackToTop />
       </div>
     </ThemeProvider>
   );
