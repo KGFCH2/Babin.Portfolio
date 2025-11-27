@@ -119,3 +119,20 @@
 .animate-bounce {
     animation: bounce-smooth 1s ease-in-out infinite;
 }
+
+/* Horizontal bounce animation for swipe indicators */
+@keyframes bounce-x {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(0.25rem);
+    }
+}
+
+.animate-bounce-x {
+    animation: bounce-x 1s ease-in-out infinite;
+}
