@@ -4,6 +4,7 @@ import SectionTitle from "./SectionTitle";
 import { useState } from "react";
 import { X, FileText, ExternalLink, ZoomIn, ZoomOut, Download, RotateCcw } from "lucide-react";
 import { achievementsData } from "../data/achievements";
+import { Button } from "@/components/ui/button";
 
 const Achievements = () => {
     const { ref, inView } = useInView({
@@ -13,6 +14,7 @@ const Achievements = () => {
 
     const [selectedItem, setSelectedItem] = useState<{ file: string; type: 'image' | 'pdf' } | null>(null);
     const [zoomLevel, setZoomLevel] = useState(1);
+    const [filter, setFilter] = useState<'all' | 'certificates' | 'awards' | 'badges'>('all');
 
     // Helper to determine type based on extension
     const getFileType = (path: string) => {
@@ -21,7 +23,47 @@ const Achievements = () => {
         return 'image';
     };
 
-    const achievements = achievementsData;
+    const awardsCategories = [
+        "Awards & Recognitions",
+        "Unstop",
+        "Hack2Skill"
+    ];
+
+    const badgesCategories = [
+        "Microsoft Badges",
+        "Holopin"
+    ];
+
+    const filteredAchievements = achievementsData.map(category => {
+        if (filter === 'all') return category;
+
+        if (filter === 'awards') {
+            return awardsCategories.includes(category.category) ? category : null;
+        }
+
+        if (filter === 'badges') {
+            if (badgesCategories.includes(category.category)) return category;
+            // Check for items with "Badge" in title
+            const badgeItems = category.items.filter(item => item.title.toLowerCase().includes('badge'));
+            if (badgeItems.length > 0) {
+                return { ...category, items: badgeItems };
+            }
+            return null;
+        }
+
+        if (filter === 'certificates') {
+            if (awardsCategories.includes(category.category)) return null;
+            if (badgesCategories.includes(category.category)) return null;
+
+            // Filter out badge items from remaining categories
+            const certItems = category.items.filter(item => !item.title.toLowerCase().includes('badge'));
+            if (certItems.length > 0) {
+                return { ...category, items: certItems };
+            }
+            return null;
+        }
+        return null;
+    }).filter((cat): cat is typeof achievementsData[0] => cat !== null);
 
     const handleZoomIn = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -47,7 +89,7 @@ const Achievements = () => {
                 const url = window.URL.createObjectURL(blob);
                 const link = document.createElement('a');
                 link.href = url;
-                const filename = selectedItem.file.split('/').pop() || 'download';
+                const filename = decodeURIComponent(selectedItem.file.split('/').pop() || 'download');
                 link.download = filename;
                 document.body.appendChild(link);
                 link.click();
@@ -64,7 +106,7 @@ const Achievements = () => {
         setZoomLevel(1);
     };
 
-    if (!achievements || achievements.length === 0) {
+    if (!filteredAchievements || filteredAchievements.length === 0) {
         return (
             <section id="achievements" className="py-20 relative section-divider-top" ref={ref}>
                 <div className="container mx-auto px-4 text-center">
@@ -108,10 +150,41 @@ const Achievements = () => {
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
                             A collection of my certificates, awards, and recognitions.
                         </p>
+
+                        <div className="flex flex-wrap justify-center gap-4 mb-12">
+                            <Button
+                                variant={filter === 'all' ? "default" : "outline"}
+                                onClick={() => setFilter('all')}
+                                className="min-w-[100px]"
+                            >
+                                All
+                            </Button>
+                            <Button
+                                variant={filter === 'certificates' ? "default" : "outline"}
+                                onClick={() => setFilter('certificates')}
+                                className="min-w-[100px]"
+                            >
+                                Certificates
+                            </Button>
+                            <Button
+                                variant={filter === 'awards' ? "default" : "outline"}
+                                onClick={() => setFilter('awards')}
+                                className="min-w-[100px]"
+                            >
+                                Awards/Hackathons/Programs
+                            </Button>
+                            <Button
+                                variant={filter === 'badges' ? "default" : "outline"}
+                                onClick={() => setFilter('badges')}
+                                className="min-w-[100px]"
+                            >
+                                Badges
+                            </Button>
+                        </div>
                     </div>
 
                     <div className="space-y-16">
-                        {achievements.map((category, catIndex) => (
+                        {filteredAchievements.map((category, catIndex) => (
                             <div key={catIndex} className="space-y-6">
                                 <h3 className="text-2xl font-bold text-foreground border-l-4 border-primary pl-4">
                                     {category.category}
@@ -167,7 +240,7 @@ const Achievements = () => {
             {/* Lightbox Modal for Images */}
             {selectedItem && selectedItem.type === 'image' && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 animate-fade-in">
-                    
+
                     {/* Controls */}
                     <div className="absolute top-4 right-4 flex items-center gap-2 z-50">
                         <button
@@ -208,7 +281,7 @@ const Achievements = () => {
                     </div>
 
                     <div className="relative w-full h-full flex items-center justify-center overflow-hidden" onClick={closeLightbox}>
-                        <div 
+                        <div
                             className="transition-transform duration-200 ease-out"
                             style={{ transform: `scale(${zoomLevel})` }}
                             onClick={(e) => e.stopPropagation()}
