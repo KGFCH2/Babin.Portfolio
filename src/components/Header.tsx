@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "./ThemeToggle";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,6 +11,8 @@ const Header = () => {
   const [lineStyle, setLineStyle] = useState({ width: 0, left: 0 });
   const navListRef = useRef<HTMLUListElement>(null);
   const navItemsRef = useRef<(HTMLAnchorElement | null)[]>([]);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,29 +38,42 @@ const Header = () => {
       }
     );
 
-    // Observe all sections
-    const sections = ["home", "about", "projects", "skills", "research", "materials", "contact"];
-    sections.forEach((sectionId) => {
-      const element = document.getElementById(sectionId);
-      if (element) observer.observe(element);
-    });
+    // Only observe sections on the home page
+    if (location.pathname === "/") {
+      const sections = ["home", "about", "projects", "skills", "research", "materials", "contact"];
+      sections.forEach((sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) observer.observe(element);
+      });
+    }
 
     return () => observer.disconnect();
-  }, []);
+  }, [location.pathname]);
 
   const navItems = useMemo(() => [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Research", href: "#research" },
-    { name: "Materials", href: "#materials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "#home", type: "section" as const },
+    { name: "About", href: "#about", type: "section" as const },
+    { name: "Projects", href: "#projects", type: "section" as const },
+    { name: "Skills", href: "#skills", type: "section" as const },
+    { name: "Achievements", href: "/achievements", type: "route" as const },
+    { name: "Research", href: "#research", type: "section" as const },
+    { name: "Materials", href: "#materials", type: "section" as const },
+    { name: "Contact", href: "#contact", type: "section" as const },
   ], []);
 
   // Update line position when active section changes or on mount
   useEffect(() => {
-    const activeIndex = navItems.findIndex(item => item.href === `#${activeSection}`);
+    // For section-based items, highlight based on scroll. For route items, highlight based on pathname.
+    const activeIndex = navItems.findIndex(item => {
+      if (item.type === "section") {
+        return item.href === `#${activeSection}` && location.pathname === "/";
+      }
+      if (item.type === "route") {
+        return item.href === location.pathname;
+      }
+      return false;
+    });
+
     const activeLink = navItemsRef.current[activeIndex];
 
     if (activeLink && navListRef.current) {
@@ -69,10 +85,22 @@ const Header = () => {
         left: linkRect.left - listRect.left,
       });
     }
-  }, [activeSection, navItems]);
+  }, [activeSection, navItems, location.pathname]);
 
   const scrollToSection = (href: string) => {
     setIsMobileMenuOpen(false);
+    if (location.pathname !== "/") {
+      // Use React Router navigate for smooth client-side routing
+      const targetSection = href.slice(1);
+      setActiveSection(targetSection);
+      navigate(`/${href}`);
+      // Wait for navigation, then scroll to section
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 150);
+      return;
+    }
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: "smooth" });
   };
@@ -86,10 +114,14 @@ const Header = () => {
     >
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <a
-          href="#home"
+          href="/"
           onClick={(e) => {
             e.preventDefault();
-            scrollToSection("#home");
+            if (location.pathname === "/") {
+              scrollToSection("#home");
+            } else {
+              navigate("/");
+            }
           }}
           className="text-2xl font-bold text-gradient"
         >
@@ -101,19 +133,29 @@ const Header = () => {
           <ul ref={navListRef} className="hidden md:flex items-center gap-8 relative">
             {navItems.map((item, index) => (
               <li key={item.name} className="relative">
-                <a
-                  ref={(el) => (navItemsRef.current[index] = el)}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.href);
-                    setActiveSection(item.href.slice(1)); // Immediately set active section on click
-                  }}
-                  className={`text-foreground/80 hover:text-primary transition-smooth font-medium ${activeSection === item.href.slice(1) ? "text-primary" : ""
-                    }`}
-                >
-                  {item.name}
-                </a>
+                {item.type === "route" ? (
+                  <Link
+                    ref={(el) => (navItemsRef.current[index] = el)}
+                    to={item.href}
+                    className={`text-foreground/80 hover:text-primary transition-smooth font-medium ${location.pathname === item.href ? "text-primary" : ""}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <a
+                    ref={(el) => (navItemsRef.current[index] = el)}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.href);
+                      setActiveSection(item.href.slice(1));
+                    }}
+                    className={`text-foreground/80 hover:text-primary transition-smooth font-medium ${activeSection === item.href.slice(1) && location.pathname === "/" ? "text-primary" : ""}`}
+                  >
+                    {item.name}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -153,16 +195,26 @@ const Header = () => {
           <ul className="container mx-auto px-4 py-6 flex flex-col gap-4">
             {navItems.map((item) => (
               <li key={item.name}>
-                <a
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.href);
-                  }}
-                  className="text-lg text-foreground/80 hover:text-primary transition-smooth font-medium block"
-                >
-                  {item.name}
-                </a>
+                {item.type === "route" ? (
+                  <Link
+                    to={item.href}
+                    className="text-lg text-foreground/80 hover:text-primary transition-smooth font-medium block"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <a
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.href);
+                    }}
+                    className="text-lg text-foreground/80 hover:text-primary transition-smooth font-medium block"
+                  >
+                    {item.name}
+                  </a>
+                )}
               </li>
             ))}
           </ul>

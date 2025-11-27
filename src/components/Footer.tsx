@@ -26,6 +26,7 @@ const Footer = () => {
                   "About",
                   "Projects",
                   "Skills",
+                  "Achievements",
                   "Research",
                   "Materials",
                   "Contact",

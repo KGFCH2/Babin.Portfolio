@@ -75,7 +75,8 @@ const About = () => {
                 <div className="relative">
                   <img
                     src="/Babin_New.jpeg"
-                    alt="Babin Bid"
+                    alt="Babin Bid - Full Stack Developer and CS Engineer"
+                    loading="lazy"
                     className="w-80 h-80 md:w-96 md:h-96 rounded-2xl object-cover shadow-2xl border-4 border-background/50 avatar-pulse"
                   />
                   {/* Floating accent badge */}

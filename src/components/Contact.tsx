@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Copy, Check } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import SectionTitle from "./SectionTitle";
@@ -15,14 +15,35 @@ const Contact = () => {
   });
 
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [copiedField, setCopiedField] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const copyToClipboard = async (text: string, fieldName: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedField(fieldName);
+      toast({
+        title: "Copied! 📋",
+        description: `${fieldName} copied to clipboard`
+      });
+      setTimeout(() => setCopiedField(null), 2000);
+    } catch (err) {
+      toast({
+        title: "Copy failed",
+        description: "Please copy manually"
+      });
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
     const endpoint = import.meta.env.VITE_CONTACT_ENDPOINT as string | undefined;
 
     const payload = {
@@ -32,20 +53,22 @@ const Contact = () => {
     };
 
     if (endpoint) {
-      fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      })
-        .then((res) => {
-          if (!res.ok) throw new Error("Network response was not ok");
-          toast({ title: "Message Sent!", description: "Thank you for reaching out. I'll get back to you soon!" });
-          setFormData({ name: "", email: "", message: "" });
-        })
-        .catch((err) => {
-          console.error(err);
-          toast({ title: "Send failed", description: "Could not send message. You can also email me directly." });
+      try {
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
         });
+
+        if (!res.ok) throw new Error("Network response was not ok");
+        toast({ title: "Message Sent! ✅", description: "Thank you for reaching out. I'll get back to you soon!" });
+        setFormData({ name: "", email: "", message: "" });
+      } catch (err) {
+        console.error(err);
+        toast({ title: "Send failed ❌", description: "Could not send message. You can also email me directly." });
+      } finally {
+        setIsSubmitting(false);
+      }
     } else {
       // Fallback to mailto if no endpoint configured
       const mailto = `mailto:babinbid05@gmail.com?subject=${encodeURIComponent(
@@ -53,8 +76,9 @@ const Contact = () => {
       )}&body=${encodeURIComponent(formData.message + "\n\nFrom: " + formData.email)}`;
       window.location.href = mailto;
       // optimistic toast and clear form fields since user was redirected to their mail client
-      toast({ title: "Opening mail client", description: "Your mail client will open so you can send the message." });
+      toast({ title: "Opening mail client 📧", description: "Your mail client will open so you can send the message." });
       setFormData({ name: "", email: "", message: "" });
+      setIsSubmitting(false);
     }
   };
 
@@ -75,7 +99,7 @@ const Contact = () => {
       icon: <Phone className="h-6 w-6" />,
       title: "Phone",
       value: "+91 9123777679",
-      link: "tel:+91XXXXXXXXXX",
+      link: "tel:+919123777679",
     },
     {
       icon: <MapPin className="h-6 w-6" />,
@@ -123,25 +147,42 @@ const Contact = () => {
                 {contactInfo.map((info, index) => (
                   <Card
                     key={index}
-                    className="p-6 bg-card shadow-card hover:shadow-glow transition-smooth border-border/50"
+                    className="p-6 bg-card shadow-card hover:shadow-glow transition-smooth border-border/50 group"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="text-primary">{info.icon}</div>
-                      <div>
-                        <h3 className="font-semibold text-foreground">
-                          {info.title}
-                        </h3>
-                        {info.link ? (
-                          <a
-                            href={info.link}
-                            className="text-muted-foreground hover:text-primary transition-smooth"
-                          >
-                            {info.value}
-                          </a>
-                        ) : (
-                          <p className="text-muted-foreground">{info.value}</p>
-                        )}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className="text-primary">{info.icon}</div>
+                        <div>
+                          <h3 className="font-semibold text-foreground">
+                            {info.title}
+                          </h3>
+                          {info.link ? (
+                            <a
+                              href={info.link}
+                              className="text-muted-foreground hover:text-primary transition-smooth"
+                            >
+                              {info.value}
+                            </a>
+                          ) : (
+                            <p className="text-muted-foreground">{info.value}</p>
+                          )}
+                        </div>
                       </div>
+                      {/* Copy button for emails and phone */}
+                      {info.link && (info.title.includes('Email') || info.title === 'Phone') && (
+                        <button
+                          onClick={() => copyToClipboard(info.value, info.title)}
+                          className="p-2 rounded-md opacity-0 group-hover:opacity-100 hover:bg-muted/50 transition-all"
+                          title={`Copy ${info.title}`}
+                          aria-label={`Copy ${info.title}`}
+                        >
+                          {copiedField === info.title ? (
+                            <Check className="h-4 w-4 text-green-500" />
+                          ) : (
+                            <Copy className="h-4 w-4 text-muted-foreground" />
+                          )}
+                        </button>
+                      )}
                     </div>
                   </Card>
                 ))}
@@ -208,10 +249,23 @@ const Contact = () => {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full gradient-primary text-primary-foreground shadow-glow hover:scale-105 transition-smooth"
+                  disabled={isSubmitting}
+                  className="w-full gradient-primary text-primary-foreground shadow-glow hover:scale-105 transition-smooth disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  <Send className="mr-2 h-4 w-4" />
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="mr-2 h-4 w-4" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </form>
             </Card>
