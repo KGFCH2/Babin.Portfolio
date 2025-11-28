@@ -25,7 +25,8 @@ const Achievements = () => {
 
     const getFilteredData = () => {
         const awardsCategories = ["Awards & Recognitions"];
-        const badgeCategories = ["Microsoft Badges", "Microsoft Trophies", "Holopin", "HP Life Badges"];
+        const badgeCategories = ["Microsoft Badges", "Microsoft Trophies", "Holopin Badges", "HP Life Badges"];
+        // Hackathons & Events is treated as certificates (not awards, not badges)
 
         const isBadgeItem = (item: { title: string }) => {
             const title = item.title.toLowerCase();
@@ -163,30 +164,30 @@ const Achievements = () => {
                             <Button
                                 variant={filter === 'all' ? "default" : "outline"}
                                 onClick={() => setFilter('all')}
-                                className="min-w-[100px]"
+                                className="min-w-[100px] hover:shadow-glow transition-all duration-300"
                             >
                                 All
                             </Button>
                             <Button
                                 variant={filter === 'awards' ? "default" : "outline"}
                                 onClick={() => setFilter('awards')}
-                                className="min-w-[100px]"
+                                className="min-w-[100px] hover:shadow-glow transition-all duration-300"
                             >
                                 Awards
                             </Button>
                             <Button
                                 variant={filter === 'certificates' ? "default" : "outline"}
                                 onClick={() => setFilter('certificates')}
-                                className="min-w-[100px]"
+                                className="min-w-[100px] hover:shadow-glow transition-all duration-300"
                             >
-                                Certificates/Hackathons/Programs/Bootcamps
+                                Certificates | Hackathons | Bootcamps | Events
                             </Button>
                             <Button
                                 variant={filter === 'badges' ? "default" : "outline"}
                                 onClick={() => setFilter('badges')}
-                                className="min-w-[100px]"
+                                className="min-w-[100px] hover:shadow-glow transition-all duration-300"
                             >
-                                Badges
+                                Badges | Trophies
                             </Button>
                         </div>
                     </div>
