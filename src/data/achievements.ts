@@ -13,15 +13,23 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "Awards & Recognitions",
         items: [
+            { title: "SSWC'25 Best Paper Award", file: "/Achievements/SSWC'25_Best_Paper_Award.jpg" },
             { title: "Awards and Certificates in SSWC-2025", file: "/Achievements/Awards_and_Certificates_in_SSWC-2025.png" },
-            { title: "Babin Bid-vol", file: "/Achievements/Babin_Bid-vol.png" },
+            { title: "SSWC'25 Best Paper Award Certificate", file: "/Achievements/SSWC'25_Best_Paper_Certificate.jpg" },
+            { title: "Merit Scholarship Award (2023)", file: "/Achievements/Merit_Scholarship_Award.jpeg" },
             { title: "Babin Bid Merit Scholarship 2023", file: "/Achievements/Babin_Bid_Merit_Scholarship_2023.jpeg" },
-            { title: "Babin Bid  ICDMAI", file: "/Achievements/Babin_Bid__ICDMAI.jpeg" },
-            { title: "Babin Bid  JIS Poster Competition", file: "/Achievements/Babin_Bid__JIS_Poster_Competition.jpeg" },
-            { title: "Babin Bid  Poster Competition on Engineers Day", file: "/Achievements/Babin_Bid__Poster_Competition_on_Engineers_Day.png" },
-            { title: "GDSC Cloud Campaign", file: "/Achievements/GDSC_Cloud_Campaign.jpeg" },
             { title: "Google Solution Challenge 2024", file: "/Achievements/Google_Solution_Challenge_2024.jpeg" },
-            { title: "Merit Scholarship Award", file: "/Achievements/Merit_Scholarship_Award.jpeg" },
+        ]
+    },
+    {
+        category: "Hackathons & Events",
+        items: [
+            { title: "SSWC'25 Presenter Certificate", file: "/Achievements/SSWC'25_Presenter_Certificate.jpg" },
+            { title: "Volunteer Certificate", file: "/Achievements/Babin_Bid-vol.png" },
+            { title: "ICDMAI Participation", file: "/Achievements/Babin_Bid__ICDMAI.jpeg" },
+            { title: "JIS Poster Competition", file: "/Achievements/Babin_Bid__JIS_Poster_Competition.jpeg" },
+            { title: "Poster Competition on Engineers Day", file: "/Achievements/Babin_Bid__Poster_Competition_on_Engineers_Day.png" },
+            { title: "GDSC Cloud Campaign", file: "/Achievements/GDSC_Cloud_Campaign.jpeg" },
             { title: "NSHM Hackathon", file: "/Achievements/NSHM_Hackathon.jpeg" },
         ]
     },
@@ -35,8 +43,8 @@ export const achievementsData: AchievementCategory[] = [
         category: "CISCO",
         items: [
             { title: "python-essentials-1.1", file: "/Achievements/CISCO/python-essentials-1.1.png" },
-            { title: " certificate babinbid05-gmail-com 2d321f23-e6aa-4278-a044-7d6644c5d32b", file: "/Achievements/CISCO/_certificate_babinbid05-gmail-com_2d321f23-e6aa-4278-a044-7d6644c5d32b.pdf" },
-            { title: " certificate babinbid05-gmail-com ba42d602-e2d5-4287-8c0d-7e89a82aefb9", file: "/Achievements/CISCO/_certificate_babinbid05-gmail-com_ba42d602-e2d5-4287-8c0d-7e89a82aefb9.pdf" },
+            { title: "Python Essentials 1", file: "/Achievements/CISCO/_certificate_babinbid05-gmail-com_2d321f23-e6aa-4278-a044-7d6644c5d32b.pdf" },
+            { title: "Introduction to Data Science", file: "/Achievements/CISCO/_certificate_babinbid05-gmail-com_ba42d602-e2d5-4287-8c0d-7e89a82aefb9.pdf" },
         ]
     },
     {
@@ -50,38 +58,37 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "GTech Learn",
         items: [
-            { title: "Certificate-BABIN -GTL-14453-B3B3", file: "/Achievements/GTech%20Learn/Certificate-BABIN_-GTL-14453-B3B3.pdf" },
             { title: "SC-900 Microsoft Security Fundamentals", file: "/Achievements/GTech%20Learn/SC-900_Microsoft_Security_Fundamentals.png" },
         ]
     },
     {
         category: "Google",
         items: [
-            { title: "1172653244BB", file: "/Achievements/Google/1172653244BB.pdf" },
-            { title: "19ae5a64-7138-4ec2-a9fc-9d65b53d09ac", file: "/Achievements/Google/19ae5a64-7138-4ec2-a9fc-9d65b53d09ac.png" },
-            { title: "69izjm6b 1749161905073", file: "/Achievements/Google/69izjm6b_1749161905073.pdf" },
-            { title: "7c2be6e0-3895-4baf-946f-3c61969c27ec", file: "/Achievements/Google/7c2be6e0-3895-4baf-946f-3c61969c27ec.png" },
-            { title: "a6f6uizk 1749160844397", file: "/Achievements/Google/a6f6uizk_1749160844397.pdf" },
+            { title: "Bring Al to Work Workshop", file: "/Achievements/Google/1172653244BB.pdf" },
+            { title: "Google ADs AI-Powered Performance", file: "/Achievements/Google/19ae5a64-7138-4ec2-a9fc-9d65b53d09ac.png" },
+            { title: "Al-Powered Shopping ads Certification", file: "/Achievements/Google/69izjm6b_1749161905073.pdf" },
+            { title: "Shopping Ads", file: "/Achievements/Google/7c2be6e0-3895-4baf-946f-3c61969c27ec.png" },
+            { title: "Al-Powered Performance Ads Certification", file: "/Achievements/Google/a6f6uizk_1749160844397.pdf" },
             { title: "ai-agent-home-run-mlb-events", file: "/Achievements/Google/ai-agent-home-run-mlb-events.png" },
-            { title: "Google Play Academy", file: "/Achievements/Google/Google_Play_Academy.pdf" },
+            { title: "Google Play Store Listing Certificate", file: "/Achievements/Google/Google_Play_Academy.pdf" },
         ]
     },
     {
         category: "Hack2Skill",
         items: [
-            { title: "Hack2skill-Certificate", file: "/Achievements/Hack2Skill/Hack2skill-Certificate.png" },
+            { title: "GDG on Campus Solution Challenge", file: "/Achievements/Hack2Skill/Hack2skill-Certificate.png" },
             { title: "Hack2skill-Certificate GEN AI Exchange Program", file: "/Achievements/Hack2Skill/Hack2skill-Certificate_GEN_AI_Exchange_Program.png" },
         ]
     },
     {
         category: "HackerRank",
         items: [
-            { title: "SQL Basic Certificate Hackerrank", file: "/Achievements/HackerRank/SQL_Basic_Certificate_Hackerrank.pdf" },
-            { title: "SQL Intermediate Certificate Hackerrank", file: "/Achievements/HackerRank/SQL_Intermediate_Certificate_Hackerrank.pdf" },
+            { title: "SQL Basic Certificate", file: "/Achievements/HackerRank/SQL_Basic_Certificate_Hackerrank.pdf" },
+            { title: "SQL Intermediate Certificate", file: "/Achievements/HackerRank/SQL_Intermediate_Certificate_Hackerrank.pdf" },
         ]
     },
     {
-        category: "Holopin",
+        category: "Holopin Badges",
         items: [
             { title: "Early Bird Pegasaurus", file: "/Achievements/Holopin/Early_Bird_Pegasaurus.png" },
             { title: "Hacktoberfest 2025 Level 0 Registered", file: "/Achievements/Holopin/Hacktoberfest_2025_Level_0_Registered.webp" },
@@ -91,37 +98,36 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "IBM",
         items: [
-            { title: "IBMDesign20250612-28-nhj93e", file: "/Achievements/IBM/IBMDesign20250612-28-nhj93e.pdf" },
-            { title: "IBMDesign20250616-26-5qh6st", file: "/Achievements/IBM/IBMDesign20250616-26-5qh6st.pdf" },
+            { title: "Web Development Fundamentals", file: "/Achievements/IBM/IBMDesign20250612-28-nhj93e.pdf" },
+            { title: "Cybersecurity Fundamentals", file: "/Achievements/IBM/IBMDesign20250616-26-5qh6st.pdf" },
         ]
     },
     {
         category: "Infosys Springboard",
         items: [
-            { title: "1-09c270d2-409a-46f6-b79c-d0dd57b9c490", file: "/Achievements/Infosys%20Springboard/1-09c270d2-409a-46f6-b79c-d0dd57b9c490.pdf" },
-            { title: "1-0d884177-c098-4136-bf54-2f9e7c55cd94", file: "/Achievements/Infosys%20Springboard/1-0d884177-c098-4136-bf54-2f9e7c55cd94.pdf" },
-            { title: "1-1556c645-6517-45b7-8700-898f6da4d735", file: "/Achievements/Infosys%20Springboard/1-1556c645-6517-45b7-8700-898f6da4d735.pdf" },
-            { title: "1-16669cfd-cb33-4fbb-9e92-b82dd7beb810", file: "/Achievements/Infosys%20Springboard/1-16669cfd-cb33-4fbb-9e92-b82dd7beb810.pdf" },
-            { title: "1-1bde93f9-dd5d-4b02-ac88-9e9a95142af5", file: "/Achievements/Infosys%20Springboard/1-1bde93f9-dd5d-4b02-ac88-9e9a95142af5.pdf" },
-            { title: "1-239ec735-7c77-484b-b687-bfb85d834b02", file: "/Achievements/Infosys%20Springboard/1-239ec735-7c77-484b-b687-bfb85d834b02.pdf" },
-            { title: "1-35187ec6-e81e-4813-8a5e-184601644be8", file: "/Achievements/Infosys%20Springboard/1-35187ec6-e81e-4813-8a5e-184601644be8.pdf" },
-            { title: "1-3e9496db-f225-403f-81fe-8384e23679e5", file: "/Achievements/Infosys%20Springboard/1-3e9496db-f225-403f-81fe-8384e23679e5.pdf" },
-            { title: "1-49e4f4a0-49b1-49b4-93bd-69cadc709628", file: "/Achievements/Infosys%20Springboard/1-49e4f4a0-49b1-49b4-93bd-69cadc709628.pdf" },
-            { title: "1-51a4876b-537f-47a5-9905-78f4141766d6", file: "/Achievements/Infosys%20Springboard/1-51a4876b-537f-47a5-9905-78f4141766d6.pdf" },
-            { title: "1-558786bf-2dc7-4b5f-9723-49a60a919df4", file: "/Achievements/Infosys%20Springboard/1-558786bf-2dc7-4b5f-9723-49a60a919df4.pdf" },
-            { title: "1-70126be5-8f3d-4aea-af29-b54ff5ae69b9", file: "/Achievements/Infosys%20Springboard/1-70126be5-8f3d-4aea-af29-b54ff5ae69b9.pdf" },
-            { title: "1-75591592-7d19-4c9d-a688-3457cc2f3c66", file: "/Achievements/Infosys%20Springboard/1-75591592-7d19-4c9d-a688-3457cc2f3c66.pdf" },
-            { title: "1-7b2ca8e0-0138-453d-b272-5e69b74700b8", file: "/Achievements/Infosys%20Springboard/1-7b2ca8e0-0138-453d-b272-5e69b74700b8.pdf" },
-            { title: "1-8e3c9313-5213-420a-af84-752340592f72", file: "/Achievements/Infosys%20Springboard/1-8e3c9313-5213-420a-af84-752340592f72.pdf" },
-            { title: "1-931e44a6-5930-42bf-b4b5-abcdf20c6116", file: "/Achievements/Infosys%20Springboard/1-931e44a6-5930-42bf-b4b5-abcdf20c6116.pdf" },
-            { title: "1-986b0569-c6ec-47cf-bb8e-1287c97f3a94", file: "/Achievements/Infosys%20Springboard/1-986b0569-c6ec-47cf-bb8e-1287c97f3a94.pdf" },
-            { title: "1-aad4f222-07b9-4733-8450-245b25ec35fc", file: "/Achievements/Infosys%20Springboard/1-aad4f222-07b9-4733-8450-245b25ec35fc.pdf" },
-            { title: "1-ac75378f-5550-4bb6-905b-1fe700314a37", file: "/Achievements/Infosys%20Springboard/1-ac75378f-5550-4bb6-905b-1fe700314a37.pdf" },
-            { title: "1-b0547257-d7e9-43c5-b919-241594058c84", file: "/Achievements/Infosys%20Springboard/1-b0547257-d7e9-43c5-b919-241594058c84.pdf" },
-            { title: "1-b0f8b804-5295-46be-b4f8-d5958f569007", file: "/Achievements/Infosys%20Springboard/1-b0f8b804-5295-46be-b4f8-d5958f569007.pdf" },
-            { title: "1-c6cf1a93-7d30-453a-b458-6cb9138f7c36", file: "/Achievements/Infosys%20Springboard/1-c6cf1a93-7d30-453a-b458-6cb9138f7c36.pdf" },
-            { title: "1-f5229171-4125-467b-b3bf-9a4a30b32573", file: "/Achievements/Infosys%20Springboard/1-f5229171-4125-467b-b3bf-9a4a30b32573.pdf" },
-            { title: "1-ff24920a-890c-44da-b73b-4f298181296e", file: "/Achievements/Infosys%20Springboard/1-ff24920a-890c-44da-b73b-4f298181296e.pdf" },
+            { title: "Fundamentals of Information Security", file: "/Achievements/Infosys%20Springboard/1-09c270d2-409a-46f6-b79c-d0dd57b9c490.pdf" },
+            { title: "IoT Edge Computing and IoT Analytics", file: "/Achievements/Infosys%20Springboard/1-0d884177-c098-4136-bf54-2f9e7c55cd94.pdf" },
+            { title: "Agile Scrum in Practice", file: "/Achievements/Infosys%20Springboard/1-1556c645-6517-45b7-8700-898f6da4d735.pdf" },
+            { title: "Email Writing Skills", file: "/Achievements/Infosys%20Springboard/1-16669cfd-cb33-4fbb-9e92-b82dd7beb810.pdf" },
+            { title: "Python for Data Science", file: "/Achievements/Infosys%20Springboard/1-239ec735-7c77-484b-b687-bfb85d834b02.pdf" },
+            { title: "Introduction to Deep Learning", file: "/Achievements/Infosys%20Springboard/1-35187ec6-e81e-4813-8a5e-184601644be8.pdf" },
+            { title: "Introduction to Cloud Computing", file: "/Achievements/Infosys%20Springboard/1-3e9496db-f225-403f-81fe-8384e23679e5.pdf" },
+            { title: "Time Management", file: "/Achievements/Infosys%20Springboard/1-49e4f4a0-49b1-49b4-93bd-69cadc709628.pdf" },
+            { title: "High Impact Presentations", file: "/Achievements/Infosys%20Springboard/1-51a4876b-537f-47a5-9905-78f4141766d6.pdf" },
+            { title: "Introduction to Robotic Process Automation", file: "/Achievements/Infosys%20Springboard/1-558786bf-2dc7-4b5f-9723-49a60a919df4.pdf" },
+            { title: "Data Science", file: "/Achievements/Infosys%20Springboard/1-70126be5-8f3d-4aea-af29-b54ff5ae69b9.pdf" },
+            { title: "Introduction to Natural Language Processing", file: "/Achievements/Infosys%20Springboard/1-75591592-7d19-4c9d-a688-3457cc2f3c66.pdf" },
+            { title: "Deep Learning for Developers", file: "/Achievements/Infosys%20Springboard/1-7b2ca8e0-0138-453d-b272-5e69b74700b8.pdf" },
+            { title: "Computer Vision 101", file: "/Achievements/Infosys%20Springboard/1-8e3c9313-5213-420a-af84-752340592f72.pdf" },
+            { title: "Artificial Intelligence", file: "/Achievements/Infosys%20Springboard/1-931e44a6-5930-42bf-b4b5-abcdf20c6116.pdf" },
+            { title: "Generative models for developers", file: "/Achievements/Infosys%20Springboard/1-986b0569-c6ec-47cf-bb8e-1287c97f3a94.pdf" },
+            { title: "OpenAI Generative Pre-trained Transformer 3 (GPT-3) for developers", file: "/Achievements/Infosys%20Springboard/1-aad4f222-07b9-4733-8450-245b25ec35fc.pdf" },
+            { title: "Introduction to Data Science", file: "/Achievements/Infosys%20Springboard/1-ac75378f-5550-4bb6-905b-1fe700314a37.pdf" },
+            { title: "Principles of Generative AI Certification", file: "/Achievements/Infosys%20Springboard/1-b0547257-d7e9-43c5-b919-241594058c84.pdf" },
+            { title: "Prompt Engineering", file: "/Achievements/Infosys%20Springboard/1-b0f8b804-5295-46be-b4f8-d5958f569007.pdf" },
+            { title: "Introduction to OpenAI GPT Models", file: "/Achievements/Infosys%20Springboard/1-c6cf1a93-7d30-453a-b458-6cb9138f7c36.pdf" },
+            { title: "Artificial Intelligence Primer Certification", file: "/Achievements/Infosys%20Springboard/1-f5229171-4125-467b-b3bf-9a4a30b32573.pdf" },
+            { title: "Generative AI Unleashing", file: "/Achievements/Infosys%20Springboard/1-ff24920a-890c-44da-b73b-4f298181296e.pdf" },
         ]
     },
     {
@@ -153,8 +159,8 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "Microsoft",
         items: [
-            { title: "Badge-Gold", file: "/Achievements/Microsoft/Badge-Gold.png" },
             { title: "Badge-Platinum", file: "/Achievements/Microsoft/Badge-Platinum.png" },
+            { title: "Badge-Gold", file: "/Achievements/Microsoft/Badge-Gold.png" },
             { title: "Badge-Silver", file: "/Achievements/Microsoft/Badge-Silver.png" },
             { title: "Develop AI Skills with Microsoft Copilot", file: "/Achievements/Microsoft/Develop_AI_Skills_with_Microsoft_Copilot.pdf" },
             { title: "Foundational C# with Microsoft", file: "/Achievements/Microsoft/Foundational_CSharp_with_Microsoft.pdf" },
@@ -238,15 +244,15 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "Pantech e Learning",
         items: [
-            { title: "AV FDP", file: "/Achievements/Pantech%20e%20Learning/AV_FDP.pdf" },
-            { title: "page 089", file: "/Achievements/Pantech%20e%20Learning/page_089.pdf" },
+            { title: "5 days Faculty Development Program on AI, ML & Deep Learning for Autonomous Vehicles", file: "/Achievements/Pantech%20e%20Learning/AV_FDP.pdf" },
+            { title: "One Week National Level Faculty Development Programme on Recent Trends on Al - Text, Vision & Hardware Implementation Models", file: "/Achievements/Pantech%20e%20Learning/page_089.pdf" },
         ]
     },
     {
         category: "Saylor Academy",
         items: [
-            { title: "5022676954BB", file: "/Achievements/Saylor%20Academy/5022676954BB.pdf" },
-            { title: "8859238240BB", file: "/Achievements/Saylor%20Academy/8859238240BB.pdf" },
+            { title: "CS101: Introduction to Computer Science I", file: "/Achievements/Saylor%20Academy/8859238240BB.pdf" },
+            { title: "CS102: Introduction to Computer Science II", file: "/Achievements/Saylor%20Academy/5022676954BB.pdf" },
         ]
     },
     {
@@ -259,26 +265,26 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "SimpliLearn",
         items: [
-            { title: "4615986 1698733297", file: "/Achievements/SimpliLearn/4615986_1698733297.pdf" },
+            { title: "Design Thinking for Beginners", file: "/Achievements/SimpliLearn/4615986_1698733297.pdf" },
             { title: "Gemini in Gmail SimpliLearn", file: "/Achievements/SimpliLearn/Gemini_in_Gmail_SimpliLearn.pdf" },
         ]
     },
     {
         category: "Skill India",
         items: [
-            { title: "certificate 0582d12e-d615-4019-9583-aa8dbac3ffe5", file: "/Achievements/Skill%20India/certificate_0582d12e-d615-4019-9583-aa8dbac3ffe5.pdf" },
-            { title: "certificate 0e985123-f259-488a-9a41-a316980ea081", file: "/Achievements/Skill%20India/certificate_0e985123-f259-488a-9a41-a316980ea081.pdf" },
-            { title: "certificate 17eaa86a-05d8-4945-a554-f9d5eb54d0fe", file: "/Achievements/Skill%20India/certificate_17eaa86a-05d8-4945-a554-f9d5eb54d0fe.pdf" },
-            { title: "certificate 29f1b4ad-3371-4474-ac3d-e023cb1e9e4a", file: "/Achievements/Skill%20India/certificate_29f1b4ad-3371-4474-ac3d-e023cb1e9e4a.pdf" },
-            { title: "certificate 32d86c56-efc6-4c33-9c65-17901e296f8e", file: "/Achievements/Skill%20India/certificate_32d86c56-efc6-4c33-9c65-17901e296f8e.pdf" },
-            { title: "certificate 6606b92d-c73a-458d-94f4-ad5ff5fff177", file: "/Achievements/Skill%20India/certificate_6606b92d-c73a-458d-94f4-ad5ff5fff177.pdf" },
-            { title: "certificate 7f9c1f98-a24d-4198-bcce-b2cd5dd96629", file: "/Achievements/Skill%20India/certificate_7f9c1f98-a24d-4198-bcce-b2cd5dd96629.pdf" },
-            { title: "certificate 86f3f565-2b07-4081-8046-80887b45bfa8", file: "/Achievements/Skill%20India/certificate_86f3f565-2b07-4081-8046-80887b45bfa8.pdf" },
-            { title: "certificate 9390e20a-9cac-48f7-9fb4-35eddca4aeae", file: "/Achievements/Skill%20India/certificate_9390e20a-9cac-48f7-9fb4-35eddca4aeae.pdf" },
-            { title: "certificate a246c1f3-b894-400e-a0ff-97931bf85e3c", file: "/Achievements/Skill%20India/certificate_a246c1f3-b894-400e-a0ff-97931bf85e3c.pdf" },
-            { title: "certificate d1953bf0-6b5c-4fa2-98c4-f51660ed818c", file: "/Achievements/Skill%20India/certificate_d1953bf0-6b5c-4fa2-98c4-f51660ed818c.pdf" },
-            { title: "certificate ddb95b91-6183-456b-8ece-7fca6792587a", file: "/Achievements/Skill%20India/certificate_ddb95b91-6183-456b-8ece-7fca6792587a.pdf" },
-            { title: "certificate e5497492-7ad0-4f83-a75f-65049de8b0b9", file: "/Achievements/Skill%20India/certificate_e5497492-7ad0-4f83-a75f-65049de8b0b9.pdf" },
+            { title: "Solar Panel Installations Technician", file: "/Achievements/Skill%20India/certificate_0582d12e-d615-4019-9583-aa8dbac3ffe5.pdf" },
+            { title: "Web Design & Development", file: "/Achievements/Skill%20India/certificate_0e985123-f259-488a-9a41-a316980ea081.pdf" },
+            { title: "Foundational Skills Program - Retail", file: "/Achievements/Skill%20India/certificate_17eaa86a-05d8-4945-a554-f9d5eb54d0fe.pdf" },
+            { title: "Foundational Skills Program - Employability", file: "/Achievements/Skill%20India/certificate_29f1b4ad-3371-4474-ac3d-e023cb1e9e4a.pdf" },
+            { title: "Kisan Drone Operator", file: "/Achievements/Skill%20India/certificate_32d86c56-efc6-4c33-9c65-17901e296f8e.pdf" },
+            { title: "Al for All", file: "/Achievements/Skill%20India/certificate_6606b92d-c73a-458d-94f4-ad5ff5fff177.pdf" },
+            { title: "प्रधानमंत्री आरोग्य मित्र - (Pradhan Mantri Arogya Mitra)", file: "/Achievements/Skill%20India/certificate_7f9c1f98-a24d-4198-bcce-b2cd5dd96629.pdf" },
+            { title: "Kaushal Mitra", file: "/Achievements/Skill%20India/certificate_86f3f565-2b07-4081-8046-80887b45bfa8.pdf" },
+            { title: "Cybersecurity", file: "/Achievements/Skill%20India/certificate_9390e20a-9cac-48f7-9fb4-35eddca4aeae.pdf" },
+            { title: "SOAR - AI to be Aware", file: "/Achievements/Skill%20India/certificate_a246c1f3-b894-400e-a0ff-97931bf85e3c.pdf" },
+            { title: "Python for Data Science", file: "/Achievements/Skill%20India/certificate_d1953bf0-6b5c-4fa2-98c4-f51660ed818c.pdf" },
+            { title: "Foundations of Drone Technology: Principles and Practical Applications", file: "/Achievements/Skill%20India/certificate_ddb95b91-6183-456b-8ece-7fca6792587a.pdf" },
+            { title: "Foundational Skills Program - Entrepreneurship", file: "/Achievements/Skill%20India/certificate_e5497492-7ad0-4f83-a75f-65049de8b0b9.pdf" },
         ]
     },
     {
@@ -291,7 +297,6 @@ export const achievementsData: AchievementCategory[] = [
         category: "Udemy",
         items: [
             { title: "Graphic Design Masterclass Bootcamp from Beginner to Expert", file: "/Achievements/Udemy/Graphic_Design_Masterclass_Bootcamp_from_Beginner_to_Expert.jpg" },
-            { title: "UC-cf6a1cb0-6305-43b7-a64f-0f3957aa62ec", file: "/Achievements/Udemy/UC-cf6a1cb0-6305-43b7-a64f-0f3957aa62ec.pdf" },
         ]
     },
     {
@@ -338,13 +343,10 @@ export const achievementsData: AchievementCategory[] = [
         category: "myGov",
         items: [
             { title: "6th National Online Quiz", file: "/Achievements/myGov/6th_National_Online_Quiz.jpg" },
-            { title: "6th National Online Quiz", file: "/Achievements/myGov/6th_National_Online_Quiz.pdf" },
             { title: "Chandrayaan - 3", file: "/Achievements/myGov/Chandrayaan_-_3.jpeg" },
-            { title: "Chandrayaan - 3", file: "/Achievements/myGov/Chandrayaan_-_3.pdf" },
             { title: "Clean Sport Quiz", file: "/Achievements/myGov/Clean_Sport_Quiz.jpg" },
             { title: "Digital India Quiz - A Decade of Progress English", file: "/Achievements/myGov/Digital_India_Quiz_-_A_Decade_of_Progress_English.jpg" },
             { title: "Ending Plastic Pollution Quiz", file: "/Achievements/myGov/Ending_Plastic_Pollution_Quiz.jpeg" },
-            { title: "Ending Plastic Pollution Quiz", file: "/Achievements/myGov/Ending_Plastic_Pollution_Quiz.pdf" },
             { title: "Fit India - National Sports Day Quiz 2025", file: "/Achievements/myGov/Fit_India_-_National_Sports_Day_Quiz_2025.jpg" },
             { title: "Har Ghar Tiranga Quiz 2025", file: "/Achievements/myGov/Har_Ghar_Tiranga_Quiz_2025.jpg" },
             { title: "Indian Independence Day Quiz 2025", file: "/Achievements/myGov/Indian_Independence_Day_Quiz_2025.jpg" },
@@ -356,7 +358,7 @@ export const achievementsData: AchievementCategory[] = [
             { title: "Say No To Tobacco Pledge", file: "/Achievements/myGov/Say_No_To_Tobacco_Pledge.jpg" },
             { title: "Swachh Bharat Mission Grameen Phase-II Quiz", file: "/Achievements/myGov/Swachh_Bharat_Mission_Grameen_Phase-II_Quiz.jpg" },
             { title: "Swachh Bharat Quiz", file: "/Achievements/myGov/Swachh_Bharat_Quiz.jpg" },
-            { title: "Viksit Bharat 2025 Quiz English", file: "/Achievements/myGov/Viksit_Bharat_2025_Quiz_English.jpg" },
+            { title: "Viksit Bharat 2025 Quiz", file: "/Achievements/myGov/Viksit_Bharat_2025_Quiz_English.jpg" },
         ]
     },
 ];
