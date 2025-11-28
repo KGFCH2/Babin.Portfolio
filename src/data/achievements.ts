@@ -105,6 +105,7 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "Infosys Springboard",
         items: [
+            {title: "Internship 6.0 (B1): ImpactSense - Earthquake Impact Prediction", file: "/Achievements/Infosys%20Springboard/1-7201b116-4d59-4827-b05e-3b31e9a9f0fd.pdf"},
             { title: "Fundamentals of Information Security", file: "/Achievements/Infosys%20Springboard/1-09c270d2-409a-46f6-b79c-d0dd57b9c490.pdf" },
             { title: "IoT Edge Computing and IoT Analytics", file: "/Achievements/Infosys%20Springboard/1-0d884177-c098-4136-bf54-2f9e7c55cd94.pdf" },
             { title: "Agile Scrum in Practice", file: "/Achievements/Infosys%20Springboard/1-1556c645-6517-45b7-8700-898f6da4d735.pdf" },
