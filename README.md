@@ -200,7 +200,8 @@ Babin.Portfolio/
 ### 📑 Main Page Components
 
 | 🎭 **Component** | 📋 **Purpose** | ⭐ **Features** |
-|-----------|---------|----------|\n| **🎨 Hero.tsx** | Landing section | 3-line typing effect, resume download, social icons |
+|------------------|----------------|-----------------|
+| **🎨 Hero.tsx** | Landing section | 3-line typing effect, resume download, social icons |
 | **👤 About.tsx** | Professional intro | Avatar glow, skills matrix, 4-panel accordion, gradient text |
 | **💼 Projects.tsx** | Showcase carousel | Embla carousel, 10 projects, 3D tilt effect, search/filter |
 | **🔧 Skills.tsx** | Skill matrix | 40+ skills, 10 categories, live filtering, gradient badges |
@@ -212,7 +213,8 @@ Babin.Portfolio/
 ### 🎭 Supporting Components
 
 | 🎭 **Component** | 📋 **Purpose** |
-|-----------|----------|\n| **🔗 Header.tsx** | Sticky navbar with animated tricolor underline, theme toggle |
+|------------------|----------------|
+| **🔗 Header.tsx** | Sticky navbar with animated tricolor underline, theme toggle |
 | **📄 Footer.tsx** | Footer grid with Quick Links, social icons, quote |
 | **🌊 SectionTitle.tsx** | Wave text animations with segment colors (replays on scroll) |
 | **🌙 ThemeToggle.tsx** | Theme toggle with smooth transitions |
