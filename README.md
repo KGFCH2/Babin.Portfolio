@@ -15,187 +15,181 @@
 
 ## 🚀 Overview
 
-A cutting-edge personal portfolio website built with **React 18 + TypeScript + Vite ⚡**
+A **cutting-edge, production-ready** personal portfolio website built with modern web technologies:
 
-This fully responsive, production-ready portfolio showcases:
-- 🎯 **Professional Profile** — Hero section with dynamic typing animations  
-- 👤 **About Section** — Professional intro with skills cards and auto-closing accordion panels
-- 💼 **8+ Projects** — Interactive Embla carousel showcase with GitHub & demo links
-- 🛠️ **40+ Technical Skills** — Categorized skills (Programming, Web, Backend, Database, ML, etc.) with gradient hover effects
-- 📚 **Research Publications** — Academic papers and research highlights with Framer Motion animations
-- 📦 **Study Materials** — Learning resources and materials repository
-- 📞 **Contact Section** — Validation contact form with equal-height cards and glow effects
-- 🌊 **Wave Animations** — Smooth, character-level text animations with segmented colors on every section title
+**React 18** • **TypeScript** • **Vite** • **Tailwind CSS** • **Framer Motion** • **Shadcn/UI**
 
-Modern, accessible UI/UX with smooth animations, dark/light mode toggle, particle effects, and fully responsive design.
+### Showcase Sections
+
+- 🎯 **Professional Profile** — Hero section with dynamic typing animations and resume download
+- 👤 **About Section** — Professional introduction with avatar, skills matrix, and interactive accordion panels
+- 💼 **Project Gallery** — Interactive carousel with 10+ full-stack projects, 3D tilt effects, and live demos
+- 🛠️ **Technical Skills** — 40+ categorized skills across 10+ domains with advanced filtering and search
+- 🏆 **Achievements** — Comprehensive achievements system with filtering, zoom lightbox, and PDF support
+- 📚 **Research Publications** — Academic research papers with detailed information and animations
+- 📦 **Learning Materials** — Study resources and knowledge repository
+- 📞 **Contact System** — Validated contact form with multiple channels and social integration
+- 🌊 **Smooth Animations** — Wave animations, fade-ins, slide-ins with 0.8s timing for premium feel
+
+**Modern Design** • **Fully Responsive** • **Accessibility-First** • **100% Type-Safe** • **Production-Grade Performance**
 
 ---
 
-## ✨ Key Features
+## ✨ Core Features
 
-- ⚡ **Lightning-Fast Performance** — Vite build in <15 seconds, ~666KB bundle size
-- 📱 **100% Responsive** — Perfect on desktop, tablet, and mobile devices  
-- 🌊 **Wave Text Animations** — Smooth character-by-character animations that replay on every scroll
-- 🌓 **Dark/Light Mode** — System preference detection with seamless theme transitions via next-themes
-- 🎨 **Modern UI Components** — Shadcn/UI + Radix UI for accessibility-first design
-- ♿ **Fully Accessible** — Keyboard navigation, screen reader support, ARIA labels
-- 🎬 **Smooth Animations** — Framer Motion for complex animations, CSS keyframes for lightweight effects
-- 🌌 **Particle Effects** — tsParticles for lightweight, smooth background animations
-- 🔒 **100% Type-Safe** — TypeScript strict mode throughout
-- 🎯 **Interactive Elements** — Embla carousel, Radix accordion with auto-close, form validation with React Hook Form
-- 💬 **Contact System** — Email form with validation, contact info cards, social media links
-- 📥 **Resume Download** — One-click PDF resume download
-- 🚀 **Optimized Build** — ESLint, PostCSS, Autoprefixer for production-grade code
+### ⚡ Performance & Experience
+- 🚀 **Lightning-Fast Builds** — Vite in <15 seconds with ~666KB minified bundle
+- 📱 **100% Responsive Design** — Mobile-first, pixel-perfect on all devices
+- ✨ **Optimized Animations** — 0.8s smooth transitions with cubic-bezier easing for premium feel
+- 🎯 **Reduced Motion Support** — Respects user's prefers-reduced-motion setting
+
+### 🎨 Visual Design
+- 🎨 **Modern UI System** — 50+ Shadcn/UI & Radix components for consistency
+- 🌙 **Dark/Light Themes** — System preference detection with seamless transitions via next-themes
+- 🎪 **3D Interactive Effects** — Tilt-card animations on project showcase for immersive UX
+- ✨ **Particle Animations** — tsParticles background with custom configuration
+- 🌊 **Wave Text Animations** — Character-level animations on section titles that replay on scroll
+- 🎆 **Gradient Hover Effects** — Multi-color gradients on skill badges and buttons
+
+### ♿ Accessibility & UX
+- ✅ **WCAG 2.1 Compliant** — Keyboard navigation, screen reader support, semantic HTML
+- 📝 **Form Validation** — React Hook Form with Zod schema validation
+- ⏳ **Loading States** — Splash screen with progress indicator
+- 🔔 **Toast Notifications** — Sonner for user feedback and confirmation
+
+### 🏆 Advanced Features
+- 🏅 **Smart Achievements System** — Filter by Awards/Badges/Certificates with image zoom lightbox
+- 🎠 **Interactive Carousel** — Embla carousel with auto-play, swipe, and keyboard controls
+- 🔍 **Search & Filter** — Projects and skills with real-time filtering
+- 📂 **Auto-Closing Accordion** — About section panels with smooth animations
+- 📄 **Resume Integration** — One-click PDF preview and download
+
+### 🔒 Code Quality
+- ✅ **100% Type-Safe** — TypeScript strict mode across entire codebase
+- 🔍 **ESLint Configured** — Enforces best practices and code consistency
+- 🏭 **Production Ready** — Minification, tree-shaking, asset optimization
 
 ---
 
 ## 🧰 Complete Tech Stack
 
-| Category | Technologies |
+A carefully curated selection of industry-standard tools for maximum performance and developer experience:
+
+| 📋 **Category** | 🔧 **Technologies** |
 |----------|--------------|
-| ⚛️ **Frontend Framework** | React 18, TypeScript, JSX |
-| ⚡ **Build & Bundling** | Vite 5.4.21, esbuild, SWC (@vitejs/plugin-react-swc) |
-| 🎨 **Styling & CSS** | Tailwind CSS 3.4.17, PostCSS 8.5.6, Autoprefixer 10.4.21 |
-| 🧩 **UI Components** | Shadcn/UI, Radix UI (20+ component types including accordion, carousel, dialog, form, etc.) |
-| 🎬 **Animation** | Framer Motion 12.23.24, CSS3 keyframes, tsParticles |
-| 🌈 **Icons & Graphics** | Lucide React 0.462.0, tsParticles 3.0.0 |
-| 📋 **Forms & Validation** | React Hook Form 7.61.1, Zod 3.25.76, @hookform/resolvers |
-| 🧠 **State & Routing** | React Router DOM 6.30.1, React Query (TanStack Query 5.83.0) |
-| 🌓 **Theme Management** | next-themes 0.3.0 |
-| 🎪 **Notifications** | Sonner 1.7.4 (toast notifications) |
-| 📊 **Data Visualization** | Recharts 2.15.4, React Day Picker 8.10.1 |
-| ⌨️ **Input Utilities** | input-otp 1.4.2, embla-carousel-react 8.6.0, vaul (drawer) |
-| 🔧 **Development** | ESLint 9.32.0, TypeScript 5.8.3, Lovable Tagger |
-| 📦 **Utilities** | clsx 2.1.1, class-variance-authority 0.7.1, tailwind-merge 2.6.0, styled-components 6.1.19 |
+| ✨ **Frontend** | React 18.3.1, TypeScript 5.8.3, JSX/TSX |
+| ⚡ **Build Tools** | Vite 5.4.19, SWC (@vitejs/plugin-react-swc 3.11.0), esbuild |
+| 🎨 **Styling** | Tailwind CSS 3.4.17, PostCSS 8.5.6, Autoprefixer 10.4.21 |
+| 🎨 **UI Framework** | Shadcn/UI + Radix UI (50+ components: accordion, carousel, dialog, form, drawer, etc.) |
+| 🎬 **Animations** | Framer Motion 12.23.24, CSS3 Keyframes, tsParticles 3.0.0 |
+| 🎨 **Icons** | Lucide React 0.462.0 (462+ icons) |
+| 📝 **Forms** | React Hook Form 7.61.1, Zod 3.25.76 schema validation |
+| 🗺️ **Routing** | React Router DOM 6.30.1 with nested routes |
+| 📊 **State & Data** | TanStack Query 5.83.0, React Context |
+| 🌈 **Theme** | next-themes 0.3.0 with system preference detection |
+| 🔔 **Notifications** | Sonner 1.7.4 toast system |
+| 📈 **Data Viz** | Recharts 2.15.4, React Day Picker 8.10.1 |
+| 🎠 **Carousel** | Embla Carousel 8.6.0 with custom controls |
+| 🔧 **Utilities** | clsx 2.1.1, class-variance-authority 0.7.1, tailwind-merge 2.6.0 |
+| 🛠️ **Dev Tools** | ESLint 9.32.0, lovable-tagger 1.1.11 |
+| 📦 **Package Manager** | npm with lock file versioning |
 
 ---
 
 ## 📂 Project Directory Structure
 
+Well-organized, scalable architecture following React best practices:
+
 ```
 Babin.Portfolio/
 │
 ├── 📁 src/
-│   ├── 📁 components/              # All React components
-│   │   ├── Hero.tsx                # Hero section with TypeAnimation
-│   │   ├── About.tsx               # About section with avatar & accordion
-│   │   ├── Projects.tsx            # Project carousel (Embla) with 8 projects
-│   │   ├── Skills.tsx              # 40+ technical skills grid
-│   │   ├── Research.tsx            # Research publications with Framer Motion
-│   │   ├── Materials.tsx           # Study materials section
-│   │   ├── Contact.tsx             # Contact form & info cards
-│   │   ├── Header.tsx              # Navigation with animated underline
-│   │   ├── Footer.tsx              # Footer with Quick Links
-│   │   ├── SectionTitle.tsx        # Wave animation component (replays on scroll)
-│   │   ├── ThemeToggle.tsx         # Dark/Light mode toggle
-│   │   ├── ParticlesBackground.tsx # tsParticles background effect
-│   │   ├── Splash.tsx              # Loading preloader with animations
+│   ├── 📁 components/              # React Components (13 main + supporting)
+│   │   ├── Hero.tsx                # Hero section with TypeAnimation (3-line typing effect)
+│   │   ├── About.tsx               # About intro with avatar glow & 4-panel accordion
+│   │   ├── Projects.tsx            # Embla carousel with 10 projects + 3D tilt effect
+│   │   ├── Skills.tsx              # 40+ skills with category filtering & search
+│   │   ├── Achievements.tsx        # Awards/Badges/Certs with zoom lightbox + PDF
+│   │   ├── Research.tsx            # Research papers with Framer Motion animations
+│   │   ├── Materials.tsx           # Study materials & resources repository
+│   │   ├── Contact.tsx             # Form validation + contact info cards
+│   │   ├── Header.tsx              # Navigation with animated tricolor underline
+│   │   ├── Footer.tsx              # Footer with Quick Links & social media
+│   │   ├── SectionTitle.tsx        # Wave animation component (segment-based colors)
+│   │   ├── ThemeToggle.tsx         # Dark/Light toggle with system detection
+│   │   ├── ParticlesBackground.tsx # tsParticles with custom configuration
+│   │   ├── Splash.tsx              # Animated loading preloader (3.5s duration)
 │   │   └── 📁 ui/                  # Shadcn/UI components (40+ files)
-│   │       ├── accordion.tsx
-│   │       ├── alert-dialog.tsx
-│   │       ├── alert.tsx
-│   │       ├── aspect-ratio.tsx
-│   │       ├── avatar.tsx
-│   │       ├── badge.tsx
-│   │       ├── breadcrumb.tsx
-│   │       ├── button.tsx
-│   │       ├── calendar.tsx
-│   │       ├── card.tsx
-│   │       ├── carousel.tsx
-│   │       ├── chart.tsx
-│   │       ├── checkbox.tsx
-│   │       ├── collapsible.tsx
-│   │       ├── command.tsx
-│   │       ├── context-menu.tsx
-│   │       ├── dialog.tsx
-│   │       ├── drawer.tsx
-│   │       ├── dropdown-menu.tsx
-│   │       ├── form.tsx
-│   │       ├── hover-card.tsx
-│   │       ├── input-otp.tsx
-│   │       ├── input.tsx
-│   │       ├── label.tsx
-│   │       ├── menubar.tsx
-│   │       ├── navigation-menu.tsx
-│   │       ├── pagination.tsx
-│   │       ├── popover.tsx
-│   │       ├── progress.tsx
-│   │       ├── radio-group.tsx
-│   │       ├── resizable.tsx
-│   │       ├── scroll-area.tsx
-│   │       ├── select.tsx
-│   │       ├── separator.tsx
-│   │       ├── sheet.tsx
-│   │       ├── sidebar.tsx
-│   │       ├── skeleton.tsx
-│   │       ├── slider.tsx
-│   │       ├── sonner.tsx
-│   │       ├── switch.tsx
-│   │       ├── table.tsx
-│   │       ├── tabs.tsx
-│   │       ├── textarea.tsx
-│   │       ├── toast.tsx
-│   │       ├── toaster.tsx
-│   │       ├── toggle-group.tsx
-│   │       ├── toggle.tsx
-│   │       ├── tooltip.tsx
-│   │       └── use-toast.ts
-│   ├── 📁 hooks/                   # Custom React hooks
-│   │   ├── use-mobile.tsx          # Mobile detection hook
-│   │   └── use-toast.ts            # Toast notifications hook
-│   ├── 📁 lib/                     # Utility functions
-│   │   └── utils.ts                # Helper functions (cn, previewThenDownload, etc.)
-│   ├── 📁 pages/                   # Page-level components
-│   │   ├── Index.tsx               # Main portfolio page (entry point)
-│   │   └── NotFound.tsx            # 404 page
-│   ├── App.tsx                     # Root App component with theme provider
-│   ├── App.css                     # App-level CSS
-│   ├── main.tsx                    # React entry point
-│   ├── index.css                   # Tailwind directives & custom utilities
-│   └── vite-env.d.ts               # Vite environment type definitions
-│
-├── 📁 public/                      # Static assets
-│   ├── Babin.jpeg                  # Profile image (primary)
-│   ├── Babin_Profile.jpg           # Alternative profile image
-│   ├── Babin Bid Resume.pdf        # Resume (main filename)
-│   ├── Babin_Bid_Resume.pdf        # Resume (alternative filename)
-│   ├── Babin_Favicon.png           # Favicon (original)
-│   ├── Babin_Favicon_New.png       # Favicon (updated)
-│   ├── ML-Based Price Prediction for Agri-Horticultural Commodities.pdf  # Research paper
-│   ├── placeholder.svg             # Placeholder image
-│   ├── robots.txt                  # SEO robots configuration
-│   └── 📁 projects/                # Project screenshots (8 projects)
-│       ├── CargoConnect.png        # Cargo booking platform
-│       ├── PersonaPath.png         # Career advisor web app
-│       ├── BharatBus.jpeg          # Bus booking platform
-│       ├── AquaWatch.jpeg          # Water quality monitoring
-│       ├── CropAI India.png        # AI crop recommendation system
-│       ├── Stock_Market.png        # Stock market analyzer
-│       ├── ChatBot.png             # AI chatbot
-│       └── ImpactSense.jpeg        # Environmental impact tracker
-│
-├── 📁 .github/                     # GitHub configurations
-│
-├── 📄 index.html                   # HTML entry point
-├── 📄 package.json                 # Project dependencies & scripts
-├── 📄 package-lock.json            # Dependency lock file
-│
-├── 📄 tsconfig.json                # TypeScript base configuration
-├── 📄 tsconfig.app.json            # TypeScript app-specific config
-├── 📄 tsconfig.node.json           # TypeScript Node config
-│
-├── 📄 vite.config.ts               # Vite build configuration
-├── 📄 tailwind.config.ts           # Tailwind CSS configuration
-├── 📄 postcss.config.js            # PostCSS configuration
-│
-├── 📄 eslint.config.js             # ESLint rules
-├── 📄 .stylelintrc.json            # CSS linting rules
-├── 📄 components.json              # Shadcn component registry
-│
-├── 📄 .gitignore                   # Git ignore rules (node_modules)
-├── 📄 gitignore.txt                # Alternative gitignore
-├── 📄 README.md                    # This file
-└── 📁 node_modules/                # Installed dependencies
+│   │   │   └── 📁 ui/                  # Shadcn/UI Components (50+ files)
+│   │   │       ├── button.tsx, calendar.tsx, card.tsx, carousel.tsx
+│   │   │       ├── chart.tsx, checkbox.tsx, collapsible.tsx, command.tsx
+│   │   │       ├── context-menu.tsx, dialog.tsx, drawer.tsx, dropdown-menu.tsx
+│   │   │       ├── form.tsx, hover-card.tsx, input-otp.tsx, input.tsx
+│   │   │       ├── label.tsx, menubar.tsx, navigation-menu.tsx, pagination.tsx
+│   │   │       ├── popover.tsx, progress.tsx, radio-group.tsx, resizable.tsx
+│   │   │       ├── scroll-area.tsx, select.tsx, separator.tsx, sheet.tsx
+│   │   │       ├── sidebar.tsx, skeleton.tsx, slider.tsx, sonner.tsx
+│   │   │       ├── switch.tsx, table.tsx, tabs.tsx, textarea.tsx
+│   │   │       ├── tilt-card.tsx, toast.tsx, toaster.tsx, toggle-group.tsx
+│   │   │       ├── toggle.tsx, tooltip.tsx, use-toast.ts
+│   │   │       └── [45+ total Radix-based accessible components]
+│   │   ├── 📁 hooks/                   # Custom React Hooks
+│   │   │   ├── use-mobile.tsx          # Mobile device detection
+│   │   │   └── use-toast.ts            # Toast notification hook
+│   │   ├── 📁 lib/                     # Utility Functions
+│   │   │   ├── utils.ts                # cn(), previewThenDownload(), helpers
+│   │   │   └── 📁 data/
+│   │   │       └── achievements.ts     # Achievements data structure
+│   │   ├── 📁 pages/                   # Route-level pages
+│   │   │   ├── Index.tsx               # Main portfolio (home + all sections)
+│   │   │   ├── AchievementsPage.tsx    # Dedicated achievements page
+│   │   │   └── NotFound.tsx            # 404 error page
+│   │   ├── App.tsx                     # Root app with theme + router providers
+│   │   ├── App.css                     # App-level CSS utilities
+│   │   ├── animations.css              # Keyframe animations (fade-in, slide, scale)
+│   │   ├── index.css                   # Tailwind + custom CSS utilities & variables
+│   │   ├── main.tsx                    # React 18 entry point
+│   │   └── vite-env.d.ts               # Vite type definitions
+│   │
+│   ├── 📁 public/                      # Static assets & media
+│   │   ├── Babin_New.jpeg              # Profile avatar (primary)
+│   │   ├── Babin_Bid_Resume.pdf        # Resume PDF document
+│   │   ├── ML-Based Price Prediction.pdf # Research publication
+│   │   ├── robots.txt                  # SEO robots.txt
+│   │   ├── sitemap.xml                 # XML sitemap for SEO
+│   │   └── 📁 Achievements/            # Achievement certificates & badges
+│   │       ├── AWS/, CISCO/, Google/   # Cloud & tech certifications
+│   │       ├── Microsoft/, IBM/        # Enterprise certifications
+│   │       ├── Holopin/, HP Life/      # Badge systems
+│   │       └── [20+ category folders]  # Organized by platform/type
+│   │   └── 📁 projects/                # Project screenshots (10 projects)
+│   │       ├── CargoConnect.png, PersonaPath.png, SkyCast_AI.png
+│   │       ├── AquaWatch.jpeg, CropAI_India.png, BharatBus.jpeg
+│   │       ├── Heart_Disease_Prediction_System.png, Stock_Market.png
+│   │       ├── ImpactSense.jpeg, ChatBot.png
+│   │       └── [10+ project thumbnails]
+│   │
+│   ├── 📄 index.html                   # HTML entry point with metadata
+│   ├── 📄 package.json                 # Dependencies & build scripts
+│   ├── 📄 package-lock.json            # Lock file for reproducible installs
+│   │
+│   ├── 📄 tsconfig.json                # TypeScript base configuration
+│   ├── 📄 tsconfig.app.json            # TypeScript app-specific config
+│   ├── 📄 tsconfig.node.json           # TypeScript Node tools config
+│   │
+│   ├── 📄 vite.config.ts               # Vite build configuration (SWC, React)
+│   ├── 📄 tailwind.config.ts           # Tailwind CSS theme customization
+│   ├── 📄 postcss.config.js            # PostCSS plugins (Tailwind, Autoprefixer)
+│   │
+│   ├── 📄 eslint.config.js             # ESLint rules & severity
+│   ├── 📄 components.json              # Shadcn component registry
+│   ├── 📄 vercel.json                  # Vercel deployment config
+│   │
+│   ├── 📄 .gitignore                   # Git ignore rules
+│   ├── 📄 LICENSE                      # MIT License
+│   ├── 📄 DEPLOYMENT_FIXES.md          # Deployment notes & fixes
+│   ├── 📄 README.md                    # This file
+│   └── 📁 node_modules/                # Installed dependencies (31 production)
 
 ```
 
@@ -205,55 +199,57 @@ Babin.Portfolio/
 
 ### 📑 Main Page Components
 
-| Component | Purpose | Features |
-|-----------|---------|----------|
-| **Hero.tsx** | Hero section | Dynamic typing, resume download, social links |
-| **About.tsx** | About section | Avatar with glow, skills cards, auto-closing accordion (4 panels) |
-| **Projects.tsx** | Project showcase | Embla carousel, 8+ projects, GitHub/demo links |
-| **Skills.tsx** | Skills display | 40+ categorized skills, hover gradients, animated entrance |
-| **Research.tsx** | Research papers | Framer Motion animations, publication details |
-| **Materials.tsx** | Study materials | Resources repository, learning materials |
-| **Contact.tsx** | Contact form | Form validation, contact info cards, equal heights |
+| 🎭 **Component** | 📋 **Purpose** | ⭐ **Features** |
+|-----------|---------|----------|\n| **🎨 Hero.tsx** | Landing section | 3-line typing effect, resume download, social icons |
+| **👤 About.tsx** | Professional intro | Avatar glow, skills matrix, 4-panel accordion, gradient text |
+| **💼 Projects.tsx** | Showcase carousel | Embla carousel, 10 projects, 3D tilt effect, search/filter |
+| **🔧 Skills.tsx** | Skill matrix | 40+ skills, 10 categories, live filtering, gradient badges |
+| **🏆 Achievements.tsx** | Certification hub | Filter by type, zoom lightbox, PDF viewer, 100+ items |
+| **📚 Research.tsx** | Publications | Academic papers, modal view, tech stack badges |
+| **📖 Materials.tsx** | Learning hub | Study resources, materials repository |
+| **📧 Contact.tsx** | Get in touch | Form validation, contact cards, copy-to-clipboard |
 
-### � Supporting Components
+### 🎭 Supporting Components
 
-| Component | Purpose |
-|-----------|---------|
-| **Header.tsx** | Navigation with animated underline & theme toggle |
-| **Footer.tsx** | Footer with Quick Links & social media |
-| **SectionTitle.tsx** | Wave animation text (replays on scroll) |
-| **ThemeToggle.tsx** | Dark/Light mode toggle button |
-| **ParticlesBackground.tsx** | tsParticles background animation |
-| **Splash.tsx** | Loading preloader screen |
+| 🎭 **Component** | 📋 **Purpose** |
+|-----------|----------|\n| **🔗 Header.tsx** | Sticky navbar with animated tricolor underline, theme toggle |
+| **📄 Footer.tsx** | Footer grid with Quick Links, social icons, quote |
+| **🌊 SectionTitle.tsx** | Wave text animations with segment colors (replays on scroll) |
+| **🌙 ThemeToggle.tsx** | Theme toggle with smooth transitions |
+| **✨ ParticlesBackground.tsx** | tsParticles animated background |
+| **⏳ Splash.tsx** | Loading screen with progress bar (3.5s duration) |
+| **⬆️ BackToTop.tsx** | Sticky scroll-to-top button |
+| **📊 InteractiveStats.tsx** | Animated statistics counters |
+| **🛡️ ErrorBoundary.tsx** | Error handling wrapper component |
 
 ---
 
 ## ⚙️ Installation & Setup
 
-### Prerequisites
-- **Node.js** 18+ ([Download](https://nodejs.org/))
-- **npm** (comes with Node.js)
-- **Git** for version control
+### 📋 Prerequisites
+- ⬜ **Node.js** 18+ ([Download](https://nodejs.org/))
+- 📦 **npm** (comes with Node.js)
+- 🐙 **Git** for version control
 
-### Installation Steps
+### 🚀 Installation Steps
 
-1. **Clone the repository**
+1. 📥 **Clone the repository**
    ```bash
    git clone https://github.com/KGFCH2/Babin.Portfolio.git
    cd Babin.Portfolio
    ```
 
-2. **Install dependencies**
+2. 📦 **Install dependencies**
    ```bash
    npm ci  # or npm install
    ```
 
-3. **Start development server**
+3. 🔥 **Start development server**
    ```bash
    npm run dev
    ```
    
-   Open browser to `http://localhost:5173` �
+   Open browser to `http://localhost:5173` ✨
 
 ---
 
@@ -333,19 +329,23 @@ const projects = [
 
 ### 3️⃣ Update Skills
 
-Edit `src/components/Skills.tsx`:
+⚙️ Edit `src/components/Skills.tsx`:
 
 ```tsx
 const skills = [
   { name: 'React', category: 'Web' },
   { name: 'Python', category: 'Programming' },
-  // ... more skills
+  { name: 'TypeScript', category: 'Web' },
+  { name: 'TensorFlow', category: 'ML' },
+  // ... add your skills here
 ];
+
+const allCategories = Array.from(new Set(skills.map(s => s.category)));
 ```
 
 ### 4️⃣ Customize Theme Colors
 
-Edit `src/index.css`:
+🎨 Edit `src/index.css`:
 
 ```css
 :root {
@@ -362,7 +362,7 @@ Edit `src/index.css`:
 
 ### 5️⃣ Setup Contact Form
 
-Add `.env.local` in root:
+📬 Add `.env.local` in root:
 
 ```env
 VITE_CONTACT_ENDPOINT=https://your-api-endpoint.com/contact
@@ -370,70 +370,95 @@ VITE_CONTACT_ENDPOINT=https://your-api-endpoint.com/contact
 
 ### 6️⃣ Update Social Links
 
-Edit `src/components/Header.tsx` and `src/components/Footer.tsx` to update GitHub, LinkedIn, email links.
+🔗 Edit `src/components/Header.tsx` and `src/components/Footer.tsx` to update GitHub, LinkedIn, email links.
 
 ### 7️⃣ Modify Section Titles
 
-Edit section heading text in each component file (Hero.tsx, About.tsx, etc.)
+📝 Edit section heading text in each component file using `SectionTitle` component:
+
+### 7️⃣ Modify Section Titles
+
+Edit section heading text in each component file using `SectionTitle` component:
+
+```tsx
+<h2 className="text-4xl md:text-5xl font-bold">
+  <SectionTitle
+    segments={[
+      {
+        text: "Your",
+        className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-violet-600",
+      },
+      {
+        text: " Title",
+        className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-emerald-400",
+      },
+    ]}
+  />
+</h2>
+```
 
 ---
 
-## 📊 Project Statistics
+## 📊 Project Metrics
 
-- **Lines of Code**: 3000+ lines (React components + utilities)
-- **Components**: 13 main + 40+ UI components = 53+ total
-- **TypeScript**: 100% type coverage
-- **Dependencies**: 30+ production dependencies
-- **Dev Dependencies**: 15+ development dependencies
-- **Build Size**: ~666 KB (minified)
-- **Build Time**: < 15 seconds
-- **Lighthouse Score**: 90+ (Performance, Accessibility, Best Practices)
+| Metric | Value | Notes |
+|--------|-------|-------|
+| **Code Volume** | 4000+ lines | React TSX + utilities |
+| **Components** | 60+ total | 13 main + 47 UI components |
+| **Type Coverage** | 100% | Full TypeScript strict mode |
+| **Production Deps** | 31 | Carefully curated packages |
+| **Dev Dependencies** | 14 | Build & linting tools |
+| **Bundle Size** | ~666 KB | Minified, gzipped |
+| **Build Time** | <15 seconds | Vite with SWC optimization |
+| **Animations** | 15+ keyframes | CSS + Framer Motion |
+| **Accessibility** | WCAG 2.1 | Full keyboard navigation |
+| **Responsive Points** | 4+ breakpoints | Mobile-first design |
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please follow these steps:
+🎉 Contributions are welcome! Please follow these steps:
 
-1. **Fork** the repository
+1. 🍴 **Fork** the repository
    ```bash
    git clone https://github.com/YOUR-USERNAME/Babin.Portfolio.git
    ```
 
-2. **Create a feature branch**
+2. 🌿 **Create a feature branch**
    ```bash
    git checkout -b feature/amazing-feature
    ```
 
-3. **Make your changes** and test locally
+3. 🔨 **Make your changes** and test locally
    ```bash
    npm run dev
    ```
 
-4. **Run linting**
+4. ✅ **Run linting**
    ```bash
    npm run lint
    ```
 
-5. **Commit your changes**
+5. 💾 **Commit your changes**
    ```bash
    git commit -m 'Add amazing feature'
    ```
 
-6. **Push to your branch**
+6. 📤 **Push to your branch**
    ```bash
    git push origin feature/amazing-feature
    ```
 
-7. **Open a Pull Request** on the main repository
+7. 🔄 **Open a Pull Request** on the main repository
 
-### Contribution Guidelines
+### 📋 Contribution Guidelines
 
-- Follow existing code style and TypeScript conventions
-- Add proper TypeScript types to all new code
-- Test changes on multiple devices (desktop, tablet, mobile)
-- Update README if adding new features
-- Keep commits focused and descriptive
+- 📝 Follow existing code style and TypeScript conventions
+- 🏷️ Add proper TypeScript types to all new code
+- 📱 Test changes on multiple devices (desktop, tablet, mobile)
+- 📚 Update README if adding new features
+- 💬 Keep commits focused and descriptive
 
 ---
 
@@ -461,10 +486,23 @@ npm run lint  # Check for linting issues
 npm run build -- --mode development  # Debug build
 ```
 
+### Animations Not Smooth
+```bash
+# Clear build cache and rebuild
+rm -rf dist node_modules/.vite
+npm run build
+```
+
 ### Wave Animations Not Showing
-- Check that `SectionTitle` component is imported in section files
-- Verify `animate-wave` CSS class exists in `src/index.css`
-- Ensure section has proper `id` attribute for IntersectionObserver
+- Verify `SectionTitle` component is imported and used in section files
+- Check that `animate-wave` and `animate-fade-in-up` exist in `src/animations.css`
+- Ensure sections have proper `id` attributes and `useInView` hook
+- Verify section has `inView` state passed to className
+
+### 3D Tilt Not Working
+- Check that `TiltCard` component wraps project cards in carousel
+- Ensure mouse move events are properly tracked
+- Verify CSS `perspective` is applied (use browser DevTools)
 
 ---
 
@@ -487,9 +525,9 @@ VITE_API_URL=https://your-api.com
 
 ## 📬 Contact Information
 
-**Babin Bid**  
+👨‍💻 **Babin Bid**  
 📧 **Email**: [babinbid05@gmail.com](mailto:babinbid05@gmail.com)  
-🔗 **LinkedIn**: [Babin Bid](https://www.linkedin.com/in/babin-bid-853728293)  
+💼 **LinkedIn**: [Babin Bid](https://www.linkedin.com/in/babin-bid-853728293)  
 🐙 **GitHub**: [KGFCH2](https://github.com/KGFCH2)  
 🌐 **Portfolio**: [babin-portfolio.vercel.app](https://babin-portfolio.vercel.app/)
 
@@ -497,20 +535,20 @@ VITE_API_URL=https://your-api.com
 
 ## 📜 License
 
-This project is open source and available under the **MIT License**. Feel free to use it as a template for your own portfolio!
+✅ This project is open source and available under the **MIT License**. Feel free to use it as a template for your own portfolio! 🎉
 
 ---
 
 ## 🙏 Acknowledgments
 
-Special thanks to:
-- **React & TypeScript** communities for amazing tools
-- **Vite** for blazing-fast build performance
-- **Tailwind CSS** for utility-first CSS framework
-- **Shadcn/UI** & **Radix UI** for accessible components
-- **Framer Motion** for smooth animations
-- **TsParticles** for particle effects
-- All contributors and open-source libraries
+❤️ Special thanks to:
+- ✨ **React & TypeScript** communities for amazing tools
+- ⚡ **Vite** for blazing-fast build performance
+- 🎨 **Tailwind CSS** for utility-first CSS framework
+- 🎨 **Shadcn/UI** & **Radix UI** for accessible components
+- 🎬 **Framer Motion** for smooth animations
+- ✨ **TsParticles** for particle effects
+- ⭐ All contributors and open-source libraries
 
 ---
 
