@@ -1,10 +1,18 @@
 import React from "react";
 import SectionTitle from "./SectionTitle";
+import { useInView } from "react-intersection-observer";
 
 const Materials: React.FC = () => {
+    const { ref, inView } = useInView({
+        threshold: 0.1,
+        triggerOnce: true,
+    });
+
     return (
-        <section id="materials" className="py-20 section-divider-top">
-            <div className="container mx-auto px-4">
+        <section id="materials" className="py-20 section-divider-top" ref={ref}>
+            <div
+                className={`container mx-auto px-4 ${inView ? "animate-fade-in-up" : "opacity-0"}`}
+            >
                 <div className="max-w-4xl mx-auto text-center space-y-6">
                     <h2 className="text-3xl md:text-4xl font-bold">
                         <SectionTitle

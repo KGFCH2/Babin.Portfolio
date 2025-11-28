@@ -92,7 +92,7 @@ const StatCard: React.FC<StatCardProps> = ({ stat, index, isVisible }) => {
 
     return (
         <div
-            className={`relative group transform transition-all duration-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            className={`relative group transform transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                 }`}
             style={{
                 transitionDelay: isVisible ? `${index * 100}ms` : '0ms'

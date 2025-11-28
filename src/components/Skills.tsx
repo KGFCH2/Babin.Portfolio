@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import SectionTitle from "./SectionTitle";
+import { useInView } from "react-intersection-observer";
 
 const Skills: React.FC = () => {
+    const { ref, inView } = useInView({
+        threshold: 0.1,
+        triggerOnce: true,
+    });
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
     const skills = [
@@ -90,8 +95,8 @@ const Skills: React.FC = () => {
     });
 
     return (
-        <section id="skills" className="py-20 relative overflow-hidden section-divider-top section-divider-offset-md">
-            <div className="container mx-auto px-6">
+        <section id="skills" className="py-20 relative overflow-hidden section-divider-top section-divider-offset-md" ref={ref}>
+            <div className={`container mx-auto px-6 ${inView ? "animate-fade-in-up" : "opacity-0"}`}>
                 <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
                     <SectionTitle
                         segments={[
@@ -121,8 +126,8 @@ const Skills: React.FC = () => {
                         <button
                             onClick={() => setSelectedCategory(null)}
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === null
-                                    ? 'bg-primary text-primary-foreground shadow-lg'
-                                    : 'bg-muted text-foreground hover:bg-muted/80'
+                                ? 'bg-primary text-primary-foreground shadow-lg'
+                                : 'bg-muted text-foreground hover:bg-muted/80'
                                 }`}
                         >
                             All Skills
@@ -132,8 +137,8 @@ const Skills: React.FC = () => {
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === category
-                                        ? 'bg-primary text-primary-foreground shadow-lg'
-                                        : 'bg-muted text-foreground hover:bg-muted/80'
+                                    ? 'bg-primary text-primary-foreground shadow-lg'
+                                    : 'bg-muted text-foreground hover:bg-muted/80'
                                     }`}
                             >
                                 {category}

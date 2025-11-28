@@ -138,7 +138,7 @@ const Achievements = () => {
         <section id="achievements" className="py-20 relative section-divider-top" ref={ref}>
             <div className="container mx-auto px-4">
                 <div
-                    className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : ""
+                    className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
                         }`}
                 >
                     <div className="text-center space-y-4">
@@ -228,10 +228,10 @@ const Achievements = () => {
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <div className="p-4 flex-grow flex flex-col justify-between">
+                                                <div className="p-4 flex-grow flex flex-col justify-center items-center text-center">
                                                     <h4 className="text-lg font-semibold text-foreground leading-tight mb-2">{item.title}</h4>
                                                     {type === 'pdf' && (
-                                                        <p className="text-xs text-muted-foreground flex items-center gap-1 mt-auto">
+                                                        <p className="text-xs text-muted-foreground flex items-center gap-1">
                                                             <FileText className="w-3 h-3" /> PDF Document
                                                         </p>
                                                     )}

@@ -11,6 +11,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Star } from "lucide-react";
 import SectionTitle from "./SectionTitle";
+import { TiltCard } from "@/components/ui/tilt-card";
 
 const Projects = () => {
   const { ref, inView } = useInView({
@@ -306,7 +307,7 @@ const Projects = () => {
                 .sort((a, b) => a.title.localeCompare(b.title))
                 .map((project, index) => (
                   <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                    <div className="p-2 h-full">
+                    <TiltCard className="p-2 h-full">
                       <Card className="h-full overflow-hidden border-border/50 shadow-card hover:shadow-glow transition-smooth group flex flex-col">
                         {project.thumbnail ? (
                           <div className="h-56 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
@@ -389,7 +390,7 @@ const Projects = () => {
                           </div>
                         </div>
                       </Card>
-                    </div>
+                    </TiltCard>
                   </CarouselItem>
                 ))}
             </CarouselContent>
