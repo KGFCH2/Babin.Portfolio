@@ -52,7 +52,7 @@ All colors MUST be HSL.
     --shadow-card: 0 8px 30px hsla(240, 10%, 10%, 0.08);
 
     /* Transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     /* Indian tricolor palette (H S% L%) */
     --tricolor-saffron: 31 100% 58%;
     /* saffron ~ #FF9933 */
@@ -108,7 +108,7 @@ All colors MUST be HSL.
     --shadow-card: 0 8px 30px hsla(0, 0%, 0%, 0.4);
 
     /* Transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
