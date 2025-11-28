@@ -1,4 +1,6 @@
 import { ThemeProvider } from "next-themes";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -14,6 +16,19 @@ import BackToTop from "@/components/BackToTop";
 import SkipToContent from "@/components/SkipToContent";
 
 const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <div className="relative min-h-screen">
