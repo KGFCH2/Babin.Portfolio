@@ -117,7 +117,7 @@ const Achievements = () => {
             setSelectedItem(null);
             setZoomLevel(1);
             setIsClosing(false);
-        }, 400); // Match animation duration
+        }, 1500); // Match animation duration (slower close)
     };
 
     if (!filteredAchievements || filteredAchievements.length === 0) {
@@ -255,8 +255,8 @@ const Achievements = () => {
             {selectedItem && selectedItem.type === 'image' && (
                 <div
                     className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 transition-all duration-400 ${isClosing
-                            ? 'opacity-0 backdrop-blur-none'
-                            : 'animate-fade-in'
+                        ? 'opacity-0 backdrop-blur-none'
+                        : 'animate-fade-in'
                         }`}
                 >
                     {/* Animated glow background */}
@@ -309,9 +309,9 @@ const Achievements = () => {
                         onClick={closeLightbox}
                     >
                         <div
-                            className={`transition-all duration-400 ease-out ${isClosing
-                                    ? 'scale-50 opacity-0 rotate-12 blur-sm'
-                                    : 'scale-100 opacity-100 rotate-0 blur-0'
+                            className={`transition-all duration-700 ease-out ${isClosing
+                                ? 'scale-50 opacity-0 rotate-12 blur-sm'
+                                : 'scale-100 opacity-100 rotate-0 blur-0'
                                 }`}
                             style={{ transform: `scale(${isClosing ? 0.5 : zoomLevel}) ${isClosing ? 'rotate(12deg)' : 'rotate(0deg)'}` }}
                             onClick={(e) => e.stopPropagation()}
