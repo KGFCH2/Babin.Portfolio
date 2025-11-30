@@ -73,6 +73,21 @@ const About = () => {
                   <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20 hover:bg-blue-500/20 transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(59,130,246,0.6),0_0_40px_rgba(59,130,246,0.4),0_0_60px_rgba(59,130,246,0.2)] hover:scale-105">Problem Solver</span>
                   <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20 hover:bg-purple-500/20 transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(168,85,247,0.6),0_0_40px_rgba(168,85,247,0.4),0_0_60px_rgba(168,85,247,0.2)] hover:scale-105">Innovator</span>
                 </div>
+                {/* Action Buttons */}
+                <div className="flex gap-3 flex-wrap pt-6">
+                  <button
+                    className="flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold hover:shadow-glow transition-all hover:scale-105"
+                    onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
+                  >
+                    📄 View Resume
+                  </button>
+                  <button
+                    className="flex-1 px-4 py-3 rounded-lg border border-border/50 text-foreground font-semibold hover:bg-primary/10 transition-all"
+                    onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    💬 Get in Touch
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -267,22 +282,6 @@ const About = () => {
                     </CollapsibleContent>
                   </div>
                 </Collapsible>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex gap-3 flex-wrap mt-auto pt-4">
-                <button
-                  className="flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold hover:shadow-glow transition-all hover:scale-105"
-                  onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
-                >
-                  📄 View Resume
-                </button>
-                <button
-                  className="flex-1 px-4 py-3 rounded-lg border border-border/50 text-foreground font-semibold hover:bg-primary/10 transition-all"
-                  onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  💬 Get in Touch
-                </button>
               </div>
             </div>
           </div>
