@@ -1,8 +1,50 @@
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    if (href === "/") {
+      if (location.pathname === "/") {
+        const element = document.querySelector("#home");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+          window.history.pushState(null, "", "/");
+        }
+      } else {
+        navigate("/");
+        setTimeout(() => {
+          window.history.pushState(null, "", "/");
+        }, 150);
+      }
+    } else if (href.startsWith("#")) {
+      // It's a section link
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+            window.history.pushState(null, "", href);
+          }
+        }, 150);
+      } else {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+          window.history.pushState(null, "", href);
+        }
+      }
+    } else {
+      // It's a route link (like /achievements)
+      navigate(href);
+    }
+  };
 
   return (
     <footer className="border-t border-border bg-card/50 tricolor-divider-top">
@@ -32,15 +74,16 @@ const Footer = () => {
                   "Materials",
                   "Contact",
                 ].map((item) => {
-                  const href = item === "Achievements" ? "/achievements" : `/#${item.toLowerCase()}`;
+                  const href = item === "Achievements" ? "/achievements" : `#${item.toLowerCase()}`;
                   return (
                     <li key={item} className="inline-block">
-                      <Link
-                        to={href}
+                      <a
+                        href={href}
+                        onClick={(e) => handleSectionClick(e, href)}
                         className="text-muted-foreground hover:text-primary transition-smooth nav-underline"
                       >
                         {item}
-                      </Link>
+                      </a>
                     </li>
                   );
                 })}

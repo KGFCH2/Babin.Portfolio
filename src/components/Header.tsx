@@ -89,25 +89,35 @@ const Header = () => {
 
   const scrollToSection = (href: string) => {
     setIsMobileMenuOpen(false);
-    
-    // If we're not on the home page, navigate to home first
-    if (location.pathname !== "/") {
-      navigate("/");
-      // Wait for navigation to complete, then scroll
-      setTimeout(() => {
+
+    // If it's a section link
+    if (href.startsWith("#")) {
+      // If we're not on the home page, navigate to home first
+      if (location.pathname !== "/") {
+        navigate("/");
+        // Wait for navigation to complete before scrolling
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+            setActiveSection(href.slice(1));
+            // Update URL hash
+            window.history.pushState(null, "", href);
+          }
+        }, 150);
+      } else {
+        // We're already on home page, just scroll
         const element = document.querySelector(href);
         if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
+          element.scrollIntoView({ behavior: "smooth" });
           setActiveSection(href.slice(1));
+          // Update URL hash
+          window.history.pushState(null, "", href);
         }
-      }, 100);
-    } else {
-      // We're already on home page, just scroll
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-        setActiveSection(href.slice(1));
       }
+    } else {
+      // If it's a route link (like /achievements)
+      navigate(href);
     }
   };
 
@@ -127,6 +137,10 @@ const Header = () => {
               scrollToSection("#home");
             } else {
               navigate("/");
+              setTimeout(() => {
+                setActiveSection("home");
+                window.history.pushState(null, "", "/");
+              }, 150);
             }
           }}
           className="text-2xl font-bold text-gradient"
@@ -155,7 +169,6 @@ const Header = () => {
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection(item.href);
-                      setActiveSection(item.href.slice(1));
                     }}
                     className={`text-foreground/80 hover:text-primary transition-smooth font-medium ${activeSection === item.href.slice(1) && location.pathname === "/" ? "text-primary" : ""}`}
                   >
