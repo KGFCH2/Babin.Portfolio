@@ -51,31 +51,8 @@ const About = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Left: Image with enhanced animation */}
-            <div className="flex justify-center md:justify-start pt-24">
-              <div className="group relative">
-                {/* Glowing background on hover */}
-                <div className="absolute -inset-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute inset-0 rounded-2xl blur-xl bg-gradient-to-br from-orange-500/40 via-blue-500/40 to-emerald-500/40 animate-pulse" />
-                </div>
-                {/* Image container with border and shadow */}
-                <div className="relative">
-                  <img
-                    src="/Babin_New.jpeg"
-                    alt="Babin Bid - Full Stack Developer and CS Engineer"
-                    loading="lazy"
-                    className="w-80 h-80 md:w-96 md:h-96 rounded-2xl object-cover shadow-2xl border-4 border-background/50 avatar-pulse"
-                  />
-                  {/* Floating accent badge */}
-                  <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-orange-400 to-emerald-400 rounded-full px-6 py-3 shadow-lg font-semibold text-sm text-background transform hover:scale-110 transition-transform">
-                    ✨ Available
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Professional info - floating style without boxes */}
-            <div className="space-y-8">
+            {/* Left: Professional info - floating style without boxes */}
+            <div className="space-y-8 order-2 md:order-1">
               {/* Intro Section - Floating */}
               <div className="space-y-4">
                 <h3
@@ -97,17 +74,44 @@ const About = () => {
                   <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20 hover:bg-purple-500/20 transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(168,85,247,0.6),0_0_40px_rgba(168,85,247,0.4),0_0_60px_rgba(168,85,247,0.2)] hover:scale-105">Innovator</span>
                 </div>
               </div>
+            </div>
 
-              {/* Primary Skills - CRAZY Animated Version */}
-              <div className="space-y-5 pt-4">
-                <h4 className="font-bold text-xl text-foreground flex items-center gap-2 group">
-                  <span className="text-2xl animate-bounce">💡</span>
-                  <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-pulse">Primary Knowledges</span>
-                  <span className="text-xs ml-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-white animate-pulse">PRO</span>
-                </h4>
-                <div className="space-y-4">
-                  {[
-                    { name: 'Switching Circuits', val: 95, icon: '⚡', color: 'from-orange-500 via-amber-400 to-yellow-300', bgColor: 'bg-orange-500/10', borderColor: 'border-orange-500/30', textColor: 'text-orange-400', glowColor: 'shadow-orange-500/50' },
+            {/* Right: Image with enhanced animation */}
+            <div className="flex justify-center md:justify-end pt-24 order-1 md:order-2">
+              <div className="group relative">
+                {/* Glowing background on hover */}
+                <div className="absolute -inset-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-0 rounded-2xl blur-xl bg-gradient-to-br from-orange-500/40 via-blue-500/40 to-emerald-500/40 animate-pulse" />
+                </div>
+                {/* Image container with border and shadow */}
+                <div className="relative">
+                  <img
+                    src="/Babin_New.jpeg"
+                    alt="Babin Bid - Full Stack Developer and CS Engineer"
+                    loading="lazy"
+                    className="w-80 h-80 md:w-96 md:h-96 rounded-2xl object-cover shadow-2xl border-4 border-background/50 avatar-pulse"
+                  />
+                  {/* Floating accent badge */}
+                  <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-orange-400 to-emerald-400 rounded-full px-6 py-3 shadow-lg font-semibold text-sm text-background transform hover:scale-110 transition-transform">
+                    ✨ Available
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Primary Skills Section - Below the grid */}
+          <div className="max-w-4xl mx-auto">
+            {/* Primary Skills - CRAZY Animated Version */}
+            <div className="space-y-5 pt-4">
+              <h4 className="font-bold text-xl text-foreground flex items-center gap-2 group">
+                <span className="text-2xl animate-bounce">💡</span>
+                <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-pulse">Primary Knowledges</span>
+                <span className="text-xs ml-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-white animate-pulse">PRO</span>
+              </h4>
+              <div className="space-y-4">
+                {[
+                  { name: 'Switching Circuits', val: 95, icon: '⚡', color: 'from-orange-500 via-amber-400 to-yellow-300', bgColor: 'bg-orange-500/10', borderColor: 'border-orange-500/30', textColor: 'text-orange-400', glowColor: 'shadow-orange-500/50' },
                     { name: 'Mathematics & Calculus', val: 90, icon: '📐', color: 'from-blue-500 via-cyan-400 to-sky-300', bgColor: 'bg-blue-500/10', borderColor: 'border-blue-500/30', textColor: 'text-blue-400', glowColor: 'shadow-blue-500/50' },
                     { name: 'Frontend Development', val: 90, icon: '🎨', color: 'from-purple-500 via-violet-400 to-fuchsia-300', bgColor: 'bg-purple-500/10', borderColor: 'border-purple-500/30', textColor: 'text-purple-400', glowColor: 'shadow-purple-500/50' },
                     { name: 'Data Structures & Algorithms', val: 85, icon: '🧠', color: 'from-rose-500 via-pink-400 to-red-300', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400', glowColor: 'shadow-rose-500/50' },
@@ -189,7 +193,6 @@ const About = () => {
                 </button>
               </div>
             </div>
-          </div>
 
           {/* Professional Accordion Section */}
           <div className="mt-16">
@@ -292,6 +295,8 @@ const About = () => {
           </blockquote>
         </div>
       </div>
+
+
 
       {/* Image Modal/Lightbox */}
       {showImageModal && (
