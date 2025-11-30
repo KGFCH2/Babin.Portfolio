@@ -110,7 +110,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 relative section-divider-top" ref={ref}>
+    <section id="contact" className="py-20 relative section-divider-top bg-gradient-to-b from-teal-50 to-cyan-50 dark:from-transparent dark:to-transparent" ref={ref}>
       <div className="container mx-auto px-4">
         <div
           className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
