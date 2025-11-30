@@ -15,6 +15,7 @@ const Achievements = () => {
     const [selectedItem, setSelectedItem] = useState<{ file: string; type: 'image' | 'pdf' } | null>(null);
     const [zoomLevel, setZoomLevel] = useState(1);
     const [filter, setFilter] = useState<'all' | 'certificates' | 'awards' | 'badges'>('all');
+    const [isClosing, setIsClosing] = useState(false);
 
     // Helper to determine type based on extension
     const getFileType = (path: string) => {
@@ -111,8 +112,12 @@ const Achievements = () => {
     };
 
     const closeLightbox = () => {
-        setSelectedItem(null);
-        setZoomLevel(1);
+        setIsClosing(true);
+        setTimeout(() => {
+            setSelectedItem(null);
+            setZoomLevel(1);
+            setIsClosing(false);
+        }, 400); // Match animation duration
     };
 
     if (!filteredAchievements || filteredAchievements.length === 0) {
@@ -248,60 +253,88 @@ const Achievements = () => {
 
             {/* Lightbox Modal for Images */}
             {selectedItem && selectedItem.type === 'image' && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 animate-fade-in">
+                <div 
+                    className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 transition-all duration-400 ${
+                        isClosing 
+                            ? 'opacity-0 backdrop-blur-none' 
+                            : 'animate-fade-in'
+                    }`}
+                >
+                    {/* Animated glow background */}
+                    <div className={`absolute inset-0 transition-all duration-500 ${isClosing ? 'opacity-0 scale-150' : 'opacity-100'}`}>
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/30 via-purple-500/20 to-secondary/30 rounded-full blur-3xl animate-pulse" />
+                    </div>
 
                     {/* Controls */}
-                    <div className="absolute top-4 right-4 flex items-center gap-2 z-50">
+                    <div className={`absolute top-4 right-4 flex items-center gap-2 z-50 transition-all duration-300 ${
+                        isClosing ? 'opacity-0 -translate-y-10' : 'opacity-100 translate-y-0'
+                    }`}>
                         <button
                             onClick={handleZoomIn}
-                            className="p-2 bg-white/10 rounded-full text-white hover:bg-primary hover:text-white transition-colors backdrop-blur-md"
+                            className="p-2 bg-white/10 rounded-full text-white hover:bg-primary hover:text-white transition-all duration-300 backdrop-blur-md hover:scale-110"
                             title="Zoom In"
                         >
                             <ZoomIn className="h-6 w-6" />
                         </button>
                         <button
                             onClick={handleZoomOut}
-                            className="p-2 bg-white/10 rounded-full text-white hover:bg-primary hover:text-white transition-colors backdrop-blur-md"
+                            className="p-2 bg-white/10 rounded-full text-white hover:bg-primary hover:text-white transition-all duration-300 backdrop-blur-md hover:scale-110"
                             title="Zoom Out"
                         >
                             <ZoomOut className="h-6 w-6" />
                         </button>
                         <button
                             onClick={handleResetZoom}
-                            className="p-2 bg-white/10 rounded-full text-white hover:bg-primary hover:text-white transition-colors backdrop-blur-md"
+                            className="p-2 bg-white/10 rounded-full text-white hover:bg-primary hover:text-white transition-all duration-300 backdrop-blur-md hover:scale-110"
                             title="Reset Zoom"
                         >
                             <RotateCcw className="h-6 w-6" />
                         </button>
                         <button
                             onClick={handleDownload}
-                            className="p-2 bg-white/10 rounded-full text-white hover:bg-primary hover:text-white transition-colors backdrop-blur-md"
+                            className="p-2 bg-white/10 rounded-full text-white hover:bg-primary hover:text-white transition-all duration-300 backdrop-blur-md hover:scale-110"
                             title="Download"
                         >
                             <Download className="h-6 w-6" />
                         </button>
                         <button
                             onClick={closeLightbox}
-                            className="p-2 bg-red-500/80 rounded-full text-white hover:bg-red-600 transition-colors ml-2 backdrop-blur-md"
+                            className="p-2 bg-red-500/80 rounded-full text-white hover:bg-red-600 transition-all duration-300 ml-2 backdrop-blur-md hover:scale-110 hover:rotate-90"
                             title="Close"
                         >
                             <X className="h-6 w-6" />
                         </button>
                     </div>
 
-                    <div className="relative w-full h-full flex items-center justify-center overflow-hidden" onClick={closeLightbox}>
+                    <div 
+                        className="relative w-full h-full flex items-center justify-center overflow-hidden" 
+                        onClick={closeLightbox}
+                    >
                         <div
-                            className="transition-transform duration-200 ease-out"
-                            style={{ transform: `scale(${zoomLevel})` }}
+                            className={`transition-all duration-400 ease-out ${
+                                isClosing 
+                                    ? 'scale-50 opacity-0 rotate-12 blur-sm' 
+                                    : 'scale-100 opacity-100 rotate-0 blur-0'
+                            }`}
+                            style={{ transform: `scale(${isClosing ? 0.5 : zoomLevel}) ${isClosing ? 'rotate(12deg)' : 'rotate(0deg)'}` }}
                             onClick={(e) => e.stopPropagation()}
                         >
+                            {/* Glowing border effect */}
+                            <div className={`absolute -inset-2 bg-gradient-to-r from-primary via-purple-500 to-secondary rounded-2xl blur-xl transition-opacity duration-300 ${isClosing ? 'opacity-0' : 'opacity-50'}`} />
                             <img
                                 src={selectedItem.file}
                                 alt="Achievement Full View"
-                                className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                                className="relative max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl border-2 border-white/10"
                             />
                         </div>
                     </div>
+
+                    {/* Click to close hint */}
+                    <p className={`absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 text-sm transition-all duration-300 ${
+                        isClosing ? 'opacity-0 translate-y-10' : 'opacity-100 translate-y-0'
+                    }`}>
+                        Click anywhere to close
+                    </p>
                 </div>
             )}
         </section>
