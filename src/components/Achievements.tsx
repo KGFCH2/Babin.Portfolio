@@ -321,7 +321,7 @@ const Achievements = () => {
                             <img
                                 src={selectedItem.file}
                                 alt="Achievement Full View"
-                                className="relative max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl border-2 border-white/10"
+                                className="relative max-w-[85vw] max-h-[75vh] object-contain rounded-lg shadow-2xl border-2 border-white/10"
                             />
                         </div>
                     </div>
