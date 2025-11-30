@@ -316,8 +316,8 @@ const Achievements = () => {
                             style={{ transform: `scale(${isClosing ? 0.5 : zoomLevel}) ${isClosing ? 'rotate(12deg)' : 'rotate(0deg)'}` }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            {/* Glowing border effect */}
-                            <div className={`absolute -inset-2 bg-gradient-to-r from-primary via-purple-500 to-secondary rounded-2xl blur-xl transition-opacity duration-300 ${isClosing ? 'opacity-0' : 'opacity-50'}`} />
+                            {/* Glowing border effect - Indian Flag colors */}
+                            <div className={`absolute -inset-2 bg-gradient-to-r from-[#FF9933] via-white to-[#138808] rounded-2xl blur-xl transition-opacity duration-300 ${isClosing ? 'opacity-0' : 'opacity-60'}`} />
                             <img
                                 src={selectedItem.file}
                                 alt="Achievement Full View"
