@@ -30,7 +30,7 @@ const Projects = () => {
 
   // Autoplay plugin with pause on hover
   const autoplayPlugin = useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 1000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   // Pause auto-scroll on user interaction
