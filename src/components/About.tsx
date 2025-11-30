@@ -77,7 +77,7 @@ const About = () => {
             </div>
 
             {/* Right: Image with enhanced animation */}
-            <div className="flex justify-center md:justify-end pt-24 order-1 md:order-2">
+            <div className="flex justify-center md:justify-end order-1 md:order-2">
               <div className="group relative">
                 {/* Glowing background on hover */}
                 <div className="absolute -inset-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -89,7 +89,7 @@ const About = () => {
                     src="/Babin_New.jpeg"
                     alt="Babin Bid - Full Stack Developer and CS Engineer"
                     loading="lazy"
-                    className="w-80 h-80 md:w-96 md:h-96 rounded-2xl object-cover shadow-2xl border-4 border-background/50 avatar-pulse"
+                    className="w-64 h-64 md:w-72 md:h-72 rounded-2xl object-cover shadow-2xl border-4 border-background/50 avatar-pulse"
                   />
                   {/* Floating accent badge */}
                   <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-orange-400 to-emerald-400 rounded-full px-6 py-3 shadow-lg font-semibold text-sm text-background transform hover:scale-110 transition-transform">
