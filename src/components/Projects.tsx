@@ -1,13 +1,13 @@
 import { useInView } from "react-intersection-observer";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Star } from "lucide-react";
@@ -26,29 +26,12 @@ const Projects = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
-  const [api, setApi] = useState<CarouselApi>();
   const [isHovered, setIsHovered] = useState(false);
 
-  // Reinitialize carousel when filters change
-  useEffect(() => {
-    if (!api) return;
-    // Small delay to let the DOM update with filtered items
-    const timeout = setTimeout(() => {
-      api.reInit();
-    }, 100);
-    return () => clearTimeout(timeout);
-  }, [api, searchTerm, selectedTech]);
-
-  // Auto-scroll effect when carousel is in view
-  useEffect(() => {
-    if (!api || !carouselInView || isHovered) return;
-
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 2000); // Scroll every 2 seconds
-
-    return () => clearInterval(interval);
-  }, [api, carouselInView, isHovered]);
+  // Autoplay plugin with pause on hover
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
 
   // Pause auto-scroll on user interaction
   const handleMouseEnter = useCallback(() => setIsHovered(true), []);
@@ -386,11 +369,12 @@ const Projects = () => {
             onMouseLeave={handleMouseLeave}
           >
             <Carousel
+              key={`${searchTerm}-${selectedTech}`}
               opts={{
                 align: "start",
                 loop: true,
               }}
-              setApi={setApi}
+              plugins={[autoplayPlugin.current]}
               className="w-full"
             >
               <CarouselContent>
