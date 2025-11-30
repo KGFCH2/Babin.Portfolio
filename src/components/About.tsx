@@ -2,7 +2,7 @@ import { useInView } from "react-intersection-observer";
 import { ChevronDown, X } from "lucide-react";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { previewThenDownload } from "@/lib/utils";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SectionTitle from "./SectionTitle";
 
 const About = () => {
@@ -13,6 +13,16 @@ const About = () => {
 
   const [openPanel, setOpenPanel] = useState<string | null>(null);
   const [showImageModal, setShowImageModal] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  // Handle closing with animation
+  const handleCloseModal = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setShowImageModal(false);
+      setIsClosing(false);
+    }, 300); // Match animation duration
+  };
 
   return (
     <section id="about" className="py-20 relative section-divider-top" ref={ref}>
@@ -245,13 +255,13 @@ const About = () => {
       {/* Image Modal/Lightbox */}
       {showImageModal && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm animate-fade-in"
-          onClick={() => setShowImageModal(false)}
+          className={`fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm transition-all duration-300 ${isClosing ? 'opacity-0' : 'animate-fade-in'}`}
+          onClick={handleCloseModal}
         >
-          <div className="relative max-w-[90vw] max-h-[90vh]">
+          <div className={`relative max-w-[90vw] max-h-[90vh] transition-all duration-300 ${isClosing ? 'scale-90 opacity-0' : 'scale-100 opacity-100'}`}>
             {/* Close button */}
             <button
-              onClick={() => setShowImageModal(false)}
+              onClick={handleCloseModal}
               className="absolute -top-12 right-0 p-2 text-white/80 hover:text-white transition-colors"
               aria-label="Close image"
             >
