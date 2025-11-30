@@ -76,16 +76,30 @@ const About = () => {
                 {/* Action Buttons */}
                 <div className="flex gap-3 flex-wrap pt-6">
                   <button
-                    className="flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold hover:shadow-glow transition-all hover:scale-105"
+                    className="relative flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold overflow-hidden group transition-all hover:scale-105"
                     onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
                   >
-                    📄 View Resume
+                    {/* Shimmer effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                    {/* Glow on hover */}
+                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg bg-emerald-500/30 -z-10" />
+                    <span className="relative flex items-center justify-center gap-2">
+                      <span className="group-hover:animate-bounce transition-transform">📄</span>
+                      View Resume
+                    </span>
                   </button>
                   <button
-                    className="flex-1 px-4 py-3 rounded-lg border border-border/50 text-foreground font-semibold hover:bg-primary/10 transition-all"
+                    className="relative flex-1 px-4 py-3 rounded-lg border-2 border-purple-500/50 text-purple-400 font-semibold overflow-hidden group transition-all hover:scale-105 hover:border-purple-500"
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    💬 Get in Touch
+                    {/* Gradient background on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {/* Animated border glow */}
+                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-purple-500 to-pink-500 -z-10" />
+                    <span className="relative flex items-center justify-center gap-2">
+                      <span className="group-hover:animate-pulse transition-transform">💬</span>
+                      Get in Touch
+                    </span>
                   </button>
                 </div>
               </div>
