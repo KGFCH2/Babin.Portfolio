@@ -78,7 +78,7 @@ const About = () => {
             <div className="space-y-8">
               {/* Intro Section - Floating */}
               <div className="space-y-4">
-                <h3 
+                <h3
                   onClick={() => setShowImageModal(true)}
                   className="text-3xl font-bold bg-gradient-to-r from-primary via-purple-400 to-secondary bg-clip-text text-transparent inline-block cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_25px_rgba(139,92,246,0.8)] hover:filter"
                 >
@@ -254,7 +254,7 @@ const About = () => {
 
       {/* Image Modal/Lightbox */}
       {showImageModal && (
-        <div 
+        <div
           className={`fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm transition-all duration-300 ${isClosing ? 'opacity-0' : 'animate-fade-in'}`}
           onClick={handleCloseModal}
         >
@@ -267,7 +267,7 @@ const About = () => {
             >
               <X className="h-8 w-8" />
             </button>
-            
+
             {/* Image with glow effect */}
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary via-purple-500 to-secondary rounded-3xl blur-2xl opacity-50 animate-pulse" />
@@ -278,7 +278,7 @@ const About = () => {
                 onClick={(e) => e.stopPropagation()}
               />
             </div>
-            
+
             {/* Name below image */}
             <p className="text-center mt-4 text-white text-xl font-semibold">
               Babin Bid
