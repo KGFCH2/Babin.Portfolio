@@ -104,7 +104,7 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-8 items-stretch">
             {/* Left: Primary Skills - CRAZY Animated Version */}
             <div className="space-y-5 pt-4 flex flex-col">
-              <h4 className="font-bold text-xl text-foreground flex items-center gap-2 group">
+              <h4 className="font-bold text-xl text-foreground flex items-center justify-center gap-2 group">
                 <span className="text-2xl">💡</span>
                 <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-transparent">Primary Knowledges</span>
                 <span className="text-xs ml-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-white animate-pulse">PRO</span>
@@ -179,7 +179,7 @@ const About = () => {
 
             {/* Right: Professional Highlights */}
             <div className="space-y-5 pt-4 flex flex-col">
-              <h4 className="font-bold text-xl text-foreground flex items-center gap-2">
+              <h4 className="font-bold text-xl text-foreground flex items-center justify-center gap-2">
                 <span className="text-2xl">📚</span>
                 <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Professional Highlights</span>
               </h4>
