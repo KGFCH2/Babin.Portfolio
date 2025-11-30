@@ -27,7 +27,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-8 bg-gradient-to-b from-orange-50 via-yellow-50 to-emerald-50 dark:from-transparent dark:via-transparent dark:to-transparent"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-8"
     >
       <div className="container mx-auto px-4 py-12 z-10">
         <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">

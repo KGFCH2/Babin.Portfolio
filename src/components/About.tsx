@@ -25,7 +25,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 relative section-divider-top bg-gradient-to-b from-rose-50 to-pink-50 dark:from-transparent dark:to-transparent" ref={ref}>
+    <section id="about" className="py-20 relative section-divider-top" ref={ref}>
       <div className="container mx-auto px-4">
         <div
           className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"

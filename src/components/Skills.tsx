@@ -95,7 +95,7 @@ const Skills: React.FC = () => {
     });
 
     return (
-        <section id="skills" className="py-20 relative overflow-hidden section-divider-top section-divider-offset-md bg-gradient-to-b from-purple-50 to-violet-50 dark:from-transparent dark:to-transparent" ref={ref}>
+        <section id="skills" className="py-20 relative overflow-hidden section-divider-top section-divider-offset-md" ref={ref}>
             <div className={`container mx-auto px-6 ${inView ? "animate-fade-in-up" : "opacity-0"}`}>
                 <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
                     <SectionTitle

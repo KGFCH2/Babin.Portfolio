@@ -50,7 +50,7 @@ const Research = () => {
   `;
 
   return (
-    <section id="research" className="py-20 relative section-divider-top bg-gradient-to-b from-indigo-50 to-purple-50 dark:from-transparent dark:to-transparent">
+    <section id="research" className="py-20 relative section-divider-top">
       <div className="container mx-auto px-4">
         <style>{glowStyles}</style>
         <motion.div

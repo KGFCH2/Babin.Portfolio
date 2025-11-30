@@ -86,7 +86,10 @@ const ParticlesBackground = () => {
     // Simple CSS gradient fallback that is cheap to render on mobile / low-power
     return (
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-800 to-violet-900 opacity-95" />
+        <div className={`absolute inset-0 opacity-95 ${theme === 'dark'
+            ? 'bg-gradient-to-br from-emerald-900 via-teal-800 to-violet-900'
+            : 'bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200'
+          }`} />
       </div>
     );
   }
@@ -130,9 +133,11 @@ const ParticlesBackground = () => {
           },
         },
         particles: {
-          // tricolor: saffron -> white -> green
+          // tricolor: saffron -> white -> green (dark), purple/blue/pink (light)
           color: {
-            value: ["#FF9933", "#FFFFFF", "#138808"],
+            value: theme === 'dark'
+              ? ["#FF9933", "#FFFFFF", "#138808"]
+              : ["#7c3aed", "#3b82f6", "#ec4899", "#8b5cf6"],
           },
           links: {
             enable: false,

@@ -11,7 +11,6 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Star } from "lucide-react";
 import SectionTitle from "./SectionTitle";
-import { TiltCard } from "@/components/ui/tilt-card";
 
 const Projects = () => {
   const { ref, inView } = useInView({
@@ -26,27 +25,27 @@ const Projects = () => {
     const key = tech.toLowerCase();
     switch (key) {
       case "python":
-        return "bg-yellow-50 text-yellow-800 border-yellow-200 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-600 hover:text-white";
+        return "bg-yellow-100 dark:bg-yellow-50 text-yellow-800 border-yellow-300 dark:border-yellow-200 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-600 hover:text-white hover:border-transparent";
       case "react":
-        return "bg-cyan-50 text-cyan-800 border-cyan-200 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-cyan-600 hover:text-white";
+        return "bg-cyan-100 dark:bg-cyan-50 text-cyan-800 border-cyan-300 dark:border-cyan-200 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-cyan-600 hover:text-white hover:border-transparent";
       case "typescript":
-        return "bg-sky-50 text-sky-800 border-sky-200 hover:bg-gradient-to-r hover:from-sky-400 hover:to-sky-600 hover:text-white";
+        return "bg-sky-100 dark:bg-sky-50 text-sky-800 border-sky-300 dark:border-sky-200 hover:bg-gradient-to-r hover:from-sky-400 hover:to-sky-600 hover:text-white hover:border-transparent";
       case "tailwind":
       case "tailwindcss":
-        return "bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-emerald-600 hover:text-white";
+        return "bg-emerald-100 dark:bg-emerald-50 text-emerald-800 border-emerald-300 dark:border-emerald-200 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-emerald-600 hover:text-white hover:border-transparent";
       case "streamlit":
-        return "bg-rose-50 text-rose-800 border-rose-200 hover:bg-gradient-to-r hover:from-rose-400 hover:to-rose-600 hover:text-white";
+        return "bg-rose-100 dark:bg-rose-50 text-rose-800 border-rose-300 dark:border-rose-200 hover:bg-gradient-to-r hover:from-rose-400 hover:to-rose-600 hover:text-white hover:border-transparent";
       case "plotly":
-        return "bg-indigo-50 text-indigo-800 border-indigo-200 hover:bg-gradient-to-r hover:from-indigo-400 hover:to-indigo-600 hover:text-white";
+        return "bg-indigo-100 dark:bg-indigo-50 text-indigo-800 border-indigo-300 dark:border-indigo-200 hover:bg-gradient-to-r hover:from-indigo-400 hover:to-indigo-600 hover:text-white hover:border-transparent";
       case "xgboost":
-        return "bg-orange-50 text-orange-800 border-orange-200 hover:bg-gradient-to-r hover:from-orange-400 hover:to-orange-600 hover:text-white";
+        return "bg-orange-100 dark:bg-orange-50 text-orange-800 border-orange-300 dark:border-orange-200 hover:bg-gradient-to-r hover:from-orange-400 hover:to-orange-600 hover:text-white hover:border-transparent";
       case "flask":
-        return "bg-amber-50 text-amber-800 border-amber-200 hover:bg-gradient-to-r hover:from-amber-400 hover:to-amber-600 hover:text-white";
+        return "bg-amber-100 dark:bg-amber-50 text-amber-800 border-amber-300 dark:border-amber-200 hover:bg-gradient-to-r hover:from-amber-400 hover:to-amber-600 hover:text-white hover:border-transparent";
       case "scikit-learn":
       case "scikit":
-        return "bg-violet-50 text-violet-800 border-violet-200 hover:bg-gradient-to-r hover:from-violet-400 hover:to-violet-600 hover:text-white";
+        return "bg-violet-100 dark:bg-violet-50 text-violet-800 border-violet-300 dark:border-violet-200 hover:bg-gradient-to-r hover:from-violet-400 hover:to-violet-600 hover:text-white hover:border-transparent";
       default:
-        return "bg-primary/10 text-primary border-primary/20 hover:bg-gradient-to-r hover:from-primary/60 hover:to-violet-500 hover:text-white";
+        return "bg-purple-100 dark:bg-primary/10 text-purple-800 dark:text-primary border-purple-300 dark:border-primary/20 hover:bg-gradient-to-r hover:from-primary/60 hover:to-violet-500 hover:text-white hover:border-transparent";
     }
   };
 
@@ -202,7 +201,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 relative section-divider-top bg-gradient-to-b from-cyan-50 to-blue-50 dark:from-transparent dark:to-transparent" ref={ref}>
+    <section id="projects" className="py-20 relative section-divider-top" ref={ref}>
       <div className="container mx-auto px-4">
         <div
           className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
@@ -307,8 +306,10 @@ const Projects = () => {
                 .sort((a, b) => a.title.localeCompare(b.title))
                 .map((project, index) => (
                   <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                    <TiltCard className="p-2 h-full">
-                      <Card className="h-full overflow-hidden border-border/50 shadow-card hover:shadow-glow transition-smooth group flex flex-col">
+                    <div className="p-2 h-full">
+                      <Card className="relative h-full overflow-hidden border-2 border-violet-300/50 dark:border-border/50 shadow-card hover:shadow-glow transition-smooth group flex flex-col bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-50 dark:from-card dark:via-card dark:to-card backdrop-blur-sm hover:border-violet-400/70 dark:hover:border-primary/50">
+                        {/* Light mode gradient overlay on hover */}
+                        <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-violet-200/30 via-purple-200/20 to-indigo-200/30 opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
                         {project.thumbnail ? (
                           <div className="h-56 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
                             <img
@@ -390,7 +391,7 @@ const Projects = () => {
                           </div>
                         </div>
                       </Card>
-                    </TiltCard>
+                    </div>
                   </CarouselItem>
                 ))}
             </CarouselContent>
