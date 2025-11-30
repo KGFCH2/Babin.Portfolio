@@ -27,7 +27,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-8"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-8 bg-gradient-to-b from-orange-50 via-yellow-50 to-emerald-50 dark:from-transparent dark:via-transparent dark:to-transparent"
     >
       <div className="container mx-auto px-4 py-12 z-10">
         <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
@@ -121,10 +121,13 @@ const Hero = () => {
               title="GitHub"
               className="relative group p-2 rounded-lg transition-all duration-300"
             >
-              {/* Grey background box on hover */}
-              <div className="absolute inset-0 bg-gray-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
-              <div className="absolute inset-0 bg-gray-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <Github className="h-6 w-6 text-foreground/60 group-hover:text-gray-300 transition-colors relative z-10" />
+              {/* Grey background box on hover - dark mode */}
+              <div className="absolute inset-0 bg-gray-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
+              <div className="absolute inset-0 bg-gray-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:block hidden" />
+              {/* Grey background box on hover - light mode */}
+              <div className="absolute inset-0 bg-gray-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+              <div className="absolute inset-0 bg-gray-300/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+              <Github className="h-6 w-6 text-foreground/60 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors relative z-10" />
             </a>
             <a
               href="https://www.linkedin.com/in/babin-bid-853728293"
@@ -134,10 +137,13 @@ const Hero = () => {
               title="LinkedIn"
               className="relative group p-2 rounded-lg transition-all duration-300"
             >
-              {/* Blue background box on hover */}
-              <div className="absolute inset-0 bg-blue-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
-              <div className="absolute inset-0 bg-blue-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <Linkedin className="h-6 w-6 text-foreground/60 group-hover:text-blue-300 transition-colors relative z-10" />
+              {/* Blue background box on hover - dark mode */}
+              <div className="absolute inset-0 bg-blue-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
+              <div className="absolute inset-0 bg-blue-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:block hidden" />
+              {/* Blue background box on hover - light mode */}
+              <div className="absolute inset-0 bg-blue-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+              <div className="absolute inset-0 bg-blue-300/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+              <Linkedin className="h-6 w-6 text-foreground/60 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors relative z-10" />
             </a>
             <a
               href="mailto:babin.bid@stu.adamasuniversity.ac.in"
@@ -145,10 +151,13 @@ const Hero = () => {
               title="Email"
               className="relative group p-2 rounded-lg transition-all duration-300"
             >
-              {/* Red background box on hover */}
-              <div className="absolute inset-0 bg-red-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
-              <div className="absolute inset-0 bg-red-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <Mail className="h-6 w-6 text-foreground/60 group-hover:text-red-300 transition-colors relative z-10" />
+              {/* Red background box on hover - dark mode */}
+              <div className="absolute inset-0 bg-red-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
+              <div className="absolute inset-0 bg-red-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:block hidden" />
+              {/* Red background box on hover - light mode */}
+              <div className="absolute inset-0 bg-red-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+              <div className="absolute inset-0 bg-red-300/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+              <Mail className="h-6 w-6 text-foreground/60 group-hover:text-red-700 dark:group-hover:text-red-300 transition-colors relative z-10" />
             </a>
           </div>
 
