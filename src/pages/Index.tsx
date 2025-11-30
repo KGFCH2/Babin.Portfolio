@@ -19,6 +19,7 @@ const Index = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Handle hash-based navigation
     if (location.hash) {
       const element = document.querySelector(location.hash);
       if (element) {
@@ -27,7 +28,7 @@ const Index = () => {
         }, 100);
       }
     }
-  }, [location]);
+  }, [location.hash]);
 
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
