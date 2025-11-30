@@ -83,7 +83,7 @@ const About = () => {
                   className="text-3xl font-bold bg-gradient-to-r from-primary via-purple-400 to-secondary bg-clip-text text-transparent inline-block cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_25px_rgba(139,92,246,0.8)] hover:filter"
                   title="Click to view my image"
                 >
-                👉🏽 Babin Bid 👈🏽
+                  👉🏽 Babin Bid 👈🏽
                 </h3>
                 <p className="text-base text-muted-foreground">
                   B.Tech CSE • Adamas University, Kolkata
@@ -98,35 +98,75 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Primary Skills - Floating */}
+              {/* Primary Skills - CRAZY Animated Version */}
               <div className="space-y-5 pt-4">
-                <h4 className="font-bold text-xl text-foreground flex items-center gap-2">
-                  <span className="text-2xl">💡</span> Primary Skills
+                <h4 className="font-bold text-xl text-foreground flex items-center gap-2 group">
+                  <span className="text-2xl animate-bounce">💡</span>
+                  <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-pulse">Primary Knowledges</span>
+                  <span className="text-xs ml-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-white animate-pulse">PRO</span>
                 </h4>
                 <div className="space-y-4">
                   {[
-                    { name: 'Switching Circuits', val: 95 },
-                    { name: 'Mathematics & Calculus', val: 90 },
-                    { name: 'Frontend Development', val: 90 },
-                    { name: 'Data Structures & Algorithms', val: 85 },
-                    { name: 'Python Programming', val: 85 },
-                  ].map((s) => (
-                    <div key={s.name} className="space-y-2">
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-foreground/90 font-medium">{s.name}</span>
-                        <span className="font-bold text-emerald-400">{s.val}%</span>
+                    { name: 'Switching Circuits', val: 95, icon: '⚡', color: 'from-orange-500 via-amber-400 to-yellow-300', bgColor: 'bg-orange-500/10', borderColor: 'border-orange-500/30', textColor: 'text-orange-400', glowColor: 'shadow-orange-500/50' },
+                    { name: 'Mathematics & Calculus', val: 90, icon: '📐', color: 'from-blue-500 via-cyan-400 to-sky-300', bgColor: 'bg-blue-500/10', borderColor: 'border-blue-500/30', textColor: 'text-blue-400', glowColor: 'shadow-blue-500/50' },
+                    { name: 'Frontend Development', val: 90, icon: '🎨', color: 'from-purple-500 via-violet-400 to-fuchsia-300', bgColor: 'bg-purple-500/10', borderColor: 'border-purple-500/30', textColor: 'text-purple-400', glowColor: 'shadow-purple-500/50' },
+                    { name: 'Data Structures & Algorithms', val: 85, icon: '🧠', color: 'from-rose-500 via-pink-400 to-red-300', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400', glowColor: 'shadow-rose-500/50' },
+                    { name: 'Python Programming', val: 85, icon: '🐍', color: 'from-emerald-500 via-green-400 to-lime-300', bgColor: 'bg-emerald-500/10', borderColor: 'border-emerald-500/30', textColor: 'text-emerald-400', glowColor: 'shadow-emerald-500/50' },
+                  ].map((s, index) => (
+                    <div
+                      key={s.name}
+                      className={`group/skill relative p-3 rounded-xl ${s.bgColor} border ${s.borderColor} backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] hover:shadow-lg hover:${s.glowColor} cursor-pointer`}
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      {/* Animated background gradient on hover */}
+                      <div className={`absolute inset-0 rounded-xl bg-gradient-to-r ${s.color} opacity-0 group-hover/skill:opacity-10 transition-opacity duration-500`} />
+
+                      <div className="relative flex items-center gap-3">
+                        {/* Animated Icon */}
+                        <span className="text-2xl group-hover/skill:animate-bounce group-hover/skill:scale-125 transition-transform duration-300">{s.icon}</span>
+
+                        <div className="flex-1 space-y-2">
+                          <div className="flex items-center justify-between">
+                            <span className="text-foreground/90 font-semibold group-hover/skill:text-foreground transition-colors">{s.name}</span>
+                            <div className="flex items-center gap-2">
+                              {/* Animated percentage with glow */}
+                              <span className={`font-black text-lg ${s.textColor} group-hover/skill:scale-110 transition-transform tabular-nums`}>
+                                {s.val}%
+                              </span>
+                              {/* Fire icon for high skills */}
+                              {s.val >= 90 && <span className="animate-pulse">🔥</span>}
+                            </div>
+                          </div>
+
+                          {/* Progress bar container */}
+                          <div className="relative w-full h-3 bg-muted/40 rounded-full overflow-hidden">
+                            <progress className="sr-only" value={s.val} max={100} aria-label={`Proficiency: ${s.val}%`} />
+
+                            {/* Animated gradient bar */}
+                            <div
+                              className={`h-full bg-gradient-to-r ${s.color} rounded-full relative overflow-hidden transition-all duration-1000 ease-out`}
+                              style={{ width: `${s.val}%` }}
+                            >
+                              {/* Shimmer effect */}
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover/skill:translate-x-full transition-transform duration-1000" />
+
+                              {/* Glowing edge */}
+                              <div className="absolute right-0 top-0 bottom-0 w-2 bg-white/60 rounded-full blur-sm animate-pulse" />
+                            </div>
+
+                            {/* Animated dots on the track */}
+                            <div className="absolute inset-0 flex items-center justify-around opacity-20">
+                              {[...Array(10)].map((_, i) => (
+                                <div key={i} className="w-1 h-1 bg-white rounded-full" />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="w-full bg-muted/30 rounded-full h-2.5 overflow-hidden backdrop-blur-sm">
-                        <progress
-                          className="sr-only"
-                          value={s.val}
-                          max={100}
-                          aria-label={`Proficiency: ${s.val}%`}
-                        />
-                        <div
-                          className="h-2.5 bg-gradient-to-r from-emerald-500 via-emerald-400 to-green-400 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.4)] transition-all duration-500"
-                          style={{ width: `${s.val}%` }}
-                        />
+
+                      {/* Hover tooltip */}
+                      <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-background/90 border border-border rounded-md text-xs opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none backdrop-blur-sm">
+                        {s.val >= 90 ? '🌟 Expert Level!' : s.val >= 85 ? '💪 Advanced' : '📈 Proficient'}
                       </div>
                     </div>
                   ))}
