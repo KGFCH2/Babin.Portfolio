@@ -29,20 +29,26 @@ const Projects = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [isHovered, setIsHovered] = useState(false);
 
-  // Auto-scroll effect when carousel is in view (only if more than 3 projects)
+  // Reinitialize carousel when filters change
+  useEffect(() => {
+    if (!api) return;
+    // Small delay to let the DOM update with filtered items
+    const timeout = setTimeout(() => {
+      api.reInit();
+    }, 100);
+    return () => clearTimeout(timeout);
+  }, [api, searchTerm, selectedTech]);
+
+  // Auto-scroll effect when carousel is in view
   useEffect(() => {
     if (!api || !carouselInView || isHovered) return;
-    
-    // Get the number of slides from the API
-    const slideCount = api.scrollSnapList().length;
-    if (slideCount <= 3) return; // Don't auto-scroll if 3 or fewer projects
 
     const interval = setInterval(() => {
       api.scrollNext();
-    }, 1000); // Scroll every 2 seconds
+    }, 2000); // Scroll every 2 seconds
 
     return () => clearInterval(interval);
-  }, [api, carouselInView, isHovered, searchTerm, selectedTech]);
+  }, [api, carouselInView, isHovered]);
 
   // Pause auto-scroll on user interaction
   const handleMouseEnter = useCallback(() => setIsHovered(true), []);
