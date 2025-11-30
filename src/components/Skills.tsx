@@ -126,7 +126,7 @@ const Skills: React.FC = () => {
                         <button
                             onClick={() => setSelectedCategory(null)}
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === null
-                                ? 'bg-primary text-primary-foreground shadow-lg'
+                                ? 'bg-gradient-to-r from-primary to-violet-500 text-white shadow-lg'
                                 : 'bg-muted text-foreground hover:bg-muted/80'
                                 }`}
                         >
@@ -137,7 +137,7 @@ const Skills: React.FC = () => {
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === category
-                                    ? 'bg-primary text-primary-foreground shadow-lg'
+                                    ? `bg-gradient-to-r ${getCategoryGradient(category)} text-white shadow-lg`
                                     : 'bg-muted text-foreground hover:bg-muted/80'
                                     }`}
                             >
