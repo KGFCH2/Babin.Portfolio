@@ -55,25 +55,34 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="GitHub"
-                  className="text-muted-foreground hover:text-primary transition-smooth"
+                  className="relative group p-2 rounded-lg transition-all duration-300"
                 >
-                  <Github className="h-6 w-6" />
+                  {/* Grey background box on hover */}
+                  <div className="absolute inset-0 bg-gray-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+                  <div className="absolute inset-0 bg-gray-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <Github className="h-6 w-6 text-muted-foreground group-hover:text-gray-300 transition-colors relative z-10" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/babin-bid-853728293"
                   target="_blank"
                   rel="noopener noreferrer"
                   title="LinkedIn"
-                  className="text-muted-foreground hover:text-primary transition-smooth"
+                  className="relative group p-2 rounded-lg transition-all duration-300"
                 >
-                  <Linkedin className="h-6 w-6" />
+                  {/* Blue background box on hover */}
+                  <div className="absolute inset-0 bg-blue-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+                  <div className="absolute inset-0 bg-blue-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <Linkedin className="h-6 w-6 text-muted-foreground group-hover:text-blue-300 transition-colors relative z-10" />
                 </a>
                 <a
                   href="mailto:babinbid05@gmail.com"
                   title="Email"
-                  className="text-muted-foreground hover:text-primary transition-smooth"
+                  className="relative group p-2 rounded-lg transition-all duration-300"
                 >
-                  <Mail className="h-6 w-6" />
+                  {/* Red background box on hover */}
+                  <div className="absolute inset-0 bg-red-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+                  <div className="absolute inset-0 bg-red-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <Mail className="h-6 w-6 text-muted-foreground group-hover:text-red-300 transition-colors relative z-10" />
                 </a>
               </div>
             </div>
