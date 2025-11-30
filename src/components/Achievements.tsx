@@ -151,7 +151,7 @@ const Achievements = () => {
     };
 
     return (
-        <section id="achievements" className="py-20 relative section-divider-top" ref={ref}>
+        <section id="achievements" className="py-20 relative" ref={ref}>
             <div className="container mx-auto px-4">
                 <div
                     className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
