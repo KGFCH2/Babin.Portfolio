@@ -75,6 +75,16 @@ const Achievements = () => {
 
     const filteredAchievements = getFilteredData();
 
+    if (!filteredAchievements || filteredAchievements.length === 0) {
+        return (
+            <section id="achievements" className="py-20 relative section-divider-top" ref={ref}>
+                <div className="container mx-auto px-4 text-center">
+                    <h2 className="text-2xl font-bold">No achievements data available.</h2>
+                </div>
+            </section>
+        );
+    }
+
     const handleZoomIn = (e: React.MouseEvent) => {
         e.stopPropagation();
         setZoomLevel(prev => Math.min(prev + 0.5, 3));
@@ -117,25 +127,26 @@ const Achievements = () => {
             setSelectedItem(null);
             setZoomLevel(1);
             setIsClosing(false);
-        }, 1500); // Match animation duration (slower close)
+        }, 300); // Reduced from 1500ms to 300ms for smooth transitions
     };
-
-    if (!filteredAchievements || filteredAchievements.length === 0) {
-        return (
-            <section id="achievements" className="py-20 relative section-divider-top" ref={ref}>
-                <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-2xl font-bold">No achievements data available.</h2>
-                </div>
-            </section>
-        );
-    }
 
     const handleItemClick = (file: string) => {
         const type = getFileType(file);
         if (type === 'pdf') {
             window.open(file, '_blank');
         } else {
-            setSelectedItem({ file, type });
+            // Immediately close previous image if one is open
+            if (selectedItem) {
+                setSelectedItem(null);
+                setZoomLevel(1);
+                setIsClosing(false);
+                // Open new image after state clears
+                setTimeout(() => {
+                    setSelectedItem({ file, type });
+                }, 50);
+            } else {
+                setSelectedItem({ file, type });
+            }
         }
     };
 
