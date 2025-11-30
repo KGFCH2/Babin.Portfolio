@@ -253,12 +253,11 @@ const Achievements = () => {
 
             {/* Lightbox Modal for Images */}
             {selectedItem && selectedItem.type === 'image' && (
-                <div 
-                    className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 transition-all duration-400 ${
-                        isClosing 
-                            ? 'opacity-0 backdrop-blur-none' 
+                <div
+                    className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 transition-all duration-400 ${isClosing
+                            ? 'opacity-0 backdrop-blur-none'
                             : 'animate-fade-in'
-                    }`}
+                        }`}
                 >
                     {/* Animated glow background */}
                     <div className={`absolute inset-0 transition-all duration-500 ${isClosing ? 'opacity-0 scale-150' : 'opacity-100'}`}>
@@ -266,9 +265,8 @@ const Achievements = () => {
                     </div>
 
                     {/* Controls */}
-                    <div className={`absolute top-4 right-4 flex items-center gap-2 z-50 transition-all duration-300 ${
-                        isClosing ? 'opacity-0 -translate-y-10' : 'opacity-100 translate-y-0'
-                    }`}>
+                    <div className={`absolute top-4 right-4 flex items-center gap-2 z-50 transition-all duration-300 ${isClosing ? 'opacity-0 -translate-y-10' : 'opacity-100 translate-y-0'
+                        }`}>
                         <button
                             onClick={handleZoomIn}
                             className="p-2 bg-white/10 rounded-full text-white hover:bg-primary hover:text-white transition-all duration-300 backdrop-blur-md hover:scale-110"
@@ -306,16 +304,15 @@ const Achievements = () => {
                         </button>
                     </div>
 
-                    <div 
-                        className="relative w-full h-full flex items-center justify-center overflow-hidden" 
+                    <div
+                        className="relative w-full h-full flex items-center justify-center overflow-hidden"
                         onClick={closeLightbox}
                     >
                         <div
-                            className={`transition-all duration-400 ease-out ${
-                                isClosing 
-                                    ? 'scale-50 opacity-0 rotate-12 blur-sm' 
+                            className={`transition-all duration-400 ease-out ${isClosing
+                                    ? 'scale-50 opacity-0 rotate-12 blur-sm'
                                     : 'scale-100 opacity-100 rotate-0 blur-0'
-                            }`}
+                                }`}
                             style={{ transform: `scale(${isClosing ? 0.5 : zoomLevel}) ${isClosing ? 'rotate(12deg)' : 'rotate(0deg)'}` }}
                             onClick={(e) => e.stopPropagation()}
                         >
@@ -328,13 +325,6 @@ const Achievements = () => {
                             />
                         </div>
                     </div>
-
-                    {/* Click to close hint */}
-                    <p className={`absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 text-sm transition-all duration-300 ${
-                        isClosing ? 'opacity-0 translate-y-10' : 'opacity-100 translate-y-0'
-                    }`}>
-                        Click anywhere to close
-                    </p>
                 </div>
             )}
         </section>
