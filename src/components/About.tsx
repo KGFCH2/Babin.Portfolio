@@ -105,14 +105,14 @@ const About = () => {
             {/* Left: Primary Skills - CRAZY Animated Version */}
             <div className="space-y-5 pt-4 flex flex-col">
               <h4 className="font-bold text-xl text-foreground flex items-center gap-2 group">
-                <span className="text-2xl animate-bounce">💡</span>
-                <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-pulse">Primary Knowledges</span>
+                <span className="text-2xl">💡</span>
+                <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-transparent">Primary Knowledges</span>
                 <span className="text-xs ml-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-white animate-pulse">PRO</span>
               </h4>
               <div className="space-y-4 flex-1">
                 {[
-                  { name: 'Switching Circuits', val: 95, icon: '⚡', color: 'from-orange-500 via-amber-400 to-yellow-300', bgColor: 'bg-orange-500/10', borderColor: 'border-orange-500/30', textColor: 'text-orange-400', glowColor: 'shadow-orange-500/50' },
                   { name: 'Mathematics & Calculus', val: 90, icon: '📐', color: 'from-blue-500 via-cyan-400 to-sky-300', bgColor: 'bg-blue-500/10', borderColor: 'border-blue-500/30', textColor: 'text-blue-400', glowColor: 'shadow-blue-500/50' },
+                  { name: 'Switching Circuits', val: 95, icon: '⚡', color: 'from-orange-500 via-amber-400 to-yellow-300', bgColor: 'bg-orange-500/10', borderColor: 'border-orange-500/30', textColor: 'text-orange-400', glowColor: 'shadow-orange-500/50' },
                   { name: 'Frontend Development', val: 90, icon: '🎨', color: 'from-purple-500 via-violet-400 to-fuchsia-300', bgColor: 'bg-purple-500/10', borderColor: 'border-purple-500/30', textColor: 'text-purple-400', glowColor: 'shadow-purple-500/50' },
                   { name: 'Data Structures & Algorithms', val: 85, icon: '🧠', color: 'from-rose-500 via-pink-400 to-red-300', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400', glowColor: 'shadow-rose-500/50' },
                   { name: 'Python Programming', val: 85, icon: '🐍', color: 'from-emerald-500 via-green-400 to-lime-300', bgColor: 'bg-emerald-500/10', borderColor: 'border-emerald-500/30', textColor: 'text-emerald-400', glowColor: 'shadow-emerald-500/50' },
@@ -174,22 +174,6 @@ const About = () => {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex gap-3 flex-wrap mt-auto pt-4">
-                <button
-                  className="flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold hover:shadow-glow transition-all hover:scale-105"
-                  onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
-                >
-                  📄 View Resume
-                </button>
-                <button
-                  className="flex-1 px-4 py-3 rounded-lg border border-border/50 text-foreground font-semibold hover:bg-primary/10 transition-all"
-                  onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  💬 Get in Touch
-                </button>
               </div>
             </div>
 
@@ -283,6 +267,22 @@ const About = () => {
                     </CollapsibleContent>
                   </div>
                 </Collapsible>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex gap-3 flex-wrap mt-auto pt-4">
+                <button
+                  className="flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold hover:shadow-glow transition-all hover:scale-105"
+                  onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
+                >
+                  📄 View Resume
+                </button>
+                <button
+                  className="flex-1 px-4 py-3 rounded-lg border border-border/50 text-foreground font-semibold hover:bg-primary/10 transition-all"
+                  onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  💬 Get in Touch
+                </button>
               </div>
             </div>
           </div>
