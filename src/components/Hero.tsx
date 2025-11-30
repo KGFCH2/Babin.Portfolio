@@ -27,10 +27,10 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-8"
     >
-      <div className="container mx-auto px-4 py-20 z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
+      <div className="container mx-auto px-4 py-12 z-10">
+        <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
           <div className="space-y-4">
             <h2 className="text-xl md:text-2xl text-muted-foreground font-medium">
               Hi, I'm
