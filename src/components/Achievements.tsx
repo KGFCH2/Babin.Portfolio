@@ -26,7 +26,7 @@ const Achievements = () => {
 
     const getFilteredData = () => {
         const awardsCategories = ["Awards & Recognitions"];
-        const badgeCategories = ["Microsoft Badges", "Microsoft Trophies", "Holopin Badges", "HP Life Badges"];
+        const badgeCategories = ["Microsoft Badges", "Microsoft Trophies", "Holopin Badges", "HP Life Badges", "Google Badges"];
         // Hackathons & Events is treated as certificates (not awards, not badges)
 
         const isBadgeItem = (item: { title: string }) => {
