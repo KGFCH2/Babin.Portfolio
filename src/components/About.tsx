@@ -25,7 +25,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 relative section-divider-top" ref={ref}>
+    <section id="about" className="py-20 relative section-divider-top bg-gradient-to-b from-rose-50 to-pink-50 dark:from-transparent dark:to-transparent" ref={ref}>
       <div className="container mx-auto px-4">
         <div
           className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
@@ -208,94 +208,108 @@ const About = () => {
 
             {/* Right: Professional Highlights */}
             <div className="space-y-5 pt-4 flex flex-col">
-              <h4 className="font-bold text-xl text-foreground flex items-center justify-center gap-2">
+              <h4 className="font-bold text-xl text-foreground flex items-center justify-center gap-2 group">
                 <span className="text-2xl">📚</span>
                 <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Professional Highlights</span>
+                <span className="text-xs ml-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white animate-pulse">ELITE</span>
               </h4>
-              <div className="space-y-3 flex-1">
-                {/* Knowledge In */}
-                <Collapsible open={openPanel === "knowledge"} onOpenChange={(open) => setOpenPanel(open ? "knowledge" : null)}>
-                  <div className="group">
-                    <CollapsibleTrigger className="w-full">
-                      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg border border-border/50 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:-translate-y-0.5">
-                        <span className="text-lg font-semibold text-left flex items-center gap-2"><span className="group-hover:animate-bounce transition-transform">🧠</span> Knowledge In</span>
-                        <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "knowledge" ? "rotate-180" : ""} group-hover:text-blue-500`} />
-                      </div>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="overflow-hidden">
-                      <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
-                        <p className="text-foreground/90 leading-relaxed text-sm">
-                          🔧 <strong>Programming:</strong> C • C++ • Java • Python • JavaScript <br />
-                          🌐 <strong>Web:</strong> HTML • CSS • React • Tailwind CSS <br />
-                          🛠️ <strong>Backend:</strong> Node.js • MySQL • TensorFlow • Flask <br />
-                          🚀 <strong>Deploy:</strong> Vercel • Streamlit <br />
-                          🎨 <strong>Tools:</strong> VS Code • GitHub • Canva
-                        </p>
-                      </div>
-                    </CollapsibleContent>
-                  </div>
-                </Collapsible>
-
-                {/* Upskilling & Certifications */}
-                <Collapsible open={openPanel === "upskilling"} onOpenChange={(open) => setOpenPanel(open ? "upskilling" : null)}>
-                  <div className="group">
-                    <CollapsibleTrigger className="w-full">
-                      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-500/10 to-green-500/10 rounded-lg border border-border/50 hover:border-emerald-500/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:-translate-y-0.5">
-                        <span className="text-lg font-semibold text-left flex items-center gap-2"><span className="group-hover:animate-bounce transition-transform">🚀</span> Upskilling</span>
-                        <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "upskilling" ? "rotate-180" : ""} group-hover:text-emerald-500`} />
-                      </div>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="overflow-hidden">
-                      <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
-                        <div className="space-y-2 text-foreground/90 text-sm">
-                          <p><strong>Platforms:</strong> Google Cloud • Microsoft Learn • AWS • IBM SkillBuild</p>
-                          <p><strong>Programs:</strong> HP Life • SWAYAM • Cisco • Infosys Springboard</p>
+              <div className="flex-1 flex items-center justify-center">
+                <div className="grid grid-cols-2 gap-4 w-full max-w-lg">
+                  <Collapsible open={openPanel === "knowledge"} onOpenChange={(open) => setOpenPanel(open ? "knowledge" : null)}>
+                    <div className="group">
+                      <CollapsibleTrigger className="w-full">
+                        <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg border border-border/50 hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.01]">
+                          <span className="text-base font-semibold text-left flex items-center gap-2">
+                            <span className="group-hover:animate-bounce transition-transform">🧠</span>
+                            <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Knowledge In</span>
+                          </span>
+                          <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "knowledge" ? "rotate-180" : ""} group-hover:text-blue-500`} />
                         </div>
-                      </div>
-                    </CollapsibleContent>
-                  </div>
-                </Collapsible>
-
-                {/* Interests & Passions */}
-                <Collapsible open={openPanel === "interests"} onOpenChange={(open) => setOpenPanel(open ? "interests" : null)}>
-                  <div className="group">
-                    <CollapsibleTrigger className="w-full">
-                      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-lg border border-border/50 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:-translate-y-0.5">
-                        <span className="text-lg font-semibold text-left flex items-center gap-2"><span className="group-hover:animate-bounce transition-transform">⚡</span> Interests</span>
-                        <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "interests" ? "rotate-180" : ""} group-hover:text-pink-500`} />
-                      </div>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="overflow-hidden">
-                      <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
-                        <div className="space-y-2 text-foreground/90 text-sm">
-                          <p><strong>Subjects:</strong> AI/ML • Quantum Computing • Mathematics • DSA</p>
-                          <p><strong>Hobbies:</strong> 🏏 Cricket • 🏸 Badminton • 🎨 Digital Art</p>
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="overflow-hidden">
+                        <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
+                          <p className="text-foreground/90 leading-relaxed text-sm">
+                            🔧 <strong>Programming:</strong> C • C++ • Java • Python • JavaScript <br />
+                            🌐 <strong>Web:</strong> HTML • CSS • React • Tailwind CSS <br />
+                            🛠️ <strong>Backend:</strong> Node.js • MySQL • TensorFlow • Flask <br />
+                            🚀 <strong>Deploy:</strong> Vercel • Streamlit <br />
+                            🎨 <strong>Tools:</strong> VS Code • GitHub • Canva
+                          </p>
                         </div>
-                      </div>
-                    </CollapsibleContent>
-                  </div>
-                </Collapsible>
+                      </CollapsibleContent>
+                    </div>
+                  </Collapsible>
 
-                {/* Professional Focus */}
-                <Collapsible open={openPanel === "focus"} onOpenChange={(open) => setOpenPanel(open ? "focus" : null)}>
-                  <div className="group">
-                    <CollapsibleTrigger className="w-full">
-                      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 rounded-lg border border-border/50 hover:border-orange-500/50 hover:shadow-[0_0_20px_rgba(249,115,22,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:-translate-y-0.5">
-                        <span className="text-lg font-semibold text-left flex items-center gap-2"><span className="group-hover:animate-bounce transition-transform">🎯</span> Focus</span>
-                        <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "focus" ? "rotate-180" : ""} group-hover:text-orange-500`} />
-                      </div>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="overflow-hidden">
-                      <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
-                        <p className="text-foreground/90 leading-relaxed text-sm">
-                          ✅ Active GitHub contributor<br />
-                          ✅ Open to internships & collaborations<br />
-                          ✅ Passionate problem solver
-                        </p>
-                      </div>
-                    </CollapsibleContent>
-                  </div>
-                </Collapsible>
+                  {/* Upskilling & Certifications */}
+                  <Collapsible open={openPanel === "upskilling"} onOpenChange={(open) => setOpenPanel(open ? "upskilling" : null)}>
+                    <div className="group">
+                      <CollapsibleTrigger className="w-full">
+                        <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-500/10 to-green-500/10 rounded-lg border border-border/50 hover:border-emerald-500/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.01]">
+                          <span className="text-base font-semibold text-left flex items-center gap-2">
+                            <span className="group-hover:animate-bounce transition-transform">🚀</span>
+                            <span className="bg-gradient-to-r from-emerald-400 to-green-500 bg-clip-text text-transparent">Upskilling</span>
+                          </span>
+                          <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "upskilling" ? "rotate-180" : ""} group-hover:text-emerald-500`} />
+                        </div>
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="overflow-hidden">
+                        <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
+                          <div className="space-y-2 text-foreground/90 text-sm">
+                            <p><strong>Platforms:</strong> Google Cloud • Microsoft Learn • AWS • IBM SkillBuild</p>
+                            <p><strong>Programs:</strong> HP Life • SWAYAM • Cisco • Infosys Springboard</p>
+                          </div>
+                        </div>
+                      </CollapsibleContent>
+                    </div>
+                  </Collapsible>
+
+                  {/* Interests & Passions */}
+                  <Collapsible open={openPanel === "interests"} onOpenChange={(open) => setOpenPanel(open ? "interests" : null)}>
+                    <div className="group">
+                      <CollapsibleTrigger className="w-full">
+                        <div className="flex items-center justify-between p-4 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-lg border border-border/50 hover:border-pink-500/50 hover:shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.01]">
+                          <span className="text-base font-semibold text-left flex items-center gap-2">
+                            <span className="group-hover:animate-bounce transition-transform">⚡</span>
+                            <span className="bg-gradient-to-r from-pink-400 to-rose-500 bg-clip-text text-transparent">Interests</span>
+                          </span>
+                          <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "interests" ? "rotate-180" : ""} group-hover:text-pink-500`} />
+                        </div>
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="overflow-hidden">
+                        <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
+                          <div className="space-y-2 text-foreground/90 text-sm">
+                            <p><strong>Subjects:</strong> AI/ML • Quantum Computing • Mathematics • DSA</p>
+                            <p><strong>Hobbies:</strong> 🏏 Cricket • 🏸 Badminton • 🎨 Digital Art</p>
+                          </div>
+                        </div>
+                      </CollapsibleContent>
+                    </div>
+                  </Collapsible>
+
+                  {/* Professional Focus */}
+                  <Collapsible open={openPanel === "focus"} onOpenChange={(open) => setOpenPanel(open ? "focus" : null)}>
+                    <div className="group">
+                      <CollapsibleTrigger className="w-full">
+                        <div className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 rounded-lg border border-border/50 hover:border-orange-500/50 hover:shadow-[0_0_15px_rgba(249,115,22,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.01]">
+                          <span className="text-base font-semibold text-left flex items-center gap-2">
+                            <span className="group-hover:animate-bounce transition-transform">🎯</span>
+                            <span className="bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent">Focus</span>
+                          </span>
+                          <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "focus" ? "rotate-180" : ""} group-hover:text-orange-500`} />
+                        </div>
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="overflow-hidden">
+                        <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
+                          <div className="space-y-2 text-foreground/90 text-sm">
+                            <p>✅ Active GitHub contributor</p>
+                            <p>✅ Open to internships & collaborations</p>
+                            <p>✅ Passionate problem solver</p>
+                          </div>
+                        </div>
+                      </CollapsibleContent>
+                    </div>
+                  </Collapsible>
+                </div>
               </div>
             </div>
           </div>
