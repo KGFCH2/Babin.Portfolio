@@ -273,7 +273,7 @@ const About = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary via-purple-500 to-secondary rounded-3xl blur-2xl opacity-50 animate-pulse" />
               <img
-                src="/Babin_New.jpeg"
+                src="/Babin.jpeg"
                 alt="Babin Bid - Full Stack Developer"
                 className="relative rounded-2xl shadow-2xl max-w-full max-h-[80vh] object-contain border-4 border-white/20"
                 onClick={(e) => e.stopPropagation()}
