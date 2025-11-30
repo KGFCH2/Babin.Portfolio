@@ -65,11 +65,8 @@ export const achievementsData: AchievementCategory[] = [
         category: "Google",
         items: [
             { title: "Bring Al to Work Workshop", file: "/Achievements/Google/1172653244BB.pdf" },
-            { title: "Google ADs AI-Powered Performance", file: "/Achievements/Google/19ae5a64-7138-4ec2-a9fc-9d65b53d09ac.png" },
             { title: "Al-Powered Shopping ads Certification", file: "/Achievements/Google/69izjm6b_1749161905073.pdf" },
-            { title: "Shopping Ads", file: "/Achievements/Google/7c2be6e0-3895-4baf-946f-3c61969c27ec.png" },
             { title: "Al-Powered Performance Ads Certification", file: "/Achievements/Google/a6f6uizk_1749160844397.pdf" },
-            { title: "ai-agent-home-run-mlb-events", file: "/Achievements/Google/ai-agent-home-run-mlb-events.png" },
             { title: "Google Play Store Listing Certificate", file: "/Achievements/Google/Google_Play_Academy.pdf" },
         ]
     },
@@ -85,6 +82,14 @@ export const achievementsData: AchievementCategory[] = [
         items: [
             { title: "SQL Basic Certificate", file: "/Achievements/HackerRank/SQL_Basic_Certificate_Hackerrank.pdf" },
             { title: "SQL Intermediate Certificate", file: "/Achievements/HackerRank/SQL_Intermediate_Certificate_Hackerrank.pdf" },
+        ]
+    },
+    {
+        category: "Google Badges",
+        items: [
+            { title: "AI Agent Home Run MLB Events Badge", file: "/Achievements/Google/ai-agent-home-run-mlb-events.png" },
+            { title: "Google ADs AI-Powered Performance Badge", file: "/Achievements/Google/19ae5a64-7138-4ec2-a9fc-9d65b53d09ac.png" },
+            { title: "Shopping Ads Badge", file: "/Achievements/Google/7c2be6e0-3895-4baf-946f-3c61969c27ec.png" },
         ]
     },
     {
@@ -105,7 +110,7 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "Infosys Springboard",
         items: [
-            {title: "Internship 6.0 (B1): ImpactSense - Earthquake Impact Prediction", file: "/Achievements/Infosys%20Springboard/1-7201b116-4d59-4827-b05e-3b31e9a9f0fd.pdf"},
+            { title: "Internship 6.0 (B1): ImpactSense - Earthquake Impact Prediction", file: "/Achievements/Infosys%20Springboard/1-7201b116-4d59-4827-b05e-3b31e9a9f0fd.pdf" },
             { title: "Fundamentals of Information Security", file: "/Achievements/Infosys%20Springboard/1-09c270d2-409a-46f6-b79c-d0dd57b9c490.pdf" },
             { title: "IoT Edge Computing and IoT Analytics", file: "/Achievements/Infosys%20Springboard/1-0d884177-c098-4136-bf54-2f9e7c55cd94.pdf" },
             { title: "Agile Scrum in Practice", file: "/Achievements/Infosys%20Springboard/1-1556c645-6517-45b7-8700-898f6da4d735.pdf" },
@@ -160,9 +165,6 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "Microsoft",
         items: [
-            { title: "Badge-Platinum", file: "/Achievements/Microsoft/Badge-Platinum.png" },
-            { title: "Badge-Gold", file: "/Achievements/Microsoft/Badge-Gold.png" },
-            { title: "Badge-Silver", file: "/Achievements/Microsoft/Badge-Silver.png" },
             { title: "Develop AI Skills with Microsoft Copilot", file: "/Achievements/Microsoft/Develop_AI_Skills_with_Microsoft_Copilot.pdf" },
             { title: "Foundational C# with Microsoft", file: "/Achievements/Microsoft/Foundational_CSharp_with_Microsoft.pdf" },
             { title: "Microsoft AI Skills Fest", file: "/Achievements/Microsoft/Microsoft_AI_Skills_Fest.pdf" },
@@ -171,6 +173,9 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "Microsoft Badges",
         items: [
+            { title: "Badge-Platinum", file: "/Achievements/Microsoft/Badge-Platinum.png" },
+            { title: "Badge-Gold", file: "/Achievements/Microsoft/Badge-Gold.png" },
+            { title: "Badge-Silver", file: "/Achievements/Microsoft/Badge-Silver.png" },
             { title: "Begin Python coding in Minecraft with MakeCode and Azure Notebooks", file: "/Achievements/Microsoft/BADGES/Begin_Python_coding_in_Minecraft_with_MakeCode_and_Azure_Notebooks.pdf" },
             { title: "Build programs using Python coding in Minecraft with Azure Notebooks", file: "/Achievements/Microsoft/BADGES/Build_programs_using_Python_coding_in_Minecraft_with_Azure_Notebooks.pdf" },
             { title: "Challenge project - Debug a C# console application using Visual Studio Code", file: "/Achievements/Microsoft/BADGES/Challenge_project_-_Debug_a_CSharp_console_application_using_Visual_Studio_Code.pdf" },
