@@ -1,6 +1,5 @@
 import { useInView } from "react-intersection-observer";
-import { Card } from "@/components/ui/card";
-import { ChevronDown, Code, Database, Layout, Server, User } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { previewThenDownload } from "@/lib/utils";
 import { useState } from "react";
@@ -13,29 +12,7 @@ const About = () => {
   });
 
   const [openPanel, setOpenPanel] = useState<string | null>(null);
-
-  const skills = [
-    {
-      icon: <Code className="h-8 w-8" />,
-      title: "Frontend Development",
-      description: "React, TypeScript, Tailwind CSS, Next.js",
-    },
-    {
-      icon: <Server className="h-8 w-8" />,
-      title: "Backend Development",
-      description: "Node.js, Express, Python, Django",
-    },
-    {
-      icon: <Database className="h-8 w-8" />,
-      title: "Database",
-      description: "MySQL, PostgreSQL, MongoDB",
-    },
-    {
-      icon: <Layout className="h-8 w-8" />,
-      title: "UI/UX Design",
-      description: "Figma, Adobe XD, Responsive Design",
-    },
-  ];
+  const [showImageModal, setShowImageModal] = useState(false);
 
   return (
     <section id="about" className="py-20 relative section-divider-top" ref={ref}>
@@ -87,65 +64,62 @@ const About = () => {
               </div>
             </div>
 
-            {/* Right: Professional info */}
-            <div className="space-y-6">
-              {/* Intro Card */}
-              <div className="group relative">
-                <span className="pointer-events-none absolute -inset-1 rounded-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300">
-                  <span className="absolute inset-0 m-1 rounded-lg blur-2xl bg-gradient-to-r from-blue-500/30 to-purple-500/30 mix-blend-screen" />
-                </span>
-                <Card className="relative z-10 p-6 border-border/50">
-                  <h3 className="text-2xl font-bold mb-2">Babin Bid</h3>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    B.Tech CSE • Adamas University, Kolkata
-                  </p>
-                  <p className="text-foreground/90 leading-relaxed">
-                    Curious developer passionate about crafting elegant solutions to complex problems. Fascinated by mathematics, AI/ML, and quantum concepts. I thrive on building meaningful projects and sharing knowledge with the community.
-                  </p>
-                  <div className="mt-4 flex gap-2 flex-wrap">
-                    <span className="px-3 py-1 rounded-full text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Full-Stack Dev</span>
-                    <span className="px-3 py-1 rounded-full text-xs bg-blue-500/20 text-blue-300 border border-blue-500/30">Problem Solver</span>
-                    <span className="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30">Innovator</span>
-                  </div>
-                </Card>
+            {/* Right: Professional info - floating style without boxes */}
+            <div className="space-y-8">
+              {/* Intro Section - Floating */}
+              <div className="space-y-4">
+                <h3 
+                  onClick={() => setShowImageModal(true)}
+                  className="text-3xl font-bold bg-gradient-to-r from-primary via-purple-400 to-secondary bg-clip-text text-transparent inline-block cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_25px_rgba(139,92,246,0.8)] hover:filter"
+                >
+                  Babin Bid
+                </h3>
+                <p className="text-base text-muted-foreground">
+                  B.Tech CSE • Adamas University, Kolkata
+                </p>
+                <p className="text-foreground/90 leading-relaxed text-lg">
+                  Curious developer passionate about crafting elegant solutions to complex problems. Fascinated by mathematics, AI/ML, and quantum concepts. I thrive on building meaningful projects and sharing knowledge with the community.
+                </p>
+                <div className="flex gap-3 flex-wrap pt-2">
+                  <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">Full-Stack Dev</span>
+                  <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20 hover:bg-blue-500/20 transition-colors">Problem Solver</span>
+                  <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20 hover:bg-purple-500/20 transition-colors">Innovator</span>
+                </div>
               </div>
 
-              {/* Primary Skills Card */}
-              <div className="group relative">
-                <span className="pointer-events-none absolute -inset-1 rounded-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300">
-                  <span className="absolute inset-0 m-1 rounded-lg blur-2xl bg-gradient-to-r from-orange-500/30 to-yellow-500/30 mix-blend-screen" />
-                </span>
-                <Card className="relative z-10 p-6 border-border/50">
-                  <h4 className="font-bold mb-4 text-lg">💡 Primary Skills</h4>
-                  <div className="space-y-3">
-                    {[
-                      { name: 'Switching Circuits', val: 95 },
-                      { name: 'Mathematics & Calculus', val: 90 },
-                      { name: 'Frontend Development', val: 90 },
-                      { name: 'Data Structures & Algorithms', val: 85 },
-                      { name: 'Python Programming', val: 85 },
-                    ].map((s) => (
-                      <div key={s.name} className="space-y-1">
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-foreground">{s.name}</span>
-                          <span className="font-semibold text-emerald-400">{s.val}%</span>
-                        </div>
-                        <div className="w-full bg-muted/40 rounded-full h-2 overflow-hidden">
-                          <progress
-                            className="sr-only"
-                            value={s.val}
-                            max={100}
-                            aria-label={`Proficiency: ${s.val}%`}
-                          />
-                          <div
-                            className="h-2 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full shadow-glow"
-                            style={{ width: `${s.val}%` }}
-                          />
-                        </div>
+              {/* Primary Skills - Floating */}
+              <div className="space-y-5 pt-4">
+                <h4 className="font-bold text-xl text-foreground flex items-center gap-2">
+                  <span className="text-2xl">💡</span> Primary Skills
+                </h4>
+                <div className="space-y-4">
+                  {[
+                    { name: 'Switching Circuits', val: 95 },
+                    { name: 'Mathematics & Calculus', val: 90 },
+                    { name: 'Frontend Development', val: 90 },
+                    { name: 'Data Structures & Algorithms', val: 85 },
+                    { name: 'Python Programming', val: 85 },
+                  ].map((s) => (
+                    <div key={s.name} className="space-y-2">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-foreground/90 font-medium">{s.name}</span>
+                        <span className="font-bold text-emerald-400">{s.val}%</span>
                       </div>
-                    ))}
-                  </div>
-                </Card>
+                      <div className="w-full bg-muted/30 rounded-full h-2.5 overflow-hidden backdrop-blur-sm">
+                        <progress
+                          className="sr-only"
+                          value={s.val}
+                          max={100}
+                          aria-label={`Proficiency: ${s.val}%`}
+                        />
+                        <div
+                          className="h-2.5 bg-gradient-to-r from-emerald-500 via-emerald-400 to-green-400 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.4)] transition-all duration-500"
+                          style={{ width: `${s.val}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Action Buttons */}
@@ -267,6 +241,44 @@ const About = () => {
           </blockquote>
         </div>
       </div>
+
+      {/* Image Modal/Lightbox */}
+      {showImageModal && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm animate-fade-in"
+          onClick={() => setShowImageModal(false)}
+        >
+          <div className="relative max-w-[90vw] max-h-[90vh]">
+            {/* Close button */}
+            <button
+              onClick={() => setShowImageModal(false)}
+              className="absolute -top-12 right-0 p-2 text-white/80 hover:text-white transition-colors"
+              aria-label="Close image"
+            >
+              <X className="h-8 w-8" />
+            </button>
+            
+            {/* Image with glow effect */}
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary via-purple-500 to-secondary rounded-3xl blur-2xl opacity-50 animate-pulse" />
+              <img
+                src="/Babin_New.jpeg"
+                alt="Babin Bid - Full Stack Developer"
+                className="relative rounded-2xl shadow-2xl max-w-full max-h-[80vh] object-contain border-4 border-white/20"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+            
+            {/* Name below image */}
+            <p className="text-center mt-4 text-white text-xl font-semibold">
+              Babin Bid
+            </p>
+            <p className="text-center text-white/60 text-sm">
+              Click anywhere to close
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
