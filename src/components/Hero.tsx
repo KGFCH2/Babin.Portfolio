@@ -119,9 +119,12 @@ const Hero = () => {
               rel="noopener noreferrer"
               aria-label="Visit my GitHub"
               title="GitHub"
-              className="text-foreground/60 hover:text-primary transition-smooth"
+              className="relative group p-2 rounded-lg transition-all duration-300"
             >
-              <Github className="h-6 w-6" />
+              {/* Grey background box on hover */}
+              <div className="absolute inset-0 bg-gray-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+              <div className="absolute inset-0 bg-gray-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <Github className="h-6 w-6 text-foreground/60 group-hover:text-gray-300 transition-colors relative z-10" />
             </a>
             <a
               href="https://www.linkedin.com/in/babin-bid-853728293"
@@ -129,17 +132,23 @@ const Hero = () => {
               rel="noopener noreferrer"
               aria-label="Visit my LinkedIn"
               title="LinkedIn"
-              className="text-foreground/60 hover:text-primary transition-smooth"
+              className="relative group p-2 rounded-lg transition-all duration-300"
             >
-              <Linkedin className="h-6 w-6" />
+              {/* Blue background box on hover */}
+              <div className="absolute inset-0 bg-blue-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+              <div className="absolute inset-0 bg-blue-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <Linkedin className="h-6 w-6 text-foreground/60 group-hover:text-blue-300 transition-colors relative z-10" />
             </a>
             <a
               href="mailto:babin.bid@stu.adamasuniversity.ac.in"
               aria-label="Send me an email"
               title="Email"
-              className="text-foreground/60 hover:text-primary transition-smooth"
+              className="relative group p-2 rounded-lg transition-all duration-300"
             >
-              <Mail className="h-6 w-6" />
+              {/* Red background box on hover */}
+              <div className="absolute inset-0 bg-red-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+              <div className="absolute inset-0 bg-red-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <Mail className="h-6 w-6 text-foreground/60 group-hover:text-red-300 transition-colors relative z-10" />
             </a>
           </div>
 
