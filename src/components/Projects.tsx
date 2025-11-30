@@ -1,11 +1,12 @@
 import { useInView } from "react-intersection-observer";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,8 +18,31 @@ const Projects = () => {
     threshold: 0.1,
     triggerOnce: true,
   });
+
+  // Separate inView for auto-scroll (not triggerOnce)
+  const { ref: carouselRef, inView: carouselInView } = useInView({
+    threshold: 0.3,
+  });
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
+  const [api, setApi] = useState<CarouselApi>();
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Auto-scroll effect when carousel is in view
+  useEffect(() => {
+    if (!api || !carouselInView || isHovered) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 1000); // Scroll every 2 seconds
+
+    return () => clearInterval(interval);
+  }, [api, carouselInView, isHovered]);
+
+  // Pause auto-scroll on user interaction
+  const handleMouseEnter = useCallback(() => setIsHovered(true), []);
+  const handleMouseLeave = useCallback(() => setIsHovered(false), []);
 
   // Return base + gradient hover classes for badges; hover applies a gradient background
   const getBadgeClasses = (tech: string) => {
@@ -287,117 +311,124 @@ const Projects = () => {
             </div>
           )}
 
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
+          <div
+            ref={carouselRef}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
-            <CarouselContent>
-              {projects
-                .filter(project => {
-                  const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    project.description.toLowerCase().includes(searchTerm.toLowerCase());
-                  const matchesTech = !selectedTech || project.tech.includes(selectedTech);
-                  return matchesSearch && matchesTech;
-                })
-                .slice()
-                .sort((a, b) => a.title.localeCompare(b.title))
-                .map((project, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                    <div className="p-2 h-full">
-                      <Card className="relative h-full overflow-hidden border-2 border-violet-300/50 dark:border-border/50 shadow-card hover:shadow-glow transition-smooth group flex flex-col bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-50 dark:from-card dark:via-card dark:to-card backdrop-blur-sm hover:border-violet-400/70 dark:hover:border-primary/50">
-                        {/* Light mode gradient overlay on hover */}
-                        <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-violet-200/30 via-purple-200/20 to-indigo-200/30 opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
-                        {project.thumbnail ? (
-                          <div className="h-56 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
-                            <img
-                              src={encodeURI(project.thumbnail)}
-                              alt={`${project.title} thumbnail`}
-                              loading="lazy"
-                              decoding="async"
-                              className="w-full h-full object-contain object-center rounded transform transition-transform duration-300 ease-out group-hover:scale-105"
-                            />
-                          </div>
-                        ) : (
-                          <div className="h-56 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
-                            <span className="text-foreground font-bold text-2xl">{project.title}</span>
-                          </div>
-                        )}
-                        {/* separator line between image and content (more visible) */}
-                        <div className="w-full border-t-2 border-muted/30" />
-                        <div className="p-6 flex flex-col flex-grow">
-                          <div className="space-y-4 flex-grow">
-                            <h3 className="text-xl font-bold text-foreground">
-                              {project.title}
-                            </h3>
-                            <p className="text-muted-foreground">
-                              {project.description}
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                              {project.tech.map((tech, techIndex) => (
-                                <span
-                                  key={techIndex}
-                                  className={`${getBadgeClasses(tech)} px-3 py-1 text-sm rounded-full border transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1`}
-                                >
-                                  {tech}
-                                </span>
-                              ))}
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              setApi={setApi}
+              className="w-full"
+            >
+              <CarouselContent>
+                {projects
+                  .filter(project => {
+                    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                      project.description.toLowerCase().includes(searchTerm.toLowerCase());
+                    const matchesTech = !selectedTech || project.tech.includes(selectedTech);
+                    return matchesSearch && matchesTech;
+                  })
+                  .slice()
+                  .sort((a, b) => a.title.localeCompare(b.title))
+                  .map((project, index) => (
+                    <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                      <div className="p-2 h-full">
+                        <Card className="relative h-full overflow-hidden border-2 border-violet-300/50 dark:border-border/50 shadow-card hover:shadow-glow transition-smooth group flex flex-col bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-50 dark:from-card dark:via-card dark:to-card backdrop-blur-sm hover:border-violet-400/70 dark:hover:border-primary/50">
+                          {/* Light mode gradient overlay on hover */}
+                          <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-violet-200/30 via-purple-200/20 to-indigo-200/30 opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
+                          {project.thumbnail ? (
+                            <div className="h-56 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
+                              <img
+                                src={encodeURI(project.thumbnail)}
+                                alt={`${project.title} thumbnail`}
+                                loading="lazy"
+                                decoding="async"
+                                className="w-full h-full object-contain object-center rounded transform transition-transform duration-300 ease-out group-hover:scale-105"
+                              />
                             </div>
-                          </div>
-                          <div className="flex gap-3 items-center mt-auto pt-4">
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              className="flex-1 h-9 border-primary/50 hover:bg-primary/10 transform transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg active:scale-95"
-                              asChild
-                            >
-                              <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <Github className="mr-2 h-4 w-4" />
-                                Code
-                              </a>
-                            </Button>
-                            {project.demo ? (
+                          ) : (
+                            <div className="h-56 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
+                              <span className="text-foreground font-bold text-2xl">{project.title}</span>
+                            </div>
+                          )}
+                          {/* separator line between image and content (more visible) */}
+                          <div className="w-full border-t-2 border-muted/30" />
+                          <div className="p-6 flex flex-col flex-grow">
+                            <div className="space-y-4 flex-grow">
+                              <h3 className="text-xl font-bold text-foreground">
+                                {project.title}
+                              </h3>
+                              <p className="text-muted-foreground">
+                                {project.description}
+                              </p>
+                              <div className="flex flex-wrap gap-2">
+                                {project.tech.map((tech, techIndex) => (
+                                  <span
+                                    key={techIndex}
+                                    className={`${getBadgeClasses(tech)} px-3 py-1 text-sm rounded-full border transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1`}
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                            <div className="flex gap-3 items-center mt-auto pt-4">
                               <Button
+                                variant="outline"
                                 size="sm"
-                                className="flex-1 h-9 gradient-primary text-primary-foreground hover:opacity-90 transform transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg active:scale-95"
+                                className="flex-1 h-9 border-primary/50 hover:bg-primary/10 transform transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg active:scale-95"
                                 asChild
                               >
                                 <a
-                                  href={project.demo}
+                                  href={project.github}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                 >
-                                  <ExternalLink className="mr-2 h-4 w-4" />
-                                  Demo
+                                  <Github className="mr-2 h-4 w-4" />
+                                  Code
                                 </a>
                               </Button>
-                            ) : (
-                              <Button
-                                size="sm"
-                                variant="outline"
-                                className="flex-1 h-9 opacity-60 cursor-not-allowed border-dashed bg-purple-500/10 border-purple-500/30 text-purple-400"
-                                disabled
-                              >
-                                <ExternalLink className="mr-2 h-4 w-4" />
-                                Demo
-                              </Button>
-                            )}
+                              {project.demo ? (
+                                <Button
+                                  size="sm"
+                                  className="flex-1 h-9 gradient-primary text-primary-foreground hover:opacity-90 transform transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg active:scale-95"
+                                  asChild
+                                >
+                                  <a
+                                    href={project.demo}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <ExternalLink className="mr-2 h-4 w-4" />
+                                    Demo
+                                  </a>
+                                </Button>
+                              ) : (
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  className="flex-1 h-9 opacity-60 cursor-not-allowed border-dashed bg-purple-500/10 border-purple-500/30 text-purple-400"
+                                  disabled
+                                >
+                                  <ExternalLink className="mr-2 h-4 w-4" />
+                                  Demo
+                                </Button>
+                              )}
+                            </div>
                           </div>
-                        </div>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
-          </Carousel>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex" />
+              <CarouselNext className="hidden md:flex" />
+            </Carousel>
+          </div>
 
           {/* Mobile swipe hint */}
           <div className="md:hidden flex items-center justify-center gap-2 mt-4 text-muted-foreground animate-pulse">
