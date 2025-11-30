@@ -188,9 +188,9 @@ const About = () => {
                 <Collapsible open={openPanel === "knowledge"} onOpenChange={(open) => setOpenPanel(open ? "knowledge" : null)}>
                   <div className="group">
                     <CollapsibleTrigger className="w-full">
-                      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg border border-border/50 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                        <span className="text-lg font-semibold text-left">🧠 Knowledge In</span>
-                        <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "knowledge" ? "rotate-180" : ""}`} />
+                      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg border border-border/50 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:-translate-y-0.5">
+                        <span className="text-lg font-semibold text-left flex items-center gap-2"><span className="group-hover:animate-bounce transition-transform">🧠</span> Knowledge In</span>
+                        <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "knowledge" ? "rotate-180" : ""} group-hover:text-blue-500`} />
                       </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="overflow-hidden">
@@ -211,9 +211,9 @@ const About = () => {
                 <Collapsible open={openPanel === "upskilling"} onOpenChange={(open) => setOpenPanel(open ? "upskilling" : null)}>
                   <div className="group">
                     <CollapsibleTrigger className="w-full">
-                      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-500/10 to-green-500/10 rounded-lg border border-border/50 hover:border-emerald-500/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                        <span className="text-lg font-semibold text-left">🚀 Upskilling</span>
-                        <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "upskilling" ? "rotate-180" : ""}`} />
+                      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-500/10 to-green-500/10 rounded-lg border border-border/50 hover:border-emerald-500/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:-translate-y-0.5">
+                        <span className="text-lg font-semibold text-left flex items-center gap-2"><span className="group-hover:animate-bounce transition-transform">🚀</span> Upskilling</span>
+                        <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "upskilling" ? "rotate-180" : ""} group-hover:text-emerald-500`} />
                       </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="overflow-hidden">
@@ -231,9 +231,9 @@ const About = () => {
                 <Collapsible open={openPanel === "interests"} onOpenChange={(open) => setOpenPanel(open ? "interests" : null)}>
                   <div className="group">
                     <CollapsibleTrigger className="w-full">
-                      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-lg border border-border/50 hover:border-pink-500/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                        <span className="text-lg font-semibold text-left">⚡ Interests</span>
-                        <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "interests" ? "rotate-180" : ""}`} />
+                      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-lg border border-border/50 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:-translate-y-0.5">
+                        <span className="text-lg font-semibold text-left flex items-center gap-2"><span className="group-hover:animate-bounce transition-transform">⚡</span> Interests</span>
+                        <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "interests" ? "rotate-180" : ""} group-hover:text-pink-500`} />
                       </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="overflow-hidden">
@@ -251,9 +251,9 @@ const About = () => {
                 <Collapsible open={openPanel === "focus"} onOpenChange={(open) => setOpenPanel(open ? "focus" : null)}>
                   <div className="group">
                     <CollapsibleTrigger className="w-full">
-                      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 rounded-lg border border-border/50 hover:border-orange-500/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                        <span className="text-lg font-semibold text-left">🎯 Focus</span>
-                        <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "focus" ? "rotate-180" : ""}`} />
+                      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 rounded-lg border border-border/50 hover:border-orange-500/50 hover:shadow-[0_0_20px_rgba(249,115,22,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:-translate-y-0.5">
+                        <span className="text-lg font-semibold text-left flex items-center gap-2"><span className="group-hover:animate-bounce transition-transform">🎯</span> Focus</span>
+                        <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "focus" ? "rotate-180" : ""} group-hover:text-orange-500`} />
                       </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="overflow-hidden">
