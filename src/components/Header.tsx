@@ -89,20 +89,26 @@ const Header = () => {
 
   const scrollToSection = (href: string) => {
     setIsMobileMenuOpen(false);
+    
+    // If we're not on the home page, navigate to home first
     if (location.pathname !== "/") {
-      // Use React Router navigate for smooth client-side routing
-      const targetSection = href.slice(1);
-      setActiveSection(targetSection);
-      navigate(`/${href}`);
-      // Wait for navigation, then scroll to section
+      navigate("/");
+      // Wait for navigation to complete, then scroll
       setTimeout(() => {
         const element = document.querySelector(href);
-        element?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 150);
-      return;
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+          setActiveSection(href.slice(1));
+        }
+      }, 100);
+    } else {
+      // We're already on home page, just scroll
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        setActiveSection(href.slice(1));
+      }
     }
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
