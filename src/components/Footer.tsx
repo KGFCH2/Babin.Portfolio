@@ -100,12 +100,12 @@ const Footer = () => {
                   title="GitHub"
                   className="relative group p-2 rounded-lg transition-all duration-300"
                 >
-                  {/* Grey background box on hover */}
-                  <div className="absolute inset-0 bg-gray-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
-                  <div className="absolute inset-0 bg-gray-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:block hidden" />
+                  {/* Gray background box on hover */}
+                  <div className="absolute inset-0 bg-gray-900/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
+                  <div className="absolute inset-0 bg-gray-900/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:block hidden" />
                   {/* Light mode version */}
-                  <div className="absolute inset-0 bg-gray-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
-                  <div className="absolute inset-0 bg-gray-300/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+                  <div className="absolute inset-0 bg-gray-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+                  <div className="absolute inset-0 bg-gray-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
                   <Github className="h-6 w-6 text-muted-foreground group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors relative z-10" />
                 </a>
                 <a
