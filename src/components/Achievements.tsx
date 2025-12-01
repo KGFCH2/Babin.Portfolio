@@ -16,6 +16,7 @@ const Achievements = () => {
     const [zoomLevel, setZoomLevel] = useState(1);
     const [filter, setFilter] = useState<'all' | 'certificates' | 'awards' | 'badges'>('all');
     const [isClosing, setIsClosing] = useState(false);
+    const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
     // Helper to determine type based on extension
     const getFileType = (path: string) => {
@@ -127,7 +128,11 @@ const Achievements = () => {
             setSelectedItem(null);
             setZoomLevel(1);
             setIsClosing(false);
-        }, 300); // Reduced from 1500ms to 300ms for smooth transitions
+        }, 1500); // Extended animation duration to show full closing sequence
+    };
+
+    const handleImageError = (file: string) => {
+        setImageErrors(prev => new Set(prev).add(file));
     };
 
     const handleItemClick = (file: string) => {
@@ -225,12 +230,23 @@ const Achievements = () => {
                                             >
                                                 <div className="h-48 overflow-hidden bg-muted/10 relative flex items-center justify-center p-4">
                                                     {type === 'image' ? (
-                                                        <img
-                                                            src={item.file}
-                                                            alt={item.title}
-                                                            loading="lazy"
-                                                            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
-                                                        />
+                                                        <>
+                                                            {!imageErrors.has(item.file) ? (
+                                                                <img
+                                                                    src={item.file}
+                                                                    alt={item.title}
+                                                                    loading="lazy"
+                                                                    decoding="async"
+                                                                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                                                                    onError={() => handleImageError(item.file)}
+                                                                />
+                                                            ) : (
+                                                                <div className="text-muted-foreground flex flex-col items-center justify-center gap-2">
+                                                                    <FileText className="w-12 h-12" />
+                                                                    <span className="text-xs">Image unavailable</span>
+                                                                </div>
+                                                            )}
+                                                        </>
                                                     ) : (
                                                         <div className="text-primary/50 group-hover:text-primary transition-colors">
                                                             <FileText className="w-16 h-16" />
