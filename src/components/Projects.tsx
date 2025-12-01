@@ -413,7 +413,7 @@ const Projects = () => {
                           {/* Light mode gradient overlay on hover */}
                           <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-violet-200/30 via-purple-200/20 to-indigo-200/30 opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
                           {project.thumbnail ? (
-                            <div className="h-56 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
+                            <div className="h-40 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
                               <img
                                 src={encodeURI(project.thumbnail)}
                                 alt={`${project.title} thumbnail`}
@@ -423,18 +423,18 @@ const Projects = () => {
                               />
                             </div>
                           ) : (
-                            <div className="h-56 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
-                              <span className="text-foreground font-bold text-2xl">{project.title}</span>
+                            <div className="h-40 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
+                              <span className="text-foreground font-bold text-lg">{project.title}</span>
                             </div>
                           )}
                           {/* separator line between image and content (more visible) */}
                           <div className="w-full border-t-2 border-muted/30" />
-                          <div className="p-6 flex flex-col flex-grow">
-                            <div className="space-y-4 flex-grow">
-                              <h3 className="text-xl font-bold text-foreground">
+                          <div className="p-4 flex flex-col flex-grow">
+                            <div className="space-y-3 flex-grow">
+                              <h3 className="text-lg font-bold text-foreground">
                                 {project.title}
                               </h3>
-                              <p className="text-muted-foreground">
+                              <p className="text-sm text-muted-foreground">
                                 {project.description}
                               </p>
                               <div className="flex flex-wrap gap-2">
@@ -448,7 +448,7 @@ const Projects = () => {
                                 ))}
                               </div>
                             </div>
-                            <div className="flex gap-3 items-center mt-auto pt-4">
+                            <div className="flex gap-3 items-center mt-auto pt-3">
                               <Button
                                 variant="outline"
                                 size="sm"
