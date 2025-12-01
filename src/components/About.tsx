@@ -141,7 +141,7 @@ const About = () => {
               </h4>
               <div className="space-y-4 flex-1">
                 {[
-                  { name: 'Mathematics & Calculus', val: 90, icon: '📐', color: 'from-blue-500 via-cyan-400 to-sky-300', bgColor: 'bg-blue-500/10', borderColor: 'border-blue-500/30', textColor: 'text-blue-400', glowColor: 'shadow-blue-500/50' },
+                  { name: 'Mathematics & Calculus', val: 95, icon: '📐', color: 'from-blue-500 via-cyan-400 to-sky-300', bgColor: 'bg-blue-500/10', borderColor: 'border-blue-500/30', textColor: 'text-blue-400', glowColor: 'shadow-blue-500/50' },
                   { name: 'Switching Circuits', val: 95, icon: '⚡', color: 'from-orange-500 via-amber-400 to-yellow-300', bgColor: 'bg-orange-500/10', borderColor: 'border-orange-500/30', textColor: 'text-orange-400', glowColor: 'shadow-orange-500/50' },
                   { name: 'Frontend Development', val: 90, icon: '🎨', color: 'from-purple-500 via-violet-400 to-fuchsia-300', bgColor: 'bg-purple-500/10', borderColor: 'border-purple-500/30', textColor: 'text-purple-400', glowColor: 'shadow-purple-500/50' },
                   { name: 'Data Structures & Algorithms', val: 85, icon: '🧠', color: 'from-rose-500 via-pink-400 to-red-300', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400', glowColor: 'shadow-rose-500/50' },
