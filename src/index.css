@@ -1046,3 +1046,203 @@ All colors MUST be HSL.
     }
   }
 }
+
+/* ========================= 
+   Cool Loader Styles
+   ========================= */
+
+@layer utilities {
+  .loader-container {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #0D0D0D 0%, #1A1A2E 50%, #2C2C54 100%);
+    overflow: hidden;
+  }
+
+  .loader-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    z-index: 10;
+  }
+
+  /* Main rotating ring loader */
+  .loader-ring {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loader-ring::before,
+  .loader-ring::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    animation: spin-outer 3s linear infinite;
+  }
+
+  .loader-ring::before {
+    width: 100px;
+    height: 100px;
+    border: 3px solid transparent;
+    border-top-color: #00FFFF;
+    border-right-color: #8A2BE2;
+  }
+
+  .loader-ring::after {
+    width: 75px;
+    height: 75px;
+    border: 3px solid transparent;
+    border-bottom-color: #FF69B4;
+    border-left-color: #00FFFF;
+    animation: spin-inner 2s linear infinite reverse;
+  }
+
+  .loader-ring-inner {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #FF69B4;
+    border-right-color: #00FFFF;
+    animation: spin-fast 1.5s linear infinite;
+  }
+
+  @keyframes spin-outer {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin-inner {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  @keyframes spin-fast {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Pulsing center circle */
+  .loader-pulse {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.95), rgba(138, 43, 226, 0.6));
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(138, 43, 226, 0.4);
+    animation: pulse-glow 2s ease-in-out infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(138, 43, 226, 0.4);
+    }
+
+    50% {
+      transform: translate(-50%, -50%) scale(1.3);
+      opacity: 0.7;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 60px rgba(138, 43, 226, 0.6);
+    }
+  }
+
+  /* Loading text with animated dots */
+  .loader-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+    letter-spacing: 0.08em;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .loader-dots {
+    display: flex;
+    gap: 0.4rem;
+    margin-left: 0.3rem;
+  }
+
+  .loader-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00FFFF;
+    animation: dot-bounce-new 1.4s infinite;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+  }
+
+  .loader-dots span:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .loader-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .loader-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes dot-bounce-new {
+
+    0%,
+    80%,
+    100% {
+      opacity: 0.4;
+      transform: translateY(0);
+    }
+
+    40% {
+      opacity: 1;
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+
+    .loader-ring::before,
+    .loader-ring::after,
+    .loader-ring-inner,
+    .loader-pulse,
+    .loader-dots span {
+      animation: none !important;
+      opacity: 1;
+    }
+  }
+}
