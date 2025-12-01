@@ -11,13 +11,14 @@ interface StatItem {
 const InteractiveStats: React.FC = () => {
     const { ref, inView } = useInView({
         threshold: 0.5,
-        triggerOnce: true,
+        triggerOnce: false,
     });
 
     const stats: StatItem[] = [
         {
             label: 'Projects Completed',
             value: 10,
+            suffix: '+',
             description: 'Full-stack applications and ML systems'
         },
         {
@@ -34,11 +35,13 @@ const InteractiveStats: React.FC = () => {
         },
         {
             label: 'Code Commits',
-            value: 500,
+            value: 700,
             suffix: '+',
             description: 'Across multiple repositories'
         }
     ];
+
+    const total = stats.length;
 
     return (
         <div ref={ref} className="py-16 relative overflow-hidden">
@@ -49,6 +52,7 @@ const InteractiveStats: React.FC = () => {
                             key={index}
                             stat={stat}
                             index={index}
+                            totalCount={total}
                             isVisible={inView}
                         />
                     ))}
@@ -61,11 +65,24 @@ const InteractiveStats: React.FC = () => {
 interface StatCardProps {
     stat: StatItem;
     index: number;
+    totalCount: number;
     isVisible: boolean;
 }
 
-const StatCard: React.FC<StatCardProps> = ({ stat, index, isVisible }) => {
+const StatCard: React.FC<StatCardProps> = ({ stat, index, totalCount, isVisible }) => {
     const [count, setCount] = useState(0);
+    const [hasBeenVisible, setHasBeenVisible] = useState(false);
+
+    // Reset count when card leaves viewport so it re-animates on re-entry
+    useEffect(() => {
+        if (!isVisible) {
+            setCount(0);
+        }
+    }, [isVisible]);
+
+    useEffect(() => {
+        if (isVisible) setHasBeenVisible(true);
+    }, [isVisible]);
 
     useEffect(() => {
         if (!isVisible) return;
@@ -90,13 +107,31 @@ const StatCard: React.FC<StatCardProps> = ({ stat, index, isVisible }) => {
         return () => clearInterval(interval);
     }, [isVisible, stat.value]);
 
+    // Compute horizontal spread offset: items move outwards from center when visible
+    const center = (totalCount - 1) / 2;
+    const offset = index - center; // negative = left side, positive = right side
+    const distance = 48; // px per step; increase for more spread
+    const translateX = hasBeenVisible ? offset * distance : 0;
+    const translateY = isVisible ? 0 : 16;
+    const opacity = isVisible ? 1 : 0;
+
+    // Stagger delays: enter and exit have opposite staggers for nicer effect
+    const enterDelay = index * 100;
+    const exitDelay = (totalCount - 1 - index) * 80;
+    const transitionDelay = isVisible ? enterDelay : exitDelay;
+
+    const isReEntry = isVisible && hasBeenVisible;
+    const transitionStyle = isReEntry ? 'none' : `transform 700ms cubic-bezier(.2,.9,.2,1) ${transitionDelay}ms, opacity 500ms ease ${transitionDelay}ms`;
+
     return (
         <div
-            className={`relative group transform transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                }`}
+            className={`relative group ${isReEntry ? 're-enter' : ''}`}
             style={{
-                transitionDelay: isVisible ? `${index * 100}ms` : '0ms'
-            }}
+                transform: `translateX(${translateX}px) translateY(${translateY}px)`,
+                opacity,
+                transition: transitionStyle,
+                '--offset': offset,
+            } as React.CSSProperties}
         >
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors">
