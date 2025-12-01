@@ -1,5 +1,5 @@
 import { useInView } from "react-intersection-observer";
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -7,7 +7,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Star } from "lucide-react";
@@ -28,10 +27,30 @@ const Projects = () => {
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Autoplay plugin with pause on hover
-  const autoplayPlugin = useRef(
-    Autoplay({ delay: 1000, stopOnInteraction: false, stopOnMouseEnter: true })
-  );
+  // Autoplay plugin will be loaded dynamically to avoid build-time resolution issues on Vercel
+  const [plugins, setPlugins] = useState<any[]>([]);
+
+  // Dynamically import the embla autoplay plugin only in the browser/runtime
+  useEffect(() => {
+    let mounted = true;
+    import('embla-carousel-autoplay')
+      .then((mod) => {
+        if (!mounted) return;
+        const Autoplay = (mod && (mod.default || mod));
+        try {
+          const plugin = Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true });
+          setPlugins([plugin]);
+        } catch (e) {
+          // plugin init failed
+          console.warn('Failed to initialize embla autoplay plugin', e);
+        }
+      })
+      .catch(() => {
+        // ignore import errors during SSR/build
+      });
+
+    return () => { mounted = false; };
+  }, []);
 
   // Pause auto-scroll on user interaction
   const handleMouseEnter = useCallback(() => setIsHovered(true), []);
@@ -374,7 +393,7 @@ const Projects = () => {
                 align: "start",
                 loop: true,
               }}
-              plugins={[autoplayPlugin.current]}
+              plugins={plugins}
               className="w-full"
             >
               <CarouselContent>
