@@ -18,6 +18,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
+  <!-- Preload critical images and resources -->
+  <link rel="preload" as="image" href="/Babin_New.jpeg" type="image/jpeg">
+  <link rel="preload" as="image" href="/Babin_Favicon_New.png" type="image/png">
+  <link rel="dns-prefetch" href="https://github.com">
+  <link rel="dns-prefetch" href="https://linkedin.com">
+  <link rel="prefetch" href="/Babin.jpeg" as="image" type="image/jpeg">
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://babin-portfolio.vercel.app" />
@@ -37,6 +44,62 @@
 
   <link rel="icon" type="image/png" href="/Babin_Favicon_New.png">
   <link rel="apple-touch-icon" href="/Babin_Favicon_New.png">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- JSON-LD Structured Data for Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Babin Bid",
+    "jobTitle": "Full Stack Developer",
+    "url": "https://babin-portfolio.vercel.app",
+    "email": "babin.bid@stu.adamasuniversity.ac.in",
+    "sameAs": [
+      "https://github.com/KGFCH2",
+      "https://www.linkedin.com/in/babin-bid-853728293"
+    ],
+    "image": "/Babin_New.jpeg",
+    "description": "B.Tech 3rd Year Computer Science Engineering student from Adamas University, Kolkata. Full Stack Developer specializing in React, Python, TypeScript, and Machine Learning.",
+    "affiliation": {
+      "@type": "EducationalOrganization",
+      "name": "Adamas University",
+      "address": "Kolkata, India"
+    },
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "Adamas University",
+        "url": "https://www.adamasuniversity.ac.in"
+      }
+    ],
+    "knowsAbout": [
+      "Web Development",
+      "Full Stack Development",
+      "React.js",
+      "TypeScript",
+      "Python",
+      "Machine Learning",
+      "Data Science",
+      "Computer Science"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD for Website -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Website",
+    "name": "Babin Bid Portfolio",
+    "url": "https://babin-portfolio.vercel.app",
+    "description": "Professional portfolio of Babin Bid - Full Stack Developer & CS Engineer",
+    "creator": {
+      "@type": "Person",
+      "name": "Babin Bid"
+    }
+  }
+  </script>
 </head>
 
 <body>
