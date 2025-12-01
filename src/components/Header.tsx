@@ -196,8 +196,11 @@ const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden p-2 min-h-[48px] min-w-[48px]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {isMobileMenuOpen ? (
               <X className="h-6 w-6" />
@@ -210,14 +213,22 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border animate-fade-in">
-          <ul className="container mx-auto px-4 py-6 flex flex-col gap-4">
+        <div
+          className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border animate-fade-in"
+          id="mobile-menu"
+          role="navigation"
+          aria-label="Mobile navigation"
+        >
+          <ul className="container mx-auto px-4 py-4 flex flex-col gap-1">
             {navItems.map((item) => (
               <li key={item.name}>
                 {item.type === "route" ? (
                   <Link
                     to={item.href}
-                    className="text-lg text-foreground/80 hover:text-primary transition-smooth font-medium block"
+                    className={`text-base px-4 py-3 min-h-[48px] rounded-lg transition-colors flex items-center font-medium block ${location.pathname === item.href
+                      ? "bg-primary/10 text-primary"
+                      : "text-foreground/80 hover:text-primary hover:bg-primary/5"
+                      }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
@@ -229,7 +240,10 @@ const Header = () => {
                       e.preventDefault();
                       scrollToSection(item.href);
                     }}
-                    className="text-lg text-foreground/80 hover:text-primary transition-smooth font-medium block"
+                    className={`text-base px-4 py-3 min-h-[48px] rounded-lg transition-colors flex items-center font-medium block ${activeSection === item.href.slice(1) && location.pathname === "/"
+                      ? "bg-primary/10 text-primary"
+                      : "text-foreground/80 hover:text-primary hover:bg-primary/5"
+                      }`}
                   >
                     {item.name}
                   </a>

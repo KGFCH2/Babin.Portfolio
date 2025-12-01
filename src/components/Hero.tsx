@@ -32,7 +32,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-12 z-10">
         <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
           <div className="space-y-4">
-            <h2 className="text-xl md:text-2xl text-muted-foreground font-medium">
+            <h2 className="text-xl md:text-2xl text-muted-foreground font-medium" role="status" aria-live="polite">
               Hi, I'm
             </h2>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -41,7 +41,7 @@ const Hero = () => {
                 className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400"
               />
             </h1>
-            <div className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground min-h-[160px] flex items-center justify-center">
+            <div className="text-2xl md:text-3xl lg:text-3xl font-semibold text-foreground min-h-[140px] md:min-h-[160px] flex items-center justify-center">
               <div className="whitespace-nowrap">
                 <TypeAnimation
                   sequence={[
@@ -88,38 +88,36 @@ const Hero = () => {
             research.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center flex-wrap">
             <Button
               size="lg"
-              className="gradient-primary text-primary-foreground shadow-glow hover:scale-105 transition-smooth"
+              className="gradient-primary text-primary-foreground shadow-glow hover:scale-105 transition-all duration-300 active:scale-95 w-full sm:w-auto"
               onClick={handleDownloadResume}
+              aria-label="Download Babin Bid Resume"
             >
               <Download className="mr-2 h-5 w-5" />
-              View / Download Resume
+              Resume
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-primary/50 hover:bg-primary/10 transition-smooth"
-              onClick={() => {
-                document
-                  .querySelector("#contact")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
+              className="border-primary/50 hover:bg-primary/10 transition-all duration-300 active:scale-95 w-full sm:w-auto"
+              onClick={() => scrollToSection('contact')}
+              aria-label="Navigate to contact section"
             >
               <Mail className="mr-2 h-5 w-5" />
-              Contact Me
+              Contact
             </Button>
           </div>
 
-          <div className="flex items-center justify-center gap-6 pt-8">
+          <div className="flex items-center justify-center gap-4 pt-8 flex-wrap">
             <a
               href="https://github.com/KGFCH2"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visit my GitHub"
+              aria-label="Visit GitHub profile"
               title="GitHub"
-              className="relative group p-2 rounded-lg transition-all duration-300"
+              className="relative group p-3 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95"
             >
               {/* Grey background box on hover - dark mode */}
               <div className="absolute inset-0 bg-gray-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
@@ -133,9 +131,9 @@ const Hero = () => {
               href="https://www.linkedin.com/in/babin-bid-853728293"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visit my LinkedIn"
+              aria-label="Visit LinkedIn profile"
               title="LinkedIn"
-              className="relative group p-2 rounded-lg transition-all duration-300"
+              className="relative group p-3 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95"
             >
               {/* Blue background box on hover - dark mode */}
               <div className="absolute inset-0 bg-blue-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
@@ -147,9 +145,9 @@ const Hero = () => {
             </a>
             <a
               href="mailto:babin.bid@stu.adamasuniversity.ac.in"
-              aria-label="Send me an email"
+              aria-label="Send email"
               title="Email"
-              className="relative group p-2 rounded-lg transition-all duration-300"
+              className="relative group p-3 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95"
             >
               {/* Red background box on hover - dark mode */}
               <div className="absolute inset-0 bg-red-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />

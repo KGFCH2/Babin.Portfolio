@@ -172,14 +172,14 @@ const Contact = () => {
                       {info.link && (info.title.includes('Email') || info.title === 'Phone') && (
                         <button
                           onClick={() => copyToClipboard(info.value, info.title)}
-                          className="p-2 rounded-md opacity-0 group-hover:opacity-100 hover:bg-muted/50 transition-all"
+                          className="p-3 rounded-lg opacity-0 group-hover:opacity-100 hover:bg-primary/10 transition-all focus-visible:opacity-100 min-w-[48px] min-h-[48px] flex items-center justify-center"
                           title={`Copy ${info.title}`}
-                          aria-label={`Copy ${info.title}`}
+                          aria-label={`Copy ${info.title}: ${info.value}`}
                         >
                           {copiedField === info.title ? (
-                            <Check className="h-4 w-4 text-green-500" />
+                            <Check className="h-5 w-5 text-green-500" />
                           ) : (
-                            <Copy className="h-4 w-4 text-muted-foreground" />
+                            <Copy className="h-5 w-5 text-muted-foreground" />
                           )}
                         </button>
                       )}
@@ -206,6 +206,8 @@ const Contact = () => {
                       setFormData({ ...formData, name: e.target.value })
                     }
                     required
+                    aria-required="true"
+                    aria-label="Full name"
                     className="border-border bg-background"
                   />
                 </div>
@@ -225,6 +227,8 @@ const Contact = () => {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     required
+                    aria-required="true"
+                    aria-label="Email address"
                     className="border-border bg-background"
                   />
                 </div>
@@ -243,6 +247,8 @@ const Contact = () => {
                       setFormData({ ...formData, message: e.target.value })
                     }
                     required
+                    aria-required="true"
+                    aria-label="Message content"
                     rows={5}
                     className="border-border bg-background resize-none"
                   />
@@ -250,7 +256,8 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full gradient-primary text-primary-foreground shadow-glow hover:scale-105 transition-smooth disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  aria-busy={isSubmitting}
+                  className="w-full gradient-primary text-primary-foreground shadow-glow hover:scale-105 transition-smooth disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 active:scale-95"
                 >
                   {isSubmitting ? (
                     <>
