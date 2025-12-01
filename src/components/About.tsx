@@ -60,7 +60,7 @@ const About = () => {
                   className="text-3xl font-bold bg-gradient-to-r from-primary via-purple-400 to-secondary bg-clip-text text-transparent inline-block cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_25px_rgba(139,92,246,0.8)] hover:filter"
                   title="Click to view my image"
                 >
-                  👉🏽 Babin Bid 👈🏽
+                  Babin Bid
                 </h3>
                 <p className="text-base text-muted-foreground">
                   B.Tech CSE • Adamas University, Kolkata
