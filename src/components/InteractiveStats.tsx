@@ -71,17 +71,12 @@ interface StatCardProps {
 
 const StatCard: React.FC<StatCardProps> = ({ stat, index, totalCount, isVisible }) => {
     const [count, setCount] = useState(0);
-    const [hasBeenVisible, setHasBeenVisible] = useState(false);
 
     // Reset count when card leaves viewport so it re-animates on re-entry
     useEffect(() => {
         if (!isVisible) {
             setCount(0);
         }
-    }, [isVisible]);
-
-    useEffect(() => {
-        if (isVisible) setHasBeenVisible(true);
     }, [isVisible]);
 
     useEffect(() => {
@@ -107,34 +102,33 @@ const StatCard: React.FC<StatCardProps> = ({ stat, index, totalCount, isVisible 
         return () => clearInterval(interval);
     }, [isVisible, stat.value]);
 
-    // Compute horizontal spread offset: items move outwards from center when visible
+    // Compute horizontal spread offset: items move outwards from center
     const center = (totalCount - 1) / 2;
     const offset = index - center; // negative = left side, positive = right side
-    const distance = 48; // px per step; increase for more spread
-    const translateX = hasBeenVisible ? offset * distance : 0;
-    const translateY = isVisible ? 0 : 16;
+    const spreadDistance = 500; // px - how far cards spread when disappearing
+
+    // When visible: cards are in normal grid position (translateX = 0)
+    // When not visible: cards spread outward to sides
+    const translateX = isVisible ? 0 : offset * spreadDistance;
+    const scale = isVisible ? 1 : 0.8;
     const opacity = isVisible ? 1 : 0;
 
-    // Stagger delays: enter and exit have opposite staggers for nicer effect
-    const enterDelay = index * 100;
-    const exitDelay = (totalCount - 1 - index) * 80;
+    // Stagger delays: outer cards move first when exiting, inner cards first when entering
+    const enterDelay = Math.abs(offset) * 500; // Center cards appear first
+    const exitDelay = (1.5 - Math.abs(offset)) * 500; // Outer cards disappear first
     const transitionDelay = isVisible ? enterDelay : exitDelay;
-
-    const isReEntry = isVisible && hasBeenVisible;
-    const transitionStyle = isReEntry ? 'none' : `transform 700ms cubic-bezier(.2,.9,.2,1) ${transitionDelay}ms, opacity 500ms ease ${transitionDelay}ms`;
 
     return (
         <div
-            className={`relative group ${isReEntry ? 're-enter' : ''}`}
+            className="relative group"
             style={{
-                transform: `translateX(${translateX}px) translateY(${translateY}px)`,
+                transform: `translateX(${translateX}px) scale(${scale})`,
                 opacity,
-                transition: transitionStyle,
-                '--offset': offset,
-            } as React.CSSProperties}
+                transition: `transform 800ms cubic-bezier(.25,.8,.25,1) ${transitionDelay}ms, opacity 600ms ease ${transitionDelay}ms`,
+            }}
         >
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="relative p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors">
+            <div className="relative p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors h-40 flex flex-col justify-between">
                 <div className="space-y-3">
                     <div className="text-3xl md:text-4xl font-bold text-primary">
                         {count}
