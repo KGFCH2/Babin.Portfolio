@@ -110,14 +110,14 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 relative section-divider-top" ref={ref}>
+    <section id="contact" className="py-12 md:py-20 relative section-divider-top" ref={ref}>
       <div className="container mx-auto px-4">
         <div
-          className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
+          className={`max-w-6xl mx-auto space-y-8 md:space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
             }`}
         >
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold">
+          <div className="text-center space-y-2 md:space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold">
               <SectionTitle
                 segments={[
                   {
@@ -135,36 +135,36 @@ const Contact = () => {
                 ]}
               />
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
               Feel free to reach out for collaborations, opportunities, or just
               a friendly chat!
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="h-full flex flex-col gap-6">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+            <div className="space-y-4 md:space-y-6">
+              <div className="h-full flex flex-col gap-4 md:gap-6">
                 {contactInfo.map((info, index) => (
                   <Card
                     key={index}
-                    className="p-6 bg-card shadow-card hover:shadow-glow transition-smooth border-border/50 group"
+                    className="p-4 md:p-6 bg-card shadow-card hover:shadow-glow transition-smooth border-border/50 group"
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <div className="text-primary">{info.icon}</div>
-                        <div>
-                          <h3 className="font-semibold text-foreground">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+                      <div className="flex items-center gap-3 md:gap-4 min-w-0 flex-1">
+                        <div className="text-primary flex-shrink-0">{info.icon}</div>
+                        <div className="min-w-0 flex-1">
+                          <h3 className="font-semibold text-foreground text-sm md:text-base">
                             {info.title}
                           </h3>
                           {info.link ? (
                             <a
                               href={info.link}
-                              className="text-muted-foreground hover:text-primary transition-smooth"
+                              className="text-muted-foreground hover:text-primary transition-smooth break-all text-xs md:text-sm"
                             >
                               {info.value}
                             </a>
                           ) : (
-                            <p className="text-muted-foreground">{info.value}</p>
+                            <p className="text-muted-foreground break-all text-xs md:text-sm">{info.value}</p>
                           )}
                         </div>
                       </div>
@@ -172,14 +172,14 @@ const Contact = () => {
                       {info.link && (info.title.includes('Email') || info.title === 'Phone') && (
                         <button
                           onClick={() => copyToClipboard(info.value, info.title)}
-                          className="p-3 rounded-lg opacity-0 group-hover:opacity-100 hover:bg-primary/10 transition-all focus-visible:opacity-100 min-w-[48px] min-h-[48px] flex items-center justify-center"
+                          className="p-2 md:p-3 rounded-lg opacity-0 sm:opacity-0 sm:group-hover:opacity-100 hover:bg-primary/10 transition-all focus-visible:opacity-100 min-w-[40px] md:min-w-[48px] min-h-[40px] md:min-h-[48px] flex items-center justify-center flex-shrink-0"
                           title={`Copy ${info.title}`}
                           aria-label={`Copy ${info.title}: ${info.value}`}
                         >
                           {copiedField === info.title ? (
-                            <Check className="h-5 w-5 text-green-500" />
+                            <Check className="h-4 md:h-5 w-4 md:w-5 text-green-500" />
                           ) : (
-                            <Copy className="h-5 w-5 text-muted-foreground" />
+                            <Copy className="h-4 md:h-5 w-4 md:w-5 text-muted-foreground" />
                           )}
                         </button>
                       )}
@@ -189,12 +189,12 @@ const Contact = () => {
               </div>
             </div>
 
-            <Card className="p-6 bg-card shadow-card border-border/50">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <Card className="p-4 md:p-6 bg-card shadow-card border-border/50">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                 <div className="space-y-2">
                   <label
                     htmlFor="name"
-                    className="text-sm font-medium text-foreground"
+                    className="text-xs md:text-sm font-medium text-foreground"
                   >
                     Name
                   </label>
@@ -208,13 +208,13 @@ const Contact = () => {
                     required
                     aria-required="true"
                     aria-label="Full name"
-                    className="border-border bg-background"
+                    className="border-border bg-background text-sm md:text-base"
                   />
                 </div>
                 <div className="space-y-2">
                   <label
                     htmlFor="email"
-                    className="text-sm font-medium text-foreground"
+                    className="text-xs md:text-sm font-medium text-foreground"
                   >
                     Email
                   </label>
@@ -229,13 +229,13 @@ const Contact = () => {
                     required
                     aria-required="true"
                     aria-label="Email address"
-                    className="border-border bg-background"
+                    className="border-border bg-background text-sm md:text-base"
                   />
                 </div>
                 <div className="space-y-2">
                   <label
                     htmlFor="message"
-                    className="text-sm font-medium text-foreground"
+                    className="text-xs md:text-sm font-medium text-foreground"
                   >
                     Message
                   </label>
@@ -249,15 +249,15 @@ const Contact = () => {
                     required
                     aria-required="true"
                     aria-label="Message content"
-                    rows={5}
-                    className="border-border bg-background resize-none"
+                    rows={4}
+                    className="border-border bg-background resize-none text-sm md:text-base"
                   />
                 </div>
                 <Button
                   type="submit"
                   disabled={isSubmitting}
                   aria-busy={isSubmitting}
-                  className="w-full gradient-primary text-primary-foreground shadow-glow hover:scale-105 transition-smooth disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 active:scale-95"
+                  className="w-full gradient-primary text-primary-foreground shadow-glow hover:scale-105 transition-smooth disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 active:scale-95 text-sm md:text-base py-2 md:py-3"
                 >
                   {isSubmitting ? (
                     <>
