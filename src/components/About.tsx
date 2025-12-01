@@ -118,6 +118,7 @@ const About = () => {
                     src="/Babin_New.jpeg"
                     alt="Babin Bid - Full Stack Developer and CS Engineer"
                     loading="lazy"
+                    decoding="async"
                     className="w-64 h-64 md:w-72 md:h-72 rounded-2xl object-cover shadow-2xl border-4 border-background/50 avatar-pulse"
                   />
                   {/* Floating accent badge */}
@@ -345,6 +346,8 @@ const About = () => {
               <img
                 src="/Babin.jpeg"
                 alt="Babin Bid - Full Stack Developer"
+                loading="lazy"
+                decoding="async"
                 className="relative rounded-2xl shadow-2xl max-w-full max-h-[80vh] object-contain border-4 border-white/20"
                 onClick={(e) => e.stopPropagation()}
               />
