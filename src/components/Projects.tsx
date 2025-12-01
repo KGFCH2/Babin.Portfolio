@@ -413,7 +413,7 @@ const Projects = () => {
                           {/* Light mode gradient overlay on hover */}
                           <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-violet-200/30 via-purple-200/20 to-indigo-200/30 opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
                           {project.thumbnail ? (
-                            <div className="h-56 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
+                            <div className="h-40 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
                               <img
                                 src={encodeURI(project.thumbnail)}
                                 alt={`${project.title} thumbnail`}
@@ -423,36 +423,36 @@ const Projects = () => {
                               />
                             </div>
                           ) : (
-                            <div className="h-56 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
-                              <span className="text-foreground font-bold text-2xl">{project.title}</span>
+                            <div className="h-40 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
+                              <span className="text-foreground font-bold text-lg">{project.title}</span>
                             </div>
                           )}
                           {/* separator line between image and content (more visible) */}
                           <div className="w-full border-t-2 border-muted/30" />
-                          <div className="p-6 flex flex-col flex-grow">
-                            <div className="space-y-4 flex-grow">
-                              <h3 className="text-xl font-bold text-foreground">
+                          <div className="p-4 flex flex-col flex-grow">
+                            <div className="space-y-3 flex-grow">
+                              <h3 className="text-base font-bold text-foreground">
                                 {project.title}
                               </h3>
-                              <p className="text-muted-foreground">
+                              <p className="text-xs text-muted-foreground leading-relaxed">
                                 {project.description}
                               </p>
-                              <div className="flex flex-wrap gap-2">
+                              <div className="flex flex-wrap gap-1">
                                 {project.tech.map((tech, techIndex) => (
                                   <span
                                     key={techIndex}
-                                    className={`${getBadgeClasses(tech)} px-3 py-1 text-sm rounded-full border transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1`}
+                                    className={`${getBadgeClasses(tech)} px-2 py-0.5 text-xs rounded-full border transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1`}
                                   >
                                     {tech}
                                   </span>
                                 ))}
                               </div>
                             </div>
-                            <div className="flex gap-3 items-center mt-auto pt-4">
+                            <div className="flex gap-2 items-center mt-auto pt-3">
                               <Button
                                 variant="outline"
                                 size="sm"
-                                className="flex-1 h-9 border-primary/50 hover:bg-primary/10 transform transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg active:scale-95"
+                                className="flex-1 h-8 text-xs border-primary/50 hover:bg-primary/10 transform transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg active:scale-95"
                                 asChild
                               >
                                 <a
@@ -460,14 +460,14 @@ const Projects = () => {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                 >
-                                  <Github className="mr-2 h-4 w-4" />
+                                  <Github className="mr-1 h-3 w-3" />
                                   Code
                                 </a>
                               </Button>
                               {project.demo ? (
                                 <Button
                                   size="sm"
-                                  className="flex-1 h-9 gradient-primary text-primary-foreground hover:opacity-90 transform transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg active:scale-95"
+                                  className="flex-1 h-8 text-xs gradient-primary text-primary-foreground hover:opacity-90 transform transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg active:scale-95"
                                   asChild
                                 >
                                   <a
@@ -475,7 +475,7 @@ const Projects = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                   >
-                                    <ExternalLink className="mr-2 h-4 w-4" />
+                                    <ExternalLink className="mr-1 h-3 w-3" />
                                     Demo
                                   </a>
                                 </Button>
@@ -483,10 +483,10 @@ const Projects = () => {
                                 <Button
                                   size="sm"
                                   variant="outline"
-                                  className="flex-1 h-9 opacity-60 cursor-not-allowed border-dashed bg-purple-500/10 border-purple-500/30 text-purple-400"
+                                  className="flex-1 h-8 text-xs opacity-60 cursor-not-allowed border-dashed bg-purple-500/10 border-purple-500/30 text-purple-400"
                                   disabled
                                 >
-                                  <ExternalLink className="mr-2 h-4 w-4" />
+                                  <ExternalLink className="mr-1 h-3 w-3" />
                                   Demo
                                 </Button>
                               )}
