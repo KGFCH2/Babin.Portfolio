@@ -281,13 +281,13 @@ const Achievements = () => {
             {/* Lightbox Modal for Images */}
             {selectedItem && selectedItem.type === 'image' && (
                 <div
-                    className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 transition-all duration-400 ${isClosing
+                    className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 transition-all duration-1000 ${isClosing
                         ? 'opacity-0 backdrop-blur-none'
                         : 'animate-fade-in'
                         }`}
                 >
                     {/* Animated glow background */}
-                    <div className={`absolute inset-0 transition-all duration-500 ${isClosing ? 'opacity-0 scale-150' : 'opacity-100'}`}>
+                    <div className={`absolute inset-0 transition-all duration-1500 ${isClosing ? 'opacity-0 scale-150' : 'opacity-100'}`}>
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/30 via-purple-500/20 to-secondary/30 rounded-full blur-3xl animate-pulse" />
                     </div>
 
@@ -336,11 +336,11 @@ const Achievements = () => {
                         onClick={closeLightbox}
                     >
                         <div
-                            className={`transition-all duration-700 ease-out ${isClosing
-                                ? 'scale-50 opacity-0 rotate-12 blur-sm'
-                                : 'scale-100 opacity-100 rotate-0 blur-0'
+                            className={`transition-all duration-300 ease-out ${isClosing
+                                ? 'animate-close-image'
+                                : ''
                                 }`}
-                            style={{ transform: `scale(${isClosing ? 0.5 : zoomLevel}) ${isClosing ? 'rotate(12deg)' : 'rotate(0deg)'}` }}
+                            style={{ transform: `scale(${zoomLevel})` }}
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Glowing border effect - Indian Flag colors */}
