@@ -14,7 +14,7 @@ const AchievementsPage = () => {
 
     return (
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-            <div className="relative min-h-screen bg-background">
+            <div className="relative min-h-screen">
                 <SkipToContent />
                 <ParticlesBackground />
                 <Header />
