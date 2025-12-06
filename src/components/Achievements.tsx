@@ -14,7 +14,7 @@ const Achievements = () => {
 
     const [selectedItem, setSelectedItem] = useState<{ file: string; type: 'image' | 'pdf' } | null>(null);
     const [zoomLevel, setZoomLevel] = useState(1);
-    const [filter, setFilter] = useState<'all' | 'certificates' | 'awards' | 'badges'>('all');
+    const [filter, setFilter] = useState<'all' | 'certificates' | 'hackathons' | 'awards' | 'badges'>('all');
     const [isClosing, setIsClosing] = useState(false);
     const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
@@ -56,11 +56,21 @@ const Achievements = () => {
                 return null;
             }
 
+            if (filter === 'hackathons') {
+                // Include Hackathons & Events, Unstop, MyBharat, myGov, Let's Upgrade categories
+                const hackathonCategories = ["Hackathons & Events", "Unstop", "MyBharat", "myGov", "Let's Upgrade"];
+                if (hackathonCategories.includes(cat.category)) return modifiedCat;
+                return null;
+            }
+
             if (filter === 'certificates') {
                 // Exclude Awards categories
                 if (awardsCategories.includes(cat.category)) return null;
                 // Exclude Badge categories
                 if (badgeCategories.includes(cat.category)) return null;
+                // Exclude Hackathon/Event/Bootcamp categories
+                const excludedCategories = ["Hackathons & Events", "Unstop", "MyBharat", "myGov", "Let's Upgrade"];
+                if (excludedCategories.includes(cat.category)) return null;
 
                 // For remaining categories, exclude badge items
                 const nonBadgeItems = cat.items.filter(item => !isBadgeItem(item));
@@ -201,7 +211,14 @@ const Achievements = () => {
                                 onClick={() => setFilter('certificates')}
                                 className="min-w-[100px] hover:shadow-glow transition-all duration-300"
                             >
-                                Certificates | Hackathons | Bootcamps | Events
+                                Certificates | Technical Courses
+                            </Button>
+                            <Button
+                                variant={filter === 'hackathons' ? "default" : "outline"}
+                                onClick={() => setFilter('hackathons')}
+                                className="min-w-[100px] hover:shadow-glow transition-all duration-300"
+                            >
+                                Bootcamps | Events | Competitions
                             </Button>
                             <Button
                                 variant={filter === 'badges' ? "default" : "outline"}
