@@ -128,7 +128,7 @@ const Achievements = () => {
             setSelectedItem(null);
             setZoomLevel(1);
             setIsClosing(false);
-        }, 1000); // Extended animation duration to show full closing sequence
+        }, 1000); // Reduced animation duration to show full closing sequence
     };
 
     const handleImageError = (file: string) => {
