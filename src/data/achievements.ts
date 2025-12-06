@@ -64,6 +64,7 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "Google",
         items: [
+            { title: "Gemini Certified Student", file: "/Achievements/Google/Gemini_Certified_Student.pdf" },
             { title: "Bring Al to Work Workshop", file: "/Achievements/Google/1172653244BB.pdf" },
             { title: "Al-Powered Shopping ads Certification", file: "/Achievements/Google/69izjm6b_1749161905073.pdf" },
             { title: "Al-Powered Performance Ads Certification", file: "/Achievements/Google/a6f6uizk_1749160844397.pdf" },
@@ -87,6 +88,7 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "Google Badges",
         items: [
+            { title: "Gemini Certified Student", file: "/Achievements/Google/Gemini_Certified_Student.png" },
             { title: "AI Agent Home Run MLB Events Badge", file: "/Achievements/Google/ai-agent-home-run-mlb-events.png" },
             { title: "Google ADs AI-Powered Performance Badge", file: "/Achievements/Google/19ae5a64-7138-4ec2-a9fc-9d65b53d09ac.png" },
             { title: "Shopping Ads Badge", file: "/Achievements/Google/7c2be6e0-3895-4baf-946f-3c61969c27ec.png" },
