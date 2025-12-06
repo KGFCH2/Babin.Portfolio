@@ -177,3 +177,61 @@
 .animate-close-image {
     animation: close-image 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
+
+/* Mind-blowing Hover Effect */
+@keyframes neon-pulse-skew {
+    0% {
+        transform: skew(0deg);
+        box-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    25% {
+        transform: skew(-5deg);
+        box-shadow: 0 0 10px rgba(255, 0, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.7);
+    }
+
+    50% {
+        transform: skew(5deg);
+        box-shadow: 0 0 15px rgba(255, 255, 0, 0.9), 0 0 30px rgba(255, 255, 0, 0.9);
+    }
+
+    75% {
+        transform: skew(-2deg);
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.7);
+    }
+
+    100% {
+        transform: skew(0deg);
+        box-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+}
+
+.mind-blowing-hover {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mind-blowing-hover:hover {
+    animation: neon-pulse-skew 0.5s infinite;
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    color: white;
+    border: none;
+}
+
+/* Slideshow Entrance Animation */
+@keyframes slide-in-right-stagger {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-show {
+    animation: slide-in-right-stagger 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
