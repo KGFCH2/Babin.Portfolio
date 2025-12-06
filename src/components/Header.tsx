@@ -124,7 +124,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${isScrolled
-        ? "bg-background/80 backdrop-blur-lg shadow-card"
+        ? "bg-background/80 backdrop-blur-md shadow-card"
         : "bg-transparent"
         }`}
     >
@@ -214,7 +214,7 @@ const Header = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div
-          className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border animate-fade-in"
+          className="md:hidden bg-background/95 backdrop-blur-md border-t border-border animate-fade-in"
           id="mobile-menu"
           role="navigation"
           aria-label="Mobile navigation"
