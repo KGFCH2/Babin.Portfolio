@@ -401,6 +401,22 @@ All colors MUST be HSL.
   .animate-scale-in {
     animation: scale-in 0.6s ease-out forwards;
   }
+
+  /* Smooth, targeted theme transitions (short + GPU friendly)
+     Avoid broad attribute selectors which force large repaint/reflow
+     and cause lag. Use `.theme-transition` on components that should
+     animate colors when switching theme. */
+  html,
+  body {
+    transition: background-color 110ms ease, color 110ms ease;
+  }
+
+  /* Use a specific helper class for color transitions to limit scope */
+  .theme-transition,
+  .theme-transition * {
+    transition: background-color 110ms ease, color 110ms ease, border-color 110ms ease;
+    will-change: background-color, color;
+  }
 }
 
 /* Mobile-friendly overrides */
