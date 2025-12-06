@@ -32,9 +32,12 @@ const ThemeToggle = () => {
         ${isDark
           ? 'bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-900 shadow-lg shadow-purple-500/30'
           : 'bg-gradient-to-br from-yellow-400 via-yellow-300 to-orange-400 shadow-lg shadow-red-400/40'}
-        hover:scale-110 hover:rotate-12
+        hover:scale-110 hover:rotate-12 hover:rotate-y-12 hover:-rotate-x-6
+        hover:shadow-2xl hover:shadow-purple-500/50 dark:hover:shadow-purple-500/50
+        transform-gpu perspective-1000
         ${isToggling ? 'scale-90 rotate-180' : 'scale-100 rotate-0'}
       `}
+      style={{ willChange: 'transform, opacity', transformStyle: 'preserve-3d' }}
       title={`Switch to ${isDark ? "light" : "dark"} mode`}
       aria-label="Toggle theme"
     >
@@ -84,8 +87,8 @@ const ThemeToggle = () => {
       </div>
 
       {/* Animated glow ring on hover */}
-      <div className={`absolute inset-[-2px] rounded-full border-2 transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:scale-110
-        ${isDark ? 'border-purple-400/60' : 'red-red-300/70'}`}
+      <div className={`absolute inset-[-2px] rounded-full border-2 transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:scale-110 group-hover:rotate-12
+        ${isDark ? 'border-purple-400/60 shadow-lg shadow-purple-400/30' : 'border-red-300/70 shadow-lg shadow-red-300/40'}`}
       />
 
       {/* Inner glow effect */}
