@@ -179,30 +179,20 @@
 }
 
 /* Mind-blowing Hover Effect */
-@keyframes neon-pulse-skew {
+@keyframes ripple-expand {
     0% {
-        transform: skew(0deg);
-        box-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.5);
-    }
-
-    25% {
-        transform: skew(-5deg);
-        box-shadow: 0 0 10px rgba(255, 0, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.7);
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
     }
 
     50% {
-        transform: skew(5deg);
-        box-shadow: 0 0 15px rgba(255, 255, 0, 0.9), 0 0 30px rgba(255, 255, 0, 0.9);
-    }
-
-    75% {
-        transform: skew(-2deg);
-        box-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.7);
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(34, 197, 94, 0), 0 0 0 20px rgba(59, 130, 246, 0.3);
     }
 
     100% {
-        transform: skew(0deg);
-        box-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.5);
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0), 0 0 0 30px rgba(139, 92, 246, 0);
     }
 }
 
@@ -212,11 +202,43 @@
     overflow: hidden;
 }
 
+.mind-blowing-hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.mind-blowing-hover:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
 .mind-blowing-hover:hover {
-    animation: neon-pulse-skew 0.5s infinite;
-    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    animation: ripple-expand 0.8s ease-out;
+    background: linear-gradient(45deg, #22c55e, #3b82f6, #8b5cf6, #ef4444);
+    background-size: 300% 300%;
+    animation: ripple-expand 0.8s ease-out, bg-wave 3s ease infinite;
     color: white;
     border: none;
+}
+
+@keyframes bg-wave {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 /* Slideshow Entrance Animation */
