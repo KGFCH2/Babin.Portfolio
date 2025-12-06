@@ -195,42 +195,42 @@ const Achievements = () => {
                             <Button
                                 variant={filter === 'all' ? "default" : "outline"}
                                 onClick={() => setFilter('all')}
-                                className="min-w-[100px] hover:shadow-glow transition-all duration-300"
+                                className="min-w-[100px] mind-blowing-hover"
                             >
                                 All
                             </Button>
                             <Button
                                 variant={filter === 'awards' ? "default" : "outline"}
                                 onClick={() => setFilter('awards')}
-                                className="min-w-[100px] hover:shadow-glow transition-all duration-300"
+                                className="min-w-[100px] mind-blowing-hover"
                             >
                                 Awards
                             </Button>
                             <Button
                                 variant={filter === 'certificates' ? "default" : "outline"}
                                 onClick={() => setFilter('certificates')}
-                                className="min-w-[100px] hover:shadow-glow transition-all duration-300"
+                                className="min-w-[100px] mind-blowing-hover"
                             >
                                 Certificates | Technical Courses
                             </Button>
                             <Button
                                 variant={filter === 'hackathons' ? "default" : "outline"}
                                 onClick={() => setFilter('hackathons')}
-                                className="min-w-[100px] hover:shadow-glow transition-all duration-300"
+                                className="min-w-[100px] mind-blowing-hover"
                             >
                                 Bootcamps | Events | Competitions
                             </Button>
                             <Button
                                 variant={filter === 'badges' ? "default" : "outline"}
                                 onClick={() => setFilter('badges')}
-                                className="min-w-[100px] hover:shadow-glow transition-all duration-300"
+                                className="min-w-[100px] mind-blowing-hover"
                             >
                                 Badges | Trophies
                             </Button>
                         </div>
                     </div>
 
-                    <div className="space-y-16">
+                    <div className="space-y-16 animate-slide-show" key={filter}>
                         {filteredAchievements.map((category, catIndex) => (
                             <div key={catIndex} className="space-y-6">
                                 <h3 className="text-2xl font-bold text-foreground border-l-4 border-primary pl-4">
