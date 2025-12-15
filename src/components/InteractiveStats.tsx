@@ -17,7 +17,7 @@ const InteractiveStats: React.FC = () => {
     const stats: StatItem[] = [
         {
             label: 'Projects Completed',
-            value: 10,
+            value: 20,
             suffix: '+',
             description: 'Full-stack applications and ML systems'
         },
@@ -35,7 +35,7 @@ const InteractiveStats: React.FC = () => {
         },
         {
             label: 'Code Commits',
-            value: 700,
+            value: 1000,
             suffix: '+',
             description: 'Across multiple repositories'
         }
