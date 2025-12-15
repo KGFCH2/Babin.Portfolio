@@ -23,7 +23,7 @@ const InteractiveStats: React.FC = () => {
         },
         {
             label: 'Technologies',
-            value: 40,
+            value: 20,
             suffix: '+',
             description: 'Languages, frameworks, and tools'
         },
