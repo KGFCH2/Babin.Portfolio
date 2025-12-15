@@ -5,7 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Splash from "./components/Splash";
-import Loader from "./components/Loader";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 const Index = lazy(() => import("./pages/Index"));
@@ -16,7 +15,6 @@ const queryClient = new QueryClient();
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
-  const [showLoader, setShowLoader] = useState(false);
 
   return (
     <ErrorBoundary>
@@ -33,15 +31,13 @@ const App = () => {
             />
           ) : (
             <BrowserRouter>
-              <Suspense fallback={<Loader minDurationMs={5000} onFinish={() => setShowLoader(false)} />}>
-                {!showLoader && (
-                  <Routes>
-                    <Route path="/" element={<Index />} />
-                    <Route path="/achievements" element={<AchievementsPage />} />
-                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
-                )}
+              <Suspense fallback={null}>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/achievements" element={<AchievementsPage />} />
+                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
               </Suspense>
             </BrowserRouter>
           )}
