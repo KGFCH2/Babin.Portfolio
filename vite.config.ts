@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/Babin.Portfolio/",
+  base: process.env.GITHUB_ACTIONS ? "/Babin.Portfolio/" : "/",
   server: {
     host: "::",
     port: 8080,
