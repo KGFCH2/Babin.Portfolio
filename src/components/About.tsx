@@ -357,6 +357,7 @@ const About = () => {
             <p className="text-center mt-4 text-white text-xl font-semibold">
               Babin Bid
             </p>
+            <img src="Babin.jpeg" alt="Babin Bid" />
             <p className="text-center text-white/60 text-sm">
               Click anywhere to close
             </p>
