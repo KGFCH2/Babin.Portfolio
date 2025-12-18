@@ -3,10 +3,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone, Send, Copy, Check } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Copy, Check, Clipboard, CheckCircle, XCircle, Mail as MailIcon } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import SectionTitle from "./SectionTitle";
+import AnimatedIcon from "./AnimatedIcon";
 
 const Contact = () => {
   const { ref, inView } = useInView({
@@ -28,7 +29,7 @@ const Contact = () => {
       await navigator.clipboard.writeText(text);
       setCopiedField(fieldName);
       toast({
-        title: "Copied! 📋",
+        title: "Copied!",
         description: `${fieldName} copied to clipboard`
       });
       setTimeout(() => setCopiedField(null), 2000);
@@ -61,11 +62,11 @@ const Contact = () => {
         });
 
         if (!res.ok) throw new Error("Network response was not ok");
-        toast({ title: "Message Sent! ✅", description: "Thank you for reaching out. I'll get back to you soon!" });
+        toast({ title: "Message Sent!", description: "Thank you for reaching out. I'll get back to you soon!" });
         setFormData({ name: "", email: "", message: "" });
       } catch (err) {
         console.error(err);
-        toast({ title: "Send failed ❌", description: "Could not send message. You can also email me directly." });
+        toast({ title: "Send failed", description: "Could not send message. You can also email me directly." });
       } finally {
         setIsSubmitting(false);
       }
@@ -76,7 +77,7 @@ const Contact = () => {
       )}&body=${encodeURIComponent(formData.message + "\n\nFrom: " + formData.email)}`;
       window.location.href = mailto;
       // optimistic toast and clear form fields since user was redirected to their mail client
-      toast({ title: "Opening mail client 📧", description: "Your mail client will open so you can send the message." });
+      toast({ title: "Opening mail client", description: "Your mail client will open so you can send the message." });
       setFormData({ name: "", email: "", message: "" });
       setIsSubmitting(false);
     }
