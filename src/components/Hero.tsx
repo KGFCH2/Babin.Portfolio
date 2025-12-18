@@ -1,8 +1,9 @@
 import { TypeAnimation } from "react-type-animation";
 import { Button } from "@/components/ui/button";
-import { Download, Github, Linkedin, Mail, ChevronDown } from "lucide-react";
+import { Download, Github, Linkedin, Mail, ChevronDown, User, Globe, Compass, Zap, Brain, Users, Cpu, Atom, Microscope, BarChart3, Rocket, Search } from "lucide-react";
 import { previewThenDownload } from "@/lib/utils";
 import SectionTitle from "./SectionTitle";
+import AnimatedIcon from "./AnimatedIcon";
 import { useState, useEffect } from "react";
 
 const Hero = () => {
@@ -42,7 +43,7 @@ const Hero = () => {
               />
             </h1>
             <div className="text-2xl md:text-3xl lg:text-3xl font-semibold text-foreground min-h-[140px] md:min-h-[160px] flex items-center justify-center">
-              <div className="whitespace-nowrap">
+              <div className="whitespace-nowrap flex items-center gap-2">
                 <TypeAnimation
                   sequence={[
                     '👨‍💻 Computer Science Engineer 👨‍💻',
