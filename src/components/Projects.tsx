@@ -345,7 +345,7 @@ const Projects = () => {
             <div className="max-w-2xl mx-auto mb-8 space-y-4">
               <input
                 type="text"
-                placeholder="🔍 Search projects..."
+                placeholder="Search projects..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full px-4 py-3 rounded-lg border border-border/50 bg-card/50 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
