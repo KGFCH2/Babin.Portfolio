@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { Code2, Zap, Clock, GitBranch, LucideIcon } from 'lucide-react';
+import AnimatedIcon from './AnimatedIcon';
 
 interface StatItem {
     label: string;
     value: number;
     suffix?: string;
     description: string;
+    Icon: LucideIcon;
+    glowColor: string;
 }
 
 const InteractiveStats: React.FC = () => {
@@ -19,25 +23,33 @@ const InteractiveStats: React.FC = () => {
             label: 'Projects Completed',
             value: 20,
             suffix: '+',
-            description: 'Full-stack applications and ML systems'
+            description: 'Full-stack applications and ML systems',
+            Icon: Code2,
+            glowColor: 'rgba(59, 130, 246, 0.6)'
         },
         {
             label: 'Technologies',
             value: 20,
             suffix: '+',
-            description: 'Languages, frameworks, and tools'
+            description: 'Languages, frameworks, and tools',
+            Icon: Zap,
+            glowColor: 'rgba(249, 115, 22, 0.6)'
         },
         {
             label: 'Experience',
             value: 2,
             suffix: '+',
-            description: 'Years in web and software development'
+            description: 'Years in web and software development',
+            Icon: Clock,
+            glowColor: 'rgba(168, 85, 247, 0.6)'
         },
         {
             label: 'Code Commits',
             value: 1100,
             suffix: '+',
-            description: 'Across multiple repositories'
+            description: 'Across multiple repositories',
+            Icon: GitBranch,
+            glowColor: 'rgba(16, 185, 129, 0.6)'
         }
     ];
 
@@ -130,9 +142,12 @@ const StatCard: React.FC<StatCardProps> = ({ stat, index, totalCount, isVisible 
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors h-40 flex flex-col justify-between">
                 <div className="space-y-3">
-                    <div className="text-3xl md:text-4xl font-bold text-primary">
-                        {count}
-                        {stat.suffix && <span className="text-2xl">{stat.suffix}</span>}
+                    <div className="flex items-center justify-between">
+                        <div className="text-3xl md:text-4xl font-bold text-primary">
+                            {count}
+                            {stat.suffix && <span className="text-2xl">{stat.suffix}</span>}
+                        </div>
+                        <AnimatedIcon Icon={stat.Icon} size={32} glowColor={stat.glowColor} animationType="bounce" />
                     </div>
                     <div>
                         <p className="text-sm font-semibold text-foreground">{stat.label}</p>
