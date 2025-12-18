@@ -25,10 +25,21 @@ const Achievements = () => {
         return 'image';
     };
 
+    /**
+     * FILTERING LOGIC FOR ACHIEVEMENT TABS
+     * 
+     * Filter Types:
+     * - 'all': Shows all categories as-is
+     * - 'awards': Shows only "Awards & Recognitions"
+     * - 'certificates': Shows technical courses (excludes awards/badges/bootcamps)
+     * - 'hackathons': Shows bootcamps, events, competitions
+     * - 'badges': Shows badges and trophies only
+     */
     const getFilteredData = () => {
+        // Define category lists for each filter
         const awardsCategories = ["Awards & Recognitions"];
         const badgeCategories = ["Microsoft Badges", "Microsoft Trophies", "Holopin Badges", "HP Life Badges", "Google Badges"];
-        // Hackathons & Events is treated as certificates (not awards, not badges)
+        const bootcampCategories = ["Hackathons & Events", "Unstop", "MyBharat", "myGov", "Let's Upgrade"];
 
         const isBadgeItem = (item: { title: string }) => {
             const title = item.title.toLowerCase();
@@ -57,22 +68,21 @@ const Achievements = () => {
             }
 
             if (filter === 'hackathons') {
-                // Include Hackathons & Events, Unstop, MyBharat, myGov, Let's Upgrade categories
-                const hackathonCategories = ["Hackathons & Events", "Unstop", "MyBharat", "myGov", "Let's Upgrade"];
-                if (hackathonCategories.includes(cat.category)) return modifiedCat;
+                // Filter: Bootcamps | Events | Competitions
+                if (bootcampCategories.includes(cat.category)) return modifiedCat;
                 return null;
             }
 
             if (filter === 'certificates') {
+                // Filter: Certificates | Technical Courses
                 // Exclude Awards categories
                 if (awardsCategories.includes(cat.category)) return null;
                 // Exclude Badge categories
                 if (badgeCategories.includes(cat.category)) return null;
-                // Exclude Hackathon/Event/Bootcamp categories
-                const excludedCategories = ["Hackathons & Events", "Unstop", "MyBharat", "myGov", "Let's Upgrade"];
-                if (excludedCategories.includes(cat.category)) return null;
+                // Exclude Bootcamp/Event/Competition categories
+                if (bootcampCategories.includes(cat.category)) return null;
 
-                // For remaining categories, exclude badge items
+                // For remaining categories (AWS, CISCO, Google, IBM, etc.), exclude badge items
                 const nonBadgeItems = cat.items.filter(item => !isBadgeItem(item));
                 if (nonBadgeItems.length > 0) {
                     return { ...modifiedCat, items: nonBadgeItems };
