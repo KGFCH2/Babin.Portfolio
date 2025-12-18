@@ -1,9 +1,10 @@
 import { useInView } from "react-intersection-observer";
-import { ChevronDown, X } from "lucide-react";
+import { ChevronDown, X, FileText, MessageCircle, Lightbulb, Compass, Palette, Brain, Code, Zap, Rocket, Target, Briefcase, Cog, Globe, Wrench, Sparkles, Award, CheckCircle, Activity, Wind } from "lucide-react";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { previewThenDownload } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import SectionTitle from "./SectionTitle";
+import AnimatedIcon from "./AnimatedIcon";
 
 const About = () => {
   const { ref, inView } = useInView({
@@ -84,7 +85,7 @@ const About = () => {
                     {/* Glow on hover */}
                     <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg bg-emerald-500/30 -z-10" />
                     <span className="relative flex items-center justify-center gap-2">
-                      <span className="group-hover:animate-bounce transition-transform">📄</span>
+                      <AnimatedIcon Icon={FileText} size={18} glowColor="rgba(34, 197, 94, 0.6)" animationType="bounce" />
                       View Resume
                     </span>
                   </button>
@@ -97,7 +98,7 @@ const About = () => {
                     {/* Animated border glow */}
                     <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-purple-500 to-pink-500 -z-10" />
                     <span className="relative flex items-center justify-center gap-2">
-                      <span className="group-hover:animate-pulse transition-transform">💬</span>
+                      <AnimatedIcon Icon={MessageCircle} size={18} glowColor="rgba(168, 85, 247, 0.6)" animationType="pulse" />
                       Get in Touch
                     </span>
                   </button>
@@ -122,8 +123,9 @@ const About = () => {
                     className="w-64 h-64 md:w-72 md:h-72 rounded-2xl object-cover shadow-2xl border-4 border-background/50 avatar-pulse"
                   />
                   {/* Floating accent badge */}
-                  <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-orange-400 to-emerald-400 rounded-full px-6 py-3 shadow-lg font-semibold text-sm text-background transform hover:scale-110 transition-transform">
-                    ✨ Available
+                  <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-orange-400 to-emerald-400 rounded-full px-6 py-3 shadow-lg font-semibold text-sm text-background transform hover:scale-110 transition-transform flex items-center justify-center gap-2">
+                    <AnimatedIcon Icon={Sparkles} size={16} glowColor="rgba(251, 146, 60, 0.8)" animationType="bounce" />
+                    Available
                   </div>
                 </div>
               </div>
@@ -135,17 +137,17 @@ const About = () => {
             {/* Left: Primary Skills - CRAZY Animated Version */}
             <div className="space-y-5 pt-4 flex flex-col">
               <h4 className="font-bold text-xl text-foreground flex items-center justify-center gap-2 group">
-                <span className="text-2xl">💡</span>
+                <AnimatedIcon Icon={Lightbulb} size={24} glowColor="rgba(251, 146, 60, 0.6)" animationType="pulse" />
                 <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-transparent">Primary Knowledges</span>
                 <span className="text-xs ml-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-white animate-pulse">PRO</span>
               </h4>
               <div className="space-y-4 flex-1">
                 {[
-                  { name: 'Mathematics & Calculus', val: 95, icon: '📐', color: 'from-blue-500 via-cyan-400 to-sky-300', bgColor: 'bg-blue-500/10', borderColor: 'border-blue-500/30', textColor: 'text-blue-400', glowColor: 'shadow-blue-500/50' },
-                  { name: 'Switching Circuits', val: 95, icon: '⚡', color: 'from-orange-500 via-amber-400 to-yellow-300', bgColor: 'bg-orange-500/10', borderColor: 'border-orange-500/30', textColor: 'text-orange-400', glowColor: 'shadow-orange-500/50' },
-                  { name: 'Frontend Development', val: 90, icon: '🎨', color: 'from-purple-500 via-violet-400 to-fuchsia-300', bgColor: 'bg-purple-500/10', borderColor: 'border-purple-500/30', textColor: 'text-purple-400', glowColor: 'shadow-purple-500/50' },
-                  { name: 'Data Structures & Algorithms', val: 85, icon: '🧠', color: 'from-rose-500 via-pink-400 to-red-300', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400', glowColor: 'shadow-rose-500/50' },
-                  { name: 'Python Programming', val: 85, icon: '🐍', color: 'from-emerald-500 via-green-400 to-lime-300', bgColor: 'bg-emerald-500/10', borderColor: 'border-emerald-500/30', textColor: 'text-emerald-400', glowColor: 'shadow-emerald-500/50' },
+                  { name: 'Mathematics & Calculus', val: 95, Icon: Compass, color: 'from-blue-500 via-cyan-400 to-sky-300', bgColor: 'bg-blue-500/10', borderColor: 'border-blue-500/30', textColor: 'text-blue-400', glowColor: 'shadow-blue-500/50', glowValue: 'rgba(59, 130, 246, 0.6)' },
+                  { name: 'Switching Circuits', val: 95, Icon: Zap, color: 'from-orange-500 via-amber-400 to-yellow-300', bgColor: 'bg-orange-500/10', borderColor: 'border-orange-500/30', textColor: 'text-orange-400', glowColor: 'shadow-orange-500/50', glowValue: 'rgba(249, 115, 22, 0.6)' },
+                  { name: 'Frontend Development', val: 90, Icon: Palette, color: 'from-purple-500 via-violet-400 to-fuchsia-300', bgColor: 'bg-purple-500/10', borderColor: 'border-purple-500/30', textColor: 'text-purple-400', glowColor: 'shadow-purple-500/50', glowValue: 'rgba(168, 85, 247, 0.6)' },
+                  { name: 'Data Structures & Algorithms', val: 85, Icon: Brain, color: 'from-rose-500 via-pink-400 to-red-300', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400', glowColor: 'shadow-rose-500/50', glowValue: 'rgba(244, 63, 94, 0.6)' },
+                  { name: 'Python Programming', val: 85, Icon: Code, color: 'from-emerald-500 via-green-400 to-lime-300', bgColor: 'bg-emerald-500/10', borderColor: 'border-emerald-500/30', textColor: 'text-emerald-400', glowColor: 'shadow-emerald-500/50', glowValue: 'rgba(16, 185, 129, 0.6)' },
                 ].map((s, index) => (
                   <div
                     key={s.name}
@@ -157,7 +159,7 @@ const About = () => {
 
                     <div className="relative flex items-center gap-3">
                       {/* Animated Icon */}
-                      <span className="text-2xl group-hover/skill:animate-bounce group-hover/skill:scale-125 transition-transform duration-300">{s.icon}</span>
+                      <AnimatedIcon Icon={s.Icon} size={24} glowColor={s.glowValue} animationType="bounce" />
 
                       <div className="flex-1 space-y-2">
                         <div className="flex items-center justify-between">
@@ -168,7 +170,7 @@ const About = () => {
                               {s.val}%
                             </span>
                             {/* Fire icon for high skills */}
-                            {s.val >= 90 && <span className="animate-pulse">🔥</span>}
+                            {s.val >= 90 && <AnimatedIcon Icon={Zap} size={18} glowColor={s.glowValue} animationType="pulse" />}
                           </div>
                         </div>
 
@@ -200,7 +202,16 @@ const About = () => {
 
                     {/* Hover tooltip */}
                     <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-background/90 border border-border rounded-md text-xs opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none backdrop-blur-sm">
-                      {s.val >= 90 ? '🌟 Expert Level!' : s.val >= 85 ? '💪 Advanced' : '📈 Proficient'}
+                      {s.val >= 90 ? (
+                        <span className="flex items-center gap-1">
+                          <AnimatedIcon Icon={Award} size={12} glowColor="rgba(251, 146, 60, 0.6)" animationType="pulse" />
+                          Expert Level!
+                        </span>
+                      ) : s.val >= 85 ? (
+                        'Advanced'
+                      ) : (
+                        'Proficient'
+                      )}
                     </div>
                   </div>
                 ))}
@@ -210,7 +221,7 @@ const About = () => {
             {/* Right: Professional Highlights */}
             <div className="space-y-5 pt-4 flex flex-col">
               <h4 className="font-bold text-xl text-foreground flex items-center justify-center gap-2 group">
-                <span className="text-2xl">📚</span>
+                <AnimatedIcon Icon={Briefcase} size={24} glowColor="rgba(59, 130, 246, 0.6)" animationType="pulse" />
                 <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Professional Highlights</span>
                 <span className="text-xs ml-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white animate-pulse">ELITE</span>
               </h4>
@@ -221,7 +232,7 @@ const About = () => {
                       <CollapsibleTrigger className="w-full">
                         <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg border border-border/50 hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.01]">
                           <span className="text-base font-semibold text-left flex items-center gap-2">
-                            <span className="group-hover:animate-bounce transition-transform">🧠</span>
+                            <AnimatedIcon Icon={Brain} size={18} glowColor="rgba(59, 130, 246, 0.6)" animationType="bounce" />
                             <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Knowledge In</span>
                           </span>
                           <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "knowledge" ? "rotate-180" : ""} group-hover:text-blue-500`} />
@@ -230,11 +241,26 @@ const About = () => {
                       <CollapsibleContent className="overflow-hidden">
                         <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
                           <p className="text-foreground/90 leading-relaxed text-sm">
-                            🔧 <strong>Programming:</strong> C • C++ • Java • Python • JavaScript <br />
-                            🌐 <strong>Web:</strong> HTML • CSS • React • Tailwind CSS <br />
-                            🛠️ <strong>Backend:</strong> Node.js • MySQL • TensorFlow • Flask <br />
-                            🚀 <strong>Deploy:</strong> Vercel • Streamlit <br />
-                            🎨 <strong>Tools:</strong> VS Code • GitHub • Canva
+                            <div className="flex items-center gap-2 mb-2">
+                              <AnimatedIcon Icon={Cog} size={16} glowColor="rgba(59, 130, 246, 0.6)" animationType="spin" />
+                              <strong>Programming:</strong>
+                            </div> C • C++ • Java • Python • JavaScript <br />
+                            <div className="flex items-center gap-2 mb-2">
+                              <AnimatedIcon Icon={Globe} size={16} glowColor="rgba(59, 130, 246, 0.6)" animationType="pulse" />
+                              <strong>Web:</strong>
+                            </div> HTML • CSS • React • Tailwind CSS <br />
+                            <div className="flex items-center gap-2 mb-2">
+                              <AnimatedIcon Icon={Wrench} size={16} glowColor="rgba(59, 130, 246, 0.6)" animationType="bounce" />
+                              <strong>Backend:</strong>
+                            </div> Node.js • MySQL • TensorFlow • Flask <br />
+                            <div className="flex items-center gap-2 mb-2">
+                              <AnimatedIcon Icon={Rocket} size={16} glowColor="rgba(251, 146, 60, 0.6)" animationType="bounce" />
+                              <strong>Deploy:</strong>
+                            </div> Vercel • Streamlit <br />
+                            <div className="flex items-center gap-2">
+                              <AnimatedIcon Icon={Palette} size={16} glowColor="rgba(168, 85, 247, 0.6)" animationType="pulse" />
+                              <strong>Tools:</strong>
+                            </div> VS Code • GitHub • Canva
                           </p>
                         </div>
                       </CollapsibleContent>
@@ -247,7 +273,7 @@ const About = () => {
                       <CollapsibleTrigger className="w-full">
                         <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-500/10 to-green-500/10 rounded-lg border border-border/50 hover:border-emerald-500/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.01]">
                           <span className="text-base font-semibold text-left flex items-center gap-2">
-                            <span className="group-hover:animate-bounce transition-transform">🚀</span>
+                            <AnimatedIcon Icon={Rocket} size={18} glowColor="rgba(16, 185, 129, 0.6)" animationType="bounce" />
                             <span className="bg-gradient-to-r from-emerald-400 to-green-500 bg-clip-text text-transparent">Upskilling</span>
                           </span>
                           <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "upskilling" ? "rotate-180" : ""} group-hover:text-emerald-500`} />
@@ -270,7 +296,7 @@ const About = () => {
                       <CollapsibleTrigger className="w-full">
                         <div className="flex items-center justify-between p-4 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-lg border border-border/50 hover:border-pink-500/50 hover:shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.01]">
                           <span className="text-base font-semibold text-left flex items-center gap-2">
-                            <span className="group-hover:animate-bounce transition-transform">⚡</span>
+                            <AnimatedIcon Icon={Zap} size={18} glowColor="rgba(236, 72, 153, 0.6)" animationType="pulse" />
                             <span className="bg-gradient-to-r from-pink-400 to-rose-500 bg-clip-text text-transparent">Interests</span>
                           </span>
                           <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "interests" ? "rotate-180" : ""} group-hover:text-pink-500`} />
@@ -280,7 +306,7 @@ const About = () => {
                         <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
                           <div className="space-y-2 text-foreground/90 text-sm">
                             <p><strong>Subjects:</strong> AI/ML • Quantum Computing • Mathematics • DSA</p>
-                            <p><strong>Hobbies:</strong> 🏏 Cricket • 🏸 Badminton • 🎨 Digital Art</p>
+                            <p><strong>Hobbies:</strong> Cricket • Badminton • Digital Art</p>
                           </div>
                         </div>
                       </CollapsibleContent>
@@ -293,7 +319,7 @@ const About = () => {
                       <CollapsibleTrigger className="w-full">
                         <div className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 rounded-lg border border-border/50 hover:border-orange-500/50 hover:shadow-[0_0_15px_rgba(249,115,22,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.01]">
                           <span className="text-base font-semibold text-left flex items-center gap-2">
-                            <span className="group-hover:animate-bounce transition-transform">🎯</span>
+                            <AnimatedIcon Icon={Target} size={18} glowColor="rgba(249, 115, 22, 0.6)" animationType="bounce" />
                             <span className="bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent">Focus</span>
                           </span>
                           <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "focus" ? "rotate-180" : ""} group-hover:text-orange-500`} />
@@ -302,9 +328,9 @@ const About = () => {
                       <CollapsibleContent className="overflow-hidden">
                         <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
                           <div className="space-y-2 text-foreground/90 text-sm">
-                            <p>✅ Active GitHub contributor</p>
-                            <p>✅ Open to internships & collaborations</p>
-                            <p>✅ Passionate problem solver</p>
+                            <p className="flex items-center gap-2"><AnimatedIcon Icon={CheckCircle} size={16} glowColor="rgba(249, 115, 22, 0.6)" animationType="pulse" /> Active GitHub contributor</p>
+                            <p className="flex items-center gap-2"><AnimatedIcon Icon={CheckCircle} size={16} glowColor="rgba(249, 115, 22, 0.6)" animationType="pulse" /> Open to internships & collaborations</p>
+                            <p className="flex items-center gap-2"><AnimatedIcon Icon={CheckCircle} size={16} glowColor="rgba(249, 115, 22, 0.6)" animationType="pulse" /> Passionate problem solver</p>
                           </div>
                         </div>
                       </CollapsibleContent>
