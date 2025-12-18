@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Award, Users, TrendingUp, X } from 'lucide-react';
+import { FileText, Award, Users, TrendingUp, X, Wrench, Leaf } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import SectionTitle from "./SectionTitle";
+import AnimatedIcon from "./AnimatedIcon";
 
 const Research = () => {
   const [showPaper, setShowPaper] = React.useState(false);
@@ -163,7 +164,10 @@ const Research = () => {
                 </div>
 
                 <Card className="bg-gradient-to-br from-primary/5 to-accent/5 p-6">
-                  <h4 className="font-bold text-lg mb-3">🛠️ Tech Stack</h4>
+                  <h4 className="font-bold text-lg mb-3 flex items-center gap-2">
+                    <AnimatedIcon Icon={Wrench} size={20} glowColor="rgba(59, 130, 246, 0.6)" animationType="bounce" />
+                    Tech Stack
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {(() => {
                       const defaultClass = 'px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium transition transform';
@@ -186,7 +190,10 @@ const Research = () => {
                 </Card>
 
                 <Card className="bg-gradient-to-br from-accent/5 to-secondary/5 p-6">
-                  <h4 className="font-bold text-lg mb-3">🍀 Seasonal Coverage</h4>
+                  <h4 className="font-bold text-lg mb-3 flex items-center gap-2">
+                    <AnimatedIcon Icon={Leaf} size={20} glowColor="rgba(16, 185, 129, 0.6)" animationType="pulse" />
+                    Seasonal Coverage
+                  </h4>
                   <div className="space-y-2 text-sm">
                     <p><span className="font-semibold">Summer:</span> Bhindi, Bitter Gourd, Brinjal, Mango, Spinach</p>
                     <p><span className="font-semibold">Rainy:</span> Banana, Guava, Papaya, Peach, Plum</p>
