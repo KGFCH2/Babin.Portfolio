@@ -14,43 +14,41 @@ const StudyBackground = () => {
     ];
 
     return (
-      <>
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          {/* Base gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-black dark:via-black dark:to-black" />
+        <>
+            {/* Animated gradient background */}
+            <div className="absolute inset-0 -z-10 overflow-hidden">
+                {/* Base gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-black dark:via-black dark:to-black" />
 
-          {/* Animated gradient orbs (brighter in dark mode for visibility) */}
-          <div className="absolute top-0 -left-40 w-80 h-80 bg-blue-300/20 dark:bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: "8s" }} />
-          <div className="absolute top-1/2 -right-40 w-80 h-80 bg-purple-300/20 dark:bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: "10s" }} />
-          <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-pink-300/20 dark:bg-pink-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: "12s" }} />
-        </div>
+                {/* Animated gradient orbs */}
+                <div className="absolute top-0 -left-40 w-80 h-80 bg-blue-300/20 dark:bg-blue-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: "8s" }} />
+                <div className="absolute top-1/2 -right-40 w-80 h-80 bg-purple-300/20 dark:bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: "10s" }} />
+                <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-pink-300/20 dark:bg-pink-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: "12s" }} />
+            </div>
 
-        {/* Floating icons */}
-        <div className="absolute inset-0 -z-10 pointer-events-none">
-          {floatingIcons.map((item, idx) => {
-            const { Icon, delay, duration, x, y } = item;
-            return (
-              <div
-                key={idx}
-                className="absolute"
-                style={{
-                  left: x,
-                  top: y,
-                  // ensure animation's initial state is applied
-                  animation: `float ${duration}s ease-in-out ${delay}s infinite both`,
-                }}
-              >
-                <Icon
-                  size={56}
-                  className="text-blue-500/80 dark:text-purple-300/70"
-                  strokeWidth={1.6}
-                  style={{ filter: 'drop-shadow(0 8px 22px rgba(124,58,237,0.25))' }}
-                />
-              </div>
-            );
-          })}
-        </div>
+            {/* Floating icons */}
+            <div className="absolute inset-0 -z-10 pointer-events-none">
+                {floatingIcons.map((item, idx) => {
+                    const { Icon, delay, duration, x, y } = item;
+                    return (
+                        <div
+                            key={idx}
+                            className="absolute opacity-0"
+                            style={{
+                                left: x,
+                                top: y,
+                                animation: `float ${duration}s ease-in-out ${delay}s infinite`,
+                            }}
+                        >
+                            <Icon
+                                size={48}
+                                className="text-blue-400/30 dark:text-purple-300/20 drop-shadow-lg"
+                                strokeWidth={1.5}
+                            />
+                        </div>
+                    );
+                })}
+            </div>
 
             {/* CSS animations for floating */}
             <style>{`
