@@ -285,8 +285,8 @@ const About = () => {
                       <CollapsibleContent className="overflow-hidden">
                         <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
                           <div className="space-y-2 text-foreground/90 text-sm">
-                            <p><strong> <AnimatedIcon Icon={Cog} size={18} glowColor="rgba(16, 185, 129, 0.6)" animationType="spin" /> Platforms:</strong> Google Cloud • Microsoft Learn • AWS • IBM SkillBuild</p>
-                            <p><strong> <AnimatedIcon Icon={Code} size={18} glowColor="rgba(16, 185, 129, 0.6)" animationType="spin" /> Programs:</strong> HP Life • SWAYAM • Cisco • Infosys Springboard</p>
+                            <p><strong> <AnimatedIcon Icon={Cog} size={16} glowColor="rgba(16, 185, 129, 0.6)" animationType="spin" /> Platforms:</strong> Google Cloud • Microsoft Learn • AWS • IBM SkillBuild</p>
+                            <p><strong> <AnimatedIcon Icon={Code} size={16} glowColor="rgba(16, 185, 129, 0.6)" animationType="spin" /> Programs:</strong> HP Life • SWAYAM • Cisco • Infosys Springboard</p>
                           </div>
                         </div>
                       </CollapsibleContent>
@@ -308,8 +308,8 @@ const About = () => {
                       <CollapsibleContent className="overflow-hidden">
                         <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
                           <div className="space-y-2 text-foreground/90 text-sm">
-                            <p><strong> <AnimatedIcon Icon={BookA} size={18} glowColor="rgba(16, 185, 129, 0.6)" animationType="spin" /> Subjects:</strong> AI/ML • Quantum Computing • Mathematics • DSA</p>
-                            <p><strong> <AnimatedIcon Icon={PlayCircle} size={18} glowColor="rgba(16, 185, 129, 0.6)" animationType="spin" /> Hobbies:</strong> Cricket • Badminton • Digital Art</p>
+                            <p><strong> <AnimatedIcon Icon={BookA} size={16} glowColor="rgba(16, 185, 129, 0.6)" animationType="spin" /> Subjects:</strong> AI/ML • Quantum Computing • Mathematics • DSA</p>
+                            <p><strong> <AnimatedIcon Icon={PlayCircle} size={16} glowColor="rgba(16, 185, 129, 0.6)" animationType="spin" /> Hobbies:</strong> Cricket • Badminton • Digital Art</p>
                           </div>
                         </div>
                       </CollapsibleContent>
