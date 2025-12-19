@@ -1,5 +1,6 @@
 import { useInView } from "react-intersection-observer";
 import { useState, useCallback, useRef, useEffect } from "react";
+import StudyBackground from "./StudyBackground";
 import {
   Carousel,
   CarouselContent,
@@ -317,7 +318,8 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 relative section-divider-top" ref={ref}>
-      <div className="container mx-auto px-4">
+      <StudyBackground />
+      <div className="container mx-auto px-4 relative z-10">
         <div
           className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
             }`}
