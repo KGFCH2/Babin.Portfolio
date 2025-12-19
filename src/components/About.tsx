@@ -60,9 +60,7 @@ const About = () => {
               {/* Intro Section - Floating */}
               <div className="space-y-4">
                 <h3
-                  onClick={() => setShowImageModal(true)}
-                  className="text-3xl font-bold bg-gradient-to-r from-primary via-purple-400 to-secondary bg-clip-text text-transparent inline-block cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_25px_rgba(139,92,246,0.8)] hover:filter"
-                  title="Click to view my image"
+                  className="text-3xl font-bold bg-gradient-to-r from-primary via-purple-400 to-secondary bg-clip-text text-transparent inline-block cursor-default transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_25px_rgba(139,92,246,0.8)] hover:filter"
                 >
                   Babin Bid
                 </h3>
@@ -119,11 +117,13 @@ const About = () => {
                 {/* Image container with border and shadow */}
                 <div className="relative">
                   <img
+                    onClick={() => setShowImageModal(true)}
                     src="/Babin_New.jpeg"
                     alt="Babin Bid - Full Stack Developer and CS Engineer"
                     loading="lazy"
                     decoding="async"
-                    className="w-64 h-64 md:w-72 md:h-72 rounded-2xl object-cover shadow-2xl border-4 border-background/50 avatar-pulse"
+                    className="w-64 h-64 md:w-72 md:h-72 rounded-2xl object-cover shadow-2xl border-4 border-background/50 avatar-pulse cursor-pointer"
+                    title="Click to view my image"
                   />
                   {/* Floating accent badge */}
                   <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-orange-400 to-emerald-400 rounded-full px-6 py-3 shadow-lg font-semibold text-sm text-background transform hover:scale-110 transition-transform flex items-center justify-center gap-2">
@@ -388,7 +388,6 @@ const About = () => {
             <p className="text-center mt-4 text-white text-xl font-semibold">
               Babin Bid
             </p>
-            <img src="Babin.jpeg" alt="Babin Bid" />
             <p className="text-center text-white/60 text-sm">
               Click anywhere to close
             </p>
