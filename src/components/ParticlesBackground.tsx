@@ -87,8 +87,8 @@ const ParticlesBackground = () => {
     return (
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className={`absolute inset-0 opacity-95 ${theme === 'dark'
-            ? 'bg-gradient-to-br from-emerald-900 via-teal-800 to-violet-900'
-            : 'bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200'
+          ? 'bg-gradient-to-br from-emerald-900 via-teal-800 to-violet-900'
+          : 'bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200'
           }`} />
       </div>
     );
