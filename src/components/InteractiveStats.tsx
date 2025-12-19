@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Code2, Zap, Clock, GitBranch, LucideIcon } from 'lucide-react';
 import AnimatedIcon from './AnimatedIcon';
+import StudyBackground from './StudyBackground';
 
 interface StatItem {
     label: string;
@@ -57,7 +58,8 @@ const InteractiveStats: React.FC = () => {
 
     return (
         <div ref={ref} className="py-16 relative overflow-hidden">
-            <div className="container mx-auto px-4">
+            <StudyBackground />
+            <div className="container mx-auto px-4 relative z-10">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
                     {stats.map((stat, index) => (
                         <StatCard
