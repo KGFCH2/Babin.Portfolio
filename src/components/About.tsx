@@ -5,6 +5,7 @@ import { previewThenDownload } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import SectionTitle from "./SectionTitle";
 import AnimatedIcon from "./AnimatedIcon";
+import StudyBackground from "./StudyBackground";
 
 const About = () => {
   const { ref, inView } = useInView({
@@ -28,7 +29,8 @@ const About = () => {
 
   return (
     <section id="about" className="py-20 relative section-divider-top" ref={ref}>
-      <div className="container mx-auto px-4">
+      <StudyBackground />
+      <div className="container mx-auto px-4 relative z-10">
         <div
           className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
             }`}
