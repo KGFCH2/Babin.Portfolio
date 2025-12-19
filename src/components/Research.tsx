@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import SectionTitle from "./SectionTitle";
 import AnimatedIcon from "./AnimatedIcon";
+import StudyBackground from "./StudyBackground";
 
 const Research = () => {
   const [showPaper, setShowPaper] = React.useState(false);
@@ -52,7 +53,8 @@ const Research = () => {
 
   return (
     <section id="research" className="py-20 relative section-divider-top">
-      <div className="container mx-auto px-4">
+      <StudyBackground />
+      <div className="container mx-auto px-4 relative z-10">
         <style>{glowStyles}</style>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
