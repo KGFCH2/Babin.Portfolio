@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import SectionTitle from "./SectionTitle";
 import AnimatedIcon from "./AnimatedIcon";
+import StudyBackground from "./StudyBackground";
 
 const Contact = () => {
   const { ref, inView } = useInView({
@@ -112,7 +113,8 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-12 md:py-20 relative section-divider-top" ref={ref}>
-      <div className="container mx-auto px-4">
+      <StudyBackground />
+      <div className="container mx-auto px-4 relative z-10">
         <div
           className={`max-w-6xl mx-auto space-y-8 md:space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
             }`}
