@@ -133,41 +133,40 @@ const ParticlesBackground = () => {
           },
         },
         particles: {
-          // tricolor: saffron -> white -> green (dark), purple/blue/pink (light)
+          // tricolor + themed icons for a student: code, book, laptop, brain
           color: {
             value: theme === 'dark'
               ? ["#FF9933", "#FFFFFF", "#138808"]
               : ["#7c3aed", "#3b82f6", "#ec4899", "#8b5cf6"],
           },
-          links: {
-            enable: false,
-          },
+          links: { enable: false },
           move: {
             direction: "none",
             enable: true,
-            outModes: {
-              default: "out",
-            },
+            outModes: { default: "out" },
             random: true,
-            speed: 0.45,
+            speed: 0.5,
             straight: false,
+            attract: { enable: false },
           },
           number: {
-            density: {
-              enable: true,
-            },
-            // default value, will be reduced on small screens via CSS media query check below
-            value: 60,
+            density: { enable: true },
+            value: 48,
           },
-          opacity: {
-            value: { min: 0.25, max: 0.8 },
-          },
+          opacity: { value: { min: 0.3, max: 0.9 } },
           shape: {
-            type: "circle",
+            type: ["image", "circle"],
+            options: {
+              image: [
+                { src: "/particles/code.svg", width: 32, height: 32 },
+                { src: "/particles/book.svg", width: 28, height: 28 },
+                { src: "/particles/laptop.svg", width: 32, height: 24 },
+                { src: "/particles/brain.svg", width: 28, height: 28 },
+              ],
+            },
           },
-          size: {
-            value: { min: 1, max: 3 },
-          },
+          size: { value: { min: 6, max: 18 } },
+          rotate: { value: 0, direction: "random", animation: { enable: true, speed: 5, sync: false } },
         },
         detectRetina: true,
       }}
