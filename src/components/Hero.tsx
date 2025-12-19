@@ -1,6 +1,8 @@
 import { TypeAnimation } from "react-type-animation";
 import { Button } from "@/components/ui/button";
 import { Download, Github, Linkedin, Mail, ChevronDown, User, Globe, Compass, Zap, Brain, Users, Cpu, Atom, Microscope, BarChart3, Rocket, Search } from "lucide-react";
+import StudyBackground from "./StudyBackground";
+import { motion } from "framer-motion";
 import { previewThenDownload } from "@/lib/utils";
 import SectionTitle from "./SectionTitle";
 import AnimatedIcon from "./AnimatedIcon";
@@ -30,8 +32,15 @@ const Hero = () => {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-8"
     >
+      <StudyBackground />
+
       <div className="container mx-auto px-4 py-12 z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
+        <motion.div
+          className="max-w-4xl mx-auto text-center space-y-6"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <div className="space-y-4">
             <h2 className="text-xl md:text-2xl text-muted-foreground font-medium" role="status" aria-live="polite">
               Hi, I'm
@@ -90,25 +99,30 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center flex-wrap">
-            <Button
-              size="lg"
-              className="gradient-primary text-primary-foreground shadow-glow hover:scale-105 transition-all duration-300 active:scale-95 w-full sm:w-auto"
-              onClick={handleDownloadResume}
-              aria-label="Download Babin Bid Resume"
-            >
-              <Download className="mr-2 h-5 w-5" />
-              Resume
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary/50 hover:bg-primary/10 transition-all duration-300 active:scale-95 w-full sm:w-auto"
-              onClick={() => scrollToSection('contact')}
-              aria-label="Navigate to contact section"
-            >
-              <Mail className="mr-2 h-5 w-5" />
-              Contact
-            </Button>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+              <Button
+                size="lg"
+                className="gradient-primary text-primary-foreground shadow-glow transition-all duration-300 active:scale-95 w-full sm:w-auto"
+                onClick={handleDownloadResume}
+                aria-label="Download Babin Bid Resume"
+              >
+                <Download className="mr-2 h-5 w-5" />
+                Resume
+              </Button>
+            </motion.div>
+
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary/50 hover:bg-primary/10 transition-all duration-300 active:scale-95 w-full sm:w-auto"
+                onClick={() => scrollToSection('contact')}
+                aria-label="Navigate to contact section"
+              >
+                <Mail className="mr-2 h-5 w-5" />
+                Contact
+              </Button>
+            </motion.div>
           </div>
 
           <div className="flex items-center justify-center gap-4 pt-8 flex-wrap">
@@ -167,7 +181,7 @@ const Hero = () => {
               <ChevronDown className="h-6 w-6 text-primary mx-auto" />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
