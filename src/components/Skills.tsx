@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SectionTitle from "./SectionTitle";
 import { useInView } from "react-intersection-observer";
+import StudyBackground from "./StudyBackground";
 
 const Skills: React.FC = () => {
     const { ref, inView } = useInView({
@@ -96,7 +97,8 @@ const Skills: React.FC = () => {
 
     return (
         <section id="skills" className="py-20 relative overflow-hidden section-divider-top section-divider-offset-md" ref={ref}>
-            <div className={`container mx-auto px-6 ${inView ? "animate-fade-in-up" : "opacity-0"}`}>
+            <StudyBackground />
+            <div className={`container mx-auto px-6 relative z-10 ${inView ? "animate-fade-in-up" : "opacity-0"}`}>
                 <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
                     <SectionTitle
                         segments={[
