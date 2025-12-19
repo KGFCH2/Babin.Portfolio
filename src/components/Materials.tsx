@@ -1,6 +1,7 @@
 import React from "react";
 import SectionTitle from "./SectionTitle";
 import { useInView } from "react-intersection-observer";
+import StudyBackground from "./StudyBackground";
 
 const Materials: React.FC = () => {
     const { ref, inView } = useInView({
@@ -10,6 +11,7 @@ const Materials: React.FC = () => {
 
     return (
         <section id="materials" className="py-20 section-divider-top" ref={ref}>
+            <StudyBackground />
             <div
                 className={`container mx-auto px-4 ${inView ? "animate-fade-in-up" : "opacity-0"}`}
             >
