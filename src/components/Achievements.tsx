@@ -5,6 +5,7 @@ import { useState } from "react";
 import { X, FileText, ExternalLink, ZoomIn, ZoomOut, Download, RotateCcw } from "lucide-react";
 import { achievementsData } from "../data/achievements";
 import { Button } from "@/components/ui/button";
+import StudyBackground from "./StudyBackground";
 
 const Achievements = () => {
     const { ref, inView } = useInView({
@@ -177,7 +178,8 @@ const Achievements = () => {
 
     return (
         <section id="achievements" className="py-20 relative" ref={ref}>
-            <div className="container mx-auto px-4">
+            <StudyBackground />
+            <div className="container mx-auto px-4 relative z-10">
                 <div
                     className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
                         }`}
