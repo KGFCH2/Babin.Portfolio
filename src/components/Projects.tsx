@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/carousel";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { ExternalLink, Github, Star } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 
@@ -27,6 +28,7 @@ const Projects = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Autoplay plugin will be loaded dynamically to avoid build-time resolution issues on Vercel
   const [plugins, setPlugins] = useState<any[]>([]);
@@ -214,7 +216,7 @@ const Projects = () => {
       title: "CareerGo",
       description:
         "CareerGo — Career Go is an AI-powered career guidance web app that analyzes user skills to deliver personalized career recommendations, real-time AI chat support, and curated learning paths through a secure, modern, and responsive interface.",
-      tech: ["Python", "Flask", "SQLite", "HTML5", "CSS3", "JavaScript", "Jinja2", "Groq API (LLaMA)", "CSV & JSON datasets"],
+      tech: ["Python", "Flask", "JavaScript", "Groq API (LLaMA)"],
       github: "https://github.com/KGFCH2/Career_Go",
       demo: null,
       features: [
@@ -262,7 +264,7 @@ const Projects = () => {
         "Verified government resources integration",
         "Emergency helpline & email support",
       ],
-      thumbnail: "/projects/AquaWatch.jpeg",
+      thumbnail: "/projects/AquaWatch.png",
     },
     {
       title: "ImpactSense (Earthquake Impact Prediction)",
@@ -276,7 +278,7 @@ const Projects = () => {
         "Government disaster response prioritization",
         "Data preprocessing, feature engineering, model training",
       ],
-      thumbnail: "/projects/ImpactSense.jpeg",
+      thumbnail: "/projects/ImpactSense.png",
     },
     {
       title: "AI Powered ChatBot",
@@ -290,7 +292,7 @@ const Projects = () => {
         "Optional web-search context (DuckDuckGo)",
         "Light/Dark theme, demo login, UI micro-interactions",
       ],
-      thumbnail: "/projects/ChatBot.png",
+      thumbnail: "/projects/AI_Powered_ChatBot.png",
     },
     {
       title: "India Stock Dashboard",
@@ -304,7 +306,7 @@ const Projects = () => {
         "Interactive Plotly charts and technical indicators",
         "Simple ensemble-based prediction fallback",
       ],
-      thumbnail: "/projects/Stock_Market.png",
+      thumbnail: "/projects/India_Stock_Dashboard.png",
     },
     {
       title: "Heart Disease Prediction System",
@@ -322,7 +324,7 @@ const Projects = () => {
         "Input Features: 7 health parameters",
         "Status: Production Ready",
       ],
-      thumbnail: "/projects/Heart Disease Prediction System.png",
+      thumbnail: "/projects/Heart_Disease_Prediction_System_New.png",
     },
     {
       title: "CropAI India",
@@ -336,7 +338,7 @@ const Projects = () => {
         "Market intelligence & yield insights",
         "Scalable platform ready for ML integration",
       ],
-      thumbnail: "/projects/CropAI India.png",
+      thumbnail: "/projects/CropAI.png",
     },
     {
       title: "BharatBus (in progress)",
@@ -346,7 +348,7 @@ const Projects = () => {
       github: "https://github.com/KGFCH2/BharatBus",
       demo: "https://bharat-bus.vercel.app/",
       features: ["Booking flow, live tracking mockups, operator dashboard"],
-      thumbnail: "/projects/BharatBus.jpeg",
+      thumbnail: "/projects/BharatBus.png",
     },
   ];
 
@@ -449,7 +451,7 @@ const Projects = () => {
                           {/* Light mode gradient overlay on hover */}
                           <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-violet-200/30 via-purple-200/20 to-indigo-200/30 opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
                           {project.thumbnail ? (
-                            <div className="h-40 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded">
+                            <div className="h-40 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded cursor-pointer" onClick={() => setSelectedImage(project.thumbnail)}>
                               <img
                                 src={encodeURI(project.thumbnail)}
                                 alt={`${project.title} thumbnail`}
@@ -550,6 +552,21 @@ const Projects = () => {
           </div>
         </div>
       </div>
+
+      {/* Full-size image modal */}
+      <Dialog open={!!selectedImage} onOpenChange={(open) => !open && setSelectedImage(null)}>
+        <DialogContent className="max-w-4xl w-full h-auto max-h-[90vh] flex items-center justify-center p-0 bg-black/80 border-0">
+          {selectedImage && (
+            <div className="relative w-full h-full flex items-center justify-center">
+              <img
+                src={encodeURI(selectedImage)}
+                alt="Full size project thumbnail"
+                className="max-w-full max-h-[85vh] object-contain rounded-lg"
+              />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
