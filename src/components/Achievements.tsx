@@ -40,7 +40,7 @@ const Achievements = () => {
         // Define category lists for each filter
         const awardsCategories = ["Awards & Recognitions"];
         const badgeCategories = ["Microsoft Badges", "Microsoft Trophies", "Holopin Badges", "HP Life Badges", "Google Badges"];
-        const bootcampCategories = ["Hackathons & Events", "Unstop", "MyBharat", "myGov", "Let's Upgrade"];
+        const bootcampCategories = ["Events & Hackathons","Hack2Skill", "myGov","Skill India", "Unstop", "MyBharat", "Let's Upgrade","Kaggle"];
 
         const isBadgeItem = (item: { title: string }) => {
             const title = item.title.toLowerCase();
