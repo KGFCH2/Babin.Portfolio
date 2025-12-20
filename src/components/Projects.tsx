@@ -106,6 +106,20 @@ const Projects = () => {
         return "bg-gradient-to-r from-violet-500 to-purple-700 text-white";
       case "framer motion":
         return "bg-gradient-to-r from-fuchsia-500 to-pink-600 text-white";
+      case "sqlite":
+        return "bg-gradient-to-r from-blue-400 to-cyan-600 text-white";
+      case "html5":
+        return "bg-gradient-to-r from-orange-500 to-red-600 text-white";
+      case "css3":
+        return "bg-gradient-to-r from-blue-400 to-indigo-600 text-white";
+      case "jinja2":
+        return "bg-gradient-to-r from-red-500 to-orange-600 text-white";
+      case "groq api (llama)":
+      case "groq":
+        return "bg-gradient-to-r from-purple-600 to-blue-700 text-white";
+      case "csv & json datasets":
+      case "csv":
+        return "bg-gradient-to-r from-slate-500 to-zinc-700 text-white";
       default:
         return "bg-gradient-to-r from-primary to-violet-500 text-white";
     }
@@ -160,6 +174,20 @@ const Projects = () => {
         return "bg-violet-100 dark:bg-violet-50 text-violet-800 border-violet-300 dark:border-violet-200 hover:bg-gradient-to-r hover:from-violet-500 hover:to-purple-700 hover:text-white hover:border-transparent";
       case "framer motion":
         return "bg-fuchsia-100 dark:bg-fuchsia-50 text-fuchsia-800 border-fuchsia-300 dark:border-fuchsia-200 hover:bg-gradient-to-r hover:from-fuchsia-500 hover:to-pink-600 hover:text-white hover:border-transparent";
+      case "sqlite":
+        return "bg-blue-100 dark:bg-blue-50 text-blue-800 border-blue-300 dark:border-blue-200 hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-600 hover:text-white hover:border-transparent";
+      case "html5":
+        return "bg-orange-100 dark:bg-orange-50 text-orange-800 border-orange-300 dark:border-orange-200 hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-600 hover:text-white hover:border-transparent";
+      case "css3":
+        return "bg-blue-100 dark:bg-blue-50 text-blue-800 border-blue-300 dark:border-blue-200 hover:bg-gradient-to-r hover:from-blue-400 hover:to-indigo-600 hover:text-white hover:border-transparent";
+      case "jinja2":
+        return "bg-red-100 dark:bg-red-50 text-red-800 border-red-300 dark:border-red-200 hover:bg-gradient-to-r hover:from-red-500 hover:to-orange-600 hover:text-white hover:border-transparent";
+      case "groq api (llama)":
+      case "groq":
+        return "bg-purple-100 dark:bg-purple-50 text-purple-800 border-purple-300 dark:border-purple-200 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-700 hover:text-white hover:border-transparent";
+      case "csv & json datasets":
+      case "csv":
+        return "bg-slate-100 dark:bg-slate-200 text-slate-800 border-slate-300 dark:border-slate-400 hover:bg-gradient-to-r hover:from-slate-500 hover:to-zinc-700 hover:text-white hover:border-transparent";
       default:
         return "bg-purple-100 dark:bg-primary/10 text-purple-800 dark:text-primary border-purple-300 dark:border-primary/20 hover:bg-gradient-to-r hover:from-primary/60 hover:to-violet-500 hover:text-white hover:border-transparent";
     }
@@ -183,20 +211,26 @@ const Projects = () => {
       thumbnail: "/projects/CargoConnect.png",
     },
     {
-      title: "PersonaPath",
+      title: "CareerGo",
       description:
-        "PersonaPath — Personalized Career & Skills Advisor: a ready-to-run web app with lightweight frontend and Flask backend, rules-based career advisor and 500+ curated skills & career paths.",
-      tech: ["HTML", "CSS", "JavaScript", "Python", "Flask"],
-      github: "https://github.com/KGFCH2/PersonaPath",
+        "CareerGo — Career Go is an AI-powered career guidance web app that analyzes user skills to deliver personalized career recommendations, real-time AI chat support, and curated learning paths through a secure, modern, and responsive interface.",
+      tech: ["Python", "Flask", "SQLite", "HTML5", "CSS3", "JavaScript", "Jinja2", "Groq API (LLaMA)", "CSV & JSON datasets"],
+      github: "https://github.com/KGFCH2/Career_Go",
       demo: null,
       features: [
-        "Glassmorphism login with smooth animations",
-        "Career advisor chat (rules engine)",
-        "500+ skills & careers with learning paths",
-        "Dark / Light theme toggle",
-        "Micro-interactions & responsive layout",
+        "Secure user authentication with encrypted passwords",
+        "AI-powered career guidance with intelligent fallback system",
+        "Skill-based career matching across 700+ career entries",
+        "Interactive career dashboard with smart recommendations",
+        "Real-time career chat assistant",
+        "Dark and light mode with glassmorphism UI",
+        "Personalized user profiles with emoji-based avatars",
+        "Curated learning resources from top platforms",
+        "Mobile-friendly responsive design",
+        "Secure password reset with verification codes",
+        "Fast performance with PWA-ready architecture",
       ],
-      thumbnail: "/projects/PersonaPath.png",
+      thumbnail: "/projects/Career_Go.png",
     },
     {
       title: "SkyCast AI",
@@ -373,9 +407,9 @@ const Projects = () => {
                   <button
                     key={tech}
                     onClick={() => setSelectedTech(selectedTech === tech ? null : tech)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedTech === tech
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedTech === tech
                       ? `${getTechGradient(tech)} shadow-lg`
-                      : 'bg-muted text-foreground hover:bg-muted/80'
+                      : `${getTechGradient(tech)} opacity-60 hover:opacity-100 shadow-md hover:shadow-lg`
                       }`}
                   >
                     {tech}
@@ -443,7 +477,7 @@ const Projects = () => {
                                 {project.tech.map((tech, techIndex) => (
                                   <span
                                     key={techIndex}
-                                    className={`${getBadgeClasses(tech)} px-2 py-0.5 text-xs rounded-full border transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1`}
+                                    className={`${getBadgeClasses(tech)} px-2 py-0.5 text-xs rounded-full border transition-all duration-300 ease-in-out`}
                                   >
                                     {tech}
                                   </span>
