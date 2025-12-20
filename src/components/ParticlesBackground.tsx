@@ -4,7 +4,11 @@ import { loadSlim } from "@tsparticles/slim";
 import type { Container, Engine } from "@tsparticles/engine";
 import { useTheme } from "next-themes";
 
-const ParticlesBackground = () => {
+interface ParticlesBackgroundProps {
+  hideColors?: string[];
+}
+
+const ParticlesBackground = ({ hideColors }: ParticlesBackgroundProps) => {
   const [init, setInit] = useState(false);
   const [showFallback, setShowFallback] = useState(false);
   const { theme } = useTheme();
@@ -135,9 +139,18 @@ const ParticlesBackground = () => {
         particles: {
           // tricolor + themed icons for a student: code, book, laptop, brain
           color: {
-            value: theme === 'dark'
-              ? ["#FF9933", "#FFFFFF", "#138808"]
-              : ["#7c3aed", "#3b82f6", "#ec4899", "#8b5cf6"],
+            value: (() => {
+              const darkColors = ["#FF9933", "#FFFFFF", "#138808"];
+              const lightColors = ["#7c3aed", "#3b82f6", "#ec4899", "#8b5cf6"];
+              const allColors = theme === 'dark' ? darkColors : lightColors;
+
+              if (hideColors && hideColors.length > 0) {
+                return allColors.filter(color =>
+                  !hideColors.some(hideColor => hideColor.toUpperCase() === color.toUpperCase())
+                );
+              }
+              return allColors;
+            })(),
           },
           links: { enable: false },
           move: {
