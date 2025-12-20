@@ -4,7 +4,6 @@ import SectionTitle from "./SectionTitle";
 import { useState } from "react";
 import { X, FileText, ExternalLink, ZoomIn, ZoomOut, Download, RotateCcw } from "lucide-react";
 import { achievementsData } from "../data/achievements";
-import { Button } from "@/components/ui/button";
 import StudyBackground from "./StudyBackground";
 
 const Achievements = () => {
@@ -15,7 +14,6 @@ const Achievements = () => {
 
     const [selectedItem, setSelectedItem] = useState<{ file: string; type: 'image' | 'pdf' } | null>(null);
     const [zoomLevel, setZoomLevel] = useState(1);
-    const [filter, setFilter] = useState<'all' | 'certificates' | 'hackathons' | 'awards' | 'badges'>('all');
     const [isClosing, setIsClosing] = useState(false);
     const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
@@ -26,78 +24,17 @@ const Achievements = () => {
         return 'image';
     };
 
-    /**
-     * FILTERING LOGIC FOR ACHIEVEMENT TABS
-     * 
-     * Filter Types:
-     * - 'all': Shows all categories as-is
-     * - 'awards': Shows only "Awards & Recognitions"
-     * - 'certificates': Shows technical courses (excludes awards/badges/bootcamps)
-     * - 'hackathons': Shows bootcamps, events, competitions
-     * - 'badges': Shows badges and trophies only
-     */
-    const getFilteredData = () => {
-        // Define category lists for each filter
-        const awardsCategories = ["Awards & Recognitions"];
-        const badgeCategories = ["Microsoft Badges", "Microsoft Trophies", "Holopin Badges", "HP Life Badges", "Google Badges"];
-        const bootcampCategories = ["Events & Hackathons","Hack2Skill", "myGov","Skill India", "Unstop", "MyBharat", "Let's Upgrade","Kaggle"];
-
-        const isBadgeItem = (item: { title: string }) => {
-            const title = item.title.toLowerCase();
-            return title.includes('badge') || title.includes('trophy');
-        };
-
+    // Get all achievements with category name rename
+    const getAllAchievements = () => {
         return achievementsData.map(cat => {
-            // Rename LU
             const categoryName = cat.category === "LinkedIn Learning (LU)" ? "Let's Upgrade" : cat.category;
-            const modifiedCat = { ...cat, category: categoryName };
-
-            if (filter === 'all') return modifiedCat;
-
-            if (filter === 'awards') {
-                return awardsCategories.includes(cat.category) ? modifiedCat : null;
-            }
-
-            if (filter === 'badges') {
-                if (badgeCategories.includes(cat.category)) return modifiedCat;
-                // Check for badge items in other categories
-                const badgeItems = cat.items.filter(item => isBadgeItem(item));
-                if (badgeItems.length > 0) {
-                    return { ...modifiedCat, items: badgeItems };
-                }
-                return null;
-            }
-
-            if (filter === 'hackathons') {
-                // Filter: Bootcamps | Events | Competitions
-                if (bootcampCategories.includes(cat.category)) return modifiedCat;
-                return null;
-            }
-
-            if (filter === 'certificates') {
-                // Filter: Certificates | Technical Courses
-                // Exclude Awards categories
-                if (awardsCategories.includes(cat.category)) return null;
-                // Exclude Badge categories
-                if (badgeCategories.includes(cat.category)) return null;
-                // Exclude Bootcamp/Event/Competition categories
-                if (bootcampCategories.includes(cat.category)) return null;
-
-                // For remaining categories (AWS, CISCO, Google, IBM, etc.), exclude badge items
-                const nonBadgeItems = cat.items.filter(item => !isBadgeItem(item));
-                if (nonBadgeItems.length > 0) {
-                    return { ...modifiedCat, items: nonBadgeItems };
-                }
-                return null;
-            }
-
-            return modifiedCat;
-        }).filter((cat): cat is typeof achievementsData[0] => cat !== null);
+            return { ...cat, category: categoryName };
+        });
     };
 
-    const filteredAchievements = getFilteredData();
+    const allAchievements = getAllAchievements();
 
-    if (!filteredAchievements || filteredAchievements.length === 0) {
+    if (!allAchievements || allAchievements.length === 0) {
         return (
             <section id="achievements" className="py-20 relative section-divider-top" ref={ref}>
                 <div className="container mx-auto px-4 text-center">
@@ -202,48 +139,10 @@ const Achievements = () => {
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
                             A collection of my certificates, awards, and recognitions.
                         </p>
-
-                        <div className="flex flex-wrap justify-center gap-4 mb-12">
-                            <Button
-                                variant={filter === 'all' ? "default" : "outline"}
-                                onClick={() => setFilter('all')}
-                                className="min-w-[100px] mind-blowing-hover"
-                            >
-                                All
-                            </Button>
-                            <Button
-                                variant={filter === 'awards' ? "default" : "outline"}
-                                onClick={() => setFilter('awards')}
-                                className="min-w-[100px] mind-blowing-hover"
-                            >
-                                Awards
-                            </Button>
-                            <Button
-                                variant={filter === 'certificates' ? "default" : "outline"}
-                                onClick={() => setFilter('certificates')}
-                                className="min-w-[100px] mind-blowing-hover"
-                            >
-                                Certificates | Technical Courses
-                            </Button>
-                            <Button
-                                variant={filter === 'hackathons' ? "default" : "outline"}
-                                onClick={() => setFilter('hackathons')}
-                                className="min-w-[100px] mind-blowing-hover"
-                            >
-                                Bootcamps | Events | Competitions
-                            </Button>
-                            <Button
-                                variant={filter === 'badges' ? "default" : "outline"}
-                                onClick={() => setFilter('badges')}
-                                className="min-w-[100px] mind-blowing-hover"
-                            >
-                                Badges | Trophies
-                            </Button>
-                        </div>
                     </div>
 
-                    <div className="space-y-16 animate-slide-show" key={filter}>
-                        {filteredAchievements.map((category, catIndex) => (
+                    <div className="space-y-16 animate-slide-show">
+                        {allAchievements.map((category, catIndex) => (
                             <div key={catIndex} className="space-y-6">
                                 <h3 className="text-2xl font-bold text-foreground border-l-4 border-primary pl-4">
                                     {category.category}
