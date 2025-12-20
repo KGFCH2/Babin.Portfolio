@@ -78,28 +78,28 @@ const About = () => {
                 {/* Action Buttons */}
                 <div className="flex gap-3 flex-wrap pt-6">
                   <button
-                    className="relative flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold overflow-hidden group transition-all hover:scale-105"
+                    className="relative flex-1 px-4 py-3 rounded-lg border-2 border-emerald-400 text-400 font-semibold overflow-hidden group transition-all hover:scale-105 hover:border-emerald-500"
                     onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
                   >
-                    {/* Shimmer effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                    {/* Glow on hover */}
-                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg bg-emerald-500/30 -z-10" />
+                    {/* Gradient background on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {/* Animated border glow */}
+                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-emerald-500 to-green-500 -z-10" />
                     <span className="relative flex items-center justify-center gap-2">
-                      <AnimatedIcon Icon={FileText} size={18} glowColor="rgba(34, 197, 94, 0.6)" animationType="bounce" />
+                      <AnimatedIcon Icon={FileText} size={18} glowColor="rgba(34, 197, 94, 0.6)" animationType="spin" />
                       View Resume
                     </span>
                   </button>
                   <button
-                    className="relative flex-1 px-4 py-3 rounded-lg border-2 border-purple-500/50 text-purple-400 font-semibold overflow-hidden group transition-all hover:scale-105 hover:border-purple-500"
+                    className="relative flex-1 px-4 py-3 rounded-lg border-2 border-orange-500 text-400 font-semibold overflow-hidden group transition-all hover:scale-105 hover:border-orange-500"
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                   >
                     {/* Gradient background on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {/* Animated border glow */}
-                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-purple-500 to-pink-500 -z-10" />
+                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-orange-500 to-yellow-500 -z-10" />
                     <span className="relative flex items-center justify-center gap-2">
-                      <AnimatedIcon Icon={MessageCircle} size={18} glowColor="rgba(168, 85, 247, 0.6)" animationType="pulse" />
+                      <AnimatedIcon Icon={MessageCircle} size={18} glowColor="rgba(34, 197, 94, 0.6)" animationType="spin" />
                       Get in Touch
                     </span>
                   </button>
