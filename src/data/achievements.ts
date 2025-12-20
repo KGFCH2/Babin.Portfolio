@@ -42,7 +42,7 @@ export const achievementsData: AchievementCategory[] = [
 
     // ==================== BOOTCAMPS | EVENTS | COMPETITIONS ====================
     {
-        category: "Hackathons & Events",
+        category: "Events & Hackathons",
         items: [
             { title: "SSWC'25 Presenter Certificate", file: "/Achievements/SSWC'25_Presenter_Certificate.jpg" },
             { title: "Volunteer Certificate", file: "/Achievements/Babin_Bid-vol.png" },
@@ -51,6 +51,19 @@ export const achievementsData: AchievementCategory[] = [
             { title: "Poster Competition on Engineers Day", file: "/Achievements/Babin_Bid__Poster_Competition_on_Engineers_Day.png" },
             { title: "GDSC Cloud Campaign", file: "/Achievements/GDSC_Cloud_Campaign.jpeg" },
             { title: "NSHM Hackathon", file: "/Achievements/NSHM_Hackathon.jpeg" },
+            { title: "5-Day AI Agents Intensive Course with Google", file: "/Achievements/Kaggle/5-Day_AI_Agents_Intensive_Course_with_Google.png" },
+        ]
+    },
+    {
+        category: "Hack2Skill",
+        items: [
+            { title: "GDG on Campus Solution Challenge", file: "/Achievements/Hack2Skill/Hack2skill-Certificate.png" },
+            { title: "Hack2skill-Certificate GEN AI Exchange Program", file: "/Achievements/Hack2Skill/Hack2skill-Certificate_GEN_AI_Exchange_Program.png" },
+        ]
+    },
+    {
+        category: "Kaggle",
+        items: [
             { title: "5-Day AI Agents Intensive Course with Google", file: "/Achievements/Kaggle/5-Day_AI_Agents_Intensive_Course_with_Google.png" },
         ]
     },
@@ -78,6 +91,55 @@ export const achievementsData: AchievementCategory[] = [
             { title: "LUERJSJUN125217", file: "/Achievements/LU/LUERJSJUN125217.pdf" },
             { title: "LUESQLJUN125799", file: "/Achievements/LU/LUESQLJUN125799.pdf" },
             { title: "LUEWAJUN125246", file: "/Achievements/LU/LUEWAJUN125246.pdf" },
+        ]
+    },
+    {
+        category: "myGov",
+        items: [
+            { title: "6th National Online Quiz", file: "/Achievements/myGov/6th_National_Online_Quiz.jpg" },
+            { title: "Chandrayaan - 3", file: "/Achievements/myGov/Chandrayaan_-_3.jpeg" },
+            { title: "Clean Sport Quiz", file: "/Achievements/myGov/Clean_Sport_Quiz.jpg" },
+            { title: "Digital India Quiz - A Decade of Progress English", file: "/Achievements/myGov/Digital_India_Quiz_-_A_Decade_of_Progress_English.jpg" },
+            { title: "Ending Plastic Pollution Quiz", file: "/Achievements/myGov/Ending_Plastic_Pollution_Quiz.jpeg" },
+            { title: "Fit India - National Sports Day Quiz 2025", file: "/Achievements/myGov/Fit_India_-_National_Sports_Day_Quiz_2025.jpg" },
+            { title: "Har Ghar Tiranga Quiz 2025", file: "/Achievements/myGov/Har_Ghar_Tiranga_Quiz_2025.jpg" },
+            { title: "Indian Independence Day Quiz 2025", file: "/Achievements/myGov/Indian_Independence_Day_Quiz_2025.jpg" },
+            { title: "Metro Rail Taking India Forward Quiz", file: "/Achievements/myGov/Metro_Rail_Taking_India_Forward_Quiz.jpg" },
+            { title: "National Space Day Quiz 2025", file: "/Achievements/myGov/National_Space_Day_Quiz_2025.jpg" },
+            { title: "Pledge for voluntary Blood Donation", file: "/Achievements/myGov/Pledge_for_voluntary_Blood_Donation.pdf" },
+            { title: "Pledge to use Indian handloom - 2025", file: "/Achievements/myGov/Pledge_to_use_Indian_handloom_-_2025.pdf" },
+            { title: "Pledge UPITS 2025", file: "/Achievements/myGov/Pledge_UPITS_2025.pdf" },
+            { title: "Say No To Tobacco Pledge", file: "/Achievements/myGov/Say_No_To_Tobacco_Pledge.jpg" },
+            { title: "Swachh Bharat Mission Grameen Phase-II Quiz", file: "/Achievements/myGov/Swachh_Bharat_Mission_Grameen_Phase-II_Quiz.jpg" },
+            { title: "Swachh Bharat Quiz", file: "/Achievements/myGov/Swachh_Bharat_Quiz.jpg" },
+            { title: "Viksit Bharat 2025 Quiz", file: "/Achievements/myGov/Viksit_Bharat_2025_Quiz_English.jpg" },
+        ]
+    },
+    {
+        category: "MyBharat",
+        items: [
+            { title: "Registering on MY Bharat Certificate", file: "/Achievements/MyBharat/Registering_on_MY_Bharat_Certificate.pdf" },
+            { title: "Screening Quiz -Audit Diwas 2025", file: "/Achievements/MyBharat/Screening_Quiz_-Audit_Diwas_2025.png" },
+            { title: "VBYLD Essay 2025", file: "/Achievements/MyBharat/VBYLD_Essay_2025.pdf" },
+            { title: "Viksit Bharat Young Leaders Dialogue VBYLD 2026", file: "/Achievements/MyBharat/Viksit_Bharat_Young_Leaders_Dialogue_VBYLD_2026.png" },
+        ]
+    },
+    {
+        category: "Skill India",
+        items: [
+            { title: "Solar Panel Installations Technician", file: "/Achievements/Skill%20India/certificate_0582d12e-d615-4019-9583-aa8dbac3ffe5.pdf" },
+            { title: "Web Design & Development", file: "/Achievements/Skill%20India/certificate_0e985123-f259-488a-9a41-a316980ea081.pdf" },
+            { title: "Foundational Skills Program - Retail", file: "/Achievements/Skill%20India/certificate_17eaa86a-05d8-4945-a554-f9d5eb54d0fe.pdf" },
+            { title: "Foundational Skills Program - Employability", file: "/Achievements/Skill%20India/certificate_29f1b4ad-3371-4474-ac3d-e023cb1e9e4a.pdf" },
+            { title: "Kisan Drone Operator", file: "/Achievements/Skill%20India/certificate_32d86c56-efc6-4c33-9c65-17901e296f8e.pdf" },
+            { title: "Al for All", file: "/Achievements/Skill%20India/certificate_6606b92d-c73a-458d-94f4-ad5ff5fff177.pdf" },
+            { title: "प्रधानमंत्री आरोग्य मित्र - (Pradhan Mantri Arogya Mitra)", file: "/Achievements/Skill%20India/certificate_7f9c1f98-a24d-4198-bcce-b2cd5dd96629.pdf" },
+            { title: "Kaushal Mitra", file: "/Achievements/Skill%20India/certificate_86f3f565-2b07-4081-8046-80887b45bfa8.pdf" },
+            { title: "Cybersecurity", file: "/Achievements/Skill%20India/certificate_9390e20a-9cac-48f7-9fb4-35eddca4aeae.pdf" },
+            { title: "SOAR - AI to be Aware", file: "/Achievements/Skill%20India/certificate_a246c1f3-b894-400e-a0ff-97931bf85e3c.pdf" },
+            { title: "Python for Data Science", file: "/Achievements/Skill%20India/certificate_d1953bf0-6b5c-4fa2-98c4-f51660ed818c.pdf" },
+            { title: "Foundations of Drone Technology: Principles and Practical Applications", file: "/Achievements/Skill%20India/certificate_ddb95b91-6183-456b-8ece-7fca6792587a.pdf" },
+            { title: "Foundational Skills Program - Entrepreneurship", file: "/Achievements/Skill%20India/certificate_e5497492-7ad0-4f83-a75f-65049de8b0b9.pdf" },
         ]
     },
 
@@ -108,9 +170,9 @@ export const achievementsData: AchievementCategory[] = [
         ]
     },
     {
-        category: "GTech Learn",
+        category: "GeeksforGeeks",
         items: [
-            { title: "SC-900 Microsoft Security Fundamentals", file: "/Achievements/GTech%20Learn/SC-900_Microsoft_Security_Fundamentals.png" },
+            { title: "Al agent using Agentforce", file: "/Achievements/gfg/Al_agent_using_Agentforce.png" },
         ]
     },
     {
@@ -124,10 +186,9 @@ export const achievementsData: AchievementCategory[] = [
         ]
     },
     {
-        category: "Hack2Skill",
+        category: "GTech Learn",
         items: [
-            { title: "GDG on Campus Solution Challenge", file: "/Achievements/Hack2Skill/Hack2skill-Certificate.png" },
-            { title: "Hack2skill-Certificate GEN AI Exchange Program", file: "/Achievements/Hack2Skill/Hack2skill-Certificate_GEN_AI_Exchange_Program.png" },
+            { title: "SC-900 Microsoft Security Fundamentals", file: "/Achievements/GTech%20Learn/SC-900_Microsoft_Security_Fundamentals.png" },
         ]
     },
     {
@@ -135,6 +196,16 @@ export const achievementsData: AchievementCategory[] = [
         items: [
             { title: "SQL Basic Certificate", file: "/Achievements/HackerRank/SQL_Basic_Certificate_Hackerrank.pdf" },
             { title: "SQL Intermediate Certificate", file: "/Achievements/HackerRank/SQL_Intermediate_Certificate_Hackerrank.pdf" },
+        ]
+    },
+    {
+        category: "HP Life",
+        items: [
+            { title: "3D Printing hp Life", file: "/Achievements/hp%20Life/3D_Printing_hp_Life.pdf" },
+            { title: "AI for Beginners hp Life", file: "/Achievements/hp%20Life/AI_for_Beginners_hp_Life.pdf" },
+            { title: "Data Science and Analytics hp Life", file: "/Achievements/hp%20Life/Data_Science_and_Analytics_hp_Life.pdf" },
+            { title: "Introduction to Cybersecurity Awareness hp Life", file: "/Achievements/hp%20Life/Introduction_to_Cybersecurity_Awareness_hp_Life.pdf" },
+            { title: "Presenting Data hp Life", file: "/Achievements/hp%20Life/Presenting_Data_hp_Life.pdf" },
         ]
     },
     {
@@ -182,83 +253,6 @@ export const achievementsData: AchievementCategory[] = [
         ]
     },
     {
-        category: "Microsoft Badges",
-        items: [
-            { title: "Badge-Platinum", file: "/Achievements/Microsoft/Badge-Platinum.png" },
-            { title: "Badge-Gold", file: "/Achievements/Microsoft/Badge-Gold.png" },
-            { title: "Badge-Silver", file: "/Achievements/Microsoft/Badge-Silver.png" },
-            { title: "Begin Python coding in Minecraft with MakeCode and Azure Notebooks", file: "/Achievements/Microsoft/BADGES/Begin_Python_coding_in_Minecraft_with_MakeCode_and_Azure_Notebooks.pdf" },
-            { title: "Build programs using Python coding in Minecraft with Azure Notebooks", file: "/Achievements/Microsoft/BADGES/Build_programs_using_Python_coding_in_Minecraft_with_Azure_Notebooks.pdf" },
-            { title: "Challenge project - Debug a C# console application using Visual Studio Code", file: "/Achievements/Microsoft/BADGES/Challenge_project_-_Debug_a_CSharp_console_application_using_Visual_Studio_Code.pdf" },
-            { title: "Challenge project - Develop foreach and if-elseif-else structures to process array data in C#", file: "/Achievements/Microsoft/BADGES/Challenge_project_-_Develop_foreach_and_if-elseif-else_structures_to_process_array_data_in_CSharp.pdf" },
-            { title: "Choose the correct data type in your C# code", file: "/Achievements/Microsoft/BADGES/Choose_the_correct_data_type_in_your_CSharp_code.pdf" },
-            { title: "Classify images", file: "/Achievements/Microsoft/BADGES/Classify_images.pdf" },
-            { title: "Create business value from AI", file: "/Achievements/Microsoft/BADGES/Create_business_value_from_AI.pdf" },
-            { title: "Describe monitoring tools in Azure", file: "/Achievements/Microsoft/BADGES/Describe_monitoring_tools_in_Azure.pdf" },
-            { title: "Detect objects in images", file: "/Achievements/Microsoft/BADGES/Detect_objects_in_images.pdf" },
-            { title: "Embrace responsible AI principles and practices", file: "/Achievements/Microsoft/BADGES/Embrace_responsible_AI_principles_and_practices.pdf" },
-            { title: "Fundamentals of conversational language understanding", file: "/Achievements/Microsoft/BADGES/Fundamentals_of_conversational_language_understanding.pdf" },
-            { title: "Fundamentals of language translation", file: "/Achievements/Microsoft/BADGES/Fundamentals_of_language_translation.pdf" },
-            { title: "Get started with web development using Visual Studio Code", file: "/Achievements/Microsoft/BADGES/Get_started_with_web_development_using_Visual_Studio_Code.pdf" },
-            { title: "Guided project - Develop foreach and if-elseif-else structures to process array data in C#", file: "/Achievements/Microsoft/BADGES/Guided_project_-_Develop_foreach_and_if-elseif-else_structures_to_process_array_data_in_CSharp.pdf" },
-            { title: "Implement the Visual Studio Code debugging tools for C#", file: "/Achievements/Microsoft/BADGES/Implement_the_Visual_Studio_Code_debugging_tools_for_CSharp.pdf" },
-            { title: "Introduction to AI-powered information extraction concepts", file: "/Achievements/Microsoft/BADGES/Introduction_to_AI-powered_information_extraction_concepts.pdf" },
-            { title: "Introduction to generative AI concepts", file: "/Achievements/Microsoft/BADGES/Introduction_to_generative_AI_concepts.pdf" },
-            { title: "Leverage AI tools and resources for your business", file: "/Achievements/Microsoft/BADGES/Leverage_AI_tools_and_resources_for_your_business.pdf" },
-            { title: "Modify the content of strings using built-in string data type methods in C#", file: "/Achievements/Microsoft/BADGES/Modify_the_content_of_strings_using_built-in_string_data_type_methods_in_CSharp.pdf" },
-            { title: "Monitor Azure AI services", file: "/Achievements/Microsoft/BADGES/Monitor_Azure_AI_services.pdf" },
-            { title: "Scale AI in your organization", file: "/Achievements/Microsoft/BADGES/Scale_AI_in_your_organization.pdf" },
-        ]
-    },
-    {
-        category: "Microsoft Trophies",
-        items: [
-            { title: "Add logic to C# console applications Get started with C# Part 3", file: "/Achievements/Microsoft/TROPHY/Add_logic_to_CSharp_console_applications_Get_started_with_CSharp_Part_3.pdf" },
-            { title: "AZ-305 Microsoft Azure Architect Design Prerequisites", file: "/Achievements/Microsoft/TROPHY/AZ-305_Microsoft_Azure_Architect_Design_Prerequisites.pdf" },
-            { title: "Build web apps with ASP.NET Core for beginners", file: "/Achievements/Microsoft/TROPHY/Build_web_apps_with_ASP.NET_Core_for_beginners.pdf" },
-            { title: "Copilot Foundations", file: "/Achievements/Microsoft/TROPHY/Copilot_Foundations.pdf" },
-            { title: "Create and run simple C# console applications Get started with C# Part 2", file: "/Achievements/Microsoft/TROPHY/Create_and_run_simple_CSharp_console_applications_Get_started_with_CSharp_Part_2.pdf" },
-            { title: "Create methods in C# console applications Get started with C# Part 5", file: "/Achievements/Microsoft/TROPHY/Create_methods_in_CSharp_console_applications_Get_started_with_CSharp_Part_5.pdf" },
-            { title: "Create vision models with Azure AI Custom Vision", file: "/Achievements/Microsoft/TROPHY/Create_vision_models_with_Azure_AI_Custom_Vision.pdf" },
-            { title: "Debug C# console applications Get started with C# Part 6", file: "/Achievements/Microsoft/TROPHY/Debug_CSharp_console_applications_Get_started_with_CSharp_Part_6.pdf" },
-            { title: "Deploy and consume models with Azure Machine Learning", file: "/Achievements/Microsoft/TROPHY/Deploy_and_consume_models_with_Azure_Machine_Learning.pdf" },
-            { title: "Develop AI agents on Azure", file: "/Achievements/Microsoft/TROPHY/Develop_AI_agents_on_Azure.pdf" },
-            { title: "Develop generative AI apps in Azure", file: "/Achievements/Microsoft/TROPHY/Develop_generative_AI_apps_in_Azure.pdf" },
-            { title: "Discover Microsoft AI for leaders in sustainability", file: "/Achievements/Microsoft/TROPHY/Discover_Microsoft_AI_for_leaders_in_sustainability.pdf" },
-            { title: "Experiment with Azure Machine Learning", file: "/Achievements/Microsoft/TROPHY/Experiment_with_Azure_Machine_Learning.pdf" },
-            { title: "Explore and configure the Azure Machine Learning", file: "/Achievements/Microsoft/TROPHY/Explore_and_configure_the_Azure_Machine_Learning.pdf" },
-            { title: "Get started with Azure AI Services", file: "/Achievements/Microsoft/TROPHY/Get_started_with_Azure_AI_Services.pdf" },
-            { title: "GitHub responsible AI", file: "/Achievements/Microsoft/TROPHY/GitHub_responsible_AI.pdf" },
-            { title: "Introduction to AI in Azure", file: "/Achievements/Microsoft/TROPHY/Introduction_to_AI_in_Azure.pdf" },
-            { title: "Manage and review models in Azure Machine Learning", file: "/Achievements/Microsoft/TROPHY/Manage_and_review_models_in_Azure_Machine_Learning.pdf" },
-            { title: "Manage Authentication Authorization and RBAC for AI workloads on Azure", file: "/Achievements/Microsoft/TROPHY/Manage_Authentication_Authorization_and_RBAC_for_AI_workloads_on_Azure.pdf" },
-            { title: "Microsoft Azure AI Fundamentals Generative AI", file: "/Achievements/Microsoft/TROPHY/Microsoft_Azure_AI_Fundamentals_Generative_AI.pdf" },
-            { title: "Microsoft Azure AI Fundamentals ~ AI Overview", file: "/Achievements/Microsoft/TROPHY/Microsoft_Azure_AI_Fundamentals_~_AI_Overview.pdf" },
-            { title: "Microsoft Azure AI Fundamentals ~ Computer Vision", file: "/Achievements/Microsoft/TROPHY/Microsoft_Azure_AI_Fundamentals_~_Computer_Vision.pdf" },
-            { title: "Microsoft Azure AI Fundamentals ~ Natural", file: "/Achievements/Microsoft/TROPHY/Microsoft_Azure_AI_Fundamentals_~_Natural.pdf" },
-            { title: "Microsoft Azure Fundamentals ~ Describe Azure architecture and services", file: "/Achievements/Microsoft/TROPHY/Microsoft_Azure_Fundamentals_~_Describe_Azure_architecture_and_services.pdf" },
-            { title: "Microsoft Azure Fundamentals ~ Describe Azure management and governance", file: "/Achievements/Microsoft/TROPHY/Microsoft_Azure_Fundamentals_~_Describe_Azure_management_and_governance.pdf" },
-            { title: "Microsoft Azure Fundamentals ~ Describe cloud concepts", file: "/Achievements/Microsoft/TROPHY/Microsoft_Azure_Fundamentals_~_Describe_cloud_concepts.pdf" },
-            { title: "Minecraft Python coding academy", file: "/Achievements/Microsoft/TROPHY/Minecraft_Python_coding_academy.pdf" },
-            { title: "Monitor AI workloads on Azure", file: "/Achievements/Microsoft/TROPHY/Monitor_AI_workloads_on_Azure.pdf" },
-            { title: "Optimize model training with Azure Machine Learning", file: "/Achievements/Microsoft/TROPHY/Optimize_model_training_with_Azure_Machine_Learning.pdf" },
-            { title: "Train and manage a machine learning model with Azure Machine Learning", file: "/Achievements/Microsoft/TROPHY/Train_and_manage_a_machine_learning_model_with_Azure_Machine_Learning.pdf" },
-            { title: "Train models with scripts in Azure Machine Learning", file: "/Achievements/Microsoft/TROPHY/Train_models_with_scripts_in_Azure_Machine_Learning.pdf" },
-            { title: "Transform your business with Microsoft AI", file: "/Achievements/Microsoft/TROPHY/Transform_your_business_with_Microsoft_AI.pdf" },
-            { title: "Work with variable data in C# console applications Get started with C# Part 4", file: "/Achievements/Microsoft/TROPHY/Work_with_variable_data_in_CSharp_console_applications_Get_started_with_CSharp_Part_4.pdf" },
-            { title: "Write your first code using C# Get started with C# Part 1", file: "/Achievements/Microsoft/TROPHY/Write_your_first_code_using_CSharp_Get_started_with_CSharp_Part_1.pdf" },
-        ]
-    },
-    {
-        category: "MyBharat",
-        items: [
-            { title: "Registering on MY Bharat Certificate", file: "/Achievements/MyBharat/Registering_on_MY_Bharat_Certificate.pdf" },
-            { title: "Screening Quiz -Audit Diwas 2025", file: "/Achievements/MyBharat/Screening_Quiz_-Audit_Diwas_2025.png" },
-            { title: "VBYLD Essay 2025", file: "/Achievements/MyBharat/VBYLD_Essay_2025.pdf" },
-            { title: "Viksit Bharat Young Leaders Dialogue VBYLD 2026", file: "/Achievements/MyBharat/Viksit_Bharat_Young_Leaders_Dialogue_VBYLD_2026.png" },
-        ]
-    },
-    {
         category: "Pantech e Learning",
         items: [
             { title: "5 days Faculty Development Program on AI, ML & Deep Learning for Autonomous Vehicles", file: "/Achievements/Pantech%20e%20Learning/AV_FDP.pdf" },
@@ -283,25 +277,8 @@ export const achievementsData: AchievementCategory[] = [
         category: "SimpliLearn",
         items: [
             { title: "Design Thinking for Beginners", file: "/Achievements/SimpliLearn/4615986_1698733297.pdf" },
+            { title: "Free Data Scientist Course", file: "/Achievements/SimpliLearn/Free_Data_Scientist_Course.pdf" },
             { title: "Gemini in Gmail SimpliLearn", file: "/Achievements/SimpliLearn/Gemini_in_Gmail_SimpliLearn.pdf" },
-        ]
-    },
-    {
-        category: "Skill India",
-        items: [
-            { title: "Solar Panel Installations Technician", file: "/Achievements/Skill%20India/certificate_0582d12e-d615-4019-9583-aa8dbac3ffe5.pdf" },
-            { title: "Web Design & Development", file: "/Achievements/Skill%20India/certificate_0e985123-f259-488a-9a41-a316980ea081.pdf" },
-            { title: "Foundational Skills Program - Retail", file: "/Achievements/Skill%20India/certificate_17eaa86a-05d8-4945-a554-f9d5eb54d0fe.pdf" },
-            { title: "Foundational Skills Program - Employability", file: "/Achievements/Skill%20India/certificate_29f1b4ad-3371-4474-ac3d-e023cb1e9e4a.pdf" },
-            { title: "Kisan Drone Operator", file: "/Achievements/Skill%20India/certificate_32d86c56-efc6-4c33-9c65-17901e296f8e.pdf" },
-            { title: "Al for All", file: "/Achievements/Skill%20India/certificate_6606b92d-c73a-458d-94f4-ad5ff5fff177.pdf" },
-            { title: "प्रधानमंत्री आरोग्य मित्र - (Pradhan Mantri Arogya Mitra)", file: "/Achievements/Skill%20India/certificate_7f9c1f98-a24d-4198-bcce-b2cd5dd96629.pdf" },
-            { title: "Kaushal Mitra", file: "/Achievements/Skill%20India/certificate_86f3f565-2b07-4081-8046-80887b45bfa8.pdf" },
-            { title: "Cybersecurity", file: "/Achievements/Skill%20India/certificate_9390e20a-9cac-48f7-9fb4-35eddca4aeae.pdf" },
-            { title: "SOAR - AI to be Aware", file: "/Achievements/Skill%20India/certificate_a246c1f3-b894-400e-a0ff-97931bf85e3c.pdf" },
-            { title: "Python for Data Science", file: "/Achievements/Skill%20India/certificate_d1953bf0-6b5c-4fa2-98c4-f51660ed818c.pdf" },
-            { title: "Foundations of Drone Technology: Principles and Practical Applications", file: "/Achievements/Skill%20India/certificate_ddb95b91-6183-456b-8ece-7fca6792587a.pdf" },
-            { title: "Foundational Skills Program - Entrepreneurship", file: "/Achievements/Skill%20India/certificate_e5497492-7ad0-4f83-a75f-65049de8b0b9.pdf" },
         ]
     },
     {
@@ -334,50 +311,6 @@ export const achievementsData: AchievementCategory[] = [
             { title: "PRATHAM 2025", file: "/Achievements/Unstop/PRATHAM_2025.pdf" },
         ]
     },
-    {
-        category: "GeeksforGeeks",
-        items: [
-            { title: "Al agent using Agentforce", file: "/Achievements/gfg/Al_agent_using_Agentforce.png" },
-        ]
-    },
-    {
-        category: "HP Life",
-        items: [
-            { title: "3D Printing hp Life", file: "/Achievements/hp%20Life/3D_Printing_hp_Life.pdf" },
-            { title: "AI for Beginners hp Life", file: "/Achievements/hp%20Life/AI_for_Beginners_hp_Life.pdf" },
-            { title: "Data Science and Analytics hp Life", file: "/Achievements/hp%20Life/Data_Science_and_Analytics_hp_Life.pdf" },
-            { title: "Introduction to Cybersecurity Awareness hp Life", file: "/Achievements/hp%20Life/Introduction_to_Cybersecurity_Awareness_hp_Life.pdf" },
-            { title: "Presenting Data hp Life", file: "/Achievements/hp%20Life/Presenting_Data_hp_Life.pdf" },
-        ]
-    },
-    {
-        category: "HP Life Badges",
-        items: [
-            { title: "HP LIFE Ambassador", file: "/Achievements/hp%20Life/Badges/HP_LIFE_Ambassador.png" },
-        ]
-    },
-    {
-        category: "myGov",
-        items: [
-            { title: "6th National Online Quiz", file: "/Achievements/myGov/6th_National_Online_Quiz.jpg" },
-            { title: "Chandrayaan - 3", file: "/Achievements/myGov/Chandrayaan_-_3.jpeg" },
-            { title: "Clean Sport Quiz", file: "/Achievements/myGov/Clean_Sport_Quiz.jpg" },
-            { title: "Digital India Quiz - A Decade of Progress English", file: "/Achievements/myGov/Digital_India_Quiz_-_A_Decade_of_Progress_English.jpg" },
-            { title: "Ending Plastic Pollution Quiz", file: "/Achievements/myGov/Ending_Plastic_Pollution_Quiz.jpeg" },
-            { title: "Fit India - National Sports Day Quiz 2025", file: "/Achievements/myGov/Fit_India_-_National_Sports_Day_Quiz_2025.jpg" },
-            { title: "Har Ghar Tiranga Quiz 2025", file: "/Achievements/myGov/Har_Ghar_Tiranga_Quiz_2025.jpg" },
-            { title: "Indian Independence Day Quiz 2025", file: "/Achievements/myGov/Indian_Independence_Day_Quiz_2025.jpg" },
-            { title: "Metro Rail Taking India Forward Quiz", file: "/Achievements/myGov/Metro_Rail_Taking_India_Forward_Quiz.jpg" },
-            { title: "National Space Day Quiz 2025", file: "/Achievements/myGov/National_Space_Day_Quiz_2025.jpg" },
-            { title: "Pledge for voluntary Blood Donation", file: "/Achievements/myGov/Pledge_for_voluntary_Blood_Donation.pdf" },
-            { title: "Pledge to use Indian handloom - 2025", file: "/Achievements/myGov/Pledge_to_use_Indian_handloom_-_2025.pdf" },
-            { title: "Pledge UPITS 2025", file: "/Achievements/myGov/Pledge_UPITS_2025.pdf" },
-            { title: "Say No To Tobacco Pledge", file: "/Achievements/myGov/Say_No_To_Tobacco_Pledge.jpg" },
-            { title: "Swachh Bharat Mission Grameen Phase-II Quiz", file: "/Achievements/myGov/Swachh_Bharat_Mission_Grameen_Phase-II_Quiz.jpg" },
-            { title: "Swachh Bharat Quiz", file: "/Achievements/myGov/Swachh_Bharat_Quiz.jpg" },
-            { title: "Viksit Bharat 2025 Quiz", file: "/Achievements/myGov/Viksit_Bharat_2025_Quiz_English.jpg" },
-        ]
-    },
 
     // ==================== BADGES | TROPHIES ====================
     {
@@ -395,6 +328,12 @@ export const achievementsData: AchievementCategory[] = [
             { title: "Early Bird Pegasaurus", file: "/Achievements/Holopin/Early_Bird_Pegasaurus.png" },
             { title: "Hacktoberfest 2025 Level 0 Registered", file: "/Achievements/Holopin/Hacktoberfest_2025_Level_0_Registered.webp" },
             { title: "Holopin x Hacktoberfest 1 Badge Club", file: "/Achievements/Holopin/Holopin_x_Hacktoberfest_1_Badge_Club.webp" },
+        ]
+    },
+    {
+        category: "HP Life Badges",
+        items: [
+            { title: "HP LIFE Ambassador", file: "/Achievements/hp%20Life/Badges/HP_LIFE_Ambassador.png" },
         ]
     },
     {
@@ -463,12 +402,6 @@ export const achievementsData: AchievementCategory[] = [
             { title: "Transform your business with Microsoft AI", file: "/Achievements/Microsoft/TROPHY/Transform_your_business_with_Microsoft_AI.pdf" },
             { title: "Work with variable data in C# console applications Get started with C# Part 4", file: "/Achievements/Microsoft/TROPHY/Work_with_variable_data_in_CSharp_console_applications_Get_started_with_CSharp_Part_4.pdf" },
             { title: "Write your first code using C# Get started with C# Part 1", file: "/Achievements/Microsoft/TROPHY/Write_your_first_code_using_CSharp_Get_started_with_CSharp_Part_1.pdf" },
-        ]
-    },
-    {
-        category: "HP Life Badges",
-        items: [
-            { title: "HP LIFE Ambassador", file: "/Achievements/hp%20Life/Badges/HP_LIFE_Ambassador.png" },
         ]
     },
 ];
