@@ -16,7 +16,8 @@ interface AchievementCategory {
  * - "All" → Shows all categories
  * - "Awards" → Shows only "Awards & Recognitions"
  * - "Certificates | Technical Courses" → Shows AWS, CISCO, Cognitive Class, GTech Learn, Google, Hack2Skill, HackerRank, IBM, Infosys Springboard, Microsoft, Pantech e Learning, Saylor Academy, Scaler, SimpliLearn, Skill India, Skill Nation, Udemy, GeeksforGeeks, HP Life
- * - "Bootcamps | Events | Competitions" → Shows Hackathons & Events, Let's Upgrade, Unstop, MyBharat, myGov
+ * - "Bootcamps | Events | Competitions" → Shows Hackathons & Events, Let's Upgrade, Unstop, MyBharat, myGov, Hack2Skill, Kaggle, Skill India
+ * - "Internship Certificates" → Shows Oasis Infobyte
  * - "Badges | Trophies" → Shows Google Badges, Holopin Badges, Microsoft Badges, Microsoft Trophies, HP Life Badges
  * 
  * ORGANIZATION:
@@ -24,6 +25,7 @@ interface AchievementCategory {
  * 2. BOOTCAMP/EVENT CATEGORIES - Competitions, hackathons, bootcamps, events
  * 3. CERTIFICATE/COURSE CATEGORIES - Technical courses and certifications
  * 4. BADGE/TROPHY CATEGORIES - Badges and trophies from platforms
+ * 5. INTERNSHIP CERTIFICATES - Internship program certificates
  */
 
 export const achievementsData: AchievementCategory[] = [
@@ -402,6 +404,15 @@ export const achievementsData: AchievementCategory[] = [
             { title: "Transform your business with Microsoft AI", file: "/Achievements/Microsoft/TROPHY/Transform_your_business_with_Microsoft_AI.pdf" },
             { title: "Work with variable data in C# console applications Get started with C# Part 4", file: "/Achievements/Microsoft/TROPHY/Work_with_variable_data_in_CSharp_console_applications_Get_started_with_CSharp_Part_4.pdf" },
             { title: "Write your first code using C# Get started with C# Part 1", file: "/Achievements/Microsoft/TROPHY/Write_your_first_code_using_CSharp_Get_started_with_CSharp_Part_1.pdf" },
+        ]
+    },
+
+    // ==================== INTERNSHIP CERTIFICATES ====================
+    {
+        category: "Oasis Infobyte",
+        items: [
+            { title: "Babin Bid Appreciation Certificate", file: "/Achievements/Oasis Infobyte/Babin_Bid_Appreciation_Certificate.pdf" },
+            { title: "Babin Bid Certificate", file: "/Achievements/Oasis Infobyte/Babin_Bid_Certificate.pdf" },
         ]
     },
 ];
