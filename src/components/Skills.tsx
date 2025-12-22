@@ -49,20 +49,20 @@ const Skills: React.FC = () => {
     const getSkillIcon = (skillName: string) => {
         const iconMap: Record<string, { icon: React.ComponentType<any>; color: string } | { image: string; alt: string }> = {
             // Programming Languages
-            'C': { icon: SiC, color: '#A8B9CC' },
-            'C++': { icon: SiCplusplus, color: '#00599C' },
-            'Java': { icon: SiOpenjdk, color: '#ED8B00' },
+            'C': { image: 'https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png', alt: 'C' },
+            'C++': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/330px-ISO_C%2B%2B_Logo.svg.png', alt: 'C++' },
+            'Java': { image: 'https://icon-icons.com/download-file?file=https%3A%2F%2Fimages.icon-icons.com%2F2415%2FPNG%2F512%2Fjava_original_logo_icon_146458.png&id=146458&pack_or_individual=pack', alt: 'Java' },
             'Python': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/2048px-Python-logo-notext.svg.png', alt: 'Python' },
-            'JavaScript': { icon: SiJavascript, color: '#F7DF1E' },
+            'JavaScript': { image: 'https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png', alt: 'JavaScript' },
 
             // Web Development
             'HTML': { icon: SiHtml5, color: '#E34F26' },
             'CSS': { icon: SiCss3, color: '#1572B6' },
             'TypeScript': { icon: SiTypescript, color: '#3178C6' },
             'React': { icon: SiReact, color: '#61DAFB' },
-            'Vite': { icon: SiVite, color: '#646CFF' },
+            'Vite': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/1200px-Vitejs-logo.svg.png', alt: 'Vite' },
             'Tailwind': { icon: SiTailwindcss, color: '#06B6D4' },
-            'Framer Motion': { icon: SiFramer, color: '#0055FF' },
+            'Framer Motion': { image: 'https://cdn.worldvectorlogo.com/logos/framer-motion.svg', alt: 'Framer Motion' },
 
             // Backend & Frameworks
             'Node.js': { icon: SiNodedotjs, color: '#339933' },
@@ -70,24 +70,24 @@ const Skills: React.FC = () => {
             'FastAPI': { icon: SiFastapi, color: '#009688' },
 
             // Database
-            'MySQL': { icon: SiMysql, color: '#4479A1' },
-            'SQLite': { icon: SiSqlite, color: '#003B57' },
-            'MongoDB': { icon: SiMongodb, color: '#47A248' },
+            'MySQL': { image: 'https://1000logos.net/wp-content/uploads/2020/08/MySQL-Logo.png', alt: 'MySQL' },
+            'SQLite': { image: 'https://icon-icons.com/download-file?file=https%3A%2F%2Fimages.icon-icons.com%2F2699%2FPNG%2F256%2Fsqlite_logo_icon_169724.png&id=169724&pack_or_individual=pack', alt: 'SQLite' },
+            'MongoDB': { image: 'https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg', alt: 'MongoDB' },
 
             // Data Science & ML
-            'NumPy': { icon: SiNumpy, color: '#013243' },
-            'Pandas': { icon: SiPandas, color: '#150458' },
-            'Matplotlib': { image: 'https://matplotlib.org/stable/_images/sphx_glr_logos2_003.png', alt: 'Matplotlib' },
-            'Seaborn': { image: 'https://seaborn.pydata.org/_images/logo-wide-lightbg.svg', alt: 'Seaborn' },
-            'Plotly': { icon: SiPlotly, color: '#3F4F75' },
-            'Scikit-learn': { icon: SiScikitlearn, color: '#F7931E' },
-            'XGBoost': { image: 'https://img.shields.io/badge/XGBoost-00A65A?style=for-the-badge&logo=xgboost&logoColor=white', alt: 'XGBoost' },
-            'TensorFlow': { icon: SiTensorflow, color: '#FF6F00' },
+            'NumPy': { image: 'https://images.seeklogo.com/logo-png/39/2/numpy-logo-png_seeklogo-398690.png', alt: 'NumPy' },
+            'Pandas': { image: 'https://img.icons8.com/color/512/pandas.png', alt: 'Pandas' },
+            'Matplotlib': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Created_with_Matplotlib-logo.svg/2048px-Created_with_Matplotlib-logo.svg.png', alt: 'Matplotlib' },
+            'Seaborn': { image: 'https://cdn.worldvectorlogo.com/logos/seaborn-1.svg', alt: 'Seaborn' },
+            'Plotly': { image: 'https://images.plot.ly/logo/new-branding/plotly-logomark.png', alt: 'Plotly' },
+            'Scikit-learn': { image: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg', alt: 'Scikit-learn' },
+            'XGBoost': { image: 'https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F7w8rh2oj5arc1epo2sls.png', alt: 'XGBoost' },
+            'TensorFlow': { image: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg', alt: 'TensorFlow' },
 
             // Deployment & Platforms
             'Vercel': { icon: SiVercel, color: '#000000' },
-            'Streamlit': { icon: SiStreamlit, color: '#FF4B4B' },
-            'Netlify': { icon: SiNetlify, color: '#00C58E' },
+            'Streamlit': { image: 'https://images.seeklogo.com/logo-png/44/2/streamlit-logo-png_seeklogo-441815.png', alt: 'Streamlit' },
+            'Netlify': { image: 'https://www.netlify.com/v3/img/components/logomark.png', alt: 'Netlify' },
 
             // Tools & IDEs
             'VS Code': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png', alt: 'VS Code' },
@@ -95,16 +95,16 @@ const Skills: React.FC = () => {
             'Git': { icon: SiGit, color: '#F05032' },
 
             // Design Tools
-            'Canva': { icon: SiCanva, color: '#00C4CC' },
-            'MS Word': { image: 'https://img.shields.io/badge/Microsoft_Word-2B579A?style=for-the-badge&logo=microsoft-word&logoColor=white', alt: 'MS Word' },
-            'MS PowerPoint': { image: 'https://img.shields.io/badge/Microsoft_PowerPoint-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white', alt: 'MS PowerPoint' },
-            'MS Excel': { image: 'https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white', alt: 'MS Excel' },
-            'Paint': { image: 'https://img.shields.io/badge/MS_Paint-0078D4?style=for-the-badge&logo=windows&logoColor=white', alt: 'Paint' },
+            'Canva': { image: 'https://public.canva.site/logo/media/dfb96cc174513093cd6ed61489ccb750.svg', alt: 'Canva' },
+            'MS Word': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg/1990px-Microsoft_Office_Word_%282025%E2%80%93present%29.svg.png', alt: 'MS Word' },
+            'MS PowerPoint': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg/1200px-Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg.png', alt: 'MS PowerPoint' },
+            'MS Excel': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg/1166px-Microsoft_Office_Excel_%282025%E2%80%93present%29.svg.png', alt: 'MS Excel' },
+            'Paint': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Microsoft_Paint.svg/2048px-Microsoft_Paint.svg.png', alt: 'Paint' },
 
             // Coding Platforms
-            'LeetCode': { icon: SiLeetcode, color: '#FFA116' },
-            'Hackerrank': { icon: SiHackerrank, color: '#00EA64' },
-            'Codolio': { image: 'https://img.shields.io/badge/Codolio-6366F1?style=for-the-badge&logo=code&logoColor=white', alt: 'Codolio' },
+            'LeetCode': { image: 'https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png', alt: 'LeetCode' },
+            'Hackerrank': { image: 'https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png', alt: 'Hackerrank' },
+            'Codolio': { image: 'https://codolio-pt.vercel.app/codolio_assets/gif-owl-transparent.GIF', alt: 'Codolio' },
         };
 
         const iconConfig = iconMap[skillName];
