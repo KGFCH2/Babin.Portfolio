@@ -193,16 +193,16 @@ const Skills: React.FC = () => {
 
     const getCategoryGradient = (category: string) => {
         const map: Record<string, string> = {
-            Programming: 'from-indigo-500 to-purple-500',
-            Web: 'from-emerald-400 to-cyan-500',
-            Backend: 'from-orange-500 to-red-500',
-            Database: 'from-yellow-400 to-orange-500',
-            'Data Science': 'from-sky-400 to-indigo-500',
+            Programming: 'from-red-400 to-indigo-500',
+            Web: 'from-yellow-300 to-red-600',
+            Backend: 'from-red-500 to-green-400',
+            Database: 'from-red-500 to-yellow-500',
+            'Data Science': 'from-orange-600 to-indigo-500',
             ML: 'from-pink-500 to-violet-600',
-            Deployment: 'from-teal-400 to-blue-500',
-            Tools: 'from-slate-400 to-slate-700',
+            Deployment: 'from-yellow-600 to-red-500',
+            Tools: 'from-gray-700 to-slate-500',
             Design: 'from-rose-400 to-fuchsia-500',
-            Platforms: 'from-green-400 to-emerald-600',
+            Platforms: 'from-indigo-400 to-emerald-600',
         };
         return map[category] || 'from-primary to-secondary';
     };
