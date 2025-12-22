@@ -2,6 +2,40 @@ import React, { useState } from 'react';
 import SectionTitle from "./SectionTitle";
 import { useInView } from "react-intersection-observer";
 import StudyBackground from "./StudyBackground";
+import {
+    SiC,
+    SiCplusplus,
+    SiPython,
+    SiJavascript,
+    SiHtml5,
+    SiCss3,
+    SiTypescript,
+    SiReact,
+    SiVite,
+    SiTailwindcss,
+    SiFramer,
+    SiNodedotjs,
+    SiFlask,
+    SiFastapi,
+    SiMysql,
+    SiSqlite,
+    SiMongodb,
+    SiNumpy,
+    SiPandas,
+    SiPlotly,
+    SiScikitlearn,
+    SiTensorflow,
+    SiVercel,
+    SiStreamlit,
+    SiNetlify,
+    SiGithub,
+    SiGit,
+    SiCanva,
+    SiLeetcode,
+    SiHackerrank,
+    SiOpenjdk,
+    SiVscodium,
+} from 'react-icons/si';
 
 const Skills: React.FC = () => {
     const { ref, inView } = useInView({
@@ -10,6 +44,90 @@ const Skills: React.FC = () => {
     });
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
+
+    // Function to get skill icon
+    const getSkillIcon = (skillName: string) => {
+        const iconMap: Record<string, { icon: React.ComponentType<any>; color: string } | { image: string; alt: string }> = {
+            // Programming Languages
+            'C': { icon: SiC, color: '#A8B9CC' },
+            'C++': { icon: SiCplusplus, color: '#00599C' },
+            'Java': { icon: SiOpenjdk, color: '#ED8B00' },
+            'Python': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/2048px-Python-logo-notext.svg.png', alt: 'Python' },
+            'JavaScript': { icon: SiJavascript, color: '#F7DF1E' },
+
+            // Web Development
+            'HTML': { icon: SiHtml5, color: '#E34F26' },
+            'CSS': { icon: SiCss3, color: '#1572B6' },
+            'TypeScript': { icon: SiTypescript, color: '#3178C6' },
+            'React': { icon: SiReact, color: '#61DAFB' },
+            'Vite': { icon: SiVite, color: '#646CFF' },
+            'Tailwind': { icon: SiTailwindcss, color: '#06B6D4' },
+            'Framer Motion': { icon: SiFramer, color: '#0055FF' },
+
+            // Backend & Frameworks
+            'Node.js': { icon: SiNodedotjs, color: '#339933' },
+            'Flask': { icon: SiFlask, color: '#000000' },
+            'FastAPI': { icon: SiFastapi, color: '#009688' },
+
+            // Database
+            'MySQL': { icon: SiMysql, color: '#4479A1' },
+            'SQLite': { icon: SiSqlite, color: '#003B57' },
+            'MongoDB': { icon: SiMongodb, color: '#47A248' },
+
+            // Data Science & ML
+            'NumPy': { icon: SiNumpy, color: '#013243' },
+            'Pandas': { icon: SiPandas, color: '#150458' },
+            'Matplotlib': { image: 'https://matplotlib.org/stable/_images/sphx_glr_logos2_003.png', alt: 'Matplotlib' },
+            'Seaborn': { image: 'https://seaborn.pydata.org/_images/logo-wide-lightbg.svg', alt: 'Seaborn' },
+            'Plotly': { icon: SiPlotly, color: '#3F4F75' },
+            'Scikit-learn': { icon: SiScikitlearn, color: '#F7931E' },
+            'XGBoost': { image: 'https://img.shields.io/badge/XGBoost-00A65A?style=for-the-badge&logo=xgboost&logoColor=white', alt: 'XGBoost' },
+            'TensorFlow': { icon: SiTensorflow, color: '#FF6F00' },
+
+            // Deployment & Platforms
+            'Vercel': { icon: SiVercel, color: '#000000' },
+            'Streamlit': { icon: SiStreamlit, color: '#FF4B4B' },
+            'Netlify': { icon: SiNetlify, color: '#00C58E' },
+
+            // Tools & IDEs
+            'VS Code': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png', alt: 'VS Code' },
+            'GitHub': { icon: SiGithub, color: '#181717' },
+            'Git': { icon: SiGit, color: '#F05032' },
+
+            // Design Tools
+            'Canva': { icon: SiCanva, color: '#00C4CC' },
+            'MS Word': { image: 'https://img.shields.io/badge/Microsoft_Word-2B579A?style=for-the-badge&logo=microsoft-word&logoColor=white', alt: 'MS Word' },
+            'MS PowerPoint': { image: 'https://img.shields.io/badge/Microsoft_PowerPoint-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white', alt: 'MS PowerPoint' },
+            'MS Excel': { image: 'https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white', alt: 'MS Excel' },
+            'Paint': { image: 'https://img.shields.io/badge/MS_Paint-0078D4?style=for-the-badge&logo=windows&logoColor=white', alt: 'Paint' },
+
+            // Coding Platforms
+            'LeetCode': { icon: SiLeetcode, color: '#FFA116' },
+            'Hackerrank': { icon: SiHackerrank, color: '#00EA64' },
+            'Codolio': { image: 'https://img.shields.io/badge/Codolio-6366F1?style=for-the-badge&logo=code&logoColor=white', alt: 'Codolio' },
+        };
+
+        const iconConfig = iconMap[skillName];
+        if (!iconConfig) {
+            return <span className="text-2xl">⚡</span>; // Default icon
+        }
+
+        // Check if it's an image badge
+        if ('image' in iconConfig) {
+            return (
+                <img
+                    src={iconConfig.image}
+                    alt={iconConfig.alt}
+                    className="h-8 object-contain drop-shadow-sm"
+                    loading="lazy"
+                />
+            );
+        }
+
+        // Otherwise it's an icon component
+        const IconComponent = iconConfig.icon;
+        return <IconComponent size={32} color={iconConfig.color} className="drop-shadow-sm" />;
+    };
     const skills = [
         // Programming Languages
         { name: 'C', category: 'Programming' },
@@ -34,6 +152,8 @@ const Skills: React.FC = () => {
 
         // Database
         { name: 'MySQL', category: 'Database' },
+        { name: 'SQLite', category: 'Database' },
+        { name: 'MongoDB', category: 'Database' },
 
         // Data Science & ML
         { name: 'NumPy', category: 'Data Science' },
@@ -161,13 +281,16 @@ const Skills: React.FC = () => {
                             <article
                                 key={skill.name}
                                 aria-labelledby={`skill-${index}`}
-                                className={`group relative overflow-hidden border border-border/60 bg-card/60 p-4 rounded-lg flex flex-col justify-between hover:shadow-glow transition-transform duration-200 transform hover:-translate-y-1 ${delayClass}`}
+                                className={`group relative overflow-hidden border border-border/60 bg-card/60 p-6 rounded-lg flex flex-col justify-between hover:shadow-glow transition-transform duration-200 transform hover:-translate-y-1 ${delayClass} min-h-[140px]`}
                             >
                                 {/* hover gradient overlay */}
                                 <div className={`absolute inset-0 rounded-lg bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-80 transition-opacity duration-300 pointer-events-none`} />
 
                                 <div className="relative z-10">
-                                    <h3 id={`skill-${index}`} className="text-lg font-semibold text-foreground">
+                                    <div className="flex items-center justify-center mb-4">
+                                        {getSkillIcon(skill.name)}
+                                    </div>
+                                    <h3 id={`skill-${index}`} className="text-sm font-medium text-foreground text-center">
                                         {skill.name}
                                     </h3>
                                 </div>
