@@ -23,7 +23,7 @@ A **cutting-edge, production-ready** personal portfolio website built with moder
 
 - 🎯 **Professional Profile** — Hero section with dynamic typing animations and resume download
 - 👤 **About Section** — Professional introduction with avatar, skills matrix, and interactive accordion panels
-- 💼 **Project Gallery** — Interactive carousel with 10+ full-stack projects, 3D tilt effects, and live demos
+- 💼 **Project Gallery** — Interactive carousel with 10 full-stack projects, glowing hover effects, and live demos
 - 🛠️ **Technical Skills** — 40+ categorized skills across 10+ domains with advanced filtering and search
 - 🏆 **Achievements** — Comprehensive achievements system with filtering, zoom lightbox, and PDF support
 - 📚 **Research Publications** — Academic research papers with detailed information and animations
@@ -46,7 +46,7 @@ A **cutting-edge, production-ready** personal portfolio website built with moder
 ### 🎨 Visual Design
 - 🎨 **Modern UI System** — 50+ Shadcn/UI & Radix components for consistency
 - 🌙 **Dark/Light Themes** — System preference detection with seamless transitions via next-themes
-- 🎪 **3D Interactive Effects** — Tilt-card animations on project showcase for immersive UX
+- 🎪 **Interactive Effects** — Glowing hover animations on project showcase for immersive UX
 - ✨ **Particle Animations** — tsParticles background with custom configuration
 - 🌊 **Wave Text Animations** — Character-level animations on section titles that replay on scroll
 - 🎆 **Gradient Hover Effects** — Multi-color gradients on skill badges and buttons
@@ -104,10 +104,10 @@ Well-organized, scalable architecture following React best practices:
 Babin.Portfolio/
 │
 ├── 📁 src/
-│   ├── 📁 components/              # React Components (13 main + supporting)
+│   ├── 📁 components/              # React Components (23 main + supporting)
 │   │   ├── Hero.tsx                # Hero section with TypeAnimation (3-line typing effect)
 │   │   ├── About.tsx               # About intro with avatar glow & 4-panel accordion
-│   │   ├── Projects.tsx            # Embla carousel with 10 projects + 3D tilt effect
+│   │   ├── Projects.tsx            # Embla carousel with 10 projects + glowing hover effects
 │   │   ├── Skills.tsx              # 40+ skills with category filtering & search
 │   │   ├── Achievements.tsx        # Awards/Badges/Certs with zoom lightbox + PDF
 │   │   ├── Research.tsx            # Research papers with Framer Motion animations
@@ -119,30 +119,48 @@ Babin.Portfolio/
 │   │   ├── ThemeToggle.tsx         # Dark/Light toggle with system detection
 │   │   ├── ParticlesBackground.tsx # tsParticles with custom configuration
 │   │   ├── Splash.tsx              # Animated loading preloader (3.5s duration)
-│   │   └── 📁 ui/                  # Shadcn/UI components (40+ files)
+│   │   ├── AnimatedIcon.tsx        # Animated icon components
+│   │   ├── BackToTop.tsx           # Scroll-to-top button
+│   │   ├── ErrorBoundary.tsx       # Error handling wrapper
+│   │   ├── ImageSkeleton.tsx       # Image loading skeleton
+│   │   ├── InteractiveStats.tsx    # Animated statistics counters
+│   │   ├── Loader.tsx              # Loading spinner component
+│   │   ├── PageLayout.tsx          # Page layout wrapper
+│   │   ├── SkipToContent.tsx       # Accessibility skip link
+│   │   ├── StudyBackground.tsx     # Study-themed background component
+│   │   └── 📁 ui/                  # Shadcn/UI components (50+ files)
 │   │   │   └── 📁 ui/                  # Shadcn/UI Components (50+ files)
-│   │   │       ├── button.tsx, calendar.tsx, card.tsx, carousel.tsx
-│   │   │       ├── chart.tsx, checkbox.tsx, collapsible.tsx, command.tsx
-│   │   │       ├── context-menu.tsx, dialog.tsx, drawer.tsx, dropdown-menu.tsx
-│   │   │       ├── form.tsx, hover-card.tsx, input-otp.tsx, input.tsx
-│   │   │       ├── label.tsx, menubar.tsx, navigation-menu.tsx, pagination.tsx
-│   │   │       ├── popover.tsx, progress.tsx, radio-group.tsx, resizable.tsx
-│   │   │       ├── scroll-area.tsx, select.tsx, separator.tsx, sheet.tsx
-│   │   │       ├── sidebar.tsx, skeleton.tsx, slider.tsx, sonner.tsx
-│   │   │       ├── switch.tsx, table.tsx, tabs.tsx, textarea.tsx
-│   │   │       ├── tilt-card.tsx, toast.tsx, toaster.tsx, toggle-group.tsx
-│   │   │       ├── toggle.tsx, tooltip.tsx, use-toast.ts
-│   │   │       └── [45+ total Radix-based accessible components]
+│   │   │       ├── accordion.tsx, alert-dialog.tsx, alert.tsx, aspect-ratio.tsx
+│   │   │       ├── avatar.tsx, badge.tsx, breadcrumb.tsx, button.tsx
+│   │   │       ├── calendar.tsx, card.tsx, carousel.tsx, chart.tsx
+│   │   │       ├── checkbox.tsx, collapsible.tsx, command.tsx, context-menu.tsx
+│   │   │       ├── dialog.tsx, drawer.tsx, dropdown-menu.tsx, form.tsx
+│   │   │       ├── hover-card.tsx, input-otp.tsx, input.tsx, label.tsx
+│   │   │       ├── menubar.tsx, navigation-menu.tsx, pagination.tsx, popover.tsx
+│   │   │       ├── progress.tsx, radio-group.tsx, resizable.tsx, scroll-area.tsx
+│   │   │       ├── select.tsx, separator.tsx, sheet.tsx, sidebar.tsx
+│   │   │       ├── skeleton.tsx, slider.tsx, sonner.tsx, switch.tsx
+│   │   │       ├── table.tsx, tabs.tsx, textarea.tsx, tilt-card.tsx
+│   │   │       ├── toast.tsx, toaster.tsx, toggle-group.tsx, toggle.tsx
+│   │   │       ├── tooltip.tsx, use-toast.ts
+│   │   │       └── [50+ total Radix-based accessible components]
 │   │   ├── 📁 hooks/                   # Custom React Hooks
 │   │   │   ├── use-mobile.tsx          # Mobile device detection
 │   │   │   └── use-toast.ts            # Toast notification hook
 │   │   ├── 📁 lib/                     # Utility Functions
-│   │   │   ├── utils.ts                # cn(), previewThenDownload(), helpers
-│   │   │   └── 📁 data/
-│   │   │       └── achievements.ts     # Achievements data structure
-│   │   ├── 📁 pages/                   # Route-level pages
+│   │   │   └── utils.ts                # cn(), previewThenDownload(), helpers
+│   │   ├── 📁 data/                    # Data structures and constants
+│   │   │   └── achievements.ts         # Achievements data structure
+│   │   ├── 📁 pages/                   # Route-level pages (10 pages)
 │   │   │   ├── Index.tsx               # Main portfolio (home + all sections)
+│   │   │   ├── HomePage.tsx            # Home page component
+│   │   │   ├── AboutPage.tsx           # Dedicated about page
+│   │   │   ├── ProjectsPage.tsx        # Dedicated projects page
+│   │   │   ├── SkillsPage.tsx          # Dedicated skills page
 │   │   │   ├── AchievementsPage.tsx    # Dedicated achievements page
+│   │   │   ├── ResearchPage.tsx        # Dedicated research page
+│   │   │   ├── MaterialsPage.tsx       # Dedicated materials page
+│   │   │   ├── ContactPage.tsx         # Dedicated contact page
 │   │   │   └── NotFound.tsx            # 404 error page
 │   │   ├── App.tsx                     # Root app with theme + router providers
 │   │   ├── App.css                     # App-level CSS utilities
@@ -153,24 +171,30 @@ Babin.Portfolio/
 │   │
 │   ├── 📁 public/                      # Static assets & media
 │   │   ├── Babin_New.jpeg              # Profile avatar (primary)
+│   │   ├── Babin.jpeg                  # Profile avatar (secondary)
 │   │   ├── Babin_Bid_Resume.pdf        # Resume PDF document
-│   │   ├── ML-Based Price Prediction.pdf # Research publication
+│   │   ├── Babin_Favicon_New.png       # Favicon for the website
+│   │   ├── ML-Based Price Prediction for Agri-Horticultural Commodities.pdf # Research publication
 │   │   ├── robots.txt                  # SEO robots.txt
 │   │   ├── sitemap.xml                 # XML sitemap for SEO
+│   │   ├── manifest.json               # PWA manifest
+│   │   ├── 404.html                    # Custom 404 page
+│   │   ├── placeholder.svg             # Placeholder image
 │   │   └── 📁 Achievements/            # Achievement certificates & badges
 │   │       ├── AWS/, CISCO/, Google/   # Cloud & tech certifications
 │   │       ├── Microsoft/, IBM/        # Enterprise certifications
 │   │       ├── Holopin/, HP Life/      # Badge systems
 │   │       └── [20+ category folders]  # Organized by platform/type
 │   │   └── 📁 projects/                # Project screenshots (10 projects)
-│   │       ├── CargoConnect.png, PersonaPath.png, SkyCast_AI.png
-│   │       ├── AquaWatch.jpeg, CropAI_India.png, BharatBus.jpeg
-│   │       ├── Heart_Disease_Prediction_System.png, Stock_Market.png
-│   │       ├── ImpactSense.jpeg, ChatBot.png
-│   │       └── [10+ project thumbnails]
+│   │       ├── CargoConnect.png, SkyCast_AI.png, AquaWatch.jpeg
+│   │       ├── BharatBus.jpeg, CropAI.png, Heart_Disease_Prediction_System_New.png
+│   │       ├── ImpactSense.jpeg, AI_Powered_ChatBot.png, India_Stock_Dashboard.png
+│   │       ├── Career_Go.png, and project thumbnails
+│   │       └── [10 project screenshots]
+│   │   └── 📁 particles/               # Particle effect configurations
 │   │
 │   ├── 📄 index.html                   # HTML entry point with metadata
-│   ├── 📄 package.json                 # Dependencies & build scripts
+│   ├── 📄 package.json                 # Dependencies & build scripts (31 prod + 14 dev)
 │   ├── 📄 package-lock.json            # Lock file for reproducible installs
 │   │
 │   ├── 📄 tsconfig.json                # TypeScript base configuration
@@ -184,12 +208,12 @@ Babin.Portfolio/
 │   ├── 📄 eslint.config.js             # ESLint rules & severity
 │   ├── 📄 components.json              # Shadcn component registry
 │   ├── 📄 vercel.json                  # Vercel deployment config
+│   ├── 📄 .vercelignore                # Vercel ignore patterns
 │   │
 │   ├── 📄 .gitignore                   # Git ignore rules
 │   ├── 📄 LICENSE                      # MIT License
-│   ├── 📄 DEPLOYMENT_FIXES.md          # Deployment notes & fixes
 │   ├── 📄 README.md                    # This file
-│   └── 📁 node_modules/                # Installed dependencies (31 production)
+│   └── 📁 node_modules/                # Installed dependencies (45 total)
 
 ```
 
@@ -203,7 +227,7 @@ Babin.Portfolio/
 |------------------|----------------|-----------------|
 | **🎨 Hero.tsx** | Landing section | 3-line typing effect, resume download, social icons |
 | **👤 About.tsx** | Professional intro | Avatar glow, skills matrix, 4-panel accordion, gradient text |
-| **💼 Projects.tsx** | Showcase carousel | Embla carousel, 10 projects, 3D tilt effect, search/filter |
+| **💼 Projects.tsx** | Showcase carousel | Embla carousel, 10 projects, glowing hover effects, search/filter |
 | **🔧 Skills.tsx** | Skill matrix | 40+ skills, 10 categories, live filtering, gradient badges |
 | **🏆 Achievements.tsx** | Certification hub | Filter by type, zoom lightbox, PDF viewer, 100+ items |
 | **📚 Research.tsx** | Publications | Academic papers, modal view, tech stack badges |
@@ -406,7 +430,7 @@ Edit section heading text in each component file using `SectionTitle` component:
 | Metric | Value | Notes |
 |--------|-------|-------|
 | **Code Volume** | 4000+ lines | React TSX + utilities |
-| **Components** | 60+ total | 13 main + 47 UI components |
+| **Components** | 73+ total | 23 main + 50 UI components |
 | **Type Coverage** | 100% | Full TypeScript strict mode |
 | **Production Deps** | 31 | Carefully curated packages |
 | **Dev Dependencies** | 14 | Build & linting tools |
@@ -501,10 +525,10 @@ npm run build
 - Ensure sections have proper `id` attributes and `useInView` hook
 - Verify section has `inView` state passed to className
 
-### 3D Tilt Not Working
-- Check that `TiltCard` component wraps project cards in carousel
-- Ensure mouse move events are properly tracked
-- Verify CSS `perspective` is applied (use browser DevTools)
+### Glowing Effects Not Showing
+- Verify that `hover:shadow-glow` and `group-hover:scale-105` classes are applied to project cards
+- Check that the card has proper `group` class for hover effects
+- Ensure CSS transitions are working with `transition-all duration-300`
 
 ---
 
