@@ -6,6 +6,8 @@ import { X, FileText, ExternalLink, ZoomIn, ZoomOut, Download, RotateCcw } from 
 import { achievementsData } from "../data/achievements";
 import StudyBackground from "./StudyBackground";
 
+type FilterType = 'All' | 'Awards' | 'Certificates | Technical Courses' | 'Bootcamps | Events | Competitions' | 'Internship Certificates' | 'Badges | Trophies';
+
 const Achievements = () => {
     const { ref, inView } = useInView({
         threshold: 0,
@@ -16,6 +18,7 @@ const Achievements = () => {
     const [zoomLevel, setZoomLevel] = useState(1);
     const [isClosing, setIsClosing] = useState(false);
     const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+    const [activeFilter, setActiveFilter] = useState<FilterType>('All');
 
     // Helper to determine type based on extension
     const getFileType = (path: string) => {
@@ -32,7 +35,34 @@ const Achievements = () => {
         });
     };
 
+    // Filter achievements based on selected filter
+    const getFilteredAchievements = (achievements: typeof achievementsData, filter: FilterType) => {
+        const awardCategories = ["Awards & Recognitions"];
+        const certificateCategories = ["AWS", "CISCO", "Cognitive Class", "GeeksforGeeks", "Google", "GTech Learn", "HackerRank", "HP Life", "IBM", "Infosys Springboard", "Microsoft", "Pantech e Learning", "Saylor Academy", "Scaler", "SimpliLearn", "Skill Nation", "Udemy"];
+        const bootcampCategories = ["Events & Hackathons", "Hack2Skill", "Kaggle", "Let's Upgrade", "MyBharat", "myGov", "Skill India", "Unstop"];
+        const internshipCategories = ["Oasis Infobyte"];
+        const badgeCategories = ["Google Badges", "Holopin Badges", "HP Life Badges", "Microsoft Badges", "Microsoft Trophies"];
+
+        switch (filter) {
+            case 'All':
+                return achievements;
+            case 'Awards':
+                return achievements.filter(cat => awardCategories.includes(cat.category));
+            case 'Certificates | Technical Courses':
+                return achievements.filter(cat => certificateCategories.includes(cat.category));
+            case 'Bootcamps | Events | Competitions':
+                return achievements.filter(cat => bootcampCategories.includes(cat.category));
+            case 'Internship Certificates':
+                return achievements.filter(cat => internshipCategories.includes(cat.category));
+            case 'Badges | Trophies':
+                return achievements.filter(cat => badgeCategories.includes(cat.category));
+            default:
+                return achievements;
+        }
+    };
+
     const allAchievements = getAllAchievements();
+    const filteredAchievements = getFilteredAchievements(allAchievements, activeFilter);
 
     if (!allAchievements || allAchievements.length === 0) {
         return (
@@ -114,8 +144,10 @@ const Achievements = () => {
     };
 
     return (
-        <section id="achievements" className="py-20 relative" ref={ref}>
-            <StudyBackground />
+        <section id="achievements" className="py-20 relative min-h-screen" ref={ref}>
+            <div className="fixed inset-0 -z-10 w-full h-full">
+                <StudyBackground />
+            </div>
             <div className="container mx-auto px-4 relative z-10">
                 <div
                     className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
@@ -141,8 +173,24 @@ const Achievements = () => {
                         </p>
                     </div>
 
+                    {/* Filter Buttons */}
+                    <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8">
+                        {(['All', 'Awards', 'Certificates | Technical Courses', 'Bootcamps | Events | Competitions', 'Internship Certificates', 'Badges | Trophies'] as FilterType[]).map((filter) => (
+                            <button
+                                key={filter}
+                                onClick={() => setActiveFilter(filter)}
+                                className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 text-sm md:text-base ${activeFilter === filter
+                                    ? 'bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-lg scale-105'
+                                    : 'bg-muted/50 text-foreground hover:bg-muted border border-border/50 hover:border-primary/50'
+                                    }`}
+                            >
+                                {filter}
+                            </button>
+                        ))}
+                    </div>
+
                     <div className="space-y-16 animate-slide-show">
-                        {allAchievements.map((category, catIndex) => (
+                        {filteredAchievements.map((category, catIndex) => (
                             <div key={catIndex} className="space-y-6">
                                 <h3 className="text-2xl font-bold text-foreground border-l-4 border-primary pl-4">
                                     {category.category}
