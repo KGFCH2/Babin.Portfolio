@@ -38,7 +38,7 @@ const Achievements = () => {
     // Filter achievements based on selected filter
     const getFilteredAchievements = (achievements: typeof achievementsData, filter: FilterType) => {
         const awardCategories = ["Awards & Recognitions"];
-        const certificateCategories = ["AWS", "CISCO", "Cognitive Class", "GeeksforGeeks", "Google", "GTech Learn", "HackerRank", "HP Life", "IBM", "Infosys Springboard", "Microsoft", "Pantech e Learning", "Saylor Academy", "Scaler", "SimpliLearn", "Skill Nation", "Udemy"];
+        const certificateCategories = ["AWS", "CISCO", "Cognitive Class", "GeeksforGeeks", "Google", "GTech Learn", "HackerRank", "HP Life", "IBM", "Infosys Springboard", "Microsoft", "Pantech e Learning", "Qualcomm", "Saylor Academy", "Scaler", "SimpliLearn", "Skill Nation", "Udemy"];
         const bootcampCategories = ["Events & Hackathons", "Hack2Skill", "Kaggle", "Let's Upgrade", "MyBharat", "myGov", "Skill India", "Unstop"];
         const internshipCategories = ["Oasis Infobyte","Infosys Springboard Internships"];
         const badgeCategories = ["Google Badges", "Holopin Badges", "HP Life Badges", "Microsoft Badges", "Microsoft Trophies"];
