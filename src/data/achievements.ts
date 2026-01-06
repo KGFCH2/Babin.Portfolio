@@ -261,6 +261,12 @@ export const achievementsData: AchievementCategory[] = [
         ]
     },
     {
+        category: "Qualcomm",
+        items: [
+            { title: "AI Upskilling Certificate", file: "/Achievements/Qualcomm/AI-Upskilling-certificate.pdf" },
+        ]
+    },
+    {
         category: "Saylor Academy",
         items: [
             { title: "CS101: Introduction to Computer Science I", file: "/Achievements/Saylor%20Academy/8859238240BB.pdf" },
