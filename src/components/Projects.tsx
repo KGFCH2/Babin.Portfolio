@@ -202,7 +202,7 @@ const Projects = () => {
         "CargoConnect is a responsive web app that helps users book vehicles for moving luggage and cargo across locations in India.",
       tech: ["TypeScript", "React", "Vite", "Tailwind"],
       github: "https://github.com/KGFCH2/CargoConnect",
-      demo: "https://cargo-connect-two.vercel.app/",
+      demo: "https://cargo-connect-new.vercel.app/",
       features: [
         "User registration and login",
         "Browse available vehicles (Mini Tempo, Large Tempo, Cargo Truck)",
