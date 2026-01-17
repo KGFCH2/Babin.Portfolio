@@ -61,6 +61,9 @@ export const achievementsData: AchievementCategory[] = [
         items: [
             { title: "GDG on Campus Solution Challenge", file: "/Achievements/Hack2Skill/Hack2skill-Certificate.png" },
             { title: "Hack2skill-Certificate GEN AI Exchange Program", file: "/Achievements/Hack2Skill/Hack2skill-Certificate_GEN_AI_Exchange_Program.png" },
+            { title: "Gen AI Exchange Hackathon", file: "/Achievements/Hack2Skill/Gen_AI_Exchange_Hackathon.png" },
+            { title: "TechSprint Hackathon 2025 On Campus OIST", file: "/Achievements/Hack2Skill/Babin_Bid_Certificate_TechSprint_2025.png" },
+            { title: "TechSprint Leveraging the power of AI Hackathon", file: "/Achievements/Hack2Skill/TechSprint_AI_Hackathon_2026_(Babin_Bid).jpg" },
         ]
     },
     {
@@ -411,6 +414,12 @@ export const achievementsData: AchievementCategory[] = [
             { title: "Write your first code using C# Get started with C# Part 1", file: "/Achievements/Microsoft/TROPHY/Write_your_first_code_using_CSharp_Get_started_with_CSharp_Part_1.pdf" },
         ]
     },
+    {
+        category: "Qualcomm Badges",
+        items: [
+            { title: "AI Upskilling Badge", file: "/Achievements/Qualcomm/ai-upskilling-certificate-technical-foundations.png" },
+        ]
+    },
 
     // ==================== INTERNSHIP CERTIFICATES ====================
     {
@@ -424,6 +433,12 @@ export const achievementsData: AchievementCategory[] = [
         items: [
             { title: "Babin Bid Appreciation Certificate", file: "/Achievements/Oasis Infobyte/Babin_Bid_Appreciation_Certificate.pdf" },
             { title: "Babin Bid Certificate", file: "/Achievements/Oasis Infobyte/Babin_Bid_Certificate.pdf" },
+        ]
+    },
+    {
+        category: "The Developers Arena",
+        items: [
+            { title: "Data Science Internship Certificate", file: "/Achievements/The Developers Arena/Babin_Bid_Internship_Certificate.pdf" },
         ]
     },
 ];
