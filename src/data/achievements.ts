@@ -36,6 +36,7 @@ export const achievementsData: AchievementCategory[] = [
             { title: "SSWC'25 Best Paper Award", file: "/Achievements/SSWC'25_Best_Paper_Award.jpg" },
             { title: "Awards and Certificates in SSWC-2025", file: "/Achievements/Awards_and_Certificates_in_SSWC-2025.png" },
             { title: "SSWC'25 Best Paper Award Certificate", file: "/Achievements/SSWC'25_Best_Paper_Certificate.jpg" },
+            {title: "Author Certificate SSWC'25", file: "/Achievements/SSWC'2025/Author_Certificate_SSWC'2025.png" },
             { title: "Merit Scholarship Award (2023)", file: "/Achievements/Merit_Scholarship_Award.jpeg" },
             { title: "Babin Bid Merit Scholarship 2023", file: "/Achievements/Babin_Bid_Merit_Scholarship_2023.jpeg" },
             { title: "Google Solution Challenge 2024", file: "/Achievements/Google_Solution_Challenge_2024.jpeg" },
