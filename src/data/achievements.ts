@@ -33,10 +33,9 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "Awards & Recognitions",
         items: [
-            { title: "SSWC'25 Best Paper Award", file: "/Achievements/SSWC'25_Best_Paper_Award.jpg" },
-            { title: "Awards and Certificates in SSWC-2025", file: "/Achievements/Awards_and_Certificates_in_SSWC-2025.png" },
-            { title: "SSWC'25 Best Paper Award Certificate", file: "/Achievements/SSWC'25_Best_Paper_Certificate.jpg" },
-            {title: "Author Certificate SSWC'25", file: "/Achievements/SSWC'2025/Author_Certificate_SSWC'2025.png" },
+            { title: "SSWC'25 Best Paper Award", file: "/Achievements/SSWC'2025/SSWC'25_Best_Paper_Award.jpg" },
+            { title: "Awards and Certificates in SSWC-2025", file: "/Achievements/SSWC'2025/Awards_and_Certificates_in_SSWC-2025.png" },
+            { title: "SSWC'25 Best Paper Award Certificate", file: "/Achievements/SSWC'2025/SSWC'25_Best_Paper_Certificate.jpg" },
             { title: "Merit Scholarship Award (2023)", file: "/Achievements/Merit_Scholarship_Award.jpeg" },
             { title: "Babin Bid Merit Scholarship 2023", file: "/Achievements/Babin_Bid_Merit_Scholarship_2023.jpeg" },
             { title: "Google Solution Challenge 2024", file: "/Achievements/Google_Solution_Challenge_2024.jpeg" },
@@ -47,7 +46,8 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "Events & Hackathons",
         items: [
-            { title: "SSWC'25 Presenter Certificate", file: "/Achievements/SSWC'25_Presenter_Certificate.jpg" },
+            { title: "SSWC'25 Presenter Certificate", file: "/Achievements/SSWC'2025/SSWC'25_Presenter_Certificate.jpg" },
+            { title: "Author Certificate SSWC'25", file: "/Achievements/SSWC'2025/Author_Certificate_SSWC'2025.png" },
             { title: "Volunteer Certificate", file: "/Achievements/Babin_Bid-vol.png" },
             { title: "ICDMAI Participation", file: "/Achievements/Babin_Bid__ICDMAI.jpeg" },
             { title: "JIS Poster Competition", file: "/Achievements/Babin_Bid__JIS_Poster_Competition.jpeg" },
