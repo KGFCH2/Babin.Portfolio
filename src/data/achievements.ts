@@ -320,6 +320,8 @@ export const achievementsData: AchievementCategory[] = [
             { title: "Paranox 2.O", file: "/Achievements/Unstop/Paranox_2.O.pdf" },
             { title: "Paranox 2.O Official", file: "/Achievements/Unstop/Paranox_2.O_Official.pdf" },
             { title: "PRATHAM 2025", file: "/Achievements/Unstop/PRATHAM_2025.pdf" },
+            { title: "Synapse 2025", file: "/Achievements/Unstop/Synapse_2025.pdf" },
+            { title: "Treasure Hunt - December Series 2025", file: "/Achievements/Unstop/Treasure_Hunt_December_Series.pdf" },
         ]
     },
 
