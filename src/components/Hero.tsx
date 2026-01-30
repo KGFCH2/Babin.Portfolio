@@ -1,6 +1,6 @@
 import { TypeAnimation } from "react-type-animation";
 import { Button } from "@/components/ui/button";
-import { Download, Github, Linkedin, Mail, ChevronDown, User, Globe, Compass, Zap, Brain, Users, Cpu, Atom, Microscope, BarChart3, Rocket, Search } from "lucide-react";
+import { Download, Github, Linkedin, Mail, ChevronDown, User, Globe, Compass, Zap, Brain, Users, Cpu, Atom, Microscope, BarChart3, Rocket, Search, Code, Puzzle, Bot, FlaskConical } from "lucide-react";
 import StudyBackground from "./StudyBackground";
 import { motion } from "framer-motion";
 import { previewThenDownload } from "@/lib/utils";
@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [currentIcon, setCurrentIcon] = useState<any>(Code);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -52,41 +53,102 @@ const Hero = () => {
               />
             </h1>
             <div className="text-2xl md:text-3xl lg:text-3xl font-semibold text-foreground min-h-[140px] md:min-h-[160px] flex items-center justify-center">
-              <div className="whitespace-nowrap flex items-center gap-2">
+              <div className="whitespace-nowrap flex items-center gap-3">
+                <AnimatedIcon
+                  Icon={currentIcon}
+                  size={32}
+                  color={
+                    currentIcon === Code ? "#3b82f6" : // blue-500
+                      currentIcon === Globe ? "#22c55e" : // green-500
+                        currentIcon === Compass ? "#f97316" : // orange-500
+                          currentIcon === Puzzle ? "#a855f7" : // purple-500
+                            currentIcon === Microscope ? "#ec4899" : // pink-500
+                              currentIcon === Zap ? "#eab308" : // yellow-500
+                                currentIcon === Brain ? "#fb923c" : // orange-400
+                                  currentIcon === Users ? "#10b981" : // emerald-500
+                                    currentIcon === Bot ? "#8b5cf6" : // violet-500
+                                      currentIcon === Atom ? "#06b6d4" : // cyan-500
+                                        currentIcon === FlaskConical ? "#f43f5e" : // rose-500
+                                          currentIcon === BarChart3 ? "#14b8a6" : // teal-500
+                                            currentIcon === Rocket ? "#f97316" : // orange-500
+                                              currentIcon === Search ? "#60a5fa" : // blue-400
+                                                "#3b82f6"
+                  }
+                  glowColor="transparent"
+                  animationType="bounce"
+                />
                 <TypeAnimation
                   sequence={[
-                    '👨‍💻 Computer Science Engineer 👨‍💻',
+                    () => setCurrentIcon(Code),
+                    'Computer Science Engineer',
                     1600,
-                    '🌐 Learning Web Development 🌐',
+                    () => setCurrentIcon(Globe),
+                    'Learning Web Development',
                     1500,
-                    '📐 Mathematics Lover ❤️',
+                    () => setCurrentIcon(Compass),
+                    'Mathematics Lover',
                     1400,
-                    '🧩 Problem Solver 🧩',
+                    () => setCurrentIcon(Puzzle),
+                    'Problem Solver',
                     1200,
-                    '🔬 Research on various aspects 🔬',
+                    () => setCurrentIcon(Microscope),
+                    'Research on various aspects',
                     1500,
-                    '⚡ Tech Enthusiast ⚡',
+                    () => setCurrentIcon(Zap),
+                    'Tech Enthusiast',
                     1200,
-                    '🧠 Brainstorming 🧠',
+                    () => setCurrentIcon(Brain),
+                    'Brainstorming',
                     1200,
-                    '🤝 Radical Collaboration 🤝',
+                    () => setCurrentIcon(Users),
+                    'Radical Collaboration',
                     1400,
-                    '🤖 Exploring Artificial Intelligence & Machine Learning 🤖',
+                    () => setCurrentIcon(Bot),
+                    'Exploring Artificial Intelligence & Machine Learning',
                     1500,
-                    '⚛️ Quantum Computing ⚛️ | 🌐 Edge Computing 🌐',
+                    () => setCurrentIcon(Atom),
+                    'Quantum Computing | Edge Computing',
                     1700,
-                    '🔬 Gathering knowledge in Quantum Physics 🔬',
+                    () => setCurrentIcon(FlaskConical),
+                    'Gathering knowledge in Quantum Physics',
                     1400,
-                    '📊 Interested in Data Analysis & Data Science 📊',
+                    () => setCurrentIcon(BarChart3),
+                    'Interested in Data Analysis & Data Science',
                     1400,
-                    '🚀 Always Eager to Learn, Collaborate & Innovate 🚀',
+                    () => setCurrentIcon(Rocket),
+                    'Always Eager to Learn, Collaborate & Innovate',
                     1600,
-                    '🔍 Open to Internships, Projects, Papers & Opportunities 🔍',
+                    () => setCurrentIcon(Search),
+                    'Open to Internships, Projects, Papers & Opportunities',
                     2200,
                   ]}
                   wrapper="span"
                   speed={50}
                   repeat={Infinity}
+                />
+                <AnimatedIcon
+                  Icon={currentIcon}
+                  size={32}
+                  className="scale-x-[-1]"
+                  color={
+                    currentIcon === Code ? "#3b82f6" : // blue-500
+                      currentIcon === Globe ? "#22c55e" : // green-500
+                        currentIcon === Compass ? "#f97316" : // orange-500
+                          currentIcon === Puzzle ? "#a855f7" : // purple-500
+                            currentIcon === Microscope ? "#ec4899" : // pink-500
+                              currentIcon === Zap ? "#eab308" : // yellow-500
+                                currentIcon === Brain ? "#fb923c" : // orange-400
+                                  currentIcon === Users ? "#10b981" : // emerald-500
+                                    currentIcon === Bot ? "#8b5cf6" : // violet-500
+                                      currentIcon === Atom ? "#06b6d4" : // cyan-500
+                                        currentIcon === FlaskConical ? "#f43f5e" : // rose-500
+                                          currentIcon === BarChart3 ? "#14b8a6" : // teal-500
+                                            currentIcon === Rocket ? "#f97316" : // orange-500
+                                              currentIcon === Search ? "#60a5fa" : // blue-400
+                                                "#3b82f6"
+                  }
+                  glowColor="transparent"
+                  animationType="bounce"
                 />
               </div>
             </div>
