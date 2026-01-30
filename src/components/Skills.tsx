@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import SectionTitle from "./SectionTitle";
 import { useInView } from "react-intersection-observer";
 import StudyBackground from "./StudyBackground";
+import { LucideIcon, Zap } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
+import AnimatedIcon from "./AnimatedIcon";
 import {
     SiC,
     SiCplusplus,
@@ -44,6 +47,8 @@ const Skills: React.FC = () => {
     });
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
+    const [activeSkillId, setActiveSkillId] = useState<string | null>(null);
+    const isMobile = useIsMobile();
 
     // Function to get skill icon
     const getSkillIcon = (skillName: string) => {
@@ -109,7 +114,7 @@ const Skills: React.FC = () => {
 
         const iconConfig = iconMap[skillName];
         if (!iconConfig) {
-            return <span className="text-2xl">⚡</span>; // Default icon
+            return <AnimatedIcon Icon={Zap} size={24} color="#eab308" glowColor="transparent" animationType="pulse" />;
         }
 
         // Check if it's an image badge
@@ -130,62 +135,62 @@ const Skills: React.FC = () => {
     };
     const skills = [
         // Programming Languages
-        { name: 'C', category: 'Programming' },
-        { name: 'C++', category: 'Programming' },
-        { name: 'Java', category: 'Programming' },
-        { name: 'Python', category: 'Programming' },
-        { name: 'JavaScript', category: 'Programming' },
+        { name: 'C', category: 'Programming', description: 'A powerful, low-level language for system programming.' },
+        { name: 'C++', category: 'Programming', description: 'An extension of C, used for high-performance applications and game development.' },
+        { name: 'Java', category: 'Programming', description: 'A versatile, object-oriented language popular for enterprise-level applications.' },
+        { name: 'Python', category: 'Programming', description: 'A high-level, interpreted language for general-purpose programming.' },
+        { name: 'JavaScript', category: 'Programming', description: 'The scripting language for web pages, essential for frontend development.' },
 
         // Web Development
-        { name: 'HTML', category: 'Web' },
-        { name: 'CSS', category: 'Web' },
-        { name: 'TypeScript', category: 'Web' },
-        { name: 'React', category: 'Web' },
-        { name: 'Vite', category: 'Web' },
-        { name: 'Tailwind', category: 'Web' },
-        { name: 'Framer Motion', category: 'Web' },
+        { name: 'HTML', category: 'Web', description: 'The standard markup language for creating web pages.' },
+        { name: 'CSS', category: 'Web', description: 'Cascading Style Sheets, used for styling web pages.' },
+        { name: 'TypeScript', category: 'Web', description: 'A typed superset of JavaScript that compiles to plain JavaScript.' },
+        { name: 'React', category: 'Web', description: 'A JavaScript library for building user interfaces.' },
+        { name: 'Vite', category: 'Web', description: 'A fast frontend build tool that significantly improves the development experience.' },
+        { name: 'Tailwind', category: 'Web', description: 'A utility-first CSS framework for rapidly building custom designs.' },
+        { name: 'Framer Motion', category: 'Web', description: 'A production-ready motion library for React.' },
 
         // Backend & Frameworks
-        { name: 'Node.js', category: 'Backend' },
-        { name: 'Flask', category: 'Backend' },
-        { name: 'FastAPI', category: 'Backend' },
+        { name: 'Node.js', category: 'Backend', description: 'A JavaScript runtime built on Chrome V8 JavaScript engine.' },
+        { name: 'Flask', category: 'Backend', description: 'A lightweight Python web framework.' },
+        { name: 'FastAPI', category: 'Backend', description: 'A modern, fast (high-performance) web framework for building APIs with Python.' },
 
         // Database
-        { name: 'MySQL', category: 'Database' },
-        { name: 'SQLite', category: 'Database' },
-        { name: 'MongoDB', category: 'Database' },
+        { name: 'MySQL', category: 'Database', description: 'An open-source relational database management system.' },
+        { name: 'SQLite', category: 'Database', description: 'A C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.' },
+        { name: 'MongoDB', category: 'Database', description: 'A NoSQL document database known for its flexibility and scalability.' },
 
         // Data Science & ML
-        { name: 'NumPy', category: 'Data Science' },
-        { name: 'Pandas', category: 'Data Science' },
-        { name: 'Matplotlib', category: 'Data Science' },
-        { name: 'Seaborn', category: 'Data Science' },
-        { name: 'Plotly', category: 'Data Science' },
-        { name: 'Scikit-learn', category: 'ML' },
-        { name: 'XGBoost', category: 'ML' },
-        { name: 'TensorFlow', category: 'ML' },
+        { name: 'NumPy', category: 'Data Science', description: 'The fundamental package for numerical computation in Python.' },
+        { name: 'Pandas', category: 'Data Science', description: 'A library providing high-performance, easy-to-use data structures and data analysis tools.' },
+        { name: 'Matplotlib', category: 'Data Science', description: 'A comprehensive library for creating static, animated, and interactive visualizations in Python.' },
+        { name: 'Seaborn', category: 'Data Science', description: 'A Python data visualization library based on matplotlib, providing a high-level interface for drawing attractive and informative statistical graphics.' },
+        { name: 'Plotly', category: 'Data Science', description: 'An interactive graphing library for Python, used for scientific graphing, financial charting, and more.' },
+        { name: 'Scikit-learn', category: 'ML', description: 'A free software machine learning library for the Python programming language.' },
+        { name: 'XGBoost', category: 'ML', description: 'An optimized distributed gradient boosting library designed to be highly efficient, flexible, and portable.' },
+        { name: 'TensorFlow', category: 'ML', description: 'An open-source machine learning framework for research and production.' },
 
         // Deployment & Platforms
-        { name: 'Vercel', category: 'Deployment' },
-        { name: 'Streamlit', category: 'Deployment' },
-        { name: 'Netlify', category: 'Deployment' },
+        { name: 'Vercel', category: 'Deployment', description: 'A platform for frontend developers, providing instant deployments, global CDN, and automatic HTTPS.' },
+        { name: 'Streamlit', category: 'Deployment', description: 'An open-source app framework for Machine Learning and Data Science teams.' },
+        { name: 'Netlify', category: 'Deployment', description: 'A platform for automating web projects, providing continuous deployment, serverless functions, and a global CDN.' },
 
         // Tools & IDEs
-        { name: 'VS Code', category: 'Tools' },
-        { name: 'GitHub', category: 'Tools' },
-        { name: 'Git', category: 'Tools' },
+        { name: 'VS Code', category: 'Tools', description: 'A free source-code editor made by Microsoft for Windows, Linux and macOS.' },
+        { name: 'GitHub', category: 'Tools', description: 'A platform for version control and collaboration, hosting millions of open-source projects.' },
+        { name: 'Git', category: 'Tools', description: 'A distributed version control system for tracking changes in source code during software development.' },
 
         // Design Tools
-        { name: 'Canva', category: 'Design' },
-        { name: 'MS Word', category: 'Design' },
-        { name: 'MS PowerPoint', category: 'Design' },
-        { name: 'MS Excel', category: 'Design' },
-        { name: 'Paint', category: 'Design' },
+        { name: 'Canva', category: 'Design', description: 'An online graphic design platform, used to create social media graphics, presentations, posters, documents and other visual content.' },
+        { name: 'MS Word', category: 'Design', description: 'A word processor developed by Microsoft.' },
+        { name: 'MS PowerPoint', category: 'Design', description: 'A presentation program developed by Microsoft.' },
+        { name: 'MS Excel', category: 'Design', description: 'A spreadsheet program developed by Microsoft.' },
+        { name: 'Paint', category: 'Design', description: 'A simple raster graphics editor that has been included with all versions of Microsoft Windows.' },
 
         // Coding Platforms
-        { name: 'LeetCode', category: 'Platforms' },
-        { name: 'Hackerrank', category: 'Platforms' },
-        { name: 'Codolio', category: 'Platforms' },
+        { name: 'LeetCode', category: 'Platforms', description: 'A platform for preparing technical interviews, with a vast library of coding challenges.' },
+        { name: 'Hackerrank', category: 'Platforms', description: 'A platform for competitive programming and coding challenges.' },
+        { name: 'Codolio', category: 'Platforms', description: 'A platform for coding practice and interview preparation.' },
 
         // Additional Libraries
 
@@ -281,18 +286,42 @@ const Skills: React.FC = () => {
                             <article
                                 key={skill.name}
                                 aria-labelledby={`skill-${index}`}
-                                className={`group relative overflow-hidden border border-border/60 bg-card/60 p-6 rounded-lg flex flex-col justify-between hover:shadow-glow transition-transform duration-200 transform hover:-translate-y-1 ${delayClass} min-h-[140px]`}
+                                onClick={() => {
+                                    if (isMobile && skill.description) {
+                                        setActiveSkillId(activeSkillId === skill.name ? null : skill.name);
+                                    }
+                                }}
+                                onMouseEnter={() => {
+                                    if (!isMobile && skill.description) {
+                                        setActiveSkillId(skill.name);
+                                    }
+                                }}
+                                onMouseLeave={() => {
+                                    if (!isMobile) {
+                                        setActiveSkillId(null);
+                                    }
+                                }}
+                                className={`group relative overflow-hidden border border-border/60 bg-card/60 p-6 rounded-lg flex flex-col justify-between hover:shadow-glow transition-transform duration-200 transform hover:-translate-y-1 ${delayClass} min-h-[140px] cursor-pointer`}
                             >
                                 {/* hover gradient overlay */}
                                 <div className={`absolute inset-0 rounded-lg bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-80 transition-opacity duration-300 pointer-events-none`} />
 
                                 <div className="relative z-10">
-                                    <div className="flex items-center justify-center mb-4">
+                                    <div className="flex items-center justify-center mb-4 transition-opacity duration-300 group-hover:opacity-20">
                                         {getSkillIcon(skill.name)}
                                     </div>
-                                    <h3 id={`skill-${index}`} className="text-sm font-medium text-foreground text-center">
+                                    <h3 id={`skill-${index}`} className="text-sm font-medium text-foreground text-center transition-opacity duration-300 group-hover:opacity-20">
                                         {skill.name}
                                     </h3>
+
+                                    {/* Description overlay/content */}
+                                    {skill.description && (
+                                        <div className={`absolute inset-0 flex items-center justify-center text-center p-2 transition-all duration-300 ${activeSkillId === skill.name ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
+                                            <p className="text-xs text-foreground font-medium leading-relaxed">
+                                                {skill.description}
+                                            </p>
+                                        </div>
+                                    )}
                                 </div>
 
                                 <div className="mt-4 flex items-center justify-end relative z-10">
