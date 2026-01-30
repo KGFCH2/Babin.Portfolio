@@ -225,7 +225,7 @@ const Header = () => {
                 {item.type === "route" ? (
                   <Link
                     to={item.href}
-                    className={`text-base px-4 py-3 min-h-[48px] rounded-lg transition-colors flex items-center font-medium block ${location.pathname === item.href
+                    className={`text-base px-4 py-3 min-h-[48px] rounded-lg transition-colors flex items-center font-medium ${location.pathname === item.href
                       ? "bg-primary/10 text-primary"
                       : "text-foreground/80 hover:text-primary hover:bg-primary/5"
                       }`}
@@ -240,7 +240,7 @@ const Header = () => {
                       e.preventDefault();
                       scrollToSection(item.href);
                     }}
-                    className={`text-base px-4 py-3 min-h-[48px] rounded-lg transition-colors flex items-center font-medium block ${activeSection === item.href.slice(1) && location.pathname === "/"
+                    className={`text-base px-4 py-3 min-h-[48px] rounded-lg transition-colors flex items-center font-medium ${activeSection === item.href.slice(1) && location.pathname === "/"
                       ? "bg-primary/10 text-primary"
                       : "text-foreground/80 hover:text-primary hover:bg-primary/5"
                       }`}
