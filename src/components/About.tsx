@@ -1,5 +1,5 @@
 import { useInView } from "react-intersection-observer";
-import { ChevronDown, X, FileText, MessageCircle, Lightbulb, Compass, Palette, Brain, Code, Zap, Rocket, Target, Briefcase, Cog, Globe, Wrench, Sparkles, Award, CheckCircle, Activity, Wind, BookAIcon, CircuitBoard, WholeWord, BookAudio, BookA, BookCopyIcon, PlayCircle } from "lucide-react";
+import { ChevronDown, X, FileText, MessageCircle, Lightbulb, Compass, Palette, Brain, Code, Zap, Rocket, Target, Briefcase, Cog, Globe, Wrench, Sparkles, Award, CheckCircle, Activity, Wind, BookA, CircuitBoard, WholeWord, BookAudio, BookCopy, PlayCircle } from "lucide-react";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { previewThenDownload } from "@/lib/utils";
 import { useState, useEffect } from "react";
@@ -146,7 +146,7 @@ const About = () => {
               </h4>
               <div className="space-y-4 flex-1">
                 {[
-                  { name: 'Mathematics & Calculus', val: 95, Icon: BookAIcon, color: 'from-blue-500 via-cyan-400 to-sky-300', bgColor: 'bg-blue-500/10', borderColor: 'border-blue-500/30', textColor: 'text-blue-400', glowColor: 'shadow-blue-500/50', glowValue: 'rgba(59, 130, 246, 0.6)' },
+                  { name: 'Mathematics & Calculus', val: 95, Icon: BookA, color: 'from-blue-500 via-cyan-400 to-sky-300', bgColor: 'bg-blue-500/10', borderColor: 'border-blue-500/30', textColor: 'text-blue-400', glowColor: 'shadow-blue-500/50', glowValue: 'rgba(59, 130, 246, 0.6)' },
                   { name: 'Switching Circuits', val: 95, Icon: CircuitBoard, color: 'from-orange-500 via-amber-400 to-yellow-300', bgColor: 'bg-orange-500/10', borderColor: 'border-orange-500/30', textColor: 'text-orange-400', glowColor: 'shadow-orange-500/50', glowValue: 'rgba(249, 115, 22, 0.6)' },
                   { name: 'Frontend Development', val: 90, Icon: Cog, color: 'from-purple-500 via-violet-400 to-fuchsia-300', bgColor: 'bg-purple-500/10', borderColor: 'border-purple-500/30', textColor: 'text-purple-400', glowColor: 'shadow-purple-500/50', glowValue: 'rgba(168, 85, 247, 0.6)' },
                   { name: 'Data Structures & Algorithms', val: 85, Icon: Brain, color: 'from-rose-500 via-pink-400 to-red-300', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400', glowColor: 'shadow-rose-500/50', glowValue: 'rgba(244, 63, 94, 0.6)' },
@@ -237,7 +237,7 @@ const About = () => {
                       <CollapsibleTrigger className="w-full">
                         <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg border border-border/50 hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.01]">
                           <span className="text-base font-semibold text-left flex items-center gap-2">
-                            <AnimatedIcon Icon={Brain} size={18} glowColor="rgba(59, 130, 246, 0.6)" animationType="spin" />
+                            <AnimatedIcon Icon={Brain} size={18} color="#3b82f6" glowColor="transparent" animationType="spin" />
                             <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Knowledge In</span>
                           </span>
                           <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "knowledge" ? "rotate-180" : ""} group-hover:text-blue-500`} />
