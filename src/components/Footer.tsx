@@ -1,4 +1,4 @@
-import { Heart } from "lucide-react";
+import { Heart, Star } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import StudyBackground from "./StudyBackground";
 import SocialIcons from "./SocialIcons";
@@ -63,9 +63,7 @@ const Footer = () => {
             </div>
 
             <div className="space-y-3 md:space-y-4 text-center relative z-10">
-              <h3 className="text-base md:text-lg font-semibold text-foreground">
-                Quick Links
-              </h3>
+              <h3 className="text-lg md:text-xl font-bold text-gradient"> Quick Links </h3>
               <ul className="flex flex-wrap justify-center items-center gap-3 md:gap-4">
                 {[
                   "About",
@@ -93,17 +91,19 @@ const Footer = () => {
             </div>
 
             <div className="space-y-3 md:space-y-4 text-center md:text-right relative z-10">
-              <h3 className="text-base md:text-lg font-semibold text-foreground">Let's Connect</h3>
-              <div className="flex justify-center md:justify-end">
+              <h3 className="text-lg md:text-xl font-bold text-gradient">Let's Connect</h3>
+              <div className="flex justify-center md:justify-end md:translate-x-8 mt-4 md:mt-8">
                 <SocialIcons />
               </div>
             </div>
           </div>
 
-          <div className="pt-4 md:pt-3 border-t border-border text-center">
-            <p className="text-foreground/90 italic text-xs md:text-sm mb-2 md:mb-1 px-2">
-              ⭐ "I don't just write code, I build logic, solve problems, and
-              shape the future — one line at a time." ⭐
+          <div className="pt-4 md:pt-3 border-t border-border text-center relative z-20">
+            <p className="text-foreground/90 italic text-xs md:text-sm mb-2 md:mb-1 px-2 flex items-center justify-center gap-2">
+              <Star className="h-3 w-3 text-yellow-500 fill-yellow-500 animate-pulse" />
+              "I don't just write code, I build logic, solve problems, and
+              shape the future — one line at a time."
+              <Star className="h-3 w-3 text-yellow-500 fill-yellow-500 animate-pulse" />
             </p>
 
             <p className="text-muted-foreground flex items-center justify-center gap-2 text-sm">
