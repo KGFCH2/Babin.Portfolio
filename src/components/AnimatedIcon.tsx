@@ -6,6 +6,7 @@ interface AnimatedIconProps {
     size?: number;
     className?: string;
     glowColor?: string;
+    color?: string;
     animationType?: 'bounce' | 'pulse' | 'spin' | 'scale';
 }
 
@@ -14,6 +15,7 @@ const AnimatedIcon: React.FC<AnimatedIconProps> = ({
     size = 24,
     className = '',
     glowColor = 'rgba(139, 92, 246, 0.6)',
+    color,
     animationType = 'bounce',
 }) => {
     const animationClass = {
@@ -28,6 +30,7 @@ const AnimatedIcon: React.FC<AnimatedIconProps> = ({
             className={`group/icon inline-block relative transition-all duration-300 ${className}`}
             style={{
                 filter: 'drop-shadow(0 0 0 transparent)',
+                color: color || 'inherit'
             }}
         >
             {/* Outer glow halo - large blur */}
