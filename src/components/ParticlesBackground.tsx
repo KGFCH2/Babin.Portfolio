@@ -140,7 +140,7 @@ const ParticlesBackground = ({ hideColors }: ParticlesBackgroundProps) => {
           // tricolor + themed icons for a student: code, book, laptop, brain
           color: {
             value: (() => {
-              const darkColors = ["#FF9933", "#FFFFFF", "#138808"];
+              const darkColors = ["#3b82f6", "#8b5cf6", "#ec4899"];
               const lightColors = ["#7c3aed", "#3b82f6", "#ec4899", "#8b5cf6"];
               const allColors = theme === 'dark' ? darkColors : lightColors;
 
