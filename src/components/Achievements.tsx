@@ -40,8 +40,8 @@ const Achievements = () => {
         const awardCategories = ["Awards & Recognitions"];
         const certificateCategories = ["AWS", "CISCO", "Cognitive Class", "GeeksforGeeks", "Google", "GTech Learn", "HackerRank", "HP Life", "IBM", "Infosys Springboard", "Microsoft", "Pantech e Learning", "Qualcomm", "Saylor Academy", "Scaler", "SimpliLearn", "Skill Nation", "Udemy"];
         const bootcampCategories = ["Events & Hackathons", "Hack2Skill", "Kaggle", "Let's Upgrade", "MyBharat", "myGov", "Skill India", "Unstop"];
-        const internshipCategories = ["Oasis Infobyte","Infosys Springboard Internships", "The Developers Arena"];
-        const badgeCategories = ["Google Badges", "Holopin Badges", "HP Life Badges", "Microsoft Badges", "Microsoft Trophies", "Qualcomm Badges"];
+        const internshipCategories = ["Oasis Infobyte", "Infosys Springboard Internships", "The Developers Arena"];
+        const badgeCategories = ["AWS Badges", "Google Badges", "Holopin Badges", "HP Life Badges", "Microsoft Badges", "Microsoft Trophies", "Qualcomm Badges"];
 
         switch (filter) {
             case 'All':
@@ -262,11 +262,6 @@ const Achievements = () => {
                         : 'animate-fade-in'
                         }`}
                 >
-                    {/* Animated glow background */}
-                    <div className={`absolute inset-0 transition-all duration-1500 ${isClosing ? 'opacity-0 scale-150' : 'opacity-100'}`}>
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/30 via-purple-500/20 to-secondary/30 rounded-full blur-3xl animate-pulse" />
-                    </div>
-
                     {/* Controls */}
                     <div className={`absolute top-4 right-4 flex items-center gap-2 z-50 transition-all duration-300 ${isClosing ? 'opacity-0 -translate-y-10' : 'opacity-100 translate-y-0'
                         }`}>
@@ -319,8 +314,6 @@ const Achievements = () => {
                             style={{ transform: `scale(${zoomLevel})` }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            {/* Glowing border effect - Indian Flag colors */}
-                            <div className={`absolute -inset-2 bg-gradient-to-r from-[#FF9933] via-white to-[#138808] rounded-2xl blur-xl transition-opacity duration-300 ${isClosing ? 'opacity-0' : 'opacity-60'}`} />
                             <img
                                 src={selectedItem.file}
                                 alt="Achievement Full View"
