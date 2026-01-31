@@ -3,6 +3,7 @@ import { ChevronDown, X, FileText, MessageCircle, Lightbulb, Compass, Palette, B
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { previewThenDownload } from "@/lib/utils";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionTitle from "./SectionTitle";
 import AnimatedIcon from "./AnimatedIcon";
 import StudyBackground from "./StudyBackground";
@@ -28,329 +29,346 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 relative section-divider-top" ref={ref}>
+    <section id="about" className="py-24 relative overflow-hidden section-divider-top" ref={ref}>
       <StudyBackground />
-      <div className="container mx-auto px-4 relative z-10">
-        <div
-          className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
-            }`}
+
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-orange-500/10 rounded-full blur-[100px] animate-pulse" />
+        <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10 transition-all duration-700">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-6xl mx-auto space-y-20"
         >
-          <div className="text-center space-y-4">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">
-              <SectionTitle
-                segments={[
-                  {
-                    text: "About",
-                    className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400",
-                  },
-                  {
-                    text: " Me",
-                    className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600",
-                  },
-                ]}
-              />
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
-              Computer Science & Engineering student | Full-Stack Developer | Problem Solver
-            </p>
+          <div className="text-center space-y-6">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={inView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+              transition={{ delay: 0.2, duration: 0.6, type: "spring" }}
+            >
+              <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter">
+                <SectionTitle
+                  segments={[
+                    {
+                      text: "About",
+                      className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400",
+                    },
+                    {
+                      text: " Me",
+                      className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600",
+                    },
+                  ]}
+                />
+              </h2>
+            </motion.div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.4 }}
+              className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed tracking-wide"
+            >
+              B.Tech Computer Science & Engineering Undergraduate | Software Developer | AI/ML Enthusiast
+            </motion.p>
           </div>
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Left: Professional info - floating style without boxes */}
-            <div className="space-y-8 order-2 md:order-1">
-              {/* Intro Section - Floating */}
-              <div className="space-y-4">
-                <h3
-                  className="text-3xl font-bold bg-gradient-to-r from-primary via-purple-400 to-secondary bg-clip-text text-transparent inline-block cursor-default transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_25px_rgba(139,92,246,0.8)] hover:filter"
+          <div className="grid lg:grid-cols-12 gap-16 items-center">
+            {/* Left: Professional info */}
+            <div className="lg:col-span-7 space-y-10 order-2 lg:order-1">
+              <div className="space-y-8">
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={inView ? { x: 0, opacity: 1 } : {}}
+                  transition={{ delay: 0.5 }}
+                  className="inline-flex items-center gap-2 px-5 py-2 rounded-2xl bg-primary/10 border border-primary/20 text-primary text-sm font-bold uppercase tracking-widest"
                 >
-                  Babin Bid
-                </h3>
-                <p className="text-base text-muted-foreground">
-                  B.Tech CSE • Adamas University, Kolkata
-                </p>
-                <p className="text-foreground/90 leading-relaxed text-lg">
-                  Curious developer passionate about crafting elegant solutions to complex problems. Fascinated by mathematics, AI/ML, and quantum concepts. I thrive on building meaningful projects and sharing knowledge with the community.
-                </p>
-                <div className="flex gap-3 flex-wrap pt-2">
-                  <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(16,185,129,0.6),0_0_40px_rgba(16,185,129,0.4),0_0_60px_rgba(16,185,129,0.2)] hover:scale-105">Full-Stack Dev</span>
-                  <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20 hover:bg-blue-500/20 transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(59,130,246,0.6),0_0_40px_rgba(59,130,246,0.4),0_0_60px_rgba(59,130,246,0.2)] hover:scale-105">Problem Solver</span>
-                  <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20 hover:bg-purple-500/20 transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(168,85,247,0.6),0_0_40px_rgba(168,85,247,0.4),0_0_60px_rgba(168,85,247,0.2)] hover:scale-105">Innovator</span>
+                  <Sparkles className="w-4 h-4 animate-pulse" />
+                  Innovating the Future
+                </motion.div>
+
+                <motion.h3
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.6 }}
+                  className="text-3xl md:text-3xl font-black tracking-tight"
+                >
+                  <span className="bg-gradient-to-r from-primary via-purple-500 to-secondary bg-clip-text text-transparent italic">
+                    _Babin Bid_
+                  </span>
+                </motion.h3>
+
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={inView ? { opacity: 1 } : {}}
+                  transition={{ delay: 0.7 }}
+                  className="text-lg text-muted-foreground flex items-center gap-3 font-medium"
+                >
+                  <Briefcase className="w-6 h-6 text-blue-500" />
+                  B.Tech In CSE • Adamas University, Kolkata
+                </motion.p>
+
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={inView ? { opacity: 1 } : {}}
+                  transition={{ delay: 0.8 }}
+                  className="text-foreground/80 leading-relaxed text-base lg:text-lg font-light italic border-l-4 border-primary/30 pl-6"
+                >
+                  "Aspiring Software Engineer with a passion for building robust and scalable web applications. I bridge the gap between complex mathematical concepts and practical software solutions. Currently focused on Full-Stack Development, Machine Learning, and exploring core Computer Science fundamentals."
+                </motion.p>
+
+                <div className="flex gap-4 flex-wrap pt-4">
+                  {[
+                    { label: "Software Engineering", color: "emerald", icon: Code },
+                    { label: "Full-Stack Development", color: "blue", icon: Rocket },
+                    { label: "Machine Learning", color: "purple", icon: Brain }
+                  ].map((tag, idx) => (
+                    <motion.span
+                      key={idx}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={inView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ delay: 0.9 + (idx * 0.1) }}
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className={`flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold bg-${tag.color}-500/10 text-${tag.color}-400 border border-${tag.color}-500/20 shadow-xl shadow-${tag.color}-500/5 cursor-default group`}
+                    >
+                      <tag.icon className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                      {tag.label}
+                    </motion.span>
+                  ))}
                 </div>
+
                 {/* Action Buttons */}
-                <div className="flex gap-3 flex-wrap pt-6">
-                  <button
-                    className="relative flex-1 px-4 py-3 rounded-lg border-2 border-emerald-400 text-400 font-semibold overflow-hidden group transition-all hover:scale-105 hover:border-emerald-500"
+                <div className="flex flex-col sm:flex-row gap-6 pt-10">
+                  <motion.button
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 1.2 }}
+                    whileHover={{ scale: 1.02, boxShadow: "0 20px 40px rgba(16, 185, 129, 0.2)" }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group relative flex-1 px-8 py-5 rounded-2xl bg-foreground text-background font-black text-base transition-all flex items-center justify-center gap-3 overflow-hidden shadow-2xl"
                     onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
                   >
-                    {/* Gradient background on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    {/* Animated border glow */}
-                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-emerald-500 to-green-500 -z-10" />
-                    <span className="relative flex items-center justify-center gap-2">
-                      <AnimatedIcon Icon={FileText} size={18} glowColor="rgba(34, 197, 94, 0.6)" animationType="spin" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="relative z-10 flex items-center gap-3">
+                      <FileText className="w-6 h-6" />
                       View Resume
                     </span>
-                  </button>
-                  <button
-                    className="relative flex-1 px-4 py-3 rounded-lg border-2 border-orange-500 text-400 font-semibold overflow-hidden group transition-all hover:scale-105 hover:border-orange-500"
+                  </motion.button>
+                  <motion.button
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 1.3 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex-1 px-8 py-5 rounded-2xl border-2 border-foreground/10 hover:border-foreground/40 font-black text-base transition-all flex items-center justify-center gap-3 bg-background/50 backdrop-blur-xl shadow-xl"
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    {/* Gradient background on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    {/* Animated border glow */}
-                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-orange-500 to-yellow-500 -z-10" />
-                    <span className="relative flex items-center justify-center gap-2">
-                      <AnimatedIcon Icon={MessageCircle} size={18} glowColor="rgba(34, 197, 94, 0.6)" animationType="spin" />
-                      Get in Touch
-                    </span>
-                  </button>
+                    <MessageCircle className="w-6 h-6" />
+                    Get in Touch
+                  </motion.button>
                 </div>
               </div>
             </div>
 
-            {/* Right: Image with enhanced animation */}
-            <div className="flex justify-center md:justify-end order-1 md:order-2">
-              <div className="group relative">
-                {/* Glowing background on hover */}
-                <div className="absolute -inset-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute inset-0 rounded-2xl blur-xl bg-gradient-to-br from-orange-500/40 via-blue-500/40 to-emerald-500/40 animate-pulse" />
-                </div>
-                {/* Image container with border and shadow */}
+            {/* Right: Image */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 1, type: "spring", bounce: 0.4 }}
+                className="group relative"
+              >
+                {/* Decorative background aura */}
+                <div className="absolute -inset-10 bg-gradient-to-tr from-orange-500/30 via-primary/20 to-blue-500/30 rounded-full opacity-40 group-hover:opacity-70 blur-[100px] transition duration-700 animate-pulse" />
+
                 <div className="relative">
-                  <img
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="relative cursor-pointer"
                     onClick={() => setShowImageModal(true)}
-                    src="/Babin_New.jpeg"
-                    alt="Babin Bid - Full Stack Developer and CS Engineer"
-                    loading="lazy"
-                    decoding="async"
-                    className="w-64 h-64 md:w-72 md:h-72 rounded-2xl object-cover shadow-2xl border-4 border-background/50 avatar-pulse cursor-pointer"
-                    title="Click to view my image"
-                  />
-                  {/* Floating accent badge */}
-                  <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-orange-400 to-emerald-400 rounded-full px-6 py-3 shadow-lg font-semibold text-sm text-background transform hover:scale-110 transition-transform flex items-center justify-center gap-2">
-                    <AnimatedIcon Icon={Sparkles} size={16} glowColor="rgba(251, 146, 60, 0.8)" animationType="bounce" />
-                    Available
-                  </div>
+                  >
+                    <motion.div
+                      whileHover={{ rotateY: 10, rotateX: -5 }}
+                      className="relative z-10 transition-transform duration-500"
+                    >
+                      <img
+                        src="/Babin_New.jpeg"
+                        alt="Babin Bid"
+                        className="w-80 h-80 md:w-[28rem] md:h-[28rem] rounded-[3rem] object-cover shadow-[0_40px_100px_rgba(0,0,0,0.5)] border-[12px] border-background relative"
+                      />
+                    </motion.div>
+
+                    {/* Floating Orbits */}
+                    <div className="absolute -inset-4 border-2 border-primary/20 rounded-[4rem] animate-[spin_15s_linear_infinite] pointer-events-none" />
+                    <div className="absolute -inset-8 border border-white/10 rounded-[5rem] animate-[spin_25s_linear_infinite_reverse] pointer-events-none" />
+                  </motion.div>
+
+                  {/* Enhanced Status Badge */}
+                  <motion.div
+                    animate={{ y: [0, -15, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute -bottom-8 -right-8 bg-background/80 backdrop-blur-2xl rounded-3xl p-6 shadow-2xl border border-border flex items-center gap-4 z-20 group/badge"
+                  >
+                    <div className="relative">
+                      <div className="w-4 h-4 bg-emerald-500 rounded-full shadow-[0_0_20px_rgba(16,185,129,1)]" />
+                      <div className="absolute inset-0 w-4 h-4 bg-emerald-500 rounded-full animate-ping opacity-75" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="font-black text-sm tracking-tight">Active for Hirings</span>
+                      <span className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest">2026 Grad</span>
+                    </div>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
 
-          {/* Primary Skills & Professional Highlights - Side by Side */}
-          <div className="grid md:grid-cols-2 gap-8 items-stretch">
-            {/* Left: Primary Skills - CRAZY Animated Version */}
-            <div className="space-y-5 pt-4 flex flex-col">
-              <h4 className="font-bold text-xl text-foreground flex items-center justify-center gap-2 group">
-                <AnimatedIcon Icon={Lightbulb} size={24} glowColor="rgba(251, 146, 60, 0.6)" animationType="pulse" />
-                <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-transparent">Primary Knowledges</span>
-                <span className="text-xs ml-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-white animate-pulse">PRO</span>
-              </h4>
-              <div className="space-y-4 flex-1">
+          {/* Stats & Detailed Info */}
+          <div className="grid lg:grid-cols-2 gap-12 pt-10">
+            {/* Left: Interactive Skills Stack */}
+            <motion.div
+              initial={{ x: -30, opacity: 0 }}
+              animate={inView ? { x: 0, opacity: 1 } : {}}
+              transition={{ delay: 1.4 }}
+              className="space-y-8"
+            >
+              <div className="flex items-center justify-between">
+                <h4 className="text-2xl font-black tracking-tight flex items-center gap-3">
+                  <div className="w-2 h-10 bg-primary rounded-full" />
+                  Core Competencies
+                </h4>
+                <div className="flex -space-x-3">
+                  {[Code, Brain, Rocket].map((Icon, i) => (
+                    <div key={i} className="w-10 h-10 rounded-full bg-background border-2 border-border flex items-center justify-center shadow-lg">
+                      <Icon className="w-5 h-5 text-primary" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid gap-6">
                 {[
-                  { name: 'Mathematics & Calculus', val: 95, Icon: BookA, color: 'from-blue-500 via-cyan-400 to-sky-300', bgColor: 'bg-blue-500/10', borderColor: 'border-blue-500/30', textColor: 'text-blue-400', glowColor: 'shadow-blue-500/50', glowValue: 'rgba(59, 130, 246, 0.6)' },
-                  { name: 'Switching Circuits', val: 95, Icon: CircuitBoard, color: 'from-orange-500 via-amber-400 to-yellow-300', bgColor: 'bg-orange-500/10', borderColor: 'border-orange-500/30', textColor: 'text-orange-400', glowColor: 'shadow-orange-500/50', glowValue: 'rgba(249, 115, 22, 0.6)' },
-                  { name: 'Frontend Development', val: 90, Icon: Cog, color: 'from-purple-500 via-violet-400 to-fuchsia-300', bgColor: 'bg-purple-500/10', borderColor: 'border-purple-500/30', textColor: 'text-purple-400', glowColor: 'shadow-purple-500/50', glowValue: 'rgba(168, 85, 247, 0.6)' },
-                  { name: 'Data Structures & Algorithms', val: 85, Icon: Brain, color: 'from-rose-500 via-pink-400 to-red-300', bgColor: 'bg-rose-500/10', borderColor: 'border-rose-500/30', textColor: 'text-rose-400', glowColor: 'shadow-rose-500/50', glowValue: 'rgba(244, 63, 94, 0.6)' },
-                  { name: 'Python Programming', val: 85, Icon: Code, color: 'from-emerald-500 via-green-400 to-lime-300', bgColor: 'bg-emerald-500/10', borderColor: 'border-emerald-500/30', textColor: 'text-emerald-400', glowColor: 'shadow-emerald-500/50', glowValue: 'rgba(16, 185, 129, 0.6)' },
-                ].map((s, index) => (
-                  <div
-                    key={s.name}
-                    onMouseEnter={() => setHoveredSkill(index)}
-                    onMouseLeave={() => setHoveredSkill(null)}
-                    className={`group/skill relative p-3 rounded-xl ${s.bgColor} border ${s.borderColor} backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] cursor-pointer`}
-                    style={{ animationDelay: `${index * 100}ms`, boxShadow: hoveredSkill === index ? `0 12px 40px ${s.glowValue}` : undefined }}
+                  { name: 'Mathematics & Calculus', val: 95, icon: BookA, color: 'primary' },
+                  { name: 'Digital Logic & Optimization', val: 95, icon: CircuitBoard, color: 'blue' },
+                  { name: 'Frontend Architecture', val: 92, icon: Cog, color: 'purple' },
+                  { name: 'Data Structures & Alg.', val: 88, icon: Brain, color: 'emerald' },
+                  { name: 'Python Engineering', val: 85, icon: Code, color: 'orange' },
+                ].map((skill, i) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ delay: 1.5 + (i * 0.1) }}
+                    className="group relative h-20 bg-muted/20 hover:bg-muted/40 rounded-3xl p-5 transition-all duration-500 border border-border/50 hover:border-primary/50 overflow-hidden"
                   >
-                    {/* Animated background gradient on hover */}
-                    <div className={`absolute inset-0 rounded-xl bg-gradient-to-r ${s.color} opacity-0 group-hover/skill:opacity-10 transition-opacity duration-500`} />
-
-                    <div className="relative flex items-center gap-3">
-                      {/* Animated Icon */}
-                      <AnimatedIcon Icon={s.Icon} size={24} glowColor={s.glowValue} animationType="bounce" />
-
-                      <div className="flex-1 space-y-2">
-                        <div className="flex items-center justify-between">
-                          <span className="text-foreground/90 font-semibold group-hover/skill:text-foreground transition-colors">{s.name}</span>
-                          <div className="flex items-center gap-2">
-                            {/* Animated percentage with glow */}
-                            <span className={`font-black text-lg ${s.textColor} group-hover/skill:scale-110 transition-transform tabular-nums`}>
-                              {s.val}%
-                            </span>
-                            {/* Fire icon for high skills */}
-                            {s.val >= 90 && <AnimatedIcon Icon={Zap} size={18} glowColor={s.glowValue} animationType="pulse" />}
-                          </div>
+                    <div className="relative z-10 flex items-center justify-between h-full">
+                      <div className="flex items-center gap-4">
+                        <div className={`p-3 rounded-2xl bg-${skill.color}-500/10 text-${skill.color}-500 group-hover:scale-110 transition-transform`}>
+                          <skill.icon className="w-6 h-6" />
                         </div>
-
-                        {/* Progress bar container */}
-                        <div className="relative w-full h-3 bg-muted/40 rounded-full overflow-hidden">
-                          <progress className="sr-only" value={s.val} max={100} aria-label={`Proficiency: ${s.val}%`} />
-
-                          {/* Animated gradient bar */}
-                          <div
-                            className={`h-full bg-gradient-to-r ${s.color} rounded-full relative overflow-hidden transition-all duration-1000 ease-out`}
-                            style={{ width: `${s.val}%` }}
-                          >
-                            {/* Shimmer effect */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover/skill:translate-x-full transition-transform duration-1000" />
-
-                            {/* Glowing edge */}
-                            <div className="absolute right-0 top-0 bottom-0 w-2 bg-white/60 rounded-full blur-sm animate-pulse" />
-                          </div>
-
-                          {/* Animated dots on the track */}
-                          <div className="absolute inset-0 flex items-center justify-around opacity-20">
-                            {[...Array(10)].map((_, i) => (
-                              <div key={i} className="w-1 h-1 bg-white rounded-full" />
-                            ))}
-                          </div>
+                        <span className="font-bold text-base">{skill.name}</span>
+                      </div>
+                      <div className="flex flex-col items-end">
+                        <span className="text-xl font-black tabular-nums">{skill.val}%</span>
+                        <div className="w-32 h-1.5 bg-background rounded-full mt-2 overflow-hidden">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            animate={inView ? { width: `${skill.val}%` } : {}}
+                            transition={{ duration: 1.5, delay: 1.8 + (i * 0.1), ease: "circOut" }}
+                            className={`h-full bg-${skill.color}-500 shadow-[0_0_10px_var(--tw-shadow-color)] shadow-${skill.color}-500/50`}
+                          />
                         </div>
                       </div>
                     </div>
-
-                    {/* Hover tooltip */}
-                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-background/90 border border-border rounded-md text-xs opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none backdrop-blur-sm">
-                      {s.val >= 90 ? (
-                        <span className="flex items-center gap-1">
-                          <AnimatedIcon Icon={Award} size={12} glowColor="rgba(251, 146, 60, 0.6)" animationType="pulse" />
-                          Expert Level!
-                        </span>
-                      ) : s.val >= 85 ? (
-                        'Advanced'
-                      ) : (
-                        'Proficient'
-                      )}
-                    </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            {/* Right: Professional Highlights */}
-            <div className="space-y-5 pt-4 flex flex-col">
-              <h4 className="font-bold text-xl text-foreground flex items-center justify-center gap-2 group">
-                <AnimatedIcon Icon={Briefcase} size={24} glowColor="rgba(59, 130, 246, 0.6)" animationType="pulse" />
-                <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Professional Highlights</span>
-                <span className="text-xs ml-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white animate-pulse">ELITE</span>
-              </h4>
-              <div className="flex-1 flex items-center justify-center">
-                <div className="grid grid-cols-2 gap-4 w-full max-w-lg">
-                  <Collapsible open={openPanel === "knowledge"} onOpenChange={(open) => setOpenPanel(open ? "knowledge" : null)}>
-                    <div className="group">
-                      <CollapsibleTrigger className="w-full">
-                        <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg border border-border/50 hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.01]">
-                          <span className="text-base font-semibold text-left flex items-center gap-2">
-                            <AnimatedIcon Icon={Brain} size={18} color="#3b82f6" glowColor="transparent" animationType="spin" />
-                            <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Knowledge In</span>
-                          </span>
-                          <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "knowledge" ? "rotate-180" : ""} group-hover:text-blue-500`} />
-                        </div>
-                      </CollapsibleTrigger>
-                      <CollapsibleContent className="overflow-hidden">
-                        <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
-                          <p className="text-foreground/90 leading-relaxed text-sm">
-                            <div className="flex items-center gap-2 mb-2">
-                              <AnimatedIcon Icon={Cog} size={16} glowColor="rgba(59, 130, 246, 0.6)" animationType="spin" />
-                              <strong>Programming:</strong>
-                            </div> C • C++ • Java • Python • JavaScript <br />
-                            <div className="flex items-center gap-2 mb-2">
-                              <AnimatedIcon Icon={Globe} size={16} glowColor="rgba(59, 130, 246, 0.6)" animationType="spin" />
-                              <strong>Web:</strong>
-                            </div> HTML • CSS • React • Tailwind CSS <br />
-                            <div className="flex items-center gap-2 mb-2">
-                              <AnimatedIcon Icon={Wrench} size={16} glowColor="rgba(59, 130, 246, 0.6)" animationType="bounce" />
-                              <strong>Backend:</strong>
-                            </div> Node.js • MySQL • TensorFlow • Flask <br />
-                            <div className="flex items-center gap-2 mb-2">
-                              <AnimatedIcon Icon={Rocket} size={16} glowColor="rgba(251, 146, 60, 0.6)" animationType="spin" />
-                              <strong>Deploy:</strong>
-                            </div> Vercel • Streamlit <br />
-                            <div className="flex items-center gap-2">
-                              <AnimatedIcon Icon={Palette} size={16} glowColor="rgba(168, 85, 247, 0.6)" animationType="spin" />
-                              <strong>Tools:</strong>
-                            </div> VS Code • GitHub • Canva
-                          </p>
-                        </div>
-                      </CollapsibleContent>
-                    </div>
-                  </Collapsible>
-
-                  {/* Upskilling & Certifications */}
-                  <Collapsible open={openPanel === "upskilling"} onOpenChange={(open) => setOpenPanel(open ? "upskilling" : null)}>
-                    <div className="group">
-                      <CollapsibleTrigger className="w-full">
-                        <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-500/10 to-green-500/10 rounded-lg border border-border/50 hover:border-emerald-500/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.01]">
-                          <span className="text-base font-semibold text-left flex items-center gap-2">
-                            <AnimatedIcon Icon={Rocket} size={18} glowColor="rgba(16, 185, 129, 0.6)" animationType="spin" />
-                            <span className="bg-gradient-to-r from-emerald-400 to-green-500 bg-clip-text text-transparent">Upskilling</span>
-                          </span>
-                          <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "upskilling" ? "rotate-180" : ""} group-hover:text-emerald-500`} />
-                        </div>
-                      </CollapsibleTrigger>
-                      <CollapsibleContent className="overflow-hidden">
-                        <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
-                          <div className="space-y-2 text-foreground/90 text-sm">
-                            <p><strong> <AnimatedIcon Icon={Cog} size={16} glowColor="rgba(16, 185, 129, 0.6)" animationType="spin" /> Platforms:</strong> Google Cloud • Microsoft Learn • AWS • IBM SkillBuild</p>
-                            <p><strong> <AnimatedIcon Icon={Code} size={16} glowColor="rgba(16, 185, 129, 0.6)" animationType="spin" /> Programs:</strong> HP Life • SWAYAM • Cisco • Infosys Springboard</p>
-                          </div>
-                        </div>
-                      </CollapsibleContent>
-                    </div>
-                  </Collapsible>
-
-                  {/* Interests & Passions */}
-                  <Collapsible open={openPanel === "interests"} onOpenChange={(open) => setOpenPanel(open ? "interests" : null)}>
-                    <div className="group">
-                      <CollapsibleTrigger className="w-full">
-                        <div className="flex items-center justify-between p-4 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-lg border border-border/50 hover:border-pink-500/50 hover:shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.01]">
-                          <span className="text-base font-semibold text-left flex items-center gap-2">
-                            <AnimatedIcon Icon={Zap} size={18} glowColor="rgba(236, 72, 153, 0.6)" animationType="spin" />
-                            <span className="bg-gradient-to-r from-pink-400 to-rose-500 bg-clip-text text-transparent">Interests</span>
-                          </span>
-                          <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "interests" ? "rotate-180" : ""} group-hover:text-pink-500`} />
-                        </div>
-                      </CollapsibleTrigger>
-                      <CollapsibleContent className="overflow-hidden">
-                        <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
-                          <div className="space-y-2 text-foreground/90 text-sm">
-                            <p><strong> <AnimatedIcon Icon={BookA} size={16} glowColor="rgba(16, 185, 129, 0.6)" animationType="spin" /> Subjects:</strong> AI/ML • Quantum Computing • Mathematics • DSA</p>
-                            <p><strong> <AnimatedIcon Icon={PlayCircle} size={16} glowColor="rgba(16, 185, 129, 0.6)" animationType="spin" /> Hobbies:</strong> Cricket • Badminton • Digital Art</p>
-                          </div>
-                        </div>
-                      </CollapsibleContent>
-                    </div>
-                  </Collapsible>
-
-                  {/* Professional Focus */}
-                  <Collapsible open={openPanel === "focus"} onOpenChange={(open) => setOpenPanel(open ? "focus" : null)}>
-                    <div className="group">
-                      <CollapsibleTrigger className="w-full">
-                        <div className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 rounded-lg border border-border/50 hover:border-orange-500/50 hover:shadow-[0_0_15px_rgba(249,115,22,0.3)] transition-all duration-300 cursor-pointer hover:scale-[1.01]">
-                          <span className="text-base font-semibold text-left flex items-center gap-2">
-                            <AnimatedIcon Icon={Compass} size={18} glowColor="rgba(249, 115, 22, 0.6)" animationType="spin" />
-                            <span className="bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent">Focus</span>
-                          </span>
-                          <ChevronDown className={`h-5 w-5 text-muted-foreground transform transition-transform duration-300 ${openPanel === "focus" ? "rotate-180" : ""} group-hover:text-orange-500`} />
-                        </div>
-                      </CollapsibleTrigger>
-                      <CollapsibleContent className="overflow-hidden">
-                        <div className="p-4 bg-muted/20 border-b border-l border-r border-border/30 rounded-b-lg animate-fade-in">
-                          <div className="space-y-2 text-foreground/90 text-sm">
-                            <p className="flex items-center gap-2"><AnimatedIcon Icon={CheckCircle} size={16} glowColor="rgba(249, 115, 22, 0.6)" animationType="pulse" /> Active GitHub contributor</p>
-                            <p className="flex items-center gap-2"><AnimatedIcon Icon={CheckCircle} size={16} glowColor="rgba(249, 115, 22, 0.6)" animationType="pulse" /> Open to internships & collaborations</p>
-                            <p className="flex items-center gap-2"><AnimatedIcon Icon={CheckCircle} size={16} glowColor="rgba(249, 115, 22, 0.6)" animationType="pulse" /> Passionate problem solver</p>
-                          </div>
-                        </div>
-                      </CollapsibleContent>
-                    </div>
-                  </Collapsible>
+            {/* Right: Dossier / Professional Highlights */}
+            <motion.div
+              initial={{ x: 30, opacity: 0 }}
+              animate={inView ? { x: 0, opacity: 1 } : {}}
+              transition={{ delay: 1.4 }}
+              className="space-y-8"
+            >
+              <div className="flex items-center justify-between">
+                <h4 className="text-2xl font-black tracking-tight flex items-center gap-3">
+                  <div className="w-2 h-10 bg-secondary rounded-full" />
+                  Career Highlights
+                </h4>
+                <div className="px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-black uppercase tracking-widest">
+                  Undergrad Dossier
                 </div>
               </div>
-            </div>
+
+              <div className="grid sm:grid-cols-2 gap-6">
+                {[
+                  {
+                    id: 'knowledge',
+                    title: 'Tech Stack',
+                    icon: Brain,
+                    color: 'blue',
+                    content: 'C/C++, Python, React, Node.js, Express, Flask, ML (TensorFlow)'
+                  },
+                  {
+                    id: 'upskilling',
+                    title: 'Certifications',
+                    icon: Rocket,
+                    color: 'emerald',
+                    content: 'AWS, Google Cloud, IBM NPTEL, Cisco Networking, Microsoft Learn'
+                  },
+                  {
+                    id: 'interests',
+                    title: 'Passions',
+                    icon: Zap,
+                    color: 'pink',
+                    content: 'AI/ML, Quantum Computing, Digital Art, Community Learning'
+                  },
+                  {
+                    id: 'focus',
+                    title: 'Current Mission',
+                    icon: Compass,
+                    color: 'orange',
+                    content: 'Actively seeking 2026 SDE Internships & Open Source Contribution'
+                  },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 1.6 + (i * 0.1) }}
+                    whileHover={{ y: -5 }}
+                    className="p-8 rounded-[2.5rem] bg-background/40 backdrop-blur-2xl border-2 border-border/50 hover:border-foreground/20 transition-all group cursor-default shadow-xl"
+                  >
+                    <div className={`w-14 h-14 rounded-2xl bg-${item.color}-500/10 flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform`}>
+                      <item.icon className={`w-7 h-7 text-${item.color}-500`} />
+                    </div>
+                    <h5 className="text-lg font-black mb-3">{item.title}</h5>
+                    <p className="text-muted-foreground text-sm font-medium leading-relaxed">
+                      {item.content}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
 
-          {/* Closing quote */}
-          <blockquote className="mt-6 italic text-center text-sm text-foreground/80 tricolor-border-left">
-            "Driven by curiosity, grounded in Indian values, and inspired by global innovation."
-          </blockquote>
-        </div>
+          <motion.blockquote
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ delay: 2 }}
+            className="mt-20 relative p-10 text-center"
+          >
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+            <p className="text-lg md:text-xl font-light italic text-foreground/70 leading-relaxed max-w-4xl mx-auto">
+              "Bridging the gap between theoretical computer science and impactful real-world applications."
+            </p>
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-40 h-1 bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
+          </motion.blockquote>
+        </motion.div>
       </div>
 
 
@@ -375,8 +393,8 @@ const About = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary via-purple-500 to-secondary rounded-3xl blur-2xl opacity-50 animate-pulse" />
               <img
-                src="/Babin.jpeg"
-                alt="Babin Bid - Full Stack Developer"
+                src="/Babin_New.jpeg"
+                alt="Babin Bid"
                 loading="lazy"
                 decoding="async"
                 className="relative rounded-2xl shadow-2xl max-w-full max-h-[80vh] object-contain border-4 border-white/20"
