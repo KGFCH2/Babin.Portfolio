@@ -42,6 +42,23 @@ const SectionTitle = ({ text, segments, className = "" }: SectionTitleProps) => 
 
     const charList = buildCharacterList();
 
+    // Group characters into words to prevent breaking words and enable clean wrapping
+    const words: Array<typeof charList> = [];
+    let currentWord: typeof charList = [];
+    charList.forEach((charObj) => {
+        if (charObj.char.trim() === "") {
+            if (currentWord.length > 0) {
+                words.push(currentWord);
+                currentWord = [];
+            }
+        } else {
+            currentWord.push(charObj);
+        }
+    });
+    if (currentWord.length > 0) {
+        words.push(currentWord);
+    }
+
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -62,20 +79,23 @@ const SectionTitle = ({ text, segments, className = "" }: SectionTitleProps) => 
     }, []);
 
     return (
-        <div ref={containerRef} className="inline-flex flex-wrap gap-0">
-            {charList.map(({ char, className: charClass, index }) => (
-                <span
-                    key={index}
-                    className={`inline-block will-change-transform ${charClass} ${isAnimating ? "animate-wave" : "opacity-0 translate-y-6"
-                        }`}
-                    style={{
-                        animationDelay: isAnimating ? `${index * 45}ms` : "0ms",
-                        animationFillMode: "both",
-                        animationTimingFunction: "cubic-bezier(0.34, 1.56, 0.64, 1)",
-                        display: "inline-block",
-                    }}
-                >
-                    {char === " " ? "\u00A0" : char}
+        <div ref={containerRef} className="flex flex-wrap justify-center items-center gap-x-[0.3em] gap-y-1">
+            {words.map((wordChars, wordIndex) => (
+                <span key={wordIndex} className="inline-flex whitespace-nowrap">
+                    {wordChars.map(({ char, className: charClass, index }) => (
+                        <span
+                            key={index}
+                            className={`inline-block will-change-transform ${charClass} ${isAnimating ? "animate-wave" : "opacity-0 translate-y-6"
+                                }`}
+                            style={{
+                                animationDelay: isAnimating ? `${index * 45}ms` : "0ms",
+                                animationFillMode: "both",
+                                animationTimingFunction: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+                            }}
+                        >
+                            {char}
+                        </span>
+                    ))}
                 </span>
             ))}
         </div>
