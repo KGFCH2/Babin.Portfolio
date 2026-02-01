@@ -54,11 +54,11 @@ const Skills: React.FC = () => {
     const getSkillIcon = (skillName: string) => {
         const iconMap: Record<string, { icon: React.ComponentType<any>; color: string } | { image: string; alt: string }> = {
             // Programming Languages
-            'C': { image: 'https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png', alt: 'C' },
-            'C++': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/330px-ISO_C%2B%2B_Logo.svg.png', alt: 'C++' },
-            'Java': { image: 'https://icon-icons.com/download-file?file=https%3A%2F%2Fimages.icon-icons.com%2F2415%2FPNG%2F512%2Fjava_original_logo_icon_146458.png&id=146458&pack_or_individual=pack', alt: 'Java' },
-            'Python': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/2048px-Python-logo-notext.svg.png', alt: 'Python' },
-            'JavaScript': { image: 'https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png', alt: 'JavaScript' },
+            'C': { icon: SiC, color: '#A8B9CC' },
+            'C++': { icon: SiCplusplus, color: '#00599C' },
+            'Java': { image: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg', alt: 'Java' },
+            'Python': { icon: SiPython, color: '#3776AB' },
+            'JavaScript': { icon: SiJavascript, color: '#F7DF1E' },
 
             // Web Development
             'HTML': { icon: SiHtml5, color: '#E34F26' },
