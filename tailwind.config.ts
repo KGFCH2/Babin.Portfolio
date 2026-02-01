@@ -139,7 +139,19 @@ export default {
         "slide-in-right": "slide-in-right 0.6s ease-out",
         "float": "float 3s ease-in-out infinite",
       },
+      backgroundImage: {
+        'aurora-4': 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)',
+      },
     },
   },
+  safelist: [
+    // Dynamic color classes used in About component
+    'bg-blue-500/10', 'text-blue-500',
+    'bg-emerald-500/10', 'text-emerald-500',
+    'bg-pink-500/10', 'text-pink-500',
+    'bg-orange-500/10', 'text-orange-500',
+    'bg-red-500/10', 'text-red-500',
+    'bg-aurora-4',
+  ],
   plugins: [tailwindcssAnimate],
 } satisfies Config;
