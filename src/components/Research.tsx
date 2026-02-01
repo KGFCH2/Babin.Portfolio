@@ -52,7 +52,7 @@ const Research = () => {
   `;
 
   return (
-    <section id="research" className="py-20 relative section-divider-top">
+    <section id="research" className="py-20 relative section-divider-top scroll-mt-20">
       <StudyBackground />
       <div className="container mx-auto px-4 relative z-10">
         <style>{glowStyles}</style>
