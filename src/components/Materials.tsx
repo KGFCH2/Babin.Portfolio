@@ -10,7 +10,7 @@ const Materials: React.FC = () => {
     });
 
     return (
-        <section id="materials" className="py-20 section-divider-top" ref={ref}>
+        <section id="materials" className="py-20 section-divider-top scroll-mt-20" ref={ref}>
             <StudyBackground />
             <div
                 className={`container mx-auto px-4 ${inView ? "animate-fade-in-up" : "opacity-0"}`}
