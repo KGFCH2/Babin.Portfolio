@@ -221,7 +221,7 @@ const Skills: React.FC = () => {
     });
 
     return (
-        <section id="skills" className="py-20 relative overflow-hidden section-divider-top section-divider-offset-md" ref={ref}>
+        <section id="skills" className="py-20 relative overflow-hidden section-divider-top section-divider-offset-md scroll-mt-20" ref={ref}>
             <StudyBackground />
             <div className={`container mx-auto px-6 relative z-10 ${inView ? "animate-fade-in-up" : "opacity-0"}`}>
                 <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
@@ -301,10 +301,10 @@ const Skills: React.FC = () => {
                                         setActiveSkillId(null);
                                     }
                                 }}
-                                className={`group relative overflow-hidden border border-border/60 bg-card/60 p-6 rounded-lg flex flex-col justify-between hover:shadow-glow transition-transform duration-200 transform hover:-translate-y-1 ${delayClass} min-h-[140px] cursor-pointer`}
+                                className={`group relative overflow-hidden border border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 backdrop-blur-md p-6 rounded-xl flex flex-col justify-between hover:shadow-glow transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.05] ${delayClass} min-h-[140px] cursor-pointer`}
                             >
                                 {/* hover gradient overlay */}
-                                <div className={`absolute inset-0 rounded-lg bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-80 transition-opacity duration-300 pointer-events-none`} />
+                                <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-20 dark:group-hover:opacity-40 transition-opacity duration-300 pointer-events-none`} />
 
                                 <div className="relative z-10">
                                     <div className="flex items-center justify-center mb-4 transition-opacity duration-300 group-hover:opacity-20">
