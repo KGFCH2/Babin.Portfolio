@@ -353,7 +353,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 relative section-divider-top" ref={ref}>
+    <section id="projects" className="py-20 relative section-divider-top scroll-mt-20" ref={ref}>
       <StudyBackground />
       <div className="container mx-auto px-4 relative z-10">
         <div
@@ -447,9 +447,9 @@ const Projects = () => {
                   .map((project, index) => (
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                       <div className="p-2 h-full">
-                        <Card className="relative h-full overflow-hidden border-2 border-violet-300/50 dark:border-border/50 shadow-card hover:shadow-glow transition-smooth group flex flex-col bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-50 dark:from-card dark:via-card dark:to-card backdrop-blur-sm hover:border-violet-400/70 dark:hover:border-primary/50">
-                          {/* Light mode gradient overlay on hover */}
-                          <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-violet-200/30 via-purple-200/20 to-indigo-200/30 opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
+                        <Card className="relative h-full overflow-hidden border border-white/20 dark:border-white/10 shadow-card hover:shadow-glow transition-all duration-300 group flex flex-col bg-white/30 dark:bg-white/5 backdrop-blur-md hover:border-primary/50 hover:scale-[1.02]">
+                          {/* Light mode gradient overlay on hover (subtle) */}
+                          <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-violet-200/10 via-purple-200/5 to-indigo-200/10 opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
                           {project.thumbnail ? (
                             <div className="h-40 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded cursor-pointer" onClick={() => setSelectedImage(project.thumbnail)}>
                               <img
