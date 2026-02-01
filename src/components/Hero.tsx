@@ -1,6 +1,6 @@
 import { TypeAnimation } from "react-type-animation";
 import { Button } from "@/components/ui/button";
-import { Download, Github, Linkedin, Mail, ChevronDown, User, Globe, Compass, Zap, Brain, Users, Cpu, Atom, Microscope, BarChart3, Rocket, Search, Code, Puzzle, Bot, FlaskConical } from "lucide-react";
+import { Download, Github, Linkedin, Mail, ChevronDown, User, Globe, Compass, Zap, Brain, Users, Cpu, Atom, Microscope, BarChart3, Rocket, Search, Code, Puzzle, Bot, FlaskConical, type LucideIcon } from "lucide-react";
 import StudyBackground from "./StudyBackground";
 import { motion } from "framer-motion";
 import { previewThenDownload } from "@/lib/utils";
@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [currentIcon, setCurrentIcon] = useState<any>(Code);
+  const [currentIcon, setCurrentIcon] = useState<LucideIcon>(Code);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
