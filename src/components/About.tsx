@@ -51,7 +51,7 @@ const About = () => {
               animate={inView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ delay: 0.05, duration: 0.4 }}
             >
-              <h2 className="text-xl md:text-6xl font-black mb-3 tracking-tighter">
+              <h2 className="text-3xl md:text-6xl font-black mb-3 tracking-tighter max-w-[280px] mx-auto md:max-w-none">
                 <SectionTitle
                   segments={[
                     {
