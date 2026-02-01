@@ -154,7 +154,7 @@ const Achievements = () => {
                         }`}
                 >
                     <div className="text-center space-y-4">
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-4 max-w-[280px] mx-auto md:max-w-none">
                             <SectionTitle
                                 segments={[
                                     {
@@ -192,7 +192,7 @@ const Achievements = () => {
                     <div className="space-y-16 animate-slide-show">
                         {filteredAchievements.map((category, catIndex) => (
                             <div key={catIndex} className="space-y-6">
-                                <h3 className="text-2xl font-bold text-foreground border-l-4 border-primary pl-4">
+                                <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-green-500 to-green-600 border-l-4 border-primary pl-4 whitespace-normal break-words max-w-full">
                                     {category.category}
                                 </h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
