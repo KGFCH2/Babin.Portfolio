@@ -565,9 +565,9 @@ VITE_API_URL=https://your-api.com
 
 ---
 
-## 🙏 Acknowledgments
+## �️ Acknowledgments
 
-❤️ Special thanks to:
+Strategic Credits:
 - ✨ **React & TypeScript** communities for amazing tools
 - ⚡ **Vite** for blazing-fast build performance
 - 🎨 **Tailwind CSS** for utility-first CSS framework
@@ -583,11 +583,13 @@ VITE_API_URL=https://your-api.com
 </p>
 
 <p align="center">
-Made with ❤️ by <a href="https://github.com/KGFCH2">Babin Bid</a>
+Crafted with Logic & Dedication by <a href="https://github.com/KGFCH2">Babin Bid</a>
 </p>
 
 <p align="center">
 Deploy with confidence • Code with passion • Build with pride
 </p>
+
+<img src="https://capsule-render.vercel.app/render?type=waving&color=gradient&height=100&section=footer" />
 
 ---
