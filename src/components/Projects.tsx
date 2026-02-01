@@ -8,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import type { EmblaPluginType } from "embla-carousel";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -31,7 +32,7 @@ const Projects = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Autoplay plugin will be loaded dynamically to avoid build-time resolution issues on Vercel
-  const [plugins, setPlugins] = useState<any[]>([]);
+  const [plugins, setPlugins] = useState<EmblaPluginType[]>([]);
 
   // Dynamically import the embla autoplay plugin only in the browser/runtime
   useEffect(() => {
