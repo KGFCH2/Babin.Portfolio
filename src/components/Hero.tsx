@@ -45,7 +45,7 @@ const Hero = () => {
             <h2 className="text-xl md:text-2xl text-muted-foreground font-medium" role="status" aria-live="polite">
               Hi, I'm
             </h2>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 max-w-[280px] mx-auto md:max-w-none">
               <SectionTitle
                 text="Babin Bid"
                 className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400"
@@ -76,55 +76,57 @@ const Hero = () => {
                   glowColor="transparent"
                   animationType="bounce"
                 />
-                <TypeAnimation
-                  sequence={[
-                    () => setCurrentIcon(Code),
-                    'Computer Science Engineer',
-                    1600,
-                    () => setCurrentIcon(Globe),
-                    'Learning Web Development',
-                    1500,
-                    () => setCurrentIcon(Compass),
-                    'Mathematics Lover',
-                    1400,
-                    () => setCurrentIcon(Puzzle),
-                    'Problem Solver',
-                    1200,
-                    () => setCurrentIcon(Microscope),
-                    'Research on various aspects',
-                    1500,
-                    () => setCurrentIcon(Zap),
-                    'Tech Enthusiast',
-                    1200,
-                    () => setCurrentIcon(Brain),
-                    'Brainstorming',
-                    1200,
-                    () => setCurrentIcon(Users),
-                    'Radical Collaboration',
-                    1400,
-                    () => setCurrentIcon(Bot),
-                    'Exploring Artificial Intelligence & Machine Learning',
-                    1500,
-                    () => setCurrentIcon(Atom),
-                    'Quantum Computing | Edge Computing',
-                    1700,
-                    () => setCurrentIcon(FlaskConical),
-                    'Gathering knowledge in Quantum Physics',
-                    1400,
-                    () => setCurrentIcon(BarChart3),
-                    'Interested in Data Analysis & Data Science',
-                    1400,
-                    () => setCurrentIcon(Rocket),
-                    'Always Eager to Learn, Collaborate & Innovate',
-                    1600,
-                    () => setCurrentIcon(Search),
-                    'Open to Internships, Projects, Papers & Opportunities',
-                    2200,
-                  ]}
-                  wrapper="span"
-                  speed={50}
-                  repeat={Infinity}
-                />
+                <span className="bg-gradient-to-r from-blue-500 via-green-600 to-red-500 bg-clip-text text-transparent">
+                  <TypeAnimation
+                    sequence={[
+                      () => setCurrentIcon(Code),
+                      'Computer Science Engineer',
+                      1600,
+                      () => setCurrentIcon(Globe),
+                      'Learning Web Development',
+                      1500,
+                      () => setCurrentIcon(Compass),
+                      'Mathematics Lover',
+                      1400,
+                      () => setCurrentIcon(Puzzle),
+                      'Problem Solver',
+                      1200,
+                      () => setCurrentIcon(Microscope),
+                      'Research on various aspects',
+                      1500,
+                      () => setCurrentIcon(Zap),
+                      'Tech Enthusiast',
+                      1200,
+                      () => setCurrentIcon(Brain),
+                      'Brainstorming',
+                      1200,
+                      () => setCurrentIcon(Users),
+                      'Radical Collaboration',
+                      1400,
+                      () => setCurrentIcon(Bot),
+                      'Exploring Artificial Intelligence & Machine Learning',
+                      1500,
+                      () => setCurrentIcon(Atom),
+                      'Quantum Computing | Edge Computing',
+                      1700,
+                      () => setCurrentIcon(FlaskConical),
+                      'Gathering knowledge in Quantum Physics',
+                      1400,
+                      () => setCurrentIcon(BarChart3),
+                      'Interested in Data Analysis & Data Science',
+                      1400,
+                      () => setCurrentIcon(Rocket),
+                      'Always Eager to Learn, Collaborate & Innovate',
+                      1600,
+                      () => setCurrentIcon(Search),
+                      'Open to Internships, Projects, Papers & Opportunities',
+                      2200,
+                    ]}
+                    wrapper="span"
+                    speed={50}
+                    repeat={Infinity}
+                  />
+                </span>
                 <AnimatedIcon
                   Icon={currentIcon}
                   size={32}
