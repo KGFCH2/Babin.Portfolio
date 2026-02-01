@@ -201,7 +201,7 @@ const Achievements = () => {
                                         return (
                                             <Card
                                                 key={index}
-                                                className="overflow-hidden border-border/50 shadow-card hover:shadow-glow transition-smooth group cursor-pointer flex flex-col h-full"
+                                                className="overflow-hidden border border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 backdrop-blur-md shadow-card hover:shadow-glow transition-all duration-300 group cursor-pointer flex flex-col h-full hover:-translate-y-2 hover:scale-[1.02]"
                                                 onClick={() => handleItemClick(item.file)}
                                             >
                                                 <div className="h-48 overflow-hidden bg-muted/10 relative flex items-center justify-center p-4">
