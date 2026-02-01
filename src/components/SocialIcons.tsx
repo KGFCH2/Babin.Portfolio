@@ -46,7 +46,7 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
   }
   .example-2 .icon-content {
     margin: 0 8px;
