@@ -106,13 +106,13 @@ const Contact = () => {
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Location",
-      value: "Howrah, West Bengal, India",
+      value: "Belur, Howrah, West Bengal, India",
       link: "https://maps.app.goo.gl/T1Z1B5ThAnNqgBVc6",
     },
   ];
 
   return (
-    <section id="contact" className="py-12 md:py-20 relative section-divider-top" ref={ref}>
+    <section id="contact" className="py-12 md:py-20 relative section-divider-top scroll-mt-20" ref={ref}>
       <StudyBackground />
       <div className="container mx-auto px-4 relative z-10">
         <div
