@@ -1,4 +1,4 @@
-import { Heart, Star } from "lucide-react";
+import { Terminal, Link as LinkIcon, MessageSquare, Code2, Star } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import StudyBackground from "./StudyBackground";
 import SocialIcons from "./SocialIcons";
@@ -55,7 +55,10 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-6 relative z-10">
             <div className="space-y-4 md:space-y-6 text-center md:text-left">
-              <h3 className="text-xl md:text-2xl font-bold" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>Babin.Portfolio</h3>
+              <h3 className="text-xl md:text-2xl font-bold flex items-center justify-center md:justify-start gap-2" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                <Terminal className="h-5 w-5 md:h-6 md:w-6 text-green-500" />
+                Babin.Portfolio
+              </h3>
               <p className="text-foreground text-base md:text-lg leading-relaxed">
                 B.Tech Student at Adamas University,
                 <br />passionate about <b>Technology</b>
@@ -64,7 +67,10 @@ const Footer = () => {
             </div>
 
             <div className="space-y-4 md:space-y-6 text-center relative z-10">
-              <h3 className="text-xl md:text-2xl font-bold" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}> Quick Links </h3>
+              <h3 className="text-xl md:text-2xl font-bold flex items-center justify-center gap-2" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                <LinkIcon className="h-5 w-5 md:h-6 md:w-6 text-blue-500" />
+                Quick Links
+              </h3>
               <ul className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
                 {[
                   "About",
@@ -92,9 +98,14 @@ const Footer = () => {
             </div>
 
             <div className="space-y-4 md:space-y-6 text-center md:text-right relative z-10">
-              <h3 className="text-xl md:text-2xl font-bold md:-translate-x-4" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>Let's Connect</h3>
-              <div className="flex justify-center md:justify-end mt-16 md:mt-18">
-                <SocialIcons />
+              <h3 className="text-xl md:text-2xl font-bold flex items-center justify-center md:justify-end gap-2" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                <MessageSquare className="h-5 w-5 md:h-6 md:w-6 text-purple-500" />
+                Let's Connect
+              </h3>
+              <div className="flex justify-center md:justify-end mt-6 md:mt-8">
+                <div className="md:translate-x-0">
+                  <SocialIcons />
+                </div>
               </div>
             </div>
           </div>
@@ -107,10 +118,10 @@ const Footer = () => {
               <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 animate-pulse" />
             </p>
 
-            <p className="text-muted-foreground flex items-center justify-center gap-2 text-base">
-              © {currentYear} Made with{" "}
-              <Heart className="h-4 w-4 md:h-5 md:w-5 text-red-500 fill-red-500" /> by Babin
-              Bid
+            <p className="text-muted-foreground flex flex-wrap items-center justify-center gap-2 text-sm md:text-base px-2">
+              <Code2 className="h-4 w-4 text-primary shrink-0" />
+              <span>© {currentYear} Crafted with Logic & Dedication by <b>Babin Bid</b></span>
+              <Code2 className="h-4 w-4 text-primary shrink-0" />
             </p>
           </div>
         </div>
