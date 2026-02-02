@@ -55,9 +55,11 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 mb-6 md:mb-8 relative z-10">
             <div className="space-y-3 md:space-y-6 text-center md:text-left">
-              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-start gap-2" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-start gap-2">
                 <Terminal className="h-6 w-6 text-green-500" />
-                Babin.Portfolio
+                <span style={{ background: 'linear-gradient(to right, #4ade80 10%, #3b82f6 40%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                  Babin.Portfolio
+                </span>
               </h3>
               <p className="text-foreground text-sm md:text-lg leading-relaxed">
                 B.Tech Student at Adamas University,
@@ -67,9 +69,11 @@ const Footer = () => {
             </div>
 
             <div className="space-y-3 md:space-y-6 text-center relative z-10">
-              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center gap-2" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center gap-2">
                 <LinkIcon className="h-6 w-6 text-blue-500" />
-                Quick Links
+                <span style={{ background: 'linear-gradient(to right, #3b82f6 30%, #8b5cf6 60%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                  Quick Links
+                </span>
               </h3>
               <ul className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-4 md:gap-6">
                 {[
@@ -98,9 +102,11 @@ const Footer = () => {
             </div>
 
             <div className="space-y-3 md:space-y-6 text-center md:text-right relative z-10">
-              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-end gap-2" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-end gap-2">
                 <MessageSquare className="h-6 w-6 text-purple-500" />
-                Let's Connect
+                <span style={{ background: 'linear-gradient(to right, #8b5cf6 60%, #ef4444 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                  Let's Connect
+                </span>
               </h3>
               <div className="flex justify-center md:justify-end mt-4 md:mt-8">
                 <div className="md:translate-x-0">
