@@ -51,27 +51,27 @@ const Footer = () => {
   return (
     <footer className="border-t border-border bg-card/50 tricolor-divider-top relative pb-6 md:pb-8">
       <StudyBackground />
-      <div className="container mx-auto px-4 py-8 md:py-12">
+      <div className="container mx-auto px-4 py-6 md:py-12">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-6 relative z-10">
-            <div className="space-y-4 md:space-y-6 text-center md:text-left">
-              <h3 className="text-xl md:text-2xl font-bold flex items-center justify-center md:justify-start gap-2" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-                <Terminal className="h-5 w-5 md:h-6 md:w-6 text-green-500" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 mb-6 md:mb-8 relative z-10">
+            <div className="space-y-3 md:space-y-6 text-center md:text-left">
+              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-start gap-2" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                <Terminal className="h-6 w-6 text-green-500" />
                 Babin.Portfolio
               </h3>
-              <p className="text-foreground text-base md:text-lg leading-relaxed">
+              <p className="text-foreground text-sm md:text-lg leading-relaxed">
                 B.Tech Student at Adamas University,
                 <br />passionate about <b>Technology</b>
                 <br />and <b>Innovation.</b>
               </p>
             </div>
 
-            <div className="space-y-4 md:space-y-6 text-center relative z-10">
-              <h3 className="text-xl md:text-2xl font-bold flex items-center justify-center gap-2" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-                <LinkIcon className="h-5 w-5 md:h-6 md:w-6 text-blue-500" />
+            <div className="space-y-3 md:space-y-6 text-center relative z-10">
+              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center gap-2" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                <LinkIcon className="h-6 w-6 text-blue-500" />
                 Quick Links
               </h3>
-              <ul className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+              <ul className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-4 md:gap-6">
                 {[
                   "About",
                   "Projects",
@@ -97,12 +97,12 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="space-y-4 md:space-y-6 text-center md:text-right relative z-10">
-              <h3 className="text-xl md:text-2xl font-bold flex items-center justify-center md:justify-end gap-2" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-                <MessageSquare className="h-5 w-5 md:h-6 md:w-6 text-purple-500" />
+            <div className="space-y-3 md:space-y-6 text-center md:text-right relative z-10">
+              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-end gap-2" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                <MessageSquare className="h-6 w-6 text-purple-500" />
                 Let's Connect
               </h3>
-              <div className="flex justify-center md:justify-end mt-6 md:mt-8">
+              <div className="flex justify-center md:justify-end mt-4 md:mt-8">
                 <div className="md:translate-x-0">
                   <SocialIcons />
                 </div>
@@ -110,18 +110,21 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="pt-6 md:pt-8 border-t border-border text-center relative z-20">
+          <div className="pt-4 md:pt-8 border-t border-border text-center relative z-20">
             <p className="text-foreground/90 italic text-sm md:text-base mb-3 md:mb-2 px-2 flex items-center justify-center gap-2">
               <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 animate-pulse" />
-              "I don't just write code, I build logic, solve problems, and
-              shape the future — one line at a time."
+              <span style={{ background: 'linear-gradient(to left, #4ade80, #3b82f6)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                "I don't just write code, I build logic, solve problems, and shape the future — one line at a time."
+              </span>
               <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 animate-pulse" />
             </p>
 
             <p className="text-muted-foreground flex flex-wrap items-center justify-center gap-2 text-sm md:text-base px-2">
-              <Code2 className="h-4 w-4 text-primary shrink-0" />
-              <span>© {currentYear} Crafted with Logic & Dedication by <b>Babin Bid</b></span>
-              <Code2 className="h-4 w-4 text-primary shrink-0" />
+              <Code2 className="h-4 w-4 text-green-400 fill-green-500 text-primary shrink-0" />
+              <span className="font-medium" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                © {currentYear} Crafted with Logic & Dedication by <b>Babin Bid</b>
+              </span>
+              <Code2 className="h-4 w-4 text-green-400 fill-green-500 text-primary shrink-0" />
             </p>
           </div>
         </div>
