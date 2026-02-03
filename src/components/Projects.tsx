@@ -61,13 +61,139 @@ const Projects = () => {
   const handleMouseLeave = useCallback(() => setIsHovered(false), []);
 
   // Get gradient classes for tech filter buttons when selected
-  const getTechGradient = (_tech: string) => {
-    return "bg-blue-700 dark:bg-cyan-300 text-white dark:text-gray-900";
+  const getTechGradient = (tech: string) => {
+    const key = tech.toLowerCase();
+    switch (key) {
+      case "python":
+        return "bg-blue-500 text-white";
+      case "react":
+        return "bg-cyan-400 text-white";
+      case "typescript":
+        return "bg-blue-500 text-white";
+      case "tailwind":
+      case "tailwindcss":
+        return "bg-teal-400 text-white";
+      case "streamlit":
+        return "bg-red-500 text-white";
+      case "plotly":
+        return "bg-indigo-400 text-white";
+      case "xgboost":
+        return "bg-green-500 text-white";
+      case "flask":
+        return "bg-gray-600 text-white";
+      case "scikit-learn":
+      case "scikit":
+        return "bg-orange-400 text-white";
+      case "html":
+        return "bg-orange-500 text-white";
+      case "css":
+        return "bg-blue-400 text-white";
+      case "javascript":
+      case "js":
+        return "bg-yellow-400 text-white";
+      case "vite":
+        return "bg-purple-500 text-white";
+      case "ai/ml":
+        return "bg-pink-500 text-white";
+      case "data visualization":
+        return "bg-emerald-400 text-white";
+      case "json":
+        return "bg-slate-500 text-white";
+      case "numpy":
+        return "bg-sky-500 text-white";
+      case "pandas":
+        return "bg-indigo-500 text-white";
+      case "fastapi":
+        return "bg-teal-500 text-white";
+      case "gui":
+        return "bg-violet-500 text-white";
+      case "framer motion":
+        return "bg-fuchsia-500 text-white";
+      case "sqlite":
+        return "bg-blue-400 text-white";
+      case "html5":
+        return "bg-orange-500 text-white";
+      case "css3":
+        return "bg-blue-400 text-white";
+      case "jinja2":
+        return "bg-red-500 text-white";
+      case "groq api (llama)":
+      case "groq":
+        return "bg-purple-600 text-white";
+      case "csv & json datasets":
+      case "csv":
+        return "bg-slate-500 text-white";
+      default:
+        return "bg-primary text-white";
+    }
   };
 
   // Return base + gradient hover classes for badges; hover applies a gradient background
-  const getBadgeClasses = (_tech: string) => {
-    return "bg-blue-700/10 dark:bg-cyan-300/10 text-blue-700 dark:text-cyan-300 border-blue-700/20 dark:border-cyan-300/20 hover:bg-blue-700 dark:hover:bg-cyan-300 hover:text-white dark:hover:text-gray-900 hover:border-transparent transition-all duration-300";
+  const getBadgeClasses = (tech: string) => {
+    const key = tech.toLowerCase();
+    switch (key) {
+      case "python":
+        return "bg-blue-100 dark:bg-blue-50 text-blue-800 border-blue-300 dark:border-blue-200 hover:bg-blue-500 hover:text-white hover:border-transparent";
+      case "react":
+        return "bg-cyan-100 dark:bg-cyan-50 text-cyan-800 border-cyan-300 dark:border-cyan-200 hover:bg-cyan-400 hover:text-white hover:border-transparent";
+      case "typescript":
+        return "bg-blue-100 dark:bg-blue-50 text-blue-800 border-blue-300 dark:border-blue-200 hover:bg-blue-500 hover:text-white hover:border-transparent";
+      case "tailwind":
+      case "tailwindcss":
+        return "bg-teal-100 dark:bg-teal-50 text-teal-800 border-teal-300 dark:border-teal-200 hover:bg-teal-400 hover:text-white hover:border-transparent";
+      case "streamlit":
+        return "bg-red-100 dark:bg-red-50 text-red-800 border-red-300 dark:border-red-200 hover:bg-red-500 hover:text-white hover:border-transparent";
+      case "plotly":
+        return "bg-indigo-100 dark:bg-indigo-50 text-indigo-800 border-indigo-300 dark:border-indigo-200 hover:bg-indigo-400 hover:text-white hover:border-transparent";
+      case "xgboost":
+        return "bg-green-100 dark:bg-green-50 text-green-800 border-green-300 dark:border-green-200 hover:bg-green-500 hover:text-white hover:border-transparent";
+      case "flask":
+        return "bg-gray-100 dark:bg-gray-200 text-gray-800 border-gray-300 dark:border-gray-400 hover:bg-gray-600 hover:text-white hover:border-transparent";
+      case "scikit-learn":
+      case "scikit":
+        return "bg-orange-100 dark:bg-orange-50 text-orange-800 border-orange-300 dark:border-orange-200 hover:bg-orange-400 hover:text-white hover:border-transparent";
+      case "html":
+        return "bg-orange-100 dark:bg-orange-50 text-orange-800 border-orange-300 dark:border-orange-200 hover:bg-orange-500 hover:text-white hover:border-transparent";
+      case "css":
+        return "bg-blue-100 dark:bg-blue-50 text-blue-800 border-blue-300 dark:border-blue-200 hover:bg-blue-400 hover:text-white hover:border-transparent";
+      case "javascript":
+      case "js":
+        return "bg-yellow-100 dark:bg-yellow-50 text-yellow-800 border-yellow-300 dark:border-yellow-200 hover:bg-yellow-400 hover:text-white hover:border-transparent";
+      case "vite":
+        return "bg-purple-100 dark:bg-purple-50 text-purple-800 border-purple-300 dark:border-purple-200 hover:bg-purple-500 hover:text-white hover:border-transparent";
+      case "ai/ml":
+        return "bg-pink-100 dark:bg-pink-50 text-pink-800 border-pink-300 dark:border-pink-200 hover:bg-pink-500 hover:text-white hover:border-transparent";
+      case "data visualization":
+        return "bg-emerald-100 dark:bg-emerald-50 text-emerald-800 border-emerald-300 dark:border-emerald-200 hover:bg-emerald-400 hover:text-white hover:border-transparent";
+      case "json":
+        return "bg-slate-100 dark:bg-slate-200 text-slate-800 border-slate-300 dark:border-slate-400 hover:bg-slate-500 hover:text-white hover:border-transparent";
+      case "numpy":
+        return "bg-sky-100 dark:bg-sky-50 text-sky-800 border-sky-300 dark:border-sky-200 hover:bg-sky-500 hover:text-white hover:border-transparent";
+      case "pandas":
+        return "bg-indigo-100 dark:bg-indigo-50 text-indigo-800 border-indigo-300 dark:border-indigo-200 hover:bg-indigo-500 hover:text-white hover:border-transparent";
+      case "fastapi":
+        return "bg-teal-100 dark:bg-teal-50 text-teal-800 border-teal-300 dark:border-teal-200 hover:bg-teal-500 hover:text-white hover:border-transparent";
+      case "gui":
+        return "bg-violet-100 dark:bg-violet-50 text-violet-800 border-violet-300 dark:border-violet-200 hover:bg-violet-500 hover:text-white hover:border-transparent";
+      case "framer motion":
+        return "bg-fuchsia-100 dark:bg-fuchsia-50 text-fuchsia-800 border-fuchsia-300 dark:border-fuchsia-200 hover:bg-fuchsia-500 hover:text-white hover:border-transparent";
+      case "sqlite":
+        return "bg-blue-100 dark:bg-blue-50 text-blue-800 border-blue-300 dark:border-blue-200 hover:bg-blue-400 hover:text-white hover:border-transparent";
+      case "html5":
+        return "bg-orange-100 dark:bg-orange-50 text-orange-800 border-orange-300 dark:border-orange-200 hover:bg-orange-500 hover:text-white hover:border-transparent";
+      case "css3":
+        return "bg-blue-100 dark:bg-blue-50 text-blue-800 border-blue-300 dark:border-blue-200 hover:bg-blue-400 hover:text-white hover:border-transparent";
+      case "jinja2":
+        return "bg-red-100 dark:bg-red-50 text-red-800 border-red-300 dark:border-red-200 hover:bg-red-500 hover:text-white hover:border-transparent";
+      case "groq api (llama)":
+      case "groq":
+        return "bg-purple-100 dark:bg-purple-50 text-purple-800 border-purple-300 dark:border-purple-200 hover:bg-purple-600 hover:text-white hover:border-transparent";
+      case "csv & json datasets":
+      case "csv":
+        return "bg-slate-100 dark:bg-slate-200 text-slate-800 border-slate-300 dark:border-slate-400 hover:bg-slate-500 hover:text-white hover:border-transparent";
+      default:
+        return "bg-primary/10 text-primary border-primary/20 hover:bg-primary hover:text-white hover:border-transparent";
+    }
   };
 
   const projects = [
