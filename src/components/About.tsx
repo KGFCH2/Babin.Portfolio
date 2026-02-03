@@ -51,7 +51,7 @@ const About = () => {
               animate={inView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ delay: 0.05, duration: 0.4 }}
             >
-              <h2 className="text-3xl md:text-6xl font-black mb-3 tracking-tighter max-w-[280px] mx-auto md:max-w-none">
+              <h2 className="text-3xl md:text-6xl font-black mb-3 tracking-tighter max-w-xs mx-auto md:max-w-none">
                 <SectionTitle
                   segments={[
                     {
@@ -84,7 +84,7 @@ const About = () => {
                   animate={inView ? { opacity: 1 } : {}}
                   transition={{ delay: 0.2 }}
                   whileHover={{
-                    scale: 1.5,
+                    scale: 1.05,
                   }}
                   className="text-xl md:text-2xl font-black tracking-tight cursor-default inline-block"
                 >
@@ -114,9 +114,9 @@ const About = () => {
 
                 <div className="flex gap-3 flex-wrap pt-2">
                   {[
-                    { label: "Software Engineering", color: "", hex: "#10b981", icon: Code },
-                    { label: "Full-Stack Development", color: "", hex: "#1d4ed8", icon: Rocket },
-                    { label: "Machine Learning", color: "", hex: "#8b5cf6", icon: Brain },
+                    { label: "Software Engineering", color: "emerald", hex: "#10b981", icon: Code },
+                    { label: "Full-Stack Development", color: "blue", hex: "#1d4ed8", icon: Rocket },
+                    { label: "Machine Learning", color: "violet", hex: "#8b5cf6", icon: Brain },
                   ].map((tag, idx) => (
                     <motion.span
                       key={idx}
@@ -146,16 +146,16 @@ const About = () => {
                     transition={{ delay: 0.4 }}
                     whileHover={{
                       scale: 1.03,
-                      boxShadow: "0 20px 40px rgba(16, 185, 129, 0.3)",
+                      boxShadow: "0 20px 40px rgba(29, 78, 216, 0.2)",
                       transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="group relative flex-1 px-5 py-3 rounded-xl bg-foreground text-background font-black text-sm transition-all duration-200 flex items-center justify-center gap-2 overflow-hidden shadow-xl"
+                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden bg-transparent"
                     onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
                   >
-                    <div className="absolute inset-0 bg-blue-700 dark:bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                    <span className="relative z-10 flex items-center gap-2">
-                      <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200 text-blue-700 dark:text-cyan-300 group-hover:text-white dark:group-hover:text-black" />
+                    <div className="absolute inset-0 bg-blue-700 dark:bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <span className="relative z-10 flex items-center gap-2 group-hover:text-white dark:group-hover:text-black transition-colors duration-300">
+                      <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200" />
                       View Resume
                     </span>
                   </motion.button>
@@ -166,17 +166,18 @@ const About = () => {
                     whileHover={{
                       scale: 1.05,
                       y: -5,
-                      backgroundColor: "rgba(29, 78, 216, 0.1)",
-                      borderColor: "rgba(29, 78, 216, 0.3)",
                       boxShadow: "0 25px 50px rgba(29, 78, 216, 0.15)",
                       transition: { type: "spring", stiffness: 400, damping: 17 }
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="group flex-1 px-5 py-3 rounded-xl border-2 border-white/20 dark:border-white/10 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-white/40 dark:bg-white/5 backdrop-blur-xl shadow-lg"
+                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-transparent overflow-hidden"
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    <MessageCircle className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200 text-blue-700 dark:text-cyan-300" />
-                    Get in Touch
+                    <div className="absolute inset-0 bg-blue-700 dark:bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <span className="relative z-10 flex items-center gap-2 group-hover:text-white dark:group-hover:text-black transition-colors duration-300">
+                      <MessageCircle className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200" />
+                      Get in Touch
+                    </span>
                   </motion.button>
                 </div>
               </div>
@@ -255,7 +256,7 @@ const About = () => {
                   className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default"
                 >
                   <div className="w-1.5 h-8 bg-blue-700 dark:bg-cyan-300 rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
-                  Core Competencies
+                  Core Knowledges
                 </motion.h4>
                 <div className="flex -space-x-2">
                   {[
@@ -330,8 +331,10 @@ const About = () => {
                   <div className="w-1.5 h-8 bg-blue-700 dark:bg-cyan-300 rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
                   Career Highlights
                 </motion.h4>
-                <div className="px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-black uppercase tracking-widest">
-                  Undergrad Dossier
+                <div className="flex gap-2 p-1 rounded-full bg-secondary/10 border border-secondary/20">
+                  <GraduationCap className="w-5 h-5 text-blue-700 dark:text-cyan-300" />
+                  <Award className="w-5 h-5 text-blue-700 dark:text-cyan-300" />
+                  <BookCopy className="w-5 h-5 text-blue-700 dark:text-cyan-300" />
                 </div>
               </div>
 
