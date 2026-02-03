@@ -143,8 +143,7 @@ const Header = () => {
               }, 150);
             }
           }}
-          className="text-2xl font-bold"
-          style={{ background: 'linear-gradient(to right, #ef4444 30%, #f97316 70%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}
+          className="text-2xl font-bold text-blue-700 dark:text-cyan-300"
         >
           Babin.Portfolio
         </a>
@@ -182,7 +181,7 @@ const Header = () => {
 
           {/* Animated Line Indicator */}
           <div
-            className="absolute bottom-0 h-0.5 bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400 transition-all duration-300 ease-out rounded-full"
+            className="absolute bottom-0 h-0.5 bg-blue-700 dark:bg-cyan-300 transition-all duration-300 ease-out rounded-full"
             style={{
               width: `${lineStyle.width}px`,
               left: `${lineStyle.left}px`,
