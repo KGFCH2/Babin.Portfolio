@@ -10,6 +10,16 @@ All colors MUST be HSL.
 */
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent horizontal scroll issues */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   :root {
     --background: 220 60% 92%;
     --foreground: 240 10% 15%;
@@ -48,7 +58,7 @@ All colors MUST be HSL.
     --gradient-accent: hsl(var(--primary));
     --gradient-dark: hsl(var(--background));
 
-    --shadow-glow: 0 0 25px hsla(262, 83%, 58%, 0.2);
+    --shadow-glow: 0 0 25px hsla(221, 83%, 48%, 0.25);
     --shadow-card: 0 8px 30px hsla(240, 30%, 30%, 0.15);
 
     --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -98,7 +108,7 @@ All colors MUST be HSL.
     --gradient-accent: hsl(var(--primary));
     --gradient-dark: hsl(var(--background));
 
-    --shadow-glow: 0 0 35px hsla(262, 83%, 58%, 0.3);
+    --shadow-glow: 0 0 35px hsla(187, 92%, 69%, 0.35);
     --shadow-card: 0 8px 30px hsla(0, 0%, 0%, 0.4);
 
     --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -215,7 +225,7 @@ All colors MUST be HSL.
     height: 420px;
     left: -80px;
     top: -80px;
-    background: rgba(99, 102, 241, 0.4);
+    background: rgba(29, 78, 216, 0.4);
     animation: blob-move 12s ease-in-out infinite;
   }
 
@@ -224,7 +234,7 @@ All colors MUST be HSL.
     height: 320px;
     right: -70px;
     top: 40px;
-    background: rgba(168, 85, 247, 0.4);
+    background: rgba(103, 232, 249, 0.4);
     animation: blob-move 14s ease-in-out infinite reverse;
   }
 
@@ -233,7 +243,7 @@ All colors MUST be HSL.
     height: 240px;
     left: 40%;
     bottom: -60px;
-    background: rgba(34, 197, 94, 0.4);
+    background: rgba(29, 78, 216, 0.4);
     animation: blob-move 18s ease-in-out infinite;
   }
 
@@ -1021,9 +1031,9 @@ All colors MUST be HSL.
     left: 50%;
     transform: translateX(-50%);
     font-weight: 700;
-    color: #1d4ed8;
+    color: #FFFFFF;
     font-size: clamp(1rem, 2.8vw, 1.25rem);
-    text-shadow: 0 6px 20px rgba(29, 78, 216, 0.22);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
   }
 
   .splash__text {
@@ -1031,21 +1041,21 @@ All colors MUST be HSL.
     top: 74%;
     left: 50%;
     transform: translateX(-50%);
-    color: #1d4ed8;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+    color: #FFFFFF;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Roboto Mono', 'Courier New', monospace;
     letter-spacing: 0.02em;
     text-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
     font-size: 0.92rem;
   }
 
-  /* dark mode splash text colors */
+  /* white loader text in both modes */
   .dark .splash__percent {
-    color: #67e8f9;
-    text-shadow: 0 6px 20px rgba(103, 232, 249, 0.3);
+    color: #FFFFFF;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
   }
 
   .dark .splash__text {
-    color: #67e8f9;
+    color: #FFFFFF;
   }
 
   /* small neon particles that drift — used for the explode transition */
@@ -1246,14 +1256,14 @@ All colors MUST be HSL.
     gap: 0.3rem;
     font-size: 1.1rem;
     font-weight: 600;
-    color: #1d4ed8;
+    color: #FFFFFF;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
     letter-spacing: 0.08em;
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   }
 
   .dark .loader-text {
-    color: #67e8f9;
+    color: #FFFFFF;
   }
 
   .loader-dots {
@@ -1266,14 +1276,14 @@ All colors MUST be HSL.
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #1d4ed8;
+    background: #FFFFFF;
     animation: dot-bounce-new 1.4s infinite;
-    box-shadow: 0 0 8px rgba(29, 78, 216, 0.8);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   }
 
   .dark .loader-dots span {
-    background: #67e8f9;
-    box-shadow: 0 0 8px rgba(103, 232, 249, 0.8);
+    background: #FFFFFF;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   }
 
   .loader-dots span:nth-child(1) {
