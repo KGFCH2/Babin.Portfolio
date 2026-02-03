@@ -14,20 +14,20 @@ const AnimatedIcon: React.FC<AnimatedIconProps> = ({
     Icon,
     size = 24,
     className = '',
-    glowColor = 'rgba(139, 92, 246, 0.6)',
+    glowColor = 'hsl(var(--primary) / 0.6)',
     color,
     animationType = 'bounce',
 }) => {
     const animationClass = {
-        bounce: 'group-hover/icon:animate-bounce',
-        pulse: 'group-hover/icon:animate-pulse',
-        spin: 'group-hover/icon:animate-spin',
-        scale: 'group-hover/icon:scale-125',
+        bounce: 'group-hover/section:animate-bounce group-hover/icon:animate-bounce',
+        pulse: 'group-hover/section:animate-pulse group-hover/icon:animate-pulse',
+        spin: 'group-hover/section:animate-spin group-hover/icon:animate-spin',
+        scale: 'group-hover/section:scale-125 group-hover/icon:scale-125',
     }[animationType];
 
     return (
         <span
-            className={`group/icon inline-block relative transition-all duration-300 ${className}`}
+            className={`group/icon inline-block relative transition-all duration-300 ${className} ${animationClass}`}
             style={{
                 filter: 'drop-shadow(0 0 0 transparent)',
                 color: color || 'inherit'
@@ -35,7 +35,7 @@ const AnimatedIcon: React.FC<AnimatedIconProps> = ({
         >
             {/* Outer glow halo - large blur */}
             <div
-                className="absolute inset-0 rounded-full opacity-0 group-hover/icon:opacity-80 blur-2xl transition-all duration-300 -z-20 pointer-events-none"
+                className="absolute inset-0 rounded-full opacity-0 group-hover/section:opacity-80 group-hover/icon:opacity-80 blur-2xl transition-all duration-300 -z-20 pointer-events-none"
                 style={{
                     backgroundColor: glowColor,
                     transform: 'scale(2)',
@@ -44,7 +44,7 @@ const AnimatedIcon: React.FC<AnimatedIconProps> = ({
 
             {/* Middle glow - medium blur */}
             <div
-                className="absolute inset-0 rounded-full opacity-0 group-hover/icon:opacity-60 blur-xl transition-all duration-300 -z-10 pointer-events-none"
+                className="absolute inset-0 rounded-full opacity-0 group-hover/section:opacity-60 group-hover/icon:opacity-60 blur-xl transition-all duration-300 -z-10 pointer-events-none"
                 style={{
                     backgroundColor: glowColor,
                     transform: 'scale(1.5)',
@@ -53,7 +53,7 @@ const AnimatedIcon: React.FC<AnimatedIconProps> = ({
 
             {/* Close glow - small blur */}
             <div
-                className="absolute inset-0 rounded-full opacity-0 group-hover/icon:opacity-40 blur-md transition-all duration-300 -z-10 pointer-events-none"
+                className="absolute inset-0 rounded-full opacity-0 group-hover/section:opacity-40 group-hover/icon:opacity-40 blur-md transition-all duration-300 -z-10 pointer-events-none"
                 style={{
                     backgroundColor: glowColor,
                     transform: 'scale(1.1)',
