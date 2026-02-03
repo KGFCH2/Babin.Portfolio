@@ -180,7 +180,7 @@ const Achievements = () => {
                                 key={filter}
                                 onClick={() => setActiveFilter(filter)}
                                 className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 text-sm md:text-base ${activeFilter === filter
-                                    ? 'bg-blue-600 text-white shadow-lg scale-105'
+                                    ? 'bg-blue-700 dark:bg-cyan-300 text-white dark:text-black shadow-lg scale-105 font-black'
                                     : 'bg-muted/50 text-foreground hover:bg-muted border border-border/50 hover:border-primary/20'
                                     }`}
                             >
@@ -295,7 +295,7 @@ const Achievements = () => {
                         </button>
                         <button
                             onClick={closeLightbox}
-                            className="p-2 bg-blue-700/80 dark:bg-cyan-300/80 rounded-full text-white dark:text-gray-900 hover:bg-blue-700 dark:hover:bg-cyan-300 transition-all duration-300 ml-2 backdrop-blur-md hover:scale-110 hover:rotate-90"
+                            className="p-2 bg-blue-700/80 dark:bg-cyan-300/80 rounded-full text-white dark:text-black hover:bg-blue-700 dark:hover:bg-cyan-300 transition-all duration-300 ml-2 backdrop-blur-md hover:scale-110 hover:rotate-90"
                             title="Close"
                         >
                             <X className="h-6 w-6" />
