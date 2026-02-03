@@ -31,21 +31,21 @@ const Research = () => {
   const glowStyles = `
     .highlight-box-0::after {
       content: ""; position: absolute; inset: -6px; border-radius: 12px;
-      background: radial-gradient(closest-side, rgba(59,130,246,0.18), transparent 50%);
+      background: rgba(59,130,246,0.1);
       filter: blur(12px); opacity: 0; transition: opacity .25s ease-in-out; pointer-events: none;
     }
     .highlight-box-0:hover::after { opacity: 1; }
 
     .highlight-box-1::after {
       content: ""; position: absolute; inset: -6px; border-radius: 12px;
-      background: radial-gradient(closest-side, rgba(168,85,247,0.16), transparent 50%);
+      background: rgba(168,85,247,0.1);
       filter: blur(12px); opacity: 0; transition: opacity .25s ease-in-out; pointer-events: none;
     }
     .highlight-box-1:hover::after { opacity: 1; }
 
     .highlight-box-2::after {
       content: ""; position: absolute; inset: -6px; border-radius: 12px;
-      background: radial-gradient(closest-side, rgba(34,197,94,0.14), transparent 50%);
+      background: rgba(34,197,94,0.1);
       filter: blur(12px); opacity: 0; transition: opacity .25s ease-in-out; pointer-events: none;
     }
     .highlight-box-2:hover::after { opacity: 1; }
@@ -68,11 +68,11 @@ const Research = () => {
               segments={[
                 {
                   text: "Research",
-                  className: "text-blue-600 dark:text-blue-400",
+                  className: "text-blue-700 dark:text-cyan-300",
                 },
                 {
                   text: " Publications",
-                  className: "text-indigo-700 dark:text-indigo-300",
+                  className: "text-blue-700 dark:text-cyan-300",
                 },
               ]}
             />
@@ -153,7 +153,7 @@ const Research = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.08, duration: 0.45 }}
-                        className={`relative group rounded-xl p-5 text-center bg-gradient-to-br from-white/3 to-white/5 backdrop-blur-sm border border-white/5 transition-all duration-300 hover:scale-105 highlight-box-${index}`}
+                        className={`relative group rounded-xl p-5 text-center bg-white/5 backdrop-blur-sm border border-white/5 transition-all duration-300 hover:scale-105 highlight-box-${index}`}
                       >
                         <div className="mx-auto mb-3">
                           <Icon className="text-primary transform transition-transform duration-200 ease-out group-hover:scale-125" size={28} />
@@ -165,7 +165,7 @@ const Research = () => {
                   })}
                 </div>
 
-                <Card className="bg-gradient-to-br from-primary/5 to-accent/5 p-6">
+                <Card className="bg-primary/5 p-6">
                   <h4 className="font-bold text-lg mb-3 flex items-center gap-2">
                     <AnimatedIcon Icon={Wrench} size={20} glowColor="rgba(59, 130, 246, 0.6)" animationType="bounce" />
                     Tech Stack
@@ -174,12 +174,12 @@ const Research = () => {
                     {(() => {
                       const defaultClass = 'px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium transition transform';
                       const techClasses: Record<string, string> = {
-                        Python: defaultClass + ' hover:scale-105 hover:text-white hover:bg-gradient-to-r hover:from-yellow-400 hover:to-orange-500',
-                        Pandas: defaultClass + ' hover:scale-105 hover:text-white hover:bg-gradient-to-r hover:from-green-400 hover:to-blue-500',
-                        'NumPy': defaultClass + ' hover:scale-105 hover:text-white hover:bg-gradient-to-r hover:from-indigo-400 hover:to-sky-500',
-                        Matplotlib: defaultClass + ' hover:scale-105 hover:text-white hover:bg-gradient-to-r hover:from-red-400 hover:to-pink-500',
-                        Seaborn: defaultClass + ' hover:scale-105 hover:text-white hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500',
-                        'Scikit-Learn': defaultClass + ' hover:scale-105 hover:text-white hover:bg-gradient-to-r hover:from-purple-400 hover:to-violet-500',
+                        Python: defaultClass + ' hover:scale-105 hover:text-white hover:bg-yellow-400',
+                        Pandas: defaultClass + ' hover:scale-105 hover:text-white hover:bg-green-400',
+                        'NumPy': defaultClass + ' hover:scale-105 hover:text-white hover:bg-indigo-400',
+                        Matplotlib: defaultClass + ' hover:scale-105 hover:text-white hover:bg-red-400',
+                        Seaborn: defaultClass + ' hover:scale-105 hover:text-white hover:bg-emerald-400',
+                        'Scikit-Learn': defaultClass + ' hover:scale-105 hover:text-white hover:bg-purple-400',
                       };
 
                       return ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Scikit-Learn'].map((tech) => (
@@ -191,7 +191,7 @@ const Research = () => {
                   </div>
                 </Card>
 
-                <Card className="bg-gradient-to-br from-accent/5 to-secondary/5 p-6">
+                <Card className="bg-accent/5 p-6">
                   <h4 className="font-bold text-lg mb-3 flex items-center gap-2">
                     <AnimatedIcon Icon={Leaf} size={20} glowColor="rgba(16, 185, 129, 0.6)" animationType="pulse" />
                     Seasonal Coverage
