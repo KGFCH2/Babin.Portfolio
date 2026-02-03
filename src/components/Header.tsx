@@ -144,7 +144,7 @@ const Header = () => {
             }
           }}
           className="text-2xl font-bold"
-          style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}
+          style={{ background: 'linear-gradient(to right, #ef4444 30%, #f97316 70%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}
         >
           Babin.Portfolio
         </a>
