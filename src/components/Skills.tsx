@@ -198,18 +198,18 @@ const Skills: React.FC = () => {
 
     const getCategorySolid = (category: string) => {
         const map: Record<string, string> = {
-            Programming: 'bg-blue-700 dark:bg-cyan-300',
-            Web: 'bg-blue-700 dark:bg-cyan-300',
-            Backend: 'bg-blue-700 dark:bg-cyan-300',
-            Database: 'bg-blue-700 dark:bg-cyan-300',
-            'Data Science': 'bg-blue-700 dark:bg-cyan-300',
-            ML: 'bg-blue-700 dark:bg-cyan-300',
-            Deployment: 'bg-blue-700 dark:bg-cyan-300',
-            Tools: 'bg-blue-700 dark:bg-cyan-300',
-            Design: 'bg-blue-700 dark:bg-cyan-300',
-            Platforms: 'bg-blue-700 dark:bg-cyan-300',
+            Programming: 'bg-red-600',
+            Web: 'bg-blue-600',
+            Backend: 'bg-indigo-600',
+            Database: 'bg-emerald-600',
+            'Data Science': 'bg-blue-600',
+            ML: 'bg-pink-600',
+            Deployment: 'bg-amber-600',
+            Tools: 'bg-slate-600',
+            Design: 'bg-rose-600',
+            Platforms: 'bg-violet-600',
         };
-        return map[category] || 'bg-blue-700 dark:bg-cyan-300';
+        return map[category] || 'bg-blue-600';
     };
 
     const allCategories = Array.from(new Set(skills.map(s => s.category)));
@@ -253,8 +253,8 @@ const Skills: React.FC = () => {
                         <button
                             onClick={() => setSelectedCategory(null)}
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === null
-                                ? 'bg-blue-700 dark:bg-cyan-300 text-white dark:text-gray-900 shadow-lg'
-                                : 'bg-muted text-foreground hover:bg-muted/80'
+                                ? 'bg-primary text-primary-foreground shadow-lg'
+                                : 'bg-muted text-muted-foreground hover:bg-muted/80'
                                 }`}
                         >
                             All Skills
@@ -265,7 +265,7 @@ const Skills: React.FC = () => {
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === category
                                     ? `${getCategorySolid(category)} text-white shadow-lg`
-                                    : 'bg-muted text-foreground hover:bg-muted/80'
+                                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
                                     }`}
                             >
                                 {category}
