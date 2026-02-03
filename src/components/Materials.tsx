@@ -21,11 +21,11 @@ const Materials: React.FC = () => {
                             segments={[
                                 {
                                     text: "My",
-                                    className: "text-blue-600 dark:text-blue-400",
+                                    className: "text-blue-700 dark:text-cyan-300",
                                 },
                                 {
                                     text: " Materials",
-                                    className: "text-indigo-700 dark:text-indigo-300",
+                                    className: "text-blue-700 dark:text-cyan-300",
                                 },
                             ]}
                         />
