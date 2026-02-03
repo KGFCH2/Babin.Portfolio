@@ -159,11 +159,11 @@ const Achievements = () => {
                                 segments={[
                                     {
                                         text: "My",
-                                        className: "text-blue-600 dark:text-blue-400",
+                                        className: "text-blue-700 dark:text-cyan-300",
                                     },
                                     {
                                         text: " Achievements",
-                                        className: "text-indigo-700 dark:text-indigo-300",
+                                        className: "text-blue-700 dark:text-cyan-300",
                                     },
                                 ]}
                             />
@@ -180,7 +180,7 @@ const Achievements = () => {
                                 key={filter}
                                 onClick={() => setActiveFilter(filter)}
                                 className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 text-sm md:text-base ${activeFilter === filter
-                                    ? 'bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-lg scale-105'
+                                    ? 'bg-blue-600 text-white shadow-lg scale-105'
                                     : 'bg-muted/50 text-foreground hover:bg-muted border border-border/50 hover:border-primary/20'
                                     }`}
                             >
@@ -192,7 +192,7 @@ const Achievements = () => {
                     <div className="space-y-16 animate-slide-show">
                         {filteredAchievements.map((category, catIndex) => (
                             <div key={catIndex} className="space-y-6">
-                                <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-green-500 to-green-600 border-l-4 border-primary pl-4 whitespace-normal break-words max-w-full">
+                                <h3 className="text-2xl font-bold text-blue-700 dark:text-cyan-300 border-l-4 border-primary pl-4 whitespace-normal break-words max-w-full">
                                     {category.category}
                                 </h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -295,7 +295,7 @@ const Achievements = () => {
                         </button>
                         <button
                             onClick={closeLightbox}
-                            className="p-2 bg-red-500/80 rounded-full text-white hover:bg-red-600 transition-all duration-300 ml-2 backdrop-blur-md hover:scale-110 hover:rotate-90"
+                            className="p-2 bg-blue-700/80 dark:bg-cyan-300/80 rounded-full text-white dark:text-gray-900 hover:bg-blue-700 dark:hover:bg-cyan-300 transition-all duration-300 ml-2 backdrop-blur-md hover:scale-110 hover:rotate-90"
                             title="Close"
                         >
                             <X className="h-6 w-6" />
