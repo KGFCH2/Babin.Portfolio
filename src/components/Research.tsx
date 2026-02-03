@@ -68,11 +68,11 @@ const Research = () => {
               segments={[
                 {
                   text: "Research",
-                  className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600",
+                  className: "text-blue-600 dark:text-blue-400",
                 },
                 {
                   text: " Publications",
-                  className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400",
+                  className: "text-indigo-700 dark:text-indigo-300",
                 },
               ]}
             />
