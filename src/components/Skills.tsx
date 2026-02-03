@@ -54,10 +54,10 @@ const Skills: React.FC = () => {
     const getSkillIcon = (skillName: string) => {
         const iconMap: Record<string, { icon: React.ComponentType<any>; color: string } | { image: string; alt: string }> = {
             // Programming Languages
-            'C': { icon: SiC, color: '#A8B9CC' },
+            'C': { image: 'https://icon.icepanel.io/Technology/svg/C.svg', alt: 'C' },
             'C++': { icon: SiCplusplus, color: '#00599C' },
             'Java': { image: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg', alt: 'Java' },
-            'Python': { icon: SiPython, color: '#3776AB' },
+            'Python': { image: 'https://icon.icepanel.io/Technology/svg/Python.svg', alt: 'Python' },
             'JavaScript': { icon: SiJavascript, color: '#F7DF1E' },
 
             // Web Development
@@ -196,20 +196,36 @@ const Skills: React.FC = () => {
 
     ];
 
+    const getCategorySolid = (category: string) => {
+        const map: Record<string, string> = {
+            Programming: 'bg-red-600',
+            Web: 'bg-blue-600',
+            Backend: 'bg-indigo-600',
+            Database: 'bg-emerald-600',
+            'Data Science': 'bg-orange-600',
+            ML: 'bg-pink-600',
+            Deployment: 'bg-amber-600',
+            Tools: 'bg-slate-600',
+            Design: 'bg-rose-600',
+            Platforms: 'bg-violet-600',
+        };
+        return map[category] || 'bg-blue-600';
+    };
+
     const getCategoryGradient = (category: string) => {
         const map: Record<string, string> = {
-            Programming: 'from-red-400 to-indigo-500',
-            Web: 'from-yellow-300 to-red-600',
-            Backend: 'from-red-500 to-green-400',
-            Database: 'from-red-500 to-yellow-500',
-            'Data Science': 'from-orange-600 to-indigo-500',
-            ML: 'from-pink-500 to-violet-600',
-            Deployment: 'from-yellow-600 to-red-500',
-            Tools: 'from-gray-700 to-slate-500',
-            Design: 'from-rose-400 to-fuchsia-500',
-            Platforms: 'from-indigo-400 to-emerald-600',
+            Programming: 'from-red-500 to-red-700',
+            Web: 'from-blue-500 to-blue-700',
+            Backend: 'from-indigo-500 to-indigo-700',
+            Database: 'from-emerald-500 to-emerald-700',
+            'Data Science': 'from-orange-500 to-orange-700',
+            ML: 'from-pink-500 to-pink-700',
+            Deployment: 'from-amber-500 to-amber-700',
+            Tools: 'from-slate-500 to-slate-700',
+            Design: 'from-rose-500 to-rose-700',
+            Platforms: 'from-violet-500 to-violet-700',
         };
-        return map[category] || 'from-primary to-secondary';
+        return map[category] || 'from-blue-500 to-blue-700';
     };
 
     const allCategories = Array.from(new Set(skills.map(s => s.category)));
@@ -229,11 +245,11 @@ const Skills: React.FC = () => {
                         segments={[
                             {
                                 text: "Technical",
-                                className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400",
+                                className: "text-blue-600 dark:text-blue-400",
                             },
                             {
                                 text: " Skills",
-                                className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600",
+                                className: "text-indigo-700 dark:text-indigo-300",
                             },
                         ]}
                     />
@@ -253,7 +269,7 @@ const Skills: React.FC = () => {
                         <button
                             onClick={() => setSelectedCategory(null)}
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === null
-                                ? 'bg-gradient-to-r from-primary to-violet-500 text-white shadow-lg'
+                                ? 'bg-blue-600 text-white shadow-lg'
                                 : 'bg-muted text-foreground hover:bg-muted/80'
                                 }`}
                         >
@@ -264,7 +280,7 @@ const Skills: React.FC = () => {
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === category
-                                    ? `bg-gradient-to-r ${getCategoryGradient(category)} text-white shadow-lg`
+                                    ? `${getCategorySolid(category)} text-white shadow-lg`
                                     : 'bg-muted text-foreground hover:bg-muted/80'
                                     }`}
                             >
@@ -279,7 +295,7 @@ const Skills: React.FC = () => {
 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                     {filteredSkills.length > 0 ? filteredSkills.map((skill, index) => {
-                        const gradient = getCategoryGradient(skill.category);
+                        const colorClass = getCategorySolid(skill.category);
                         const delayClass = `anim-delay-${Math.min(500, Math.round(index * 50))}`;
 
                         return (
@@ -303,8 +319,8 @@ const Skills: React.FC = () => {
                                 }}
                                 className={`group relative overflow-hidden border border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 backdrop-blur-md p-6 rounded-xl flex flex-col justify-between hover:shadow-glow transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.05] ${delayClass} min-h-[140px] cursor-pointer`}
                             >
-                                {/* hover gradient overlay */}
-                                <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-20 dark:group-hover:opacity-40 transition-opacity duration-300 pointer-events-none`} />
+                                {/* hover color overlay */}
+                                <div className={`absolute inset-0 rounded-xl ${colorClass} opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-300 pointer-events-none`} />
 
                                 <div className="relative z-10">
                                     <div className="flex items-center justify-center mb-4 transition-opacity duration-300 group-hover:opacity-20">
@@ -325,7 +341,7 @@ const Skills: React.FC = () => {
                                 </div>
 
                                 <div className="mt-4 flex items-center justify-end relative z-10">
-                                    <span className={`inline-block text-xs font-medium px-2 py-1 rounded-full text-white bg-gradient-to-br ${gradient}`}>
+                                    <span className={`inline-block text-xs font-medium px-2 py-1 rounded-full text-white ${colorClass}`}>
                                         {skill.category}
                                     </span>
                                 </div>
