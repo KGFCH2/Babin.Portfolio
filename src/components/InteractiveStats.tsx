@@ -141,15 +141,14 @@ const StatCard: React.FC<StatCardProps> = ({ stat, index, totalCount, isVisible 
                 transition: `transform 800ms cubic-bezier(.25,.8,.25,1) ${transitionDelay}ms, opacity 600ms ease ${transitionDelay}ms`,
             }}
         >
-            <div className="absolute inset-0 bg-primary/20 rounded-lg blur-lg opacity-0 group-hover/section:opacity-100 transition-opacity" />
             <div className="relative p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors h-40 flex flex-col justify-between">
                 <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                        <div className="text-3xl md:text-4xl font-bold text-primary transition-all duration-300 group-hover/section:drop-shadow-[0_0_8px_hsl(var(--primary))]">
+                        <div className="text-3xl md:text-4xl font-bold text-primary transition-all duration-300">
                             {count}
                             {stat.suffix && <span className="text-2xl">{stat.suffix}</span>}
                         </div>
-                        <AnimatedIcon Icon={stat.Icon} size={32} glowColor={stat.glowColor} animationType="bounce" />
+                        <AnimatedIcon Icon={stat.Icon} size={32} glowColor="transparent" animationType="bounce" />
                     </div>
                     <div>
                         <p className="text-sm font-semibold text-foreground group-hover/section:text-primary transition-colors duration-300">{stat.label}</p>
