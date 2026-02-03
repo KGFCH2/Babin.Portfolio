@@ -114,9 +114,9 @@ const About = () => {
 
                 <div className="flex gap-3 flex-wrap pt-2">
                   {[
-                    { label: "Software Engineering", hex: "#10b981", icon: Code },
-                    { label: "Full-Stack Development", hex: "#1d4ed8", icon: Rocket },
-                    { label: "Machine Learning", hex: "#8b5cf6", icon: Brain },
+                    { label: "Software Engineering", color: "", hex: "#10b981", icon: Code },
+                    { label: "Full-Stack Development", color: "", hex: "#1d4ed8", icon: Rocket },
+                    { label: "Machine Learning", color: "", hex: "#8b5cf6", icon: Brain },
                   ].map((tag, idx) => (
                     <motion.span
                       key={idx}
