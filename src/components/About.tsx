@@ -34,8 +34,8 @@ const About = () => {
 
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-16 w-72 h-72 bg-orange-500/10 rounded-full blur-[80px] animate-pulse" />
-        <div className="absolute bottom-1/4 -right-16 w-72 h-72 bg-blue-500/10 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/4 -left-16 w-72 h-72 bg-blue-700/10 dark:bg-cyan-300/10 rounded-full blur-[80px] animate-pulse" />
+        <div className="absolute bottom-1/4 -right-16 w-72 h-72 bg-blue-700/10 dark:bg-cyan-300/10 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -56,11 +56,11 @@ const About = () => {
                   segments={[
                     {
                       text: "About",
-                      className: "text-blue-600 dark:text-blue-400",
+                      className: "text-blue-700 dark:text-cyan-300",
                     },
                     {
                       text: " Me",
-                      className: "text-indigo-700 dark:text-indigo-300",
+                      className: "text-blue-700 dark:text-cyan-300",
                     },
                   ]}
                 />
@@ -88,7 +88,7 @@ const About = () => {
                   }}
                   className="text-xl md:text-2xl font-black tracking-tight cursor-default inline-block"
                 >
-                  <span className="font-bold bg-gradient-to-r from-red-600 via-blue-600 to-green-600 bg-clip-text text-transparent">
+                  <span className="font-bold text-blue-700 dark:text-cyan-300">
                     Babin Bid
                   </span>
                 </motion.h3>
@@ -99,7 +99,7 @@ const About = () => {
                   transition={{ delay: 0.25 }}
                   className="text-sm text-muted-foreground flex items-center gap-3 font-medium group/edu cursor-default"
                 >
-                  <GraduationCap className="w-5 h-5 text-blue-500 group-hover/edu:scale-125 group-hover/edu:rotate-12 transition-all duration-300" />
+                  <GraduationCap className="w-5 h-5 text-blue-700 dark:text-cyan-300 group-hover/edu:scale-125 group-hover/edu:rotate-12 transition-all duration-300" />
                   B.Tech In CSE • Adamas University, Kolkata
                 </motion.p>
 
@@ -114,9 +114,9 @@ const About = () => {
 
                 <div className="flex gap-3 flex-wrap pt-2">
                   {[
-                    { label: "Software Engineering", color: "emerald", hex: "#10b981", icon: Code },
-                    { label: "Full-Stack Development", color: "blue", hex: "#3b82f6", icon: Rocket },
-                    { label: "Machine Learning", color: "purple", hex: "#8b5cf6", icon: Brain }
+                    { label: "Software Engineering", hex: "#10b981", icon: Code },
+                    { label: "Full-Stack Development", hex: "#1d4ed8", icon: Rocket },
+                    { label: "Machine Learning", hex: "#8b5cf6", icon: Brain },
                   ].map((tag, idx) => (
                     <motion.span
                       key={idx}
@@ -153,9 +153,9 @@ const About = () => {
                     className="group relative flex-1 px-5 py-3 rounded-xl bg-foreground text-background font-black text-sm transition-all duration-200 flex items-center justify-center gap-2 overflow-hidden shadow-xl"
                     onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                    <div className="absolute inset-0 bg-blue-700 dark:bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                     <span className="relative z-10 flex items-center gap-2">
-                      <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200 text-emerald-400 group-hover:text-white" />
+                      <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200 text-blue-700 dark:text-cyan-300 group-hover:text-white dark:group-hover:text-gray-900" />
                       View Resume
                     </span>
                   </motion.button>
@@ -166,16 +166,16 @@ const About = () => {
                     whileHover={{
                       scale: 1.05,
                       y: -5,
-                      backgroundColor: "rgba(59, 130, 246, 0.1)",
-                      borderColor: "rgba(59, 130, 246, 0.5)",
-                      boxShadow: "0 25px 50px rgba(59, 130, 246, 0.2)",
+                      backgroundColor: "rgba(29, 78, 216, 0.1)",
+                      borderColor: "rgba(29, 78, 216, 0.3)",
+                      boxShadow: "0 25px 50px rgba(29, 78, 216, 0.15)",
                       transition: { type: "spring", stiffness: 400, damping: 17 }
                     }}
                     whileTap={{ scale: 0.98 }}
                     className="group flex-1 px-5 py-3 rounded-xl border-2 border-white/20 dark:border-white/10 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-white/40 dark:bg-white/5 backdrop-blur-xl shadow-lg"
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    <MessageCircle className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200 text-blue-500" />
+                    <MessageCircle className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200 text-blue-700 dark:text-cyan-300" />
                     Get in Touch
                   </motion.button>
                 </div>
@@ -191,7 +191,7 @@ const About = () => {
                 className="group relative"
               >
                 {/* Decorative background aura */}
-                <div className="absolute -inset-6 bg-gradient-to-tr from-orange-500/20 via-primary/10 to-blue-500/20 rounded-full opacity-30 group-hover:opacity-50 blur-[60px] transition duration-500" />
+                <div className="absolute -inset-6 bg-blue-700/10 dark:bg-cyan-300/10 rounded-full opacity-30 group-hover:opacity-50 blur-[60px] transition duration-500" />
 
                 <div className="relative">
                   <motion.div
@@ -254,14 +254,14 @@ const About = () => {
                   whileHover={{ x: 5, textShadow: "0 0 15px rgba(59, 130, 246, 0.3)" }}
                   className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default"
                 >
-                  <div className="w-1.5 h-8 bg-blue-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+                  <div className="w-1.5 h-8 bg-blue-700 dark:bg-cyan-300 rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
                   Core Competencies
                 </motion.h4>
                 <div className="flex -space-x-2">
                   {[
-                    { icon: Code, color: "text-blue-500" },
-                    { icon: Brain, color: "text-purple-500" },
-                    { icon: Rocket, color: "text-emerald-500" }
+                    { icon: Code, color: "text-blue-700 dark:text-cyan-300" },
+                    { icon: Brain, color: "text-blue-700 dark:text-cyan-300" },
+                    { icon: Rocket, color: "text-blue-700 dark:text-cyan-300" }
                   ].map((item, i) => (
                     <div key={i} className="w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center shadow-md">
                       <item.icon className={`w-3 h-3 ${item.color}`} />
@@ -272,11 +272,11 @@ const About = () => {
 
               <div className="grid gap-3">
                 {[
-                  { name: 'Mathematics & Calculus', val: 95, icon: BookA, color: 'orange', styles: { bg: 'bg-orange-600', text: 'text-orange-600', light: 'bg-orange-600/10' } },
-                  { name: 'Switching Circuits', val: 95, icon: CircuitBoard, color: 'blue', styles: { bg: 'bg-blue-500', text: 'text-blue-500', light: 'bg-blue-500/10' } },
-                  { name: 'Frontend Development', val: 92, icon: Cog, color: 'purple', styles: { bg: 'bg-purple-500', text: 'text-purple-500', light: 'bg-purple-500/10' } },
-                  { name: 'Data Structures & Algorithms', val: 88, icon: Brain, color: 'emerald', styles: { bg: 'bg-emerald-500', text: 'text-emerald-500', light: 'bg-emerald-500/10' } },
-                  { name: 'Python Programming', val: 85, icon: Code, color: 'amber', styles: { bg: 'bg-amber-500', text: 'text-amber-500', light: 'bg-amber-500/10' } },
+                  { name: 'Mathematics & Calculus', val: 95, icon: BookA, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-cyan-300', text: 'text-blue-700 dark:text-cyan-300', light: 'bg-blue-700/10 dark:bg-cyan-300/10' } },
+                  { name: 'Switching Circuits', val: 95, icon: CircuitBoard, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-cyan-300', text: 'text-blue-700 dark:text-cyan-300', light: 'bg-blue-700/10 dark:bg-cyan-300/10' } },
+                  { name: 'Frontend Development', val: 92, icon: Cog, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-cyan-300', text: 'text-blue-700 dark:text-cyan-300', light: 'bg-blue-700/10 dark:bg-cyan-300/10' } },
+                  { name: 'Data Structures & Algorithms', val: 88, icon: Brain, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-cyan-300', text: 'text-blue-700 dark:text-cyan-300', light: 'bg-blue-700/10 dark:bg-cyan-300/10' } },
+                  { name: 'Python Programming', val: 85, icon: Code, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-cyan-300', text: 'text-blue-700 dark:text-cyan-300', light: 'bg-blue-700/10 dark:bg-cyan-300/10' } },
                 ].map((skill, i) => (
                   <motion.div
                     key={skill.name}
@@ -324,10 +324,10 @@ const About = () => {
             >
               <div className="flex items-center justify-between">
                 <motion.h4
-                  whileHover={{ x: 5, textShadow: "0 0 15px rgba(139, 92, 246, 0.3)" }}
+                  whileHover={{ x: 5, textShadow: "0 0 15px rgba(29, 78, 216, 0.3)" }}
                   className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default"
                 >
-                  <div className="w-1.5 h-8 bg-purple-500 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.5)]" />
+                  <div className="w-1.5 h-8 bg-blue-700 dark:bg-cyan-300 rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
                   Career Highlights
                 </motion.h4>
                 <div className="px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-black uppercase tracking-widest">
@@ -380,8 +380,8 @@ const About = () => {
                     }}
                     className="p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 hover:border-primary/20 transition-all duration-300 group cursor-default shadow-lg"
                   >
-                    <div className={`w-8 h-8 rounded-xl bg-${item.color}-500/10 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:rotate-[360deg] transition-all duration-500`}>
-                      <item.icon className={`w-4 h-4 text-${item.color}-500`} />
+                    <div className="w-8 h-8 rounded-xl bg-blue-700/10 dark:bg-cyan-300/10 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:rotate-[360deg] transition-all duration-500">
+                      <item.icon className="w-4 h-4 text-blue-700 dark:text-cyan-300" />
                     </div>
                     <h5 className="text-base font-black mb-1 group-hover:text-primary transition-colors duration-200">{item.title}</h5>
                     <p className="text-muted-foreground text-xs font-medium leading-relaxed group-hover:text-foreground transition-colors duration-200">
@@ -399,12 +399,12 @@ const About = () => {
             transition={{ delay: 0.4 }}
             className="mt-6 relative p-6 text-center group/quote"
           >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-primary/40" />
             <Quote className="w-6 h-6 text-primary/20 absolute top-2 left-1/2 -translate-x-1/2 -z-10 group-hover/quote:text-primary/40 group-hover/quote:scale-110 transition-all duration-500" />
-            <p className="text-sm md:text-base font-bold italic leading-relaxed max-w-3xl mx-auto relative z-10" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+            <p className="text-sm md:text-base font-bold italic leading-relaxed max-w-3xl mx-auto relative z-10 text-primary">
               "Bridging the gap between theoretical computer science and impactful real-world applications."
             </p>
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-transparent via-secondary/40 to-transparent" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-secondary/40" />
           </motion.blockquote>
         </motion.div>
       </div>
@@ -427,7 +427,7 @@ const About = () => {
 
             {/* Image with glow effect */}
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary via-purple-500 to-secondary rounded-3xl blur-2xl opacity-50 animate-pulse" />
+              <div className="absolute -inset-4 bg-primary rounded-3xl blur-2xl opacity-50 animate-pulse" />
               <img
                 src="/Babin_New.jpeg"
                 alt="Babin Bid"
