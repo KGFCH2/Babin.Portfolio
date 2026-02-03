@@ -30,8 +30,8 @@ const ThemeToggle = () => {
       onClick={handleToggle}
       className={`relative w-12 h-12 rounded-full overflow-hidden transition-all duration-500 ease-out group
         ${isDark
-          ? 'bg-gradient-to-br from-slate-800 via-indigo-950 to-purple-900 shadow-lg shadow-purple-800/70'
-          : 'bg-gradient-to-br from-yellow-300 via-yellow-300 to-orange-400 shadow-lg shadow-red-400/80'}
+          ? 'bg-slate-800 shadow-lg shadow-purple-800/70'
+          : 'bg-yellow-300 shadow-lg shadow-red-400/80'}
         hover:scale-110 hover:rotate-12 hover:rotate-y-12 hover:-rotate-x-6
         hover:shadow-2xl hover:shadow-purple-500/80 dark:hover:shadow-purple-500/50
         transform-gpu perspective-1000
@@ -94,8 +94,8 @@ const ThemeToggle = () => {
       {/* Inner glow effect */}
       <div className={`absolute inset-0 rounded-full transition-opacity duration-300
         ${isDark
-          ? 'bg-gradient-to-t from-purple-500/20 to-transparent'
-          : 'bg-gradient-to-t from-red-500/20 to-transparent'}`}
+          ? 'bg-purple-500/10'
+          : 'bg-red-500/10'}`}
       />
 
       <style>{`
