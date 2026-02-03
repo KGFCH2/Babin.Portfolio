@@ -140,17 +140,14 @@ export default {
         "float": "float 3s ease-in-out infinite",
       },
       backgroundImage: {
-        'aurora-4': 'linear-gradient(to right, #4ade80, #3b82f6, #8b5cf6, #ef4444)',
+        'aurora-4': '#1d4ed8',
       },
     },
   },
   safelist: [
     // Dynamic color classes used in About component
-    'bg-blue-500/10', 'text-blue-500',
-    'bg-emerald-500/10', 'text-emerald-500',
-    'bg-pink-500/10', 'text-pink-500',
-    'bg-orange-500/10', 'text-orange-500',
-    'bg-red-500/10', 'text-red-500',
+    'bg-blue-700/10', 'text-blue-700',
+    'bg-cyan-300/10', 'text-cyan-300',
     'bg-aurora-4',
   ],
   plugins: [tailwindcssAnimate],
