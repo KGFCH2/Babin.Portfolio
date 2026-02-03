@@ -48,8 +48,8 @@ const Hero = () => {
             <h1 className="text-3xl md:text-5xl font-bold mb-4 max-w-[280px] mx-auto md:max-w-none">
               <SectionTitle
                 segments={[
-                  { text: "Babin", className: "text-red-600 dark:text-cyan-400" },
-                  { text: " Bid", className: "text-blue-600 dark:text-blue-400" },
+                  { text: "Babin", className: "text-blue-700 dark:text-cyan-300" },
+                  { text: " Bid", className: "text-blue-700 dark:text-cyan-300" },
                 ]}
               />
             </h1>
@@ -58,27 +58,11 @@ const Hero = () => {
                 <AnimatedIcon
                   Icon={currentIcon}
                   size={32}
-                  color={
-                    currentIcon === Code ? "#3b82f6" : // blue-500
-                      currentIcon === Globe ? "#2563eb" : // blue-600
-                        currentIcon === Compass ? "#f97316" : // orange-500
-                          currentIcon === Puzzle ? "#a855f7" : // purple-500
-                            currentIcon === Microscope ? "#ec4899" : // pink-500
-                              currentIcon === Zap ? "#eab308" : // yellow-500
-                                currentIcon === Brain ? "#fb923c" : // orange-400
-                                  currentIcon === Users ? "#3b82f6" : // blue-500
-                                    currentIcon === Bot ? "#8b5cf6" : // violet-500
-                                      currentIcon === Atom ? "#06b6d4" : // cyan-500
-                                        currentIcon === FlaskConical ? "#f43f5e" : // rose-500
-                                          currentIcon === BarChart3 ? "#14b8a6" : // teal-500
-                                            currentIcon === Rocket ? "#f97316" : // orange-500
-                                              currentIcon === Search ? "#60a5fa" : // blue-400
-                                                "#3b82f6"
-                  }
+                  className="text-blue-700 dark:text-cyan-300"
                   glowColor="transparent"
                   animationType="bounce"
                 />
-                <span className="text-blue-500">
+                <span className="text-blue-700 dark:text-cyan-300">
                   <TypeAnimation
                     sequence={[
                       () => setCurrentIcon(Code),
@@ -132,24 +116,7 @@ const Hero = () => {
                 <AnimatedIcon
                   Icon={currentIcon}
                   size={32}
-                  className="scale-x-[-1]"
-                  color={
-                    currentIcon === Code ? "#3b82f6" : // blue-500
-                      currentIcon === Globe ? "#22c55e" : // green-500
-                        currentIcon === Compass ? "#f97316" : // orange-500
-                          currentIcon === Puzzle ? "#a855f7" : // purple-500
-                            currentIcon === Microscope ? "#ec4899" : // pink-500
-                              currentIcon === Zap ? "#eab308" : // yellow-500
-                                currentIcon === Brain ? "#fb923c" : // orange-400
-                                  currentIcon === Users ? "#10b981" : // emerald-500
-                                    currentIcon === Bot ? "#8b5cf6" : // violet-500
-                                      currentIcon === Atom ? "#06b6d4" : // cyan-500
-                                        currentIcon === FlaskConical ? "#f43f5e" : // rose-500
-                                          currentIcon === BarChart3 ? "#14b8a6" : // teal-500
-                                            currentIcon === Rocket ? "#f97316" : // orange-500
-                                              currentIcon === Search ? "#60a5fa" : // blue-400
-                                                "#3b82f6"
-                  }
+                  className="scale-x-[-1] text-blue-700 dark:text-cyan-300"
                   glowColor="transparent"
                   animationType="bounce"
                 />
@@ -215,13 +182,13 @@ const Hero = () => {
               title="LinkedIn"
               className="relative group p-3 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95"
             >
-              {/* Blue background box on hover - dark mode */}
-              <div className="absolute inset-0 bg-blue-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
-              <div className="absolute inset-0 bg-blue-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:block hidden" />
-              {/* Blue background box on hover - light mode */}
-              <div className="absolute inset-0 bg-blue-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
-              <div className="absolute inset-0 bg-blue-300/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
-              <Linkedin className="h-6 w-6 text-foreground/60 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors relative z-10" />
+              {/* Blue background box on hover - dark mode (using primary which is cyan) */}
+              <div className="absolute inset-0 bg-primary/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
+              <div className="absolute inset-0 bg-primary/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:block hidden" />
+              {/* Blue background box on hover - light mode (using primary which is blue-700) */}
+              <div className="absolute inset-0 bg-primary/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+              <div className="absolute inset-0 bg-primary/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+              <Linkedin className="h-6 w-6 text-foreground/60 group-hover:text-blue-700 dark:group-hover:text-cyan-300 transition-colors relative z-10" />
             </a>
             <a
               href="mailto:babin.bid@stu.adamasuniversity.ac.in"
