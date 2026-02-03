@@ -56,8 +56,8 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 mb-6 md:mb-8 relative z-10">
             <div className="space-y-3 md:space-y-6 text-center md:text-left">
               <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-start gap-2">
-                <Terminal className="h-6 w-6 text-green-500" />
-                <span style={{ background: 'linear-gradient(to right, #4ade80 10%, #3b82f6 40%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                <Terminal className="h-6 w-6 text-orange-600" />
+                <span style={{ background: 'linear-gradient(to left, #ef4444 10%, #f97316 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
                   Babin.Portfolio
                 </span>
               </h3>
@@ -70,8 +70,8 @@ const Footer = () => {
 
             <div className="space-y-3 md:space-y-6 text-center relative z-10">
               <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center gap-2">
-                <LinkIcon className="h-6 w-6 text-blue-500" />
-                <span style={{ background: 'linear-gradient(to right, #3b82f6 30%, #8b5cf6 60%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                <LinkIcon className="h-6 w-6 text-orange-600" />
+                <span style={{ background: 'linear-gradient(to right, #ef4444 30%, #f97316 60%, #ef4444 80%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
                   Quick Links
                 </span>
               </h3>
@@ -103,8 +103,8 @@ const Footer = () => {
 
             <div className="space-y-3 md:space-y-6 text-center md:text-right relative z-10">
               <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-end gap-2">
-                <MessageSquare className="h-6 w-6 text-purple-500" />
-                <span style={{ background: 'linear-gradient(to right, #8b5cf6 60%, #ef4444 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                <MessageSquare className="h-6 w-6 text-orange-600" />
+                <span style={{ background: 'linear-gradient(to right, #ef4444 10%, #f97316 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
                   Let's Connect
                 </span>
               </h3>
@@ -119,15 +119,15 @@ const Footer = () => {
           <div className="pt-4 md:pt-8 border-t border-border text-center relative z-20">
             <p className="text-foreground/90 italic text-sm md:text-base mb-3 md:mb-2 px-2 flex items-center justify-center gap-2">
               <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 animate-pulse" />
-              <span style={{ background: 'linear-gradient(to left, #4ade80, #3b82f6)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-                "I don't just write code, I build logic, solve problems, and shape the future — one line at a time."
+              <span style={{ background: 'linear-gradient(to left, #ef4444 30%, #f97316 60%, #ef4444 80%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+                <b>"I don't just write code, I build logic, solve problems, and shape the future — one line at a time."</b>
               </span>
               <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 animate-pulse" />
             </p>
 
             <p className="text-muted-foreground flex flex-wrap items-center justify-center gap-2 text-sm md:text-base px-2">
               <Code2 className="h-4 w-4 text-green-400 fill-green-500 text-primary shrink-0" />
-              <span className="font-medium" style={{ background: 'linear-gradient(to right, #4ade80, #3b82f6)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+              <span className="font-medium" style={{ background: 'linear-gradient(to left, #ef4444 30%, #f97316 60%, #ef4444 80%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
                 © {currentYear} Crafted with Logic & Dedication by <b>Babin Bid</b>
               </span>
               <Code2 className="h-4 w-4 text-green-400 fill-green-500 text-primary shrink-0" />
