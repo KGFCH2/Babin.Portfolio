@@ -67,7 +67,7 @@ const Projects = () => {
       case "python":
         return "bg-blue-500 text-white";
       case "react":
-        return "bg-cyan-400 text-white";
+        return "bg-cyan-400 text-black";
       case "typescript":
         return "bg-blue-500 text-white";
       case "tailwind":
@@ -556,13 +556,13 @@ const Projects = () => {
 
       {/* Full-size image modal */}
       <Dialog open={!!selectedImage} onOpenChange={(open) => !open && setSelectedImage(null)}>
-        <DialogContent className="max-w-4xl w-full h-auto max-h-[90vh] flex items-center justify-center p-0 bg-black/80 border-0">
+        <DialogContent className="max-w-4xl w-full h-auto max-h-[90vh] flex items-center justify-center p-0 bg-black/95 border-0 overflow-visible [&>button]:text-white [&>button]:opacity-100 [&>button]:bg-white/10 [&>button]:rounded-full [&>button]:p-1">
           {selectedImage && (
-            <div className="relative w-full h-full flex items-center justify-center">
+            <div className="relative w-full h-full flex items-center justify-center p-4">
               <img
                 src={encodeURI(selectedImage)}
                 alt="Full size project thumbnail"
-                className="max-w-full max-h-[85vh] object-contain rounded-lg"
+                className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
               />
             </div>
           )}
