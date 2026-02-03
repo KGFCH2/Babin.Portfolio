@@ -125,15 +125,15 @@ const Contact = () => {
                 segments={[
                   {
                     text: "Get",
-                    className: "text-indigo-700 dark:text-indigo-300",
+                    className: "text-blue-700 dark:text-cyan-300",
                   },
                   {
                     text: " In",
-                    className: "text-blue-600 dark:text-blue-400",
+                    className: "text-blue-700 dark:text-cyan-300",
                   },
                   {
                     text: " Touch",
-                    className: "text-indigo-700 dark:text-indigo-300",
+                    className: "text-blue-700 dark:text-cyan-300",
                   },
                 ]}
               />
