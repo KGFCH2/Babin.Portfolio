@@ -264,7 +264,7 @@ const Skills: React.FC = () => {
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === category
-                                    ? `${getCategorySolid(category)} text-white shadow-lg`
+                                    ? `${getCategorySolid(category)} ${category === 'Web Development' ? 'text-black' : 'text-white'} shadow-lg`
                                     : 'bg-muted text-muted-foreground hover:bg-muted/80'
                                     }`}
                             >
