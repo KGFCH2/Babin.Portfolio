@@ -26,7 +26,7 @@ const InteractiveStats: React.FC = () => {
             suffix: '+',
             description: 'Full-stack applications and ML systems',
             Icon: Code2,
-            glowColor: 'rgba(59, 130, 246, 0.6)'
+            glowColor: 'rgba(29, 78, 216, 0.6)'
         },
         {
             label: 'Technologies',
@@ -34,7 +34,7 @@ const InteractiveStats: React.FC = () => {
             suffix: '+',
             description: 'Languages, frameworks, and tools',
             Icon: Zap,
-            glowColor: 'rgba(249, 115, 22, 0.6)'
+            glowColor: 'rgba(103, 232, 249, 0.6)'
         },
         {
             label: 'Experience',
@@ -42,7 +42,7 @@ const InteractiveStats: React.FC = () => {
             suffix: '+',
             description: 'Years in web and software development',
             Icon: Clock,
-            glowColor: 'rgba(168, 85, 247, 0.6)'
+            glowColor: 'rgba(29, 78, 216, 0.6)'
         },
         {
             label: 'Code Commits',
@@ -50,7 +50,7 @@ const InteractiveStats: React.FC = () => {
             suffix: '+',
             description: 'Across multiple repositories',
             Icon: GitBranch,
-            glowColor: 'rgba(16, 185, 129, 0.6)'
+            glowColor: 'rgba(103, 232, 249, 0.6)'
         }
     ];
 
@@ -141,7 +141,7 @@ const StatCard: React.FC<StatCardProps> = ({ stat, index, totalCount, isVisible 
                 transition: `transform 800ms cubic-bezier(.25,.8,.25,1) ${transitionDelay}ms, opacity 600ms ease ${transitionDelay}ms`,
             }}
         >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 bg-primary/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors h-40 flex flex-col justify-between">
                 <div className="space-y-3">
                     <div className="flex items-center justify-between">
@@ -156,7 +156,7 @@ const StatCard: React.FC<StatCardProps> = ({ stat, index, totalCount, isVisible 
                         <p className="text-xs text-muted-foreground mt-1">{stat.description}</p>
                     </div>
                 </div>
-                <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primary/0 via-primary to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
         </div>
     );
