@@ -23,7 +23,7 @@ const ImageSkeleton: React.FC<ImageSkeletonProps> = ({
 
     return (
         <div
-            className={`${width} ${height} ${roundedClasses[rounded]} bg-gradient-to-r from-muted via-muted/50 to-muted animate-pulse ${className}`}
+            className={`${width} ${height} ${roundedClasses[rounded]} bg-muted/50 animate-pulse ${className}`}
             aria-busy="true"
             aria-label="Loading image"
         />
