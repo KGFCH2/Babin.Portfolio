@@ -367,11 +367,11 @@ const Projects = () => {
                 segments={[
                   {
                     text: "My",
-                    className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600",
+                    className: "text-blue-600 dark:text-blue-400",
                   },
                   {
                     text: " Projects",
-                    className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400",
+                    className: "text-indigo-700 dark:text-indigo-300",
                   },
                 ]}
               />
@@ -448,7 +448,7 @@ const Projects = () => {
                   .map((project, index) => (
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                       <div className="p-2 h-full">
-                        <Card className="relative h-full overflow-hidden border border-white/20 dark:border-white/10 shadow-card hover:shadow-glow transition-all duration-300 group flex flex-col bg-white/30 dark:bg-white/5 backdrop-blur-md hover:border-primary/50 hover:scale-[1.02]">
+                        <Card className="relative h-full overflow-hidden border border-white/20 dark:border-white/10 shadow-card hover:shadow-glow transition-all duration-300 group flex flex-col bg-white/30 dark:bg-white/5 backdrop-blur-md hover:border-primary/30 hover:scale-[1.02]">
                           {/* Light mode gradient overlay on hover (subtle) */}
                           <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-violet-200/10 via-purple-200/5 to-indigo-200/10 opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
                           {project.thumbnail ? (
