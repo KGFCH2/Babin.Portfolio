@@ -65,6 +65,7 @@ export const achievementsData: AchievementCategory[] = [
             { title: "Gen AI Exchange Hackathon", file: "/Achievements/Hack2Skill/Gen_AI_Exchange_Hackathon.png" },
             { title: "TechSprint Hackathon 2025 On Campus OIST", file: "/Achievements/Hack2Skill/Babin_Bid_Certificate_TechSprint_2025.png" },
             { title: "TechSprint Leveraging the power of AI Hackathon", file: "/Achievements/Hack2Skill/TechSprint_AI_Hackathon_2026_(Babin_Bid).jpg" },
+            { title: "SuperHack 2025", file: "/Achievements/Hack2Skill/SuperHack_2025.png" },
         ]
     },
     {
