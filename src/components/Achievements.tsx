@@ -159,11 +159,11 @@ const Achievements = () => {
                                 segments={[
                                     {
                                         text: "My",
-                                        className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600",
+                                        className: "text-blue-600 dark:text-blue-400",
                                     },
                                     {
                                         text: " Achievements",
-                                        className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400",
+                                        className: "text-indigo-700 dark:text-indigo-300",
                                     },
                                 ]}
                             />
@@ -181,7 +181,7 @@ const Achievements = () => {
                                 onClick={() => setActiveFilter(filter)}
                                 className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 text-sm md:text-base ${activeFilter === filter
                                     ? 'bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-lg scale-105'
-                                    : 'bg-muted/50 text-foreground hover:bg-muted border border-border/50 hover:border-primary/50'
+                                    : 'bg-muted/50 text-foreground hover:bg-muted border border-border/50 hover:border-primary/20'
                                     }`}
                             >
                                 {filter}
