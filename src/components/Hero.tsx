@@ -90,10 +90,10 @@ const Hero = () => {
                       'Radical Collaboration',
                       1400,
                       () => setCurrentIcon(Bot),
-                      'Exploring Artificial Intelligence & Machine Learning',
+                      'Exploring AI & Machine Learning',
                       1500,
                       () => setCurrentIcon(Atom),
-                      'Quantum Computing | Edge Computing',
+                      'Quantum & Edge Computing',
                       1700,
                       () => setCurrentIcon(FlaskConical),
                       'Gathering knowledge in Quantum Physics',
@@ -112,110 +112,110 @@ const Hero = () => {
                     speed={50}
                     repeat={Infinity}
                   />
-                </span>
-                <AnimatedIcon
-                  Icon={currentIcon}
-                  size={32}
-                  className="scale-x-[-1] text-blue-700 dark:text-cyan-300"
-                  glowColor="transparent"
-                  animationType="bounce"
-                />
               </div>
+              <AnimatedIcon
+                Icon={currentIcon}
+                size={32}
+                className="scale-x-[-1] text-blue-700 dark:text-cyan-300"
+                glowColor="transparent"
+                animationType="bounce"
+              />
             </div>
           </div>
+      </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            B.Tech 3rd Year Student at Adamas University, Kolkata, India. Passionate
-            about building innovative solutions and contributing to cutting-edge
-            research.
-          </p>
+      <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        B.Tech 3rd Year Student at Adamas University, Kolkata, India. Passionate
+        about building innovative solutions and contributing to cutting-edge
+        research.
+      </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center flex-wrap">
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
-              <Button
-                size="lg"
-                className="gradient-primary text-primary-foreground shadow-glow transition-all duration-300 active:scale-95 w-full sm:w-auto"
-                onClick={handleDownloadResume}
-                aria-label="Download Babin Bid Resume"
-              >
-                <Download className="mr-2 h-5 w-5" />
-                Resume
-              </Button>
-            </motion.div>
+      <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center flex-wrap">
+        <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+          <Button
+            size="lg"
+            className="gradient-primary text-primary-foreground shadow-glow transition-all duration-300 active:scale-95 w-full sm:w-auto"
+            onClick={handleDownloadResume}
+            aria-label="Download Babin Bid Resume"
+          >
+            <Download className="mr-2 h-5 w-5" />
+            Resume
+          </Button>
+        </motion.div>
 
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary/50 hover:bg-primary/10 transition-all duration-300 active:scale-95 w-full sm:w-auto"
-                onClick={() => scrollToSection('contact')}
-                aria-label="Navigate to contact section"
-              >
-                <Mail className="mr-2 h-5 w-5" />
-                Contact
-              </Button>
-            </motion.div>
-          </div>
-
-          <div className="flex items-center justify-center gap-4 pt-8 flex-wrap">
-            <a
-              href="https://github.com/KGFCH2"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit GitHub profile"
-              title="GitHub"
-              className="relative group p-3 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95"
-            >
-              {/* Grey background box on hover - dark mode */}
-              <div className="absolute inset-0 bg-gray-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
-              <div className="absolute inset-0 bg-gray-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:block hidden" />
-              {/* Grey background box on hover - light mode */}
-              <div className="absolute inset-0 bg-gray-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
-              <div className="absolute inset-0 bg-gray-300/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
-              <Github className="h-6 w-6 text-foreground/60 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors relative z-10" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/babin-bid-853728293"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit LinkedIn profile"
-              title="LinkedIn"
-              className="relative group p-3 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95"
-            >
-              {/* Blue background box on hover - dark mode (using primary which is cyan) */}
-              <div className="absolute inset-0 bg-primary/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
-              <div className="absolute inset-0 bg-primary/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:block hidden" />
-              {/* Blue background box on hover - light mode (using primary which is blue-700) */}
-              <div className="absolute inset-0 bg-primary/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
-              <div className="absolute inset-0 bg-primary/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
-              <Linkedin className="h-6 w-6 text-foreground/60 group-hover:text-blue-700 dark:group-hover:text-cyan-300 transition-colors relative z-10" />
-            </a>
-            <a
-              href="mailto:babin.bid@stu.adamasuniversity.ac.in"
-              aria-label="Send email"
-              title="Email"
-              className="relative group p-3 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95"
-            >
-              {/* Red background box on hover - dark mode */}
-              <div className="absolute inset-0 bg-red-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
-              <div className="absolute inset-0 bg-red-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:block hidden" />
-              {/* Red background box on hover - light mode */}
-              <div className="absolute inset-0 bg-red-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
-              <div className="absolute inset-0 bg-red-300/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
-              <Mail className="h-6 w-6 text-foreground/60 group-hover:text-red-700 dark:group-hover:text-red-300 transition-colors relative z-10" />
-            </a>
-          </div>
-
-          {/* Interactive scroll indicator */}
-          <div className="pt-6 animate-bounce cursor-pointer" onClick={() => scrollToSection('about')}>
-            <div className="text-center">
-              <p className="text-sm text-muted-foreground mb-2">Explore More</p>
-              <ChevronDown className="h-6 w-6 text-primary mx-auto" />
-            </div>
-          </div>
+        <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-primary/50 hover:bg-primary/10 transition-all duration-300 active:scale-95 w-full sm:w-auto"
+            onClick={() => scrollToSection('contact')}
+            aria-label="Navigate to contact section"
+          >
+            <Mail className="mr-2 h-5 w-5" />
+            Contact
+          </Button>
         </motion.div>
       </div>
-    </section>
+
+      <div className="flex items-center justify-center gap-4 pt-8 flex-wrap">
+        <a
+          href="https://github.com/KGFCH2"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit GitHub profile"
+          title="GitHub"
+          className="relative group p-3 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95"
+        >
+          {/* Grey background box on hover - dark mode */}
+          <div className="absolute inset-0 bg-gray-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
+          <div className="absolute inset-0 bg-gray-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:block hidden" />
+          {/* Grey background box on hover - light mode */}
+          <div className="absolute inset-0 bg-gray-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+          <div className="absolute inset-0 bg-gray-300/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+          <Github className="h-6 w-6 text-foreground/60 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors relative z-10" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/babin-bid-853728293"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit LinkedIn profile"
+          title="LinkedIn"
+          className="relative group p-3 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95"
+        >
+          {/* Blue background box on hover - dark mode (using primary which is cyan) */}
+          <div className="absolute inset-0 bg-primary/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
+          <div className="absolute inset-0 bg-primary/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:block hidden" />
+          {/* Blue background box on hover - light mode (using primary which is blue-700) */}
+          <div className="absolute inset-0 bg-primary/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+          <div className="absolute inset-0 bg-primary/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+          <Linkedin className="h-6 w-6 text-foreground/60 group-hover:text-blue-700 dark:group-hover:text-cyan-300 transition-colors relative z-10" />
+        </a>
+        <a
+          href="mailto:babin.bid@stu.adamasuniversity.ac.in"
+          aria-label="Send email"
+          title="Email"
+          className="relative group p-3 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95"
+        >
+          {/* Red background box on hover - dark mode */}
+          <div className="absolute inset-0 bg-red-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl dark:block hidden" />
+          <div className="absolute inset-0 bg-red-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:block hidden" />
+          {/* Red background box on hover - light mode */}
+          <div className="absolute inset-0 bg-red-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+          <div className="absolute inset-0 bg-red-300/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
+          <Mail className="h-6 w-6 text-foreground/60 group-hover:text-red-700 dark:group-hover:text-red-300 transition-colors relative z-10" />
+        </a>
+      </div>
+
+      {/* Interactive scroll indicator */}
+      <div className="pt-6 animate-bounce cursor-pointer" onClick={() => scrollToSection('about')}>
+        <div className="text-center">
+          <p className="text-sm text-muted-foreground mb-2">Explore More</p>
+          <ChevronDown className="h-6 w-6 text-primary mx-auto" />
+        </div>
+      </div>
+    </motion.div>
+      </div >
+    </section >
   );
 };
 
