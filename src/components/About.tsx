@@ -56,11 +56,11 @@ const About = () => {
                   segments={[
                     {
                       text: "About",
-                      className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400",
+                      className: "text-blue-600 dark:text-blue-400",
                     },
                     {
                       text: " Me",
-                      className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-600 to-violet-600",
+                      className: "text-indigo-700 dark:text-indigo-300",
                     },
                   ]}
                 />
@@ -378,7 +378,7 @@ const About = () => {
                       borderColor: "rgba(255, 255, 255, 0.3)",
                       transition: { type: "spring", stiffness: 400, damping: 17 }
                     }}
-                    className="p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 hover:border-primary/30 transition-all duration-300 group cursor-default shadow-lg"
+                    className="p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 hover:border-primary/20 transition-all duration-300 group cursor-default shadow-lg"
                   >
                     <div className={`w-8 h-8 rounded-xl bg-${item.color}-500/10 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:rotate-[360deg] transition-all duration-500`}>
                       <item.icon className={`w-4 h-4 text-${item.color}-500`} />
