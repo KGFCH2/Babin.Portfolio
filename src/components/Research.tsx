@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Award, Users, TrendingUp, X, Wrench, Leaf } from 'lucide-react';
+import { FileText, Award, Users, TrendingUp, X, Wrench, Leaf, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import SectionTitle from "./SectionTitle";
@@ -27,29 +27,8 @@ const Research = () => {
     },
   ];
 
-  // glow styles for highlight boxes (multi-color per index)
-  const glowStyles = `
-    .highlight-box-0::after {
-      content: ""; position: absolute; inset: -6px; border-radius: 12px;
-      background: hsl(var(--primary) / 0.1);
-      filter: blur(12px); opacity: 0; transition: opacity .25s ease-in-out; pointer-events: none;
-    }
-    .highlight-box-0:hover::after { opacity: 1; }
-
-    .highlight-box-1::after {
-      content: ""; position: absolute; inset: -6px; border-radius: 12px;
-      background: hsl(var(--primary) / 0.1);
-      filter: blur(12px); opacity: 0; transition: opacity .25s ease-in-out; pointer-events: none;
-    }
-    .highlight-box-1:hover::after { opacity: 1; }
-
-    .highlight-box-2::after {
-      content: ""; position: absolute; inset: -6px; border-radius: 12px;
-      background: hsl(var(--primary) / 0.1);
-      filter: blur(12px); opacity: 0; transition: opacity .25s ease-in-out; pointer-events: none;
-    }
-    .highlight-box-2:hover::after { opacity: 1; }
-  `;
+  // glow styles removed for Task 5
+  const glowStyles = ``;
 
   return (
     <section id="research" className="py-20 relative section-divider-top scroll-mt-20">
@@ -88,7 +67,7 @@ const Research = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <Card className="glass p-8 lg:p-12 hover:tricolor-glow transition-all">
+          <Card className="glass p-8 lg:p-12 transition-all">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary">
@@ -130,8 +109,8 @@ const Research = () => {
                 </div>
 
                 <div className="flex gap-4 pt-4">
-                  <Button size="lg" className="btn-hero text-white" onClick={() => setShowPaper(true)}>
-                    <FileText className="mr-2" size={20} />
+                  <Button size="lg" className="btn-hero bg-blue-700 dark:bg-cyan-300 text-white dark:text-black hover:opacity-90" onClick={() => setShowPaper(true)}>
+                    <FileText className="mr-2 text-white dark:text-black" size={20} />
                     View Paper
                   </Button>
                   <Button size="lg" variant="outline" asChild>
@@ -153,10 +132,10 @@ const Research = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.08, duration: 0.45 }}
-                        className={`group/section relative rounded-xl p-5 text-center bg-white/5 backdrop-blur-sm border border-white/5 transition-all duration-300 hover:scale-105 highlight-box-${index}`}
+                        className={`group/section relative rounded-xl p-5 text-center bg-white/5 backdrop-blur-sm border border-white/5 transition-all duration-300`}
                       >
                         <div className="mx-auto mb-3">
-                          <Icon className="text-primary transform transition-transform duration-200 ease-out group-hover/section:scale-125" size={28} />
+                          <Icon className="text-primary transform transition-transform duration-200 ease-out" size={28} />
                         </div>
                         <div className="mb-2 text-xs text-muted-foreground">{item.label}</div>
                         <div className="text-lg font-bold text-foreground">{item.value}</div>
@@ -201,35 +180,59 @@ const Research = () => {
         </motion.div>
         {/* Modal for viewing paper + highlights */}
         {showPaper && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center">
-            <div className="absolute inset-0 bg-black/50" onClick={() => setShowPaper(false)} />
-            <div className="relative w-[90%] max-w-5xl max-h-[90vh] overflow-auto p-6">
-              <Card className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-2xl font-bold">Research Paper — Details</h3>
-                  <button className="p-2 rounded-md hover:bg-muted/10" onClick={() => setShowPaper(false)} aria-label="Close">
-                    <X size={18} />
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4">
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setShowPaper(false)} />
+            <div className="relative w-full h-full md:w-[95%] md:h-[95vh] max-w-7xl overflow-hidden shadow-2xl transition-all duration-300">
+              <Card className="h-full flex flex-col p-0 overflow-hidden border-0 md:border md:rounded-2xl">
+                <div className="flex items-center justify-between p-4 border-b bg-background/50 backdrop-blur-md">
+                  <h3 className="text-xl md:text-2xl font-bold flex items-center gap-2">
+                    <FileText className="text-primary" />
+                    Research Paper — Details
+                  </h3>
+                  <button className="p-2 rounded-full hover:bg-muted/10 transition-colors" onClick={() => setShowPaper(false)} aria-label="Close">
+                    <X size={24} />
                   </button>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-4 mb-6">
-                  {highlights.map((h) => {
-                    return (
-                      <div key={h.label} className="rounded-xl p-4 text-center glass hover:tricolor-glow transition-all cursor-default">
-                        <h5 className="text-sm text-muted-foreground mb-1">{h.label}</h5>
-                        <p className="text-lg font-bold">{h.value}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <p className="text-muted-foreground">You can download or open the full paper using the link below.</p>
-                    <a href="/ML-Based Price Prediction for Agri-Horticultural Commodities.pdf" target="_blank" rel="noopener noreferrer" className="inline-block text-primary font-semibold underline">Open paper in a new tab</a>
+                <div className="flex-1 overflow-y-auto p-4 md:p-8 space-y-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {highlights.map((h) => {
+                      return (
+                        <div key={h.label} className="rounded-xl p-6 text-center bg-primary/5 border border-primary/10 cursor-default">
+                          <h5 className="text-sm text-muted-foreground mb-1 uppercase tracking-wider font-semibold">{h.label}</h5>
+                          <p className="text-xl font-bold text-primary">{h.value}</p>
+                        </div>
+                      );
+                    })}
                   </div>
-                  <div className="bg-muted/10 p-2">
-                    <iframe src="/ML-Based Price Prediction for Agri-Horticultural Commodities.pdf" title="Research Paper" className="w-full h-96 border" />
+
+                  <div className="grid lg:grid-cols-5 gap-8">
+                    <div className="lg:col-span-2 space-y-4">
+                      <div className="p-6 rounded-2xl bg-muted/5 border border-border/50">
+                        <h4 className="font-bold text-lg mb-2">Paper Abstract</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          This research presents machine learning models for predicting future prices of seasonal crops in India.
+                          It compares Support Vector Regressor (SVM) and Random Forest across different crop seasons,
+                          covering 15+ crop varieties with focus on R², MAE, and RMSE metrics.
+                        </p>
+                      </div>
+                      <a
+                        href="/ML-Based Price Prediction for Agri-Horticultural Commodities.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 w-full p-4 rounded-xl bg-primary text-primary-foreground font-bold hover:opacity-90 transition-all"
+                      >
+                        <ExternalLink size={20} />
+                        Open PDF In New Tab
+                      </a>
+                    </div>
+                    <div className="lg:col-span-3 bg-muted/20 rounded-xl overflow-hidden border border-border/50 min-h-[500px] h-full">
+                      <iframe
+                        src="/ML-Based Price Prediction for Agri-Horticultural Commodities.pdf#toolbar=0"
+                        title="Research Paper PDF Preview"
+                        className="w-full h-full min-h-[600px] border-0"
+                      />
+                    </div>
                   </div>
                 </div>
               </Card>
