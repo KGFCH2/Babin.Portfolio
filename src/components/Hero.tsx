@@ -47,8 +47,10 @@ const Hero = () => {
             </h2>
             <h1 className="text-3xl md:text-5xl font-bold mb-4 max-w-[280px] mx-auto md:max-w-none">
               <SectionTitle
-                text="Babin Bid"
-                className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-emerald-400"
+                segments={[
+                  { text: "Babin", className: "text-red-600 dark:text-cyan-400" },
+                  { text: " Bid", className: "text-blue-600 dark:text-blue-400" },
+                ]}
               />
             </h1>
             <div className="text-2xl md:text-3xl lg:text-3xl font-semibold text-foreground min-h-[140px] md:min-h-[160px] flex items-center justify-center">
@@ -58,13 +60,13 @@ const Hero = () => {
                   size={32}
                   color={
                     currentIcon === Code ? "#3b82f6" : // blue-500
-                      currentIcon === Globe ? "#22c55e" : // green-500
+                      currentIcon === Globe ? "#2563eb" : // blue-600
                         currentIcon === Compass ? "#f97316" : // orange-500
                           currentIcon === Puzzle ? "#a855f7" : // purple-500
                             currentIcon === Microscope ? "#ec4899" : // pink-500
                               currentIcon === Zap ? "#eab308" : // yellow-500
                                 currentIcon === Brain ? "#fb923c" : // orange-400
-                                  currentIcon === Users ? "#10b981" : // emerald-500
+                                  currentIcon === Users ? "#3b82f6" : // blue-500
                                     currentIcon === Bot ? "#8b5cf6" : // violet-500
                                       currentIcon === Atom ? "#06b6d4" : // cyan-500
                                         currentIcon === FlaskConical ? "#f43f5e" : // rose-500
@@ -76,7 +78,7 @@ const Hero = () => {
                   glowColor="transparent"
                   animationType="bounce"
                 />
-                <span className="bg-gradient-to-r from-blue-500 via-green-600 to-red-500 bg-clip-text text-transparent">
+                <span className="text-blue-500">
                   <TypeAnimation
                     sequence={[
                       () => setCurrentIcon(Code),
