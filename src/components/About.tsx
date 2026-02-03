@@ -155,7 +155,7 @@ const About = () => {
                   >
                     <div className="absolute inset-0 bg-blue-700 dark:bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                     <span className="relative z-10 flex items-center gap-2">
-                      <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200 text-blue-700 dark:text-cyan-300 group-hover:text-white dark:group-hover:text-gray-900" />
+                      <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200 text-blue-700 dark:text-cyan-300 group-hover:text-white dark:group-hover:text-black" />
                       View Resume
                     </span>
                   </motion.button>
@@ -251,7 +251,7 @@ const About = () => {
             >
               <div className="flex items-center justify-between">
                 <motion.h4
-                  whileHover={{ x: 5, textShadow: "0 0 15px rgba(59, 130, 246, 0.3)" }}
+                  whileHover={{ x: 5, textShadow: "0 0 15px rgba(29, 78, 216, 0.4)" }}
                   className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default"
                 >
                   <div className="w-1.5 h-8 bg-blue-700 dark:bg-cyan-300 rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
@@ -286,14 +286,14 @@ const About = () => {
                     whileHover={{
                       scale: 1.05,
                       y: -5,
-                      boxShadow: "0 25px 50px -12px rgba(0,0,0,0.15)",
-                      borderColor: "rgba(255,255,255,0.2)",
+                      boxShadow: "0 25px 50px -12px rgba(var(--primary-rgb, 29, 78, 216), 0.25)",
+                      borderColor: "rgba(var(--primary-rgb, 29, 78, 216), 0.3)",
                     }}
-                    className="group relative h-16 bg-white/40 dark:bg-transparent backdrop-blur-md rounded-2xl p-3 transition-all duration-300 border border-white/20 dark:border-white/10 overflow-hidden cursor-default shadow-sm"
+                    className="group/section relative h-16 bg-white/40 dark:bg-transparent backdrop-blur-md rounded-2xl p-3 transition-all duration-300 border border-white/20 dark:border-white/10 overflow-hidden cursor-default shadow-sm"
                   >
                     <div className="relative z-10 flex items-center justify-between h-full">
                       <div className="flex items-center gap-3">
-                        <div className={`p-2 rounded-xl ${skill.styles.light} ${skill.styles.text} shadow-sm transition-all duration-300 group-hover:rotate-12 group-hover:scale-110`}>
+                        <div className={`p-2 rounded-xl ${skill.styles.light} ${skill.styles.text} shadow-sm transition-all duration-300 group-hover/section:rotate-12 group-hover/section:scale-110`}>
                           <skill.icon className="w-4 h-4" />
                         </div>
                         <span className="font-bold text-xs md:text-sm">{skill.name}</span>
@@ -324,7 +324,7 @@ const About = () => {
             >
               <div className="flex items-center justify-between">
                 <motion.h4
-                  whileHover={{ x: 5, textShadow: "0 0 15px rgba(29, 78, 216, 0.3)" }}
+                  whileHover={{ x: 5, textShadow: "0 0 15px rgba(29, 78, 216, 0.4)" }}
                   className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default"
                 >
                   <div className="w-1.5 h-8 bg-blue-700 dark:bg-cyan-300 rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
@@ -374,17 +374,17 @@ const About = () => {
                     whileHover={{
                       y: -12,
                       scale: 1.05,
-                      boxShadow: "0 30px 60px -12px rgba(0,0,0,0.2)",
-                      borderColor: "rgba(255, 255, 255, 0.3)",
+                      boxShadow: "0 30px 60px -12px rgba(var(--primary-rgb, 29, 78, 216), 0.3)",
+                      borderColor: "rgba(var(--primary-rgb, 29, 78, 216), 0.4)",
                       transition: { type: "spring", stiffness: 400, damping: 17 }
                     }}
-                    className="p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 hover:border-primary/20 transition-all duration-300 group cursor-default shadow-lg"
+                    className="group/section p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 hover:border-primary/20 transition-all duration-300 group cursor-default shadow-lg"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-blue-700/10 dark:bg-cyan-300/10 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:rotate-[360deg] transition-all duration-500">
+                    <div className="w-8 h-8 rounded-xl bg-blue-700/10 dark:bg-cyan-300/10 flex items-center justify-center mb-3 group-hover/section:scale-110 group-hover/section:rotate-[360deg] transition-all duration-500">
                       <item.icon className="w-4 h-4 text-blue-700 dark:text-cyan-300" />
                     </div>
-                    <h5 className="text-base font-black mb-1 group-hover:text-primary transition-colors duration-200">{item.title}</h5>
-                    <p className="text-muted-foreground text-xs font-medium leading-relaxed group-hover:text-foreground transition-colors duration-200">
+                    <h5 className="text-base font-black mb-1 group-hover/section:text-primary transition-colors duration-200">{item.title}</h5>
+                    <p className="text-muted-foreground text-xs font-medium leading-relaxed group-hover/section:text-foreground transition-colors duration-200">
                       {item.content}
                     </p>
                   </motion.div>
