@@ -108,16 +108,38 @@ const Research = () => {
                   </ul>
                 </div>
 
-                <div className="flex gap-4 pt-4">
-                  <Button size="lg" className="btn-hero bg-blue-700 dark:bg-cyan-300 text-white dark:text-black hover:opacity-90" onClick={() => setShowPaper(true)}>
-                    <FileText className="mr-2 text-white dark:text-black" size={20} />
-                    View Paper
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                    <a href="https://github.com/KGFCH2/Price_Prediction" target="_blank" rel="noopener noreferrer">
-                      View Code
-                    </a>
-                  </Button>
+                <div className="flex flex-row gap-4 pt-4">
+                  <motion.div
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 25 }}
+                    className="flex-1 sm:flex-initial"
+                  >
+                    <Button
+                      size="lg"
+                      className="w-full bg-blue-700 dark:bg-cyan-300 text-white dark:text-black hover:opacity-90 font-black shadow-lg text-xs md:text-sm"
+                      onClick={() => setShowPaper(true)}
+                    >
+                      <FileText className="mr-2 text-white dark:text-black hidden sm:block" size={18} />
+                      View Paper
+                    </Button>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 25 }}
+                    className="flex-1 sm:flex-initial"
+                  >
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      asChild
+                      className="w-full border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 hover:bg-blue-700 dark:hover:bg-cyan-300 hover:text-white dark:hover:text-black font-black bg-transparent text-xs md:text-sm"
+                    >
+                      <a href="https://github.com/KGFCH2/Price_Prediction" target="_blank" rel="noopener noreferrer">
+                        Codebase
+                      </a>
+                    </Button>
+                  </motion.div>
                 </div>
               </div>
 
@@ -126,20 +148,19 @@ const Research = () => {
                   {highlights.map((item, index) => {
                     const Icon = item.icon;
                     return (
-                      <motion.div
+                      <div
                         key={item.label}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.08, duration: 0.45 }}
-                        className={`group/section relative rounded-xl p-5 text-center bg-white/5 backdrop-blur-sm border border-white/5 transition-all duration-300`}
+                        className={`group/section relative rounded-xl p-5 text-center bg-white/5 backdrop-blur-sm border border-white/5 transition-all duration-300 cursor-default shadow-sm`}
                       >
-                        <div className="mx-auto mb-3">
-                          <Icon className="text-primary transform transition-transform duration-200 ease-out" size={28} />
-                        </div>
-                        <div className="mb-2 text-xs text-muted-foreground">{item.label}</div>
+                        <motion.div
+                          whileHover={{ scale: 1.25, rotate: 12 }}
+                          className="mx-auto mb-3 w-fit"
+                        >
+                          <Icon className="text-blue-700 dark:text-cyan-300 transform transition-transform duration-200 ease-out" size={32} />
+                        </motion.div>
+                        <div className="mb-2 text-[10px] uppercase tracking-widest text-muted-foreground font-black">{item.label}</div>
                         <div className="text-lg font-bold text-foreground">{item.value}</div>
-                      </motion.div>
+                      </div>
                     );
                   })}
                 </div>
@@ -180,63 +201,83 @@ const Research = () => {
         </motion.div>
         {/* Modal for viewing paper + highlights */}
         {showPaper && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4">
-            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setShowPaper(false)} />
-            <div className="relative w-full h-full md:w-[95%] md:h-[95vh] max-w-7xl overflow-hidden shadow-2xl transition-all duration-300">
-              <Card className="h-full flex flex-col p-0 overflow-hidden border-0 md:border md:rounded-2xl">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+              onClick={() => setShowPaper(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full h-[85vh] md:w-[85%] md:h-[80vh] max-w-5xl overflow-hidden shadow-[0_0_50px_rgba(29,78,216,0.3)] transition-all duration-300 z-10"
+            >
+              <Card className="h-full flex flex-col p-0 overflow-hidden border border-blue-700/30 dark:border-cyan-300/30 rounded-2xl">
                 <div className="flex items-center justify-between p-4 border-b bg-background/50 backdrop-blur-md">
-                  <h3 className="text-xl md:text-2xl font-bold flex items-center gap-2">
-                    <FileText className="text-primary" />
+                  <h3 className="text-xl md:text-2xl font-black flex items-center gap-2 text-blue-700 dark:text-cyan-300">
+                    <FileText />
                     Research Paper — Details
                   </h3>
-                  <button className="p-2 rounded-full hover:bg-muted/10 transition-colors" onClick={() => setShowPaper(false)} aria-label="Close">
+                  <motion.button
+                    whileHover={{ scale: 1.1, rotate: 90, backgroundColor: "rgba(239, 68, 68, 0.1)" }}
+                    whileTap={{ scale: 0.9 }}
+                    className="p-2 rounded-full hover:text-red-500 transition-colors"
+                    onClick={() => setShowPaper(false)}
+                    aria-label="Close"
+                  >
                     <X size={24} />
-                  </button>
+                  </motion.button>
                 </div>
 
-                <div className="flex-1 overflow-y-auto p-4 md:p-8 space-y-8">
+                <div className="flex-1 overflow-y-auto p-4 md:p-8 space-y-8 custom-scrollbar">
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {highlights.map((h) => {
                       return (
-                        <div key={h.label} className="rounded-xl p-6 text-center bg-primary/5 border border-primary/10 cursor-default">
-                          <h5 className="text-sm text-muted-foreground mb-1 uppercase tracking-wider font-semibold">{h.label}</h5>
-                          <p className="text-xl font-bold text-primary">{h.value}</p>
+                        <div key={h.label} className="rounded-xl p-4 text-center bg-blue-700/5 dark:bg-cyan-300/5 border border-blue-700/10 dark:border-cyan-300/10 cursor-default">
+                          <h5 className="text-[10px] text-muted-foreground mb-1 uppercase tracking-widest font-black">{h.label}</h5>
+                          <p className="text-lg font-black text-blue-700 dark:text-cyan-300">{h.value}</p>
                         </div>
                       );
                     })}
                   </div>
 
-                  <div className="grid lg:grid-cols-5 gap-8">
+                  <div className="grid lg:grid-cols-5 gap-6">
                     <div className="lg:col-span-2 space-y-4">
-                      <div className="p-6 rounded-2xl bg-muted/5 border border-border/50">
-                        <h4 className="font-bold text-lg mb-2">Paper Abstract</h4>
-                        <p className="text-muted-foreground leading-relaxed">
-                          This research presents machine learning models for predicting future prices of seasonal crops in India.
-                          It compares Support Vector Regressor (SVM) and Random Forest across different crop seasons,
-                          covering 15+ crop varieties with focus on R², MAE, and RMSE metrics.
-                        </p>
+                      <div className="p-5 rounded-2xl bg-muted/5 border border-border flex flex-col justify-between h-auto">
+                        <div>
+                          <h4 className="font-black text-base mb-2 text-blue-700 dark:text-cyan-300">Paper Abstract</h4>
+                          <p className="text-muted-foreground text-sm leading-relaxed font-medium">
+                            This research presents machine learning models for predicting future prices of seasonal crops in India.
+                            Comparing SVM and Random Forest models across multiple crop seasons (Summer, Rainy, Winter).
+                          </p>
+                        </div>
                       </div>
-                      <a
+                      <motion.a
+                        whileHover={{ scale: 1.02, y: -2 }}
+                        whileTap={{ scale: 0.98 }}
                         href="/ML-Based Price Prediction for Agri-Horticultural Commodities.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 w-full p-4 rounded-xl bg-primary text-primary-foreground font-bold hover:opacity-90 transition-all"
+                        className="flex items-center justify-center gap-2 w-full p-4 rounded-xl bg-blue-700 dark:bg-cyan-300 text-white dark:text-black font-black hover:opacity-90 transition-all shadow-lg"
                       >
                         <ExternalLink size={20} />
                         Open PDF In New Tab
-                      </a>
+                      </motion.a>
                     </div>
-                    <div className="lg:col-span-3 bg-muted/20 rounded-xl overflow-hidden border border-border/50 min-h-[500px] h-full">
+                    <div className="lg:col-span-3 bg-muted/20 rounded-xl overflow-hidden border border-border/50 h-[400px]">
                       <iframe
                         src="/ML-Based Price Prediction for Agri-Horticultural Commodities.pdf#toolbar=0"
                         title="Research Paper PDF Preview"
-                        className="w-full h-full min-h-[600px] border-0"
+                        className="w-full h-full border-0"
                       />
                     </div>
                   </div>
                 </div>
               </Card>
-            </div>
+            </motion.div>
           </div>
         )}
       </div>
