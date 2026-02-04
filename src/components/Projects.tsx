@@ -128,71 +128,60 @@ const Projects = () => {
     }
   };
 
-  // Return base + gradient hover classes for badges; hover applies a gradient background
   const getBadgeClasses = (tech: string) => {
     const key = tech.toLowerCase();
+    const baseClasses = "px-2 py-0.5 text-[10px] font-bold rounded-full border transition-all duration-300 ease-in-out cursor-default";
+
     switch (key) {
       case "python":
-        return "bg-blue-100 dark:bg-blue-50 text-blue-800 border-blue-300 dark:border-blue-200 hover:bg-blue-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20 hover:bg-blue-500 hover:text-white`;
       case "react":
-        return "bg-cyan-100 dark:bg-cyan-50 text-cyan-800 border-cyan-300 dark:border-cyan-200 hover:bg-cyan-400 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20 hover:bg-cyan-500 hover:text-white`;
       case "typescript":
-        return "bg-blue-100 dark:bg-blue-50 text-blue-800 border-blue-300 dark:border-blue-200 hover:bg-blue-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-blue-600/10 text-blue-700 dark:text-blue-300 border-blue-600/20 hover:bg-blue-600 hover:text-white`;
       case "tailwind":
       case "tailwindcss":
-        return "bg-teal-100 dark:bg-teal-50 text-teal-800 border-teal-300 dark:border-teal-200 hover:bg-teal-400 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-500/20 hover:bg-teal-500 hover:text-white`;
       case "streamlit":
-        return "bg-red-100 dark:bg-red-50 text-red-800 border-red-300 dark:border-red-200 hover:bg-red-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20 hover:bg-red-500 hover:text-white`;
       case "plotly":
-        return "bg-indigo-100 dark:bg-indigo-50 text-indigo-800 border-indigo-300 dark:border-indigo-200 hover:bg-indigo-400 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/20 hover:bg-indigo-500 hover:text-white`;
       case "xgboost":
-        return "bg-green-100 dark:bg-green-50 text-green-800 border-green-300 dark:border-green-200 hover:bg-green-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20 hover:bg-green-500 hover:text-white`;
       case "flask":
-        return "bg-gray-100 dark:bg-gray-200 text-gray-800 border-gray-300 dark:border-gray-400 hover:bg-gray-600 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-gray-500/10 text-gray-600 dark:text-gray-400 border-gray-500/20 hover:bg-gray-500 hover:text-white`;
       case "scikit-learn":
       case "scikit":
-        return "bg-orange-100 dark:bg-orange-50 text-orange-800 border-orange-300 dark:border-orange-200 hover:bg-orange-400 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20 hover:bg-orange-500 hover:text-white`;
       case "html":
-        return "bg-orange-100 dark:bg-orange-50 text-orange-800 border-orange-300 dark:border-orange-200 hover:bg-orange-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-orange-600/10 text-orange-700 dark:text-orange-300 border-orange-600/20 hover:bg-orange-600 hover:text-white`;
       case "css":
-        return "bg-blue-100 dark:bg-blue-50 text-blue-800 border-blue-300 dark:border-blue-200 hover:bg-blue-400 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20 hover:bg-blue-500 hover:text-white`;
       case "javascript":
       case "js":
-        return "bg-yellow-100 dark:bg-yellow-50 text-yellow-800 border-yellow-300 dark:border-yellow-200 hover:bg-yellow-400 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/20 hover:bg-yellow-500 hover:text-white`;
       case "vite":
-        return "bg-purple-100 dark:bg-purple-50 text-purple-800 border-purple-300 dark:border-purple-200 hover:bg-purple-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20 hover:bg-purple-500 hover:text-white`;
       case "ai/ml":
-        return "bg-pink-100 dark:bg-pink-50 text-pink-800 border-pink-300 dark:border-pink-200 hover:bg-pink-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-500/20 hover:bg-pink-500 hover:text-white`;
       case "data visualization":
-        return "bg-emerald-100 dark:bg-emerald-50 text-emerald-800 border-emerald-300 dark:border-emerald-200 hover:bg-emerald-400 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20 hover:bg-emerald-500 hover:text-white`;
       case "json":
-        return "bg-slate-100 dark:bg-slate-200 text-slate-800 border-slate-300 dark:border-slate-400 hover:bg-slate-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/20 hover:bg-slate-500 hover:text-white`;
       case "numpy":
-        return "bg-sky-100 dark:bg-sky-50 text-sky-800 border-sky-300 dark:border-sky-200 hover:bg-sky-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20 hover:bg-sky-500 hover:text-white`;
       case "pandas":
-        return "bg-indigo-100 dark:bg-indigo-50 text-indigo-800 border-indigo-300 dark:border-indigo-200 hover:bg-indigo-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-indigo-600/10 text-indigo-700 dark:text-indigo-300 border-indigo-600/20 hover:bg-indigo-600 hover:text-white`;
       case "fastapi":
-        return "bg-teal-100 dark:bg-teal-50 text-teal-800 border-teal-300 dark:border-teal-200 hover:bg-teal-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-teal-600/10 text-teal-700 dark:text-teal-300 border-teal-600/20 hover:bg-teal-600 hover:text-white`;
       case "gui":
-        return "bg-violet-100 dark:bg-violet-50 text-violet-800 border-violet-300 dark:border-violet-200 hover:bg-violet-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/20 hover:bg-violet-500 hover:text-white`;
       case "framer motion":
-        return "bg-fuchsia-100 dark:bg-fuchsia-50 text-fuchsia-800 border-fuchsia-300 dark:border-fuchsia-200 hover:bg-fuchsia-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-400 border-fuchsia-500/20 hover:bg-fuchsia-500 hover:text-white`;
       case "sqlite":
-        return "bg-blue-100 dark:bg-blue-50 text-blue-800 border-blue-300 dark:border-blue-200 hover:bg-blue-400 hover:text-white hover:border-transparent";
-      case "html5":
-        return "bg-orange-100 dark:bg-orange-50 text-orange-800 border-orange-300 dark:border-orange-200 hover:bg-orange-500 hover:text-white hover:border-transparent";
-      case "css3":
-        return "bg-blue-100 dark:bg-blue-50 text-blue-800 border-blue-300 dark:border-blue-200 hover:bg-blue-400 hover:text-white hover:border-transparent";
-      case "jinja2":
-        return "bg-red-100 dark:bg-red-50 text-red-800 border-red-300 dark:border-red-200 hover:bg-red-500 hover:text-white hover:border-transparent";
-      case "groq api (llama)":
-      case "groq":
-        return "bg-purple-100 dark:bg-purple-50 text-purple-800 border-purple-300 dark:border-purple-200 hover:bg-purple-600 hover:text-white hover:border-transparent";
-      case "csv & json datasets":
-      case "csv":
-        return "bg-slate-100 dark:bg-slate-200 text-slate-800 border-slate-300 dark:border-slate-400 hover:bg-slate-500 hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-blue-400/10 text-blue-500 dark:text-blue-300 border-blue-400/20 hover:bg-blue-400 hover:text-white`;
       default:
-        return "bg-primary/10 text-primary border-primary/20 hover:bg-primary hover:text-white hover:border-transparent";
+        return `${baseClasses} bg-blue-700/10 text-blue-700 dark:text-cyan-300 border-blue-700/20 dark:border-cyan-300/20 hover:bg-blue-700 dark:hover:bg-cyan-300 hover:text-white dark:hover:text-black`;
     }
   };
 
@@ -491,7 +480,7 @@ const Projects = () => {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                className="flex-1 h-8 text-xs border-primary/50 hover:bg-primary/10 transform transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg active:scale-95"
+                                className="flex-1 h-8 text-xs border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 bg-transparent hover:bg-blue-700 dark:hover:bg-cyan-300 hover:text-white dark:hover:text-black font-black transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-[0_10px_20px_rgba(29,78,216,0.3)] active:scale-95"
                                 asChild
                               >
                                 <a
@@ -506,7 +495,7 @@ const Projects = () => {
                               {project.demo ? (
                                 <Button
                                   size="sm"
-                                  className="flex-1 h-8 text-xs gradient-primary text-primary-foreground hover:opacity-90 transform transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg active:scale-95"
+                                  className="flex-1 h-8 text-xs bg-blue-700 dark:bg-cyan-300 text-white dark:text-black font-black hover:opacity-90 transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-[0_10px_20px_rgba(29,78,216,0.3)] active:scale-95"
                                   asChild
                                 >
                                   <a
