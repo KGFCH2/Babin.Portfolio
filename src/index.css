@@ -600,7 +600,7 @@ All colors MUST be HSL.
     right: 0;
     bottom: -6px;
     height: 2px;
-    background: linear-gradient(to right, #1d4ed8, #67e8f9);
+    background: #1d4ed8;
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform 220ms cubic-bezier(0.2, 0, 0, 1);
@@ -608,9 +608,8 @@ All colors MUST be HSL.
     border-radius: 2px;
   }
 
-  .nav-underline:hover::after,
-  .nav-underline:focus::after {
-    transform: scaleX(1);
+  .dark .nav-underline::after {
+    background: #67e8f9;
   }
 
   /* Glassmorphism utility with subtle mandala overlay */
@@ -684,14 +683,7 @@ All colors MUST be HSL.
     right: 0;
     top: 0;
     height: 1.5px;
-    background: linear-gradient(to right, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #138808 66.66%);
-    pointer-events: none;
-    z-index: 10;
-  }
-
-  /* Simple straight divider line for sections (subtle) */
-  .section-divider-top {
-    position: relative;
+    background: linear-gradient(to right, #FF9933 45%, #FFFFFF 45%, #FFFFFF 55%, #138808 55%);
     overflow: visible;
     /* distance from the top of the section to the divider line; components can override this variable */
     --section-divider-offset: 1rem;
