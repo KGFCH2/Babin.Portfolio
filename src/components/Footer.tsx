@@ -1,5 +1,7 @@
+import React from "react";
 import { Terminal, Link as LinkIcon, MessageSquare, Code2, Star } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import StudyBackground from "./StudyBackground";
 import SocialIcons from "./SocialIcons";
 
@@ -55,22 +57,26 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 mb-6 md:mb-8 relative z-10">
             <div className="space-y-3 md:space-y-6 text-center md:text-left">
-              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-start gap-2">
-                <Terminal className="h-6 w-6 text-blue-700 dark:text-cyan-300" />
+              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-start gap-2 group cursor-default">
+                <motion.div whileHover={{ scale: 1.2, rotate: 12 }}>
+                  <Terminal className="h-6 w-6 text-blue-700 dark:text-cyan-300" />
+                </motion.div>
                 <span className="text-blue-700 dark:text-cyan-300">
                   Babin.Portfolio
                 </span>
               </h3>
-              <p className="text-foreground text-sm md:text-lg leading-relaxed">
+              <p className="text-foreground text-sm md:text-lg leading-relaxed font-medium">
                 B.Tech Student at Adamas University,
-                <br />passionate about <b>Technology</b>
-                <br />and <b>Innovation.</b>
+                <br />passionate about <b className="text-blue-700 dark:text-cyan-300">Technology</b>
+                <br />and <b className="text-blue-700 dark:text-cyan-300">Innovation.</b>
               </p>
             </div>
 
             <div className="space-y-3 md:space-y-6 text-center relative z-10">
-              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center gap-2">
-                <LinkIcon className="h-6 w-6 text-blue-700 dark:text-cyan-300" />
+              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center gap-2 group cursor-default">
+                <motion.div whileHover={{ scale: 1.2, rotate: -12 }}>
+                  <LinkIcon className="h-6 w-6 text-blue-700 dark:text-cyan-300" />
+                </motion.div>
                 <span className="text-blue-700 dark:text-cyan-300">
                   Quick Links
                 </span>
@@ -87,23 +93,29 @@ const Footer = () => {
                 ].map((item) => {
                   const href = item === "Achievements" ? "/achievements" : `#${item.toLowerCase()}`;
                   return (
-                    <li key={item} className="inline-block">
+                    <motion.li
+                      key={item}
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      className="inline-block"
+                    >
                       <a
                         href={href}
                         onClick={(e) => handleSectionClick(e, href)}
-                        className="text-muted-foreground hover:text-primary transition-smooth nav-underline text-sm md:text-base"
+                        className="text-muted-foreground hover:text-blue-700 dark:hover:text-cyan-300 transition-smooth nav-underline text-sm md:text-base font-medium"
                       >
                         {item}
                       </a>
-                    </li>
+                    </motion.li>
                   );
                 })}
               </ul>
             </div>
 
             <div className="space-y-3 md:space-y-6 text-center md:text-right relative z-10">
-              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-end gap-2">
-                <MessageSquare className="h-6 w-6 text-blue-700 dark:text-cyan-300" />
+              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-end gap-2 group cursor-default">
+                <motion.div whileHover={{ scale: 1.2, rotate: 12 }}>
+                  <MessageSquare className="h-6 w-6 text-blue-700 dark:text-cyan-300" />
+                </motion.div>
                 <span className="text-blue-700 dark:text-cyan-300">
                   Let's Connect
                 </span>
