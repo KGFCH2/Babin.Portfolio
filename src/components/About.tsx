@@ -114,9 +114,9 @@ const About = () => {
 
                 <div className="flex gap-3 flex-wrap pt-2">
                   {[
-                    { label: "Software Engineering", color: "emerald", hex: "#10b981", icon: Code },
-                    { label: "Full-Stack Development", color: "blue", hex: "#1d4ed8", icon: Rocket },
-                    { label: "Machine Learning", color: "violet", hex: "#8b5cf6", icon: Brain },
+                    { label: "Software Engineering", color: "emerald", hex: "#10b981", icon: Code, bg: "bg-emerald-500/10", text: "text-emerald-400", border: "border-emerald-500/20" },
+                    { label: "Full-Stack Development", color: "blue", hex: "#1d4ed8", icon: Rocket, bg: "bg-blue-500/10", text: "text-blue-400", border: "border-blue-500/20" },
+                    { label: "Machine Learning", color: "purple", hex: "#8b5cf6", icon: Brain, bg: "bg-purple-500/10", text: "text-purple-400", border: "border-purple-500/20" },
                   ].map((tag, idx) => (
                     <motion.span
                       key={idx}
@@ -130,9 +130,9 @@ const About = () => {
                         backgroundColor: "rgba(255, 255, 255, 0.08)",
                         transition: { type: "spring", stiffness: 500, damping: 20 }
                       }}
-                      className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold bg-${tag.color}-500/10 text-${tag.color}-400 border border-${tag.color}-500/20 cursor-default group transition-all duration-200 shadow-${tag.color}-500/10`}
+                      className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold ${tag.bg} ${tag.text} border ${tag.border} cursor-default group transition-all duration-200`}
                     >
-                      <tag.icon className={`w-3 h-3 group-hover:rotate-12 transition-transform duration-300 text-${tag.color}-400`} />
+                      <tag.icon className={`w-3 h-3 group-hover:rotate-12 transition-transform duration-300 ${tag.text}`} />
                       {tag.label}
                     </motion.span>
                   ))}
@@ -145,8 +145,9 @@ const About = () => {
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.4 }}
                     whileHover={{
-                      scale: 1.03,
-                      boxShadow: "0 20px 40px rgba(29, 78, 216, 0.2)",
+                      scale: 1.05,
+                      y: -5,
+                      boxShadow: "0 20px 40px rgba(29, 78, 216, 0.3)",
                       transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
@@ -166,8 +167,8 @@ const About = () => {
                     whileHover={{
                       scale: 1.05,
                       y: -5,
-                      boxShadow: "0 25px 50px rgba(29, 78, 216, 0.15)",
-                      transition: { type: "spring", stiffness: 400, damping: 17 }
+                      boxShadow: "0 20px 40px rgba(29, 78, 216, 0.3)",
+                      transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
                     className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-transparent overflow-hidden"
@@ -252,11 +253,11 @@ const About = () => {
             >
               <div className="flex items-center justify-between">
                 <motion.h4
-                  whileHover={{ x: 5, textShadow: "0 0 15px rgba(29, 78, 216, 0.4)" }}
-                  className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default"
+                  whileHover={{ x: 5 }}
+                  className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default text-blue-700 dark:text-cyan-300"
                 >
                   <div className="w-1.5 h-8 bg-blue-700 dark:bg-cyan-300 rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
-                  Core Knowledges
+                  Core Knowledge
                 </motion.h4>
                 <div className="flex -space-x-2">
                   {[
@@ -285,12 +286,11 @@ const About = () => {
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: 0.25 + (i * 0.02) }}
                     whileHover={{
-                      scale: 1.05,
-                      y: -5,
-                      boxShadow: "0 25px 50px -12px rgba(var(--primary-rgb, 29, 78, 216), 0.25)",
-                      borderColor: "rgba(var(--primary-rgb, 29, 78, 216), 0.3)",
+                      scale: 1.02,
+                      y: -2,
+                      boxShadow: "0 10px 30px -10px rgba(29, 78, 216, 0.3)",
                     }}
-                    className="group/section relative h-16 bg-white/40 dark:bg-transparent backdrop-blur-md rounded-2xl p-3 transition-all duration-300 border border-white/20 dark:border-white/10 overflow-hidden cursor-default shadow-sm"
+                    className="group/section relative h-16 bg-white/40 dark:bg-transparent backdrop-blur-md rounded-2xl p-3 transition-all duration-300 border border-white/20 dark:border-white/10 overflow-hidden cursor-default shadow-sm hover:border-blue-700 dark:hover:border-cyan-300"
                   >
                     <div className="relative z-10 flex items-center justify-between h-full">
                       <div className="flex items-center gap-3">
@@ -325,8 +325,8 @@ const About = () => {
             >
               <div className="flex items-center justify-between">
                 <motion.h4
-                  whileHover={{ x: 5, textShadow: "0 0 15px rgba(29, 78, 216, 0.4)" }}
-                  className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default"
+                  whileHover={{ x: 5 }}
+                  className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default text-blue-700 dark:text-cyan-300"
                 >
                   <div className="w-1.5 h-8 bg-blue-700 dark:bg-cyan-300 rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
                   Career Highlights
@@ -375,16 +375,20 @@ const About = () => {
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.3 + (i * 0.02) }}
                     whileHover={{
-                      y: -12,
-                      scale: 1.05,
-                      boxShadow: "0 30px 60px -12px rgba(var(--primary-rgb, 29, 78, 216), 0.3)",
-                      borderColor: "rgba(var(--primary-rgb, 29, 78, 216), 0.4)",
+                      y: -5,
+                      scale: 1.02,
+                      boxShadow: "0 20px 40px -12px rgba(29, 78, 216, 0.2)",
+                      borderColor: "rgba(29, 78, 216, 0.3)",
                       transition: { type: "spring", stiffness: 400, damping: 17 }
                     }}
-                    className="group/section p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 hover:border-primary/20 transition-all duration-300 group cursor-default shadow-lg"
+                    className="group/section p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 hover:border-blue-700 dark:hover:border-cyan-300 transition-all duration-300 group cursor-default shadow-lg"
                   >
                     <div className="w-8 h-8 rounded-xl bg-blue-700/10 dark:bg-cyan-300/10 flex items-center justify-center mb-3 group-hover/section:scale-110 group-hover/section:rotate-[360deg] transition-all duration-500">
-                      <item.icon className="w-4 h-4 text-blue-700 dark:text-cyan-300" />
+                      <motion.div
+                        whileHover={{ scale: 1.2 }}
+                      >
+                        <item.icon className="w-4 h-4 text-blue-700 dark:text-cyan-300" />
+                      </motion.div>
                     </div>
                     <h5 className="text-base font-black mb-1 group-hover/section:text-primary transition-colors duration-200">{item.title}</h5>
                     <p className="text-muted-foreground text-xs font-medium leading-relaxed group-hover/section:text-foreground transition-colors duration-200">
