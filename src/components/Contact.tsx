@@ -1,10 +1,11 @@
+import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone, Send, Copy, Check, Clipboard, CheckCircle, XCircle, Mail as MailIcon } from "lucide-react";
-import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import SectionTitle from "./SectionTitle";
 import AnimatedIcon from "./AnimatedIcon";
@@ -148,48 +149,55 @@ const Contact = () => {
             <div className="space-y-4 md:space-y-6">
               <div className="h-full flex flex-col gap-4 md:gap-6">
                 {contactInfo.map((info, index) => (
-                  <Card
+                  <motion.div
                     key={index}
-                    className="p-4 md:p-6 bg-card shadow-card hover:shadow-glow transition-smooth border-border/50 group"
+                    whileHover={{ scale: 1.02, y: -5 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
-                    <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 text-center sm:text-left">
-                      <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 min-w-0 flex-1">
-                        <div className="text-primary flex-shrink-0">{info.icon}</div>
-                        <div className="min-w-0 flex-1">
-                          <h3 className="font-semibold text-foreground text-sm md:text-base">
-                            {info.title}
-                          </h3>
-                          {info.link ? (
-                            <a
-                              href={info.link}
-                              target={info.link.startsWith('http') ? "_blank" : undefined}
-                              rel={info.link.startsWith('http') ? "noopener noreferrer" : undefined}
-                              className="text-muted-foreground hover:text-primary transition-smooth break-all text-xs md:text-sm"
-                            >
-                              {info.value}
-                            </a>
-                          ) : (
-                            <p className="text-muted-foreground break-all text-xs md:text-sm">{info.value}</p>
-                          )}
+                    <Card
+                      className="p-4 md:p-6 bg-card shadow-card hover:shadow-[0_20px_40px_rgba(29,78,216,0.15)] transition-smooth border-border/50 group cursor-default"
+                    >
+                      <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 text-center sm:text-left">
+                        <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 min-w-0 flex-1">
+                          <div className="text-blue-700 dark:text-cyan-300 flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                            {React.cloneElement(info.icon as React.ReactElement, { size: 28 })}
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <h3 className="font-bold text-foreground text-sm md:text-base">
+                              {info.title}
+                            </h3>
+                            {info.link ? (
+                              <a
+                                href={info.link}
+                                target={info.link.startsWith('http') ? "_blank" : undefined}
+                                rel={info.link.startsWith('http') ? "noopener noreferrer" : undefined}
+                                className="text-muted-foreground hover:text-blue-700 dark:hover:text-cyan-300 transition-smooth break-all text-xs md:text-sm font-medium"
+                              >
+                                {info.value}
+                              </a>
+                            ) : (
+                              <p className="text-muted-foreground break-all text-xs md:text-sm font-medium">{info.value}</p>
+                            )}
+                          </div>
                         </div>
+                        {/* Copy button for emails and phone */}
+                        {info.link && (info.title.includes('Email') || info.title === 'Phone') && (
+                          <button
+                            onClick={() => copyToClipboard(info.value, info.title)}
+                            className="p-2 md:p-3 rounded-lg opacity-100 sm:opacity-0 sm:group-hover:opacity-100 hover:bg-blue-700/10 dark:hover:bg-cyan-300/10 transition-all focus-visible:opacity-100 min-w-[40px] md:min-w-[48px] min-h-[40px] md:min-h-[48px] flex items-center justify-center flex-shrink-0"
+                            title={`Copy ${info.title}`}
+                            aria-label={`Copy ${info.title}: ${info.value}`}
+                          >
+                            {copiedField === info.title ? (
+                              <Check className="h-4 md:h-5 w-4 md:w-5 text-green-500" />
+                            ) : (
+                              <Copy className="h-4 md:h-5 w-4 md:w-5 text-muted-foreground" />
+                            )}
+                          </button>
+                        )}
                       </div>
-                      {/* Copy button for emails and phone */}
-                      {info.link && (info.title.includes('Email') || info.title === 'Phone') && (
-                        <button
-                          onClick={() => copyToClipboard(info.value, info.title)}
-                          className="p-2 md:p-3 rounded-lg opacity-100 sm:opacity-0 sm:group-hover:opacity-100 hover:bg-primary/10 transition-all focus-visible:opacity-100 min-w-[40px] md:min-w-[48px] min-h-[40px] md:min-h-[48px] flex items-center justify-center flex-shrink-0"
-                          title={`Copy ${info.title}`}
-                          aria-label={`Copy ${info.title}: ${info.value}`}
-                        >
-                          {copiedField === info.title ? (
-                            <Check className="h-4 md:h-5 w-4 md:w-5 text-green-500" />
-                          ) : (
-                            <Copy className="h-4 md:h-5 w-4 md:w-5 text-muted-foreground" />
-                          )}
-                        </button>
-                      )}
-                    </div>
-                  </Card>
+                    </Card>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -258,27 +266,32 @@ const Contact = () => {
                     className="border-border bg-background resize-none text-sm md:text-base"
                   />
                 </div>
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  aria-busy={isSubmitting}
-                  className="w-full gradient-primary text-primary-foreground shadow-glow hover:scale-105 transition-smooth disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 active:scale-95 text-sm md:text-base py-2 md:py-3"
+                <motion.div
+                  whileHover={{ scale: 1.05, y: -5, boxShadow: "0 20px 40px rgba(29, 78, 216, 0.3)" }}
+                  transition={{ type: "spring", stiffness: 500, damping: 25 }}
                 >
-                  {isSubmitting ? (
-                    <>
-                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="mr-2 h-4 w-4" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    aria-busy={isSubmitting}
+                    className="w-full bg-blue-700 dark:bg-cyan-300 text-white dark:text-black font-black shadow-lg hover:opacity-90 transition-smooth disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 active:scale-95 text-sm md:text-base py-2 md:py-3 h-auto"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 h-4 w-4" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </motion.div>
               </form>
             </Card>
           </div>
