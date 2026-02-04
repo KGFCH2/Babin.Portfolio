@@ -84,7 +84,8 @@ const StyledWrapper = styled.div`
     transition: all 0.3s ease-in-out;
   }
   .example-2 .icon-content a:hover {
-    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px) scale(1.1);
   }
   .example-2 .icon-content a svg {
     position: relative;
