@@ -63,9 +63,7 @@ const Hero = () => {
                     glowColor="transparent"
                     animationType="bounce"
                   />
-                  <span className="text-blue-700 dark:text-cyan-300 whitespace-nowrap">
-                    I'm&nbsp;
-                  </span>
+                  <span className="text-blue-700 dark:text-cyan-300 whitespace-nowrap"> </span>
                 </div>
                 <div className="text-blue-700 dark:text-cyan-300 text-center md:text-left leading-tight md:leading-normal">
                   <TypeAnimation
@@ -152,7 +150,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary/50 hover:bg-primary/10 transition-all duration-300 active:scale-95 w-full sm:w-auto"
+                className="border-primary/50 hover:bg-primary/10 hover:text-black dark:text-white transition-all duration-300 active:scale-95 w-full sm:w-auto"
                 onClick={() => scrollToSection('contact')}
                 aria-label="Navigate to contact section"
               >
