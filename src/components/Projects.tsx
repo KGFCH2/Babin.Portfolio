@@ -65,78 +65,78 @@ const Projects = () => {
     const key = tech.toLowerCase();
     switch (key) {
       case "python":
-        return "bg-blue-500 text-white";
+        return "bg-blue-500 text-black dark:text-white";
       case "react":
-        return "bg-cyan-400 text-black";
+        return "bg-cyan-400 text-black dark:text-white";
       case "typescript":
-        return "bg-blue-500 text-white";
+        return "bg-blue-500 text-black dark:text-white";
       case "tailwind":
       case "tailwindcss":
-        return "bg-teal-400 text-white";
+        return "bg-teal-400 text-black dark:text-white";
       case "streamlit":
-        return "bg-red-500 text-white";
+        return "bg-red-500 text-black dark:text-white";
       case "plotly":
-        return "bg-indigo-400 text-white";
+        return "bg-indigo-400 text-black dark:text-white";
       case "xgboost":
-        return "bg-green-500 text-white";
+        return "bg-green-500 text-black dark:text-white";
       case "flask":
-        return "bg-gray-600 text-white";
+        return "bg-gray-600 text-black dark:text-white";
       case "scikit-learn":
       case "scikit":
-        return "bg-orange-400 text-white";
+        return "bg-orange-400 text-black dark:text-white";
       case "html":
-        return "bg-orange-500 text-white";
+        return "bg-orange-500 text-black dark:text-white";
       case "css":
-        return "bg-blue-400 text-white";
+        return "bg-blue-400 text-black dark:text-white";
       case "javascript":
       case "js":
-        return "bg-yellow-400 text-white";
+        return "bg-yellow-400 text-black dark:text-white";
       case "vite":
-        return "bg-purple-500 text-white";
+        return "bg-purple-500 text-black dark:text-white";
       case "ai/ml":
-        return "bg-pink-500 text-white";
+        return "bg-pink-500 text-black dark:text-white";
       case "data visualization":
-        return "bg-emerald-400 text-white";
+        return "bg-emerald-400 text-black dark:text-white";
       case "json":
-        return "bg-slate-500 text-white";
+        return "bg-slate-500 text-black dark:text-white";
       case "numpy":
-        return "bg-sky-500 text-white";
+        return "bg-sky-500 text-black dark:text-white";
       case "pandas":
-        return "bg-indigo-500 text-white";
+        return "bg-indigo-500 text-black dark:text-white";
       case "fastapi":
-        return "bg-teal-500 text-white";
+        return "bg-teal-500 text-black dark:text-white";
       case "gui":
-        return "bg-violet-500 text-white";
+        return "bg-violet-500 text-black dark:text-white";
       case "framer motion":
-        return "bg-fuchsia-500 text-white";
+        return "bg-fuchsia-500 text-black dark:text-white";
       case "sqlite":
-        return "bg-blue-400 text-white";
+        return "bg-blue-400 text-black dark:text-white";
       case "html5":
-        return "bg-orange-500 text-white";
+        return "bg-orange-500 text-black dark:text-white";
       case "css3":
-        return "bg-blue-400 text-white";
+        return "bg-blue-400 text-black dark:text-white";
       case "jinja2":
-        return "bg-red-500 text-white";
+        return "bg-red-500 text-black dark:text-white";
       case "groq api (llama)":
       case "groq":
-        return "bg-purple-600 text-white";
+        return "bg-purple-600 text-black dark:text-white";
       case "csv & json datasets":
       case "csv":
-        return "bg-slate-500 text-white";
+        return "bg-slate-500 text-black dark:text-white";
       default:
-        return "bg-primary text-white";
+        return "bg-primary text-black dark:text-white";
     }
   };
 
   const getBadgeClasses = (tech: string) => {
     const key = tech.toLowerCase();
-    const baseClasses = "px-2 py-0.5 text-[10px] font-bold rounded-full border transition-all duration-300 ease-in-out cursor-default";
+    const baseClasses = "px-2 py-0.5 text-[10px] font-bold rounded-full border transition-all duration-300 ease-in-out cursor-default dark:hover:text-black";
 
     switch (key) {
       case "python":
         return `${baseClasses} bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20 hover:bg-blue-500 hover:text-white`;
       case "react":
-        return `${baseClasses} bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20 hover:bg-cyan-500 hover:text-white`;
+        return `${baseClasses} bg-cyan-500/10 text-cyan-600 dark:text-[#89D3BD] border-cyan-500/20 dark:border-[#89D3BD]/20 hover:bg-cyan-500 hover:text-white dark:hover:bg-[#89D3BD]`;
       case "typescript":
         return `${baseClasses} bg-blue-600/10 text-blue-700 dark:text-blue-300 border-blue-600/20 hover:bg-blue-600 hover:text-white`;
       case "tailwind":
@@ -181,7 +181,7 @@ const Projects = () => {
       case "sqlite":
         return `${baseClasses} bg-blue-400/10 text-blue-500 dark:text-blue-300 border-blue-400/20 hover:bg-blue-400 hover:text-white`;
       default:
-        return `${baseClasses} bg-blue-700/10 text-blue-700 dark:text-cyan-300 border-blue-700/20 dark:border-cyan-300/20 hover:bg-blue-700 dark:hover:bg-cyan-300 hover:text-white dark:hover:text-black`;
+        return `${baseClasses} bg-blue-700/10 text-blue-700 dark:text-[#89D3BD] border-blue-700/20 dark:border-[#89D3BD]/20 hover:bg-blue-700 dark:hover:bg-[#89D3BD] hover:text-white dark:hover:text-black`;
     }
   };
 
@@ -343,7 +343,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 relative section-divider-top scroll-mt-20" ref={ref}>
+    <section id="projects" className="group py-20 relative section-divider-top scroll-mt-20" ref={ref}>
       <StudyBackground />
       <div className="container mx-auto px-4 relative z-10">
         <div
@@ -356,11 +356,11 @@ const Projects = () => {
                 segments={[
                   {
                     text: "My",
-                    className: "text-blue-700 dark:text-cyan-300",
+                    className: "text-blue-700 dark:text-[#89D3BD]",
                   },
                   {
                     text: " Projects",
-                    className: "text-blue-700 dark:text-cyan-300",
+                    className: "text-blue-700 dark:text-[#89D3BD]",
                   },
                 ]}
               />
@@ -387,8 +387,8 @@ const Projects = () => {
               <button
                 onClick={() => setSelectedTech(null)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedTech === null
-                  ? 'bg-primary text-white shadow-lg'
-                  : 'bg-muted text-foreground hover:bg-muted/80'
+                  ? 'bg-primary text-black dark:text-black shadow-lg shadow-[0_10px_20px_hsl(var(--primary)/0.32)]'
+                  : 'bg-muted text-foreground hover:bg-muted/80 dark:hover:text-white'
                   }`}
               >
                 All Projects
@@ -400,8 +400,8 @@ const Projects = () => {
                     key={tech}
                     onClick={() => setSelectedTech(selectedTech === tech ? null : tech)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedTech === tech
-                      ? `${getTechGradient(tech)} shadow-lg`
-                      : `${getTechGradient(tech)} opacity-60 hover:opacity-100 shadow-md hover:shadow-lg`
+                      ? `${getTechGradient(tech)} text-black dark:text-black shadow-lg shadow-[0_10px_20px_hsl(var(--primary)/0.32)]`
+                      : `${getTechGradient(tech)} opacity-60 hover:opacity-100 shadow-md hover:shadow-lg dark:hover:text-black`
                       }`}
                   >
                     {tech}
@@ -480,7 +480,7 @@ const Projects = () => {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                className="flex-1 h-8 text-xs border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 bg-transparent hover:bg-blue-700 dark:hover:bg-cyan-300 hover:text-white dark:hover:text-black font-black transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-[0_10px_20px_rgba(29,78,216,0.3)] active:scale-95"
+                                className="flex-1 h-8 text-xs border-2 border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] bg-transparent hover:bg-blue-700 dark:hover:bg-[#89D3BD] hover:text-white dark:hover:text-black font-black transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-[0_10px_20px_rgba(29,78,216,0.3)] active:scale-95"
                                 asChild
                               >
                                 <a
@@ -495,7 +495,7 @@ const Projects = () => {
                               {project.demo ? (
                                 <Button
                                   size="sm"
-                                  className="flex-1 h-8 text-xs bg-blue-700 dark:bg-cyan-300 text-white dark:text-black font-black hover:opacity-90 transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-[0_10px_20px_rgba(29,78,216,0.3)] active:scale-95"
+                                  className="flex-1 h-8 text-xs bg-blue-700 dark:bg-[#89D3BD] text-white dark:text-black font-black hover:opacity-90 transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-[0_10px_20px_rgba(29,78,216,0.3)] active:scale-95"
                                   asChild
                                 >
                                   <a
@@ -511,7 +511,7 @@ const Projects = () => {
                                 <Button
                                   size="sm"
                                   variant="outline"
-                                  className="flex-1 h-8 text-xs opacity-60 cursor-not-allowed border-dashed bg-purple-500/10 border-purple-500/30 text-purple-400"
+                                  className="flex-1 h-8 text-xs opacity-60 cursor-not-allowed bg-blue-300 text-blue-900 dark:bg-[#89D3BD]/20 dark:text-black"
                                   disabled
                                 >
                                   <ExternalLink className="mr-1 h-3 w-3" />
