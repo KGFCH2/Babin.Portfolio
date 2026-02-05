@@ -2,6 +2,7 @@ import React from "react";
 import SectionTitle from "./SectionTitle";
 import { useInView } from "react-intersection-observer";
 import StudyBackground from "./StudyBackground";
+import { BookOpen } from "lucide-react";
 
 const Materials: React.FC = () => {
     const { ref, inView } = useInView({
@@ -10,7 +11,7 @@ const Materials: React.FC = () => {
     });
 
     return (
-        <section id="materials" className="py-20 section-divider-top scroll-mt-20" ref={ref}>
+        <section id="materials" className="group py-20 section-divider-top scroll-mt-20" ref={ref}>
             <StudyBackground />
             <div
                 className={`container mx-auto px-4 ${inView ? "animate-fade-in-up" : "opacity-0"}`}
@@ -21,11 +22,11 @@ const Materials: React.FC = () => {
                             segments={[
                                 {
                                     text: "My",
-                                    className: "text-blue-700 dark:text-cyan-300",
+                                    className: "text-blue-700 dark:text-[#89D3BD]",
                                 },
                                 {
                                     text: " Materials",
-                                    className: "text-blue-700 dark:text-cyan-300",
+                                    className: "text-blue-700 dark:text-[#89D3BD]",
                                 },
                             ]}
                         />
@@ -41,9 +42,11 @@ const Materials: React.FC = () => {
                                 const el = document.querySelector("#materials");
                                 el?.scrollIntoView({ behavior: "smooth" });
                             }}
-                            className="inline-block px-4 py-2 rounded-md bg-primary text-primary-foreground hover:opacity-90 transition"
+                            aria-label="View my materials"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-primary-foreground dark:bg-[#89D3BD] dark:text-black hover:opacity-95 transition transform duration-300 hover:shadow-[0_10px_20px_var(--shadow-color)] hover:-translate-y-1 hover:scale-105"
                         >
-                            View My Materials
+                            <BookOpen className="h-4 w-4 text-primary-foreground dark:text-black" />
+                            <span>View My Materials</span>
                         </a>
                     </div>
                 </div>
