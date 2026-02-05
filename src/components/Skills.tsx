@@ -233,7 +233,7 @@ const Skills: React.FC = () => {
                             },
                             {
                                 text: " Skills",
-                                className: "text-blue-700 dark:text-cyan-300",
+                                className: "text-blue-700 dark:text-[#89D3BD]",
                             },
                         ]}
                     />
