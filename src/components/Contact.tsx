@@ -126,15 +126,15 @@ const Contact = () => {
                 segments={[
                   {
                     text: "Get",
-                    className: "text-blue-700 dark:text-cyan-300",
+                    className: "text-blue-700 dark:text-[#89D3BD]",
                   },
                   {
                     text: " In",
-                    className: "text-blue-700 dark:text-cyan-300",
+                    className: "text-blue-700 dark:text-[#89D3BD]",
                   },
                   {
                     text: " Touch",
-                    className: "text-blue-700 dark:text-cyan-300",
+                    className: "text-blue-700 dark:text-[#89D3BD]",
                   },
                 ]}
               />
@@ -155,11 +155,11 @@ const Contact = () => {
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
                     <Card
-                      className="p-4 md:p-6 bg-card shadow-card hover:shadow-[0_20px_40px_rgba(29,78,216,0.15)] transition-smooth border-border/50 group cursor-default"
+                      className="p-4 md:p-6 bg-card shadow-card hover:shadow-[0_20px_40px_var(--shadow-color)] transition-all duration-300 border-border/50 group cursor-default"
                     >
                       <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 text-center sm:text-left">
                         <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 min-w-0 flex-1">
-                          <div className="text-blue-700 dark:text-cyan-300 flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                          <div className="text-blue-700 dark:text-[#89D3BD] flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                             {React.cloneElement(info.icon as React.ReactElement, { size: 28 })}
                           </div>
                           <div className="min-w-0 flex-1">
@@ -171,7 +171,7 @@ const Contact = () => {
                                 href={info.link}
                                 target={info.link.startsWith('http') ? "_blank" : undefined}
                                 rel={info.link.startsWith('http') ? "noopener noreferrer" : undefined}
-                                className="text-muted-foreground hover:text-blue-700 dark:hover:text-cyan-300 transition-smooth break-all text-xs md:text-sm font-medium"
+                                className="text-muted-foreground hover:text-blue-700 dark:hover:text-[#89D3BD] transition-smooth break-all text-xs md:text-sm font-medium"
                               >
                                 {info.value}
                               </a>
@@ -184,7 +184,7 @@ const Contact = () => {
                         {info.link && (info.title.includes('Email') || info.title === 'Phone') && (
                           <button
                             onClick={() => copyToClipboard(info.value, info.title)}
-                            className="p-2 md:p-3 rounded-lg opacity-100 sm:opacity-0 sm:group-hover:opacity-100 hover:bg-blue-700/10 dark:hover:bg-cyan-300/10 transition-all focus-visible:opacity-100 min-w-[40px] md:min-w-[48px] min-h-[40px] md:min-h-[48px] flex items-center justify-center flex-shrink-0"
+                            className="p-2 md:p-3 rounded-lg opacity-100 sm:opacity-0 sm:group-hover:opacity-100 hover:bg-blue-700/10 dark:hover:bg-[#89D3BD]/10 transition-all focus-visible:opacity-100 min-w-[40px] md:min-w-[48px] min-h-[40px] md:min-h-[48px] flex items-center justify-center flex-shrink-0"
                             title={`Copy ${info.title}`}
                             aria-label={`Copy ${info.title}: ${info.value}`}
                           >
@@ -267,14 +267,14 @@ const Contact = () => {
                   />
                 </div>
                 <motion.div
-                  whileHover={{ scale: 1.05, y: -5, boxShadow: "0 20px 40px rgba(29, 78, 216, 0.3)" }}
+                  whileHover={{ scale: 1.05, y: -5, boxShadow: "0 20px 40px var(--shadow-color)" }}
                   transition={{ type: "spring", stiffness: 500, damping: 25 }}
                 >
                   <Button
                     type="submit"
                     disabled={isSubmitting}
                     aria-busy={isSubmitting}
-                    className="w-full bg-blue-700 dark:bg-cyan-300 text-white dark:text-black font-black shadow-lg hover:opacity-90 transition-smooth disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 active:scale-95 text-sm md:text-base py-2 md:py-3 h-auto"
+                    className="w-full bg-blue-700 dark:bg-[#89D3BD] text-white dark:text-black font-black shadow-lg hover:opacity-90 hover:shadow-[0_20px_40px_var(--shadow-color)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 active:scale-95 text-sm md:text-base py-2 md:py-3 h-auto"
                   >
                     {isSubmitting ? (
                       <>
