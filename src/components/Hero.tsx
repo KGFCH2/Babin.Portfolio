@@ -59,13 +59,13 @@ const Hero = () => {
                   <AnimatedIcon
                     Icon={currentIcon}
                     size={32}
-                    className="text-blue-700 dark:text-cyan-300"
+                    className="text-blue-700 dark:text-[#89D3BD]"
                     glowColor="transparent"
                     animationType="bounce"
                   />
-                  <span className="text-blue-700 dark:text-cyan-300 whitespace-nowrap"> </span>
+                  <span className="text-blue-700 dark:text-[#89D3BD] whitespace-nowrap"> </span>
                 </div>
-                <div className="text-blue-700 dark:text-cyan-300 text-center md:text-left leading-tight md:leading-normal">
+                <div className="text-blue-700 dark:text-[#89D3BD] text-center md:text-left leading-tight md:leading-normal">
                   <TypeAnimation
                     sequence={[
                       () => setCurrentIcon(Code),
@@ -119,7 +119,7 @@ const Hero = () => {
                 <AnimatedIcon
                   Icon={currentIcon}
                   size={32}
-                  className="scale-x-[-1] text-blue-700 dark:text-cyan-300"
+                  className="scale-x-[-1] text-blue-700 dark:text-[#89D3BD]"
                   glowColor="transparent"
                   animationType="bounce"
                 />
@@ -191,7 +191,7 @@ const Hero = () => {
               {/* Blue background box on hover - light mode (using primary which is blue-700) */}
               <div className="absolute inset-0 bg-primary/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
               <div className="absolute inset-0 bg-primary/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 block dark:hidden" />
-              <Linkedin className="h-6 w-6 text-foreground/60 group-hover:text-blue-700 dark:group-hover:text-cyan-300 transition-colors relative z-10" />
+              <Linkedin className="h-6 w-6 text-foreground/60 group-hover:text-blue-600 dark:group-hover:text-[#89D3BD] transition-colors relative z-10" />
             </a>
             <a
               href="mailto:babin.bid@stu.adamasuniversity.ac.in"
