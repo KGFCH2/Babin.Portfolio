@@ -60,7 +60,7 @@ const About = () => {
                     },
                     {
                       text: " Me",
-                      className: "text-blue-700 dark:text-cyan-300",
+                      className: "text-blue-700 dark:text-[#89D3BD]",
                     },
                   ]}
                 />
@@ -151,10 +151,10 @@ const About = () => {
                       transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden bg-transparent dark:shadow-[#89D3BD]/20"
+                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden bg-transparent dark:shadow-cyan-300/20"
                     onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
                   >
-                    <div className="absolute inset-0 bg-blue-700 dark:bg-[#89D3BD] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-blue-700 dark:bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <span className="relative z-10 flex items-center gap-2 group-hover:text-white dark:group-hover:text-black transition-colors duration-300">
                       <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200" />
                       View Resume
@@ -290,7 +290,7 @@ const About = () => {
                       y: -2,
                       boxShadow: "0 10px 30px -10px var(--shadow-color)",
                     }}
-                    className="group/section relative h-16 bg-white/40 dark:bg-transparent backdrop-blur-md rounded-2xl p-3 transition-all duration-300 border border-white/20 dark:border-white/10 overflow-hidden cursor-default shadow-sm dark:shadow-[#89D3BD]/20 hover:border-blue-700 dark:hover:border-cyan-300"
+                    className="group/section relative h-16 bg-white/40 dark:bg-transparent backdrop-blur-md rounded-2xl p-3 transition-all duration-300 border border-white/20 dark:border-white/10 overflow-hidden cursor-default shadow-sm dark:shadow-[#89D3BD]/20 hover:border-blue-700 dark:hover:border-[#89D3BD]"
                   >
                     <div className="relative z-10 flex items-center justify-between h-full">
                       <div className="flex items-center gap-3">
@@ -378,10 +378,9 @@ const About = () => {
                       y: -5,
                       scale: 1.02,
                       boxShadow: "0 20px 40px -12px var(--shadow-color-highlights)",
-                      borderColor: "rgba(29, 78, 216, 0.3)",
                       transition: { type: "spring", stiffness: 400, damping: 17 }
                     }}
-                    className="group/section p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 hover:border-blue-700 dark:hover:border-[#89D3BD] transition-all duration-300 group cursor-default"
+                    className="group/section p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 transition-all duration-300 group cursor-default hover:border-blue-700 dark:hover:border-[#89D3BD]"
                   >
                     <div className="w-8 h-8 rounded-xl bg-blue-700/10 dark:bg-[#89D3BD]/10 flex items-center justify-center mb-3 group-hover/section:scale-110 group-hover/section:rotate-[360deg] transition-all duration-500">
                       <motion.div
