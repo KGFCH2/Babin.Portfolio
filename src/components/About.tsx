@@ -43,7 +43,7 @@ const About = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="max-w-6xl mx-auto space-y-8"
+          className="max-w-6xl mx-auto space-y-8 dark:shadow-cyan-300/20"
         >
           <div className="text-center space-y-4">
             <motion.div
@@ -114,9 +114,9 @@ const About = () => {
 
                 <div className="flex gap-3 flex-wrap pt-2">
                   {[
-                    { label: "Software Engineering", color: "emerald", hex: "#10b981", icon: Code, bg: "bg-emerald-500/10", text: "text-emerald-400", border: "border-emerald-500/20" },
-                    { label: "Full-Stack Development", color: "blue", hex: "#1d4ed8", icon: Rocket, bg: "bg-blue-500/10", text: "text-blue-400", border: "border-blue-500/20" },
-                    { label: "Machine Learning", color: "purple", hex: "#8b5cf6", icon: Brain, bg: "bg-purple-500/10", text: "text-purple-400", border: "border-purple-500/20" },
+                    { label: "Software Engineering", color: "emerald", hex: "#10b981", icon: Code, bg: "bg-emerald-500/10", text: "text-emerald-700 dark:text-emerald-400", border: "border-emerald-500/20" },
+                    { label: "Full-Stack Development", color: "blue", hex: "#1d4ed8", icon: Rocket, bg: "bg-blue-500/10", text: "text-blue-700 dark:text-blue-400", border: "border-blue-500/20" },
+                    { label: "Machine Learning", color: "purple", hex: "#8b5cf6", icon: Brain, bg: "bg-purple-500/10", text: "text-purple-700 dark:text-purple-400", border: "border-purple-500/20" },
                   ].map((tag, idx) => (
                     <motion.span
                       key={idx}
@@ -147,11 +147,11 @@ const About = () => {
                     whileHover={{
                       scale: 1.05,
                       y: -5,
-                      boxShadow: "0 20px 40px rgba(29, 78, 216, 0.3)",
+                      boxShadow: "0 20px 40px var(--shadow-color)",
                       transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden bg-transparent"
+                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden bg-transparent dark:shadow-cyan-300/20"
                     onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
                   >
                     <div className="absolute inset-0 bg-blue-700 dark:bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -167,11 +167,11 @@ const About = () => {
                     whileHover={{
                       scale: 1.05,
                       y: -5,
-                      boxShadow: "0 20px 40px rgba(29, 78, 216, 0.3)",
+                      boxShadow: "0 20px 40px var(--shadow-color)",
                       transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-transparent overflow-hidden"
+                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-transparent overflow-hidden dark:shadow-cyan-300/20"
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                   >
                     <div className="absolute inset-0 bg-blue-700 dark:bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -249,7 +249,7 @@ const About = () => {
               initial={{ x: -10, opacity: 0 }}
               animate={inView ? { x: 0, opacity: 1 } : {}}
               transition={{ delay: 0.2 }}
-              className="space-y-4"
+              className="space-y-4 dark:shadow-cyan-300/20"
             >
               <div className="flex items-center justify-between">
                 <motion.h4
@@ -288,9 +288,9 @@ const About = () => {
                     whileHover={{
                       scale: 1.02,
                       y: -2,
-                      boxShadow: "0 10px 30px -10px rgba(29, 78, 216, 0.3)",
+                      boxShadow: "0 10px 30px -10px var(--shadow-color)",
                     }}
-                    className="group/section relative h-16 bg-white/40 dark:bg-transparent backdrop-blur-md rounded-2xl p-3 transition-all duration-300 border border-white/20 dark:border-white/10 overflow-hidden cursor-default shadow-sm hover:border-blue-700 dark:hover:border-cyan-300"
+                    className="group/section relative h-16 bg-white/40 dark:bg-transparent backdrop-blur-md rounded-2xl p-3 transition-all duration-300 border border-white/20 dark:border-white/10 overflow-hidden cursor-default shadow-sm dark:shadow-cyan-300/20 hover:border-blue-700 dark:hover:border-cyan-300"
                   >
                     <div className="relative z-10 flex items-center justify-between h-full">
                       <div className="flex items-center gap-3">
@@ -321,7 +321,7 @@ const About = () => {
               initial={{ x: 10, opacity: 0 }}
               animate={inView ? { x: 0, opacity: 1 } : {}}
               transition={{ delay: 0.2 }}
-              className="space-y-4"
+              className="space-y-4 dark:shadow-cyan-300/20"
             >
               <div className="flex items-center justify-between">
                 <motion.h4
@@ -377,11 +377,11 @@ const About = () => {
                     whileHover={{
                       y: -5,
                       scale: 1.02,
-                      boxShadow: "0 20px 40px -12px rgba(29, 78, 216, 0.2)",
+                      boxShadow: "0 20px 40px -12px var(--shadow-color-highlights)",
                       borderColor: "rgba(29, 78, 216, 0.3)",
                       transition: { type: "spring", stiffness: 400, damping: 17 }
                     }}
-                    className="group/section p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 hover:border-blue-700 dark:hover:border-cyan-300 transition-all duration-300 group cursor-default shadow-lg"
+                    className="group/section p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 hover:border-blue-700 dark:hover:border-cyan-300 transition-all duration-300 group cursor-default"
                   >
                     <div className="w-8 h-8 rounded-xl bg-blue-700/10 dark:bg-cyan-300/10 flex items-center justify-center mb-3 group-hover/section:scale-110 group-hover/section:rotate-[360deg] transition-all duration-500">
                       <motion.div
@@ -411,7 +411,7 @@ const About = () => {
             <p className="text-sm md:text-base font-bold italic leading-relaxed max-w-3xl mx-auto relative z-10 text-primary">
               "Bridging the gap between theoretical computer science and impactful real-world applications."
             </p>
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-secondary/40" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-primary/40" />
           </motion.blockquote>
         </motion.div>
       </div>
