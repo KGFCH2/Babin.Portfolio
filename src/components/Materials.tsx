@@ -26,7 +26,7 @@ const Materials: React.FC = () => {
                                 },
                                 {
                                     text: " Materials",
-                                    className: "text-blue-700 dark:text-[#89D3BD]",
+                                    className: "text-blue-700 dark:text-cyan-300",
                                 },
                             ]}
                         />
