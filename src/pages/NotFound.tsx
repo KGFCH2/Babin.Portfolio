@@ -19,7 +19,7 @@ const NotFound = () => {
       <div className="text-center z-10 px-4">
         {/* Animated 404 */}
         <div className="relative mb-8">
-          <h1 className="text-[10rem] md:text-[14rem] font-black text-blue-700 dark:text-cyan-300 leading-none select-none">
+          <h1 className="text-[10rem] md:text-[14rem] font-black text-blue-700 dark:text-[#89D3BD] leading-none select-none">
             404
           </h1>
           <div className="absolute inset-0 text-[10rem] md:text-[14rem] font-black text-primary/5 leading-none blur-sm select-none">
