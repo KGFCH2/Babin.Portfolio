@@ -364,7 +364,7 @@ export const achievementsData: AchievementCategory[] = [
         ]
     },
     {
-        category: "Microsoft Badges",
+        category: "Microsoft Badges & Trophies",
         items: [
             { title: "Badge-Platinum", file: "/Achievements/Microsoft/Badge-Platinum.png" },
             { title: "Badge-Gold", file: "/Achievements/Microsoft/Badge-Gold.png" },
