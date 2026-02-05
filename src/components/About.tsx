@@ -34,8 +34,8 @@ const About = () => {
 
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-16 w-72 h-72 bg-blue-700/10 dark:bg-cyan-300/10 rounded-full blur-[80px] animate-pulse" />
-        <div className="absolute bottom-1/4 -right-16 w-72 h-72 bg-blue-700/10 dark:bg-cyan-300/10 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/4 -left-16 w-72 h-72 bg-blue-700/10 dark:bg-[#89D3BD]/10 rounded-full blur-[80px] animate-pulse" />
+        <div className="absolute bottom-1/4 -right-16 w-72 h-72 bg-blue-700/10 dark:bg-[#89D3BD]/10 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -43,7 +43,7 @@ const About = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="max-w-6xl mx-auto space-y-8 dark:shadow-cyan-300/20"
+          className="max-w-6xl mx-auto space-y-8 dark:shadow-[#89D3BD]/20"
         >
           <div className="text-center space-y-4">
             <motion.div
@@ -88,7 +88,7 @@ const About = () => {
                   }}
                   className="text-xl md:text-2xl font-black tracking-tight cursor-default inline-block"
                 >
-                  <span className="font-bold text-blue-700 dark:text-cyan-300">
+                  <span className="font-bold text-blue-700 dark:text-[#89D3BD]">
                     Babin Bid
                   </span>
                 </motion.h3>
@@ -99,7 +99,7 @@ const About = () => {
                   transition={{ delay: 0.25 }}
                   className="text-sm text-muted-foreground flex items-center gap-3 font-medium group/edu cursor-default"
                 >
-                  <GraduationCap className="w-5 h-5 text-blue-700 dark:text-cyan-300 group-hover/edu:scale-125 group-hover/edu:rotate-12 transition-all duration-300" />
+                  <GraduationCap className="w-5 h-5 text-blue-700 dark:text-[#89D3BD] group-hover/edu:scale-125 group-hover/edu:rotate-12 transition-all duration-300" />
                   B.Tech In CSE • Adamas University, Kolkata
                 </motion.p>
 
@@ -151,10 +151,10 @@ const About = () => {
                       transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden bg-transparent dark:shadow-cyan-300/20"
+                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden bg-transparent dark:shadow-[#89D3BD]/20"
                     onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
                   >
-                    <div className="absolute inset-0 bg-blue-700 dark:bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-blue-700 dark:bg-[#89D3BD] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <span className="relative z-10 flex items-center gap-2 group-hover:text-white dark:group-hover:text-black transition-colors duration-300">
                       <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200" />
                       View Resume
@@ -171,10 +171,10 @@ const About = () => {
                       transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-transparent overflow-hidden dark:shadow-cyan-300/20"
+                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-transparent overflow-hidden dark:shadow-[#89D3BD]/20"
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    <div className="absolute inset-0 bg-blue-700 dark:bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-blue-700 dark:bg-[#89D3BD] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <span className="relative z-10 flex items-center gap-2 group-hover:text-white dark:group-hover:text-black transition-colors duration-300">
                       <MessageCircle className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200" />
                       Get in Touch
@@ -193,7 +193,7 @@ const About = () => {
                 className="group relative"
               >
                 {/* Decorative background aura */}
-                <div className="absolute -inset-6 bg-blue-700/10 dark:bg-cyan-300/10 rounded-full opacity-30 group-hover:opacity-50 blur-[60px] transition duration-500" />
+                <div className="absolute -inset-6 bg-blue-700/10 dark:bg-[#89D3BD]/10 rounded-full opacity-30 group-hover:opacity-50 blur-[60px] transition duration-500" />
 
                 <div className="relative">
                   <motion.div
@@ -249,21 +249,21 @@ const About = () => {
               initial={{ x: -10, opacity: 0 }}
               animate={inView ? { x: 0, opacity: 1 } : {}}
               transition={{ delay: 0.2 }}
-              className="space-y-4 dark:shadow-cyan-300/20"
+              className="space-y-4 dark:shadow-[#89D3BD]/20"
             >
               <div className="flex items-center justify-between">
                 <motion.h4
                   whileHover={{ x: 5 }}
-                  className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default text-blue-700 dark:text-cyan-300"
+                  className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default text-blue-700 dark:text-[#89D3BD]"
                 >
-                  <div className="w-1.5 h-8 bg-blue-700 dark:bg-cyan-300 rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
+                  <div className="w-1.5 h-8 bg-blue-700 dark:bg-[#89D3BD] rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
                   Core Knowledge
                 </motion.h4>
                 <div className="flex -space-x-2">
                   {[
-                    { icon: Code, color: "text-blue-700 dark:text-cyan-300" },
-                    { icon: Brain, color: "text-blue-700 dark:text-cyan-300" },
-                    { icon: Rocket, color: "text-blue-700 dark:text-cyan-300" }
+                    { icon: Code, color: "text-blue-700 dark:text-[#89D3BD]" },
+                    { icon: Brain, color: "text-blue-700 dark:text-[#89D3BD]" },
+                    { icon: Rocket, color: "text-blue-700 dark:text-[#89D3BD]" }
                   ].map((item, i) => (
                     <div key={i} className="w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center shadow-md">
                       <item.icon className={`w-3 h-3 ${item.color}`} />
@@ -274,11 +274,11 @@ const About = () => {
 
               <div className="grid gap-3">
                 {[
-                  { name: 'Mathematics & Calculus', val: 95, icon: BookA, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-cyan-300', text: 'text-blue-700 dark:text-cyan-300', light: 'bg-blue-700/10 dark:bg-cyan-300/10' } },
-                  { name: 'Switching Circuits', val: 95, icon: CircuitBoard, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-cyan-300', text: 'text-blue-700 dark:text-cyan-300', light: 'bg-blue-700/10 dark:bg-cyan-300/10' } },
-                  { name: 'Frontend Development', val: 92, icon: Cog, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-cyan-300', text: 'text-blue-700 dark:text-cyan-300', light: 'bg-blue-700/10 dark:bg-cyan-300/10' } },
-                  { name: 'Data Structures & Algorithms', val: 88, icon: Brain, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-cyan-300', text: 'text-blue-700 dark:text-cyan-300', light: 'bg-blue-700/10 dark:bg-cyan-300/10' } },
-                  { name: 'Python Programming', val: 85, icon: Code, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-cyan-300', text: 'text-blue-700 dark:text-cyan-300', light: 'bg-blue-700/10 dark:bg-cyan-300/10' } },
+                  { name: 'Mathematics & Calculus', val: 95, icon: BookA, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
+                  { name: 'Switching Circuits', val: 95, icon: CircuitBoard, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
+                  { name: 'Frontend Development', val: 92, icon: Cog, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
+                  { name: 'Data Structures & Algorithms', val: 88, icon: Brain, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
+                  { name: 'Python Programming', val: 85, icon: Code, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
                 ].map((skill, i) => (
                   <motion.div
                     key={skill.name}
@@ -290,7 +290,7 @@ const About = () => {
                       y: -2,
                       boxShadow: "0 10px 30px -10px var(--shadow-color)",
                     }}
-                    className="group/section relative h-16 bg-white/40 dark:bg-transparent backdrop-blur-md rounded-2xl p-3 transition-all duration-300 border border-white/20 dark:border-white/10 overflow-hidden cursor-default shadow-sm dark:shadow-cyan-300/20 hover:border-blue-700 dark:hover:border-cyan-300"
+                    className="group/section relative h-16 bg-white/40 dark:bg-transparent backdrop-blur-md rounded-2xl p-3 transition-all duration-300 border border-white/20 dark:border-white/10 overflow-hidden cursor-default shadow-sm dark:shadow-[#89D3BD]/20 hover:border-blue-700 dark:hover:border-cyan-300"
                   >
                     <div className="relative z-10 flex items-center justify-between h-full">
                       <div className="flex items-center gap-3">
@@ -321,20 +321,20 @@ const About = () => {
               initial={{ x: 10, opacity: 0 }}
               animate={inView ? { x: 0, opacity: 1 } : {}}
               transition={{ delay: 0.2 }}
-              className="space-y-4 dark:shadow-cyan-300/20"
+              className="space-y-4 dark:shadow-[#89D3BD]/20"
             >
               <div className="flex items-center justify-between">
                 <motion.h4
                   whileHover={{ x: 5 }}
-                  className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default text-blue-700 dark:text-cyan-300"
+                  className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default text-blue-700 dark:text-[#89D3BD]"
                 >
-                  <div className="w-1.5 h-8 bg-blue-700 dark:bg-cyan-300 rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
+                  <div className="w-1.5 h-8 bg-blue-700 dark:bg-[#89D3BD] rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
                   Career Highlights
                 </motion.h4>
                 <div className="flex gap-2 p-1 rounded-full bg-secondary/10 border border-secondary/20">
-                  <GraduationCap className="w-5 h-5 text-blue-700 dark:text-cyan-300" />
-                  <Award className="w-5 h-5 text-blue-700 dark:text-cyan-300" />
-                  <BookCopy className="w-5 h-5 text-blue-700 dark:text-cyan-300" />
+                  <GraduationCap className="w-5 h-5 text-blue-700 dark:text-[#89D3BD]" />
+                  <Award className="w-5 h-5 text-blue-700 dark:text-[#89D3BD]" />
+                  <BookCopy className="w-5 h-5 text-blue-700 dark:text-[#89D3BD]" />
                 </div>
               </div>
 
@@ -381,13 +381,13 @@ const About = () => {
                       borderColor: "rgba(29, 78, 216, 0.3)",
                       transition: { type: "spring", stiffness: 400, damping: 17 }
                     }}
-                    className="group/section p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 hover:border-blue-700 dark:hover:border-cyan-300 transition-all duration-300 group cursor-default"
+                    className="group/section p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 hover:border-blue-700 dark:hover:border-[#89D3BD] transition-all duration-300 group cursor-default"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-blue-700/10 dark:bg-cyan-300/10 flex items-center justify-center mb-3 group-hover/section:scale-110 group-hover/section:rotate-[360deg] transition-all duration-500">
+                    <div className="w-8 h-8 rounded-xl bg-blue-700/10 dark:bg-[#89D3BD]/10 flex items-center justify-center mb-3 group-hover/section:scale-110 group-hover/section:rotate-[360deg] transition-all duration-500">
                       <motion.div
                         whileHover={{ scale: 1.2 }}
                       >
-                        <item.icon className="w-4 h-4 text-blue-700 dark:text-cyan-300" />
+                        <item.icon className="w-4 h-4 text-blue-700 dark:text-[#89D3BD]" />
                       </motion.div>
                     </div>
                     <h5 className="text-base font-black mb-1 group-hover/section:text-primary transition-colors duration-200">{item.title}</h5>
