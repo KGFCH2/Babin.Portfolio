@@ -147,7 +147,7 @@ const About = () => {
                     whileHover={{
                       scale: 1.05,
                       y: -5,
-                      boxShadow: "0 20px 40px var(--shadow-color)",
+                      boxShadow: "0 20px 20px rgba(0, 255, 255, 0.3)",
                       transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
@@ -167,11 +167,11 @@ const About = () => {
                     whileHover={{
                       scale: 1.05,
                       y: -5,
-                      boxShadow: "0 20px 40px var(--shadow-color)",
+                      boxShadow: "0 20px 20px var(--shadow-color)",
                       transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-transparent overflow-hidden dark:shadow-[#89D3BD]/20"
+                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-transparent overflow-hidden dark:shadow-cyan-300/20"
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                   >
                     <div className="absolute inset-0 bg-blue-700 dark:bg-[#89D3BD] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
