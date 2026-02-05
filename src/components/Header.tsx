@@ -143,7 +143,7 @@ const Header = () => {
               }, 150);
             }
           }}
-          className="text-2xl font-bold text-blue-700 dark:text-cyan-300"
+          className="text-2xl font-bold text-blue-700 dark:text-[#89D3BD]"
         >
           Babin.Portfolio
         </a>
@@ -181,7 +181,7 @@ const Header = () => {
 
           {/* Animated Line Indicator */}
           <div
-            className="absolute bottom-0 h-0.5 bg-blue-700 dark:bg-cyan-300 transition-all duration-300 ease-out rounded-full"
+            className="absolute bottom-0 h-0.5 bg-blue-700 dark:bg-[#89D3BD] transition-all duration-300 ease-out rounded-full"
             style={{
               width: `${lineStyle.width}px`,
               left: `${lineStyle.left}px`,
