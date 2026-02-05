@@ -41,7 +41,7 @@ const Achievements = () => {
         const certificateCategories = ["AWS", "CISCO", "Cognitive Class", "GeeksforGeeks", "Google", "GTech Learn", "HackerRank", "HP Life", "IBM", "Infosys Springboard", "Microsoft", "Pantech e Learning", "Qualcomm", "Saylor Academy", "Scaler", "SimpliLearn", "Skill Nation", "Udemy"];
         const bootcampCategories = ["Events & Hackathons", "Hack2Skill", "Kaggle", "Let's Upgrade", "MyBharat", "myGov", "Skill India", "Unstop"];
         const internshipCategories = ["Oasis Infobyte", "Infosys Springboard Internships", "The Developers Arena"];
-        const badgeCategories = ["AWS Badges", "Google Badges", "Holopin Badges", "HP Life Badges", "Microsoft Badges", "Microsoft Trophies", "Qualcomm Badges"];
+        const badgeCategories = ["AWS Badges", "Google Badges", "Holopin Badges", "HP Life Badges", "Microsoft Badges & Trophies", "Microsoft Trophies", "Qualcomm Badges"];
 
         switch (filter) {
             case 'All':
@@ -159,11 +159,11 @@ const Achievements = () => {
                                 segments={[
                                     {
                                         text: "My",
-                                        className: "text-blue-700 dark:text-cyan-300",
+                                        className: "text-blue-700 dark:text-[#89D3BD]",
                                     },
                                     {
                                         text: " Achievements",
-                                        className: "text-blue-700 dark:text-cyan-300",
+                                        className: "text-blue-700 dark:text-[#89D3BD]",
                                     },
                                 ]}
                             />
@@ -180,7 +180,7 @@ const Achievements = () => {
                                 key={filter}
                                 onClick={() => setActiveFilter(filter)}
                                 className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 text-sm md:text-base ${activeFilter === filter
-                                    ? 'bg-blue-700 dark:bg-cyan-300 text-white dark:text-black shadow-lg scale-105 font-black'
+                                    ? 'bg-blue-700 dark:bg-[#89D3BD] text-white dark:text-black shadow-lg scale-105 font-black'
                                     : 'bg-muted/50 text-foreground hover:bg-muted border border-border/50 hover:border-primary/20'
                                     }`}
                             >
@@ -192,7 +192,7 @@ const Achievements = () => {
                     <div className="space-y-16 animate-slide-show">
                         {filteredAchievements.map((category, catIndex) => (
                             <div key={catIndex} className="space-y-6">
-                                <h3 className="text-2xl font-bold text-blue-700 dark:text-cyan-300 border-l-4 border-primary pl-4 whitespace-normal break-words max-w-full">
+                                <h3 className="text-2xl font-bold text-blue-700 dark:text-[#89D3BD] border-l-4 border-primary pl-4 whitespace-normal break-words max-w-full">
                                     {category.category}
                                 </h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -295,7 +295,7 @@ const Achievements = () => {
                         </button>
                         <button
                             onClick={closeLightbox}
-                            className="p-2 bg-blue-700/80 dark:bg-cyan-300/80 rounded-full text-white dark:text-black hover:bg-blue-700 dark:hover:bg-cyan-300 transition-all duration-300 ml-2 backdrop-blur-md hover:scale-110 hover:rotate-90"
+                            className="p-2 bg-blue-700/80 dark:bg-[#89D3BD]/80 rounded-full text-white dark:text-black hover:bg-blue-700 dark:hover:bg-[#89D3BD] transition-all duration-300 ml-2 backdrop-blur-md hover:scale-110 hover:rotate-90"
                             title="Close"
                         >
                             <X className="h-6 w-6" />
