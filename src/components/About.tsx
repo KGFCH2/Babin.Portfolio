@@ -56,7 +56,7 @@ const About = () => {
                   segments={[
                     {
                       text: "About",
-                      className: "text-blue-700 dark:text-cyan-300",
+                      className: "text-blue-900 dark:text-cyan-300",
                     },
                     {
                       text: " Me",
@@ -147,14 +147,14 @@ const About = () => {
                     whileHover={{
                       scale: 1.05,
                       y: -5,
-                      boxShadow: "0 20px 20px rgba(0, 255, 255, 0.3)",
+                      boxShadow: "0 20px 20px var(--shadow-color)",
                       transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden bg-transparent dark:shadow-cyan-300/20"
+                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-900 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden bg-transparent dark:shadow-cyan-300/20"
                     onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
                   >
-                    <div className="absolute inset-0 bg-blue-700 dark:bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-blue-900 dark:bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <span className="relative z-10 flex items-center gap-2 group-hover:text-white dark:group-hover:text-black transition-colors duration-300">
                       <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200" />
                       View Resume
@@ -167,7 +167,7 @@ const About = () => {
                     whileHover={{
                       scale: 1.05,
                       y: -5,
-                      boxShadow: "0 20px 20px var(--shadow-color)",
+                      boxShadow: "0 20px 20px var(--shadow-color-contact)",
                       transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
@@ -377,7 +377,7 @@ const About = () => {
                     whileHover={{
                       y: -5,
                       scale: 1.02,
-                      boxShadow: "0 20px 40px -12px var(--shadow-color-highlights)",
+                      boxShadow: "0 20px 40px -10px var(--shadow-color-highlights)",
                       transition: { type: "spring", stiffness: 400, damping: 17 }
                     }}
                     className="group/section p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 transition-all duration-300 group cursor-default hover:border-blue-700 dark:hover:border-[#89D3BD]"
@@ -405,12 +405,12 @@ const About = () => {
             transition={{ delay: 0.4 }}
             className="mt-6 relative p-6 text-center group/quote"
           >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-primary/40" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-cyan-600" />
             <Quote className="w-6 h-6 text-primary/20 absolute top-2 left-1/2 -translate-x-1/2 -z-10 group-hover/quote:text-primary/40 group-hover/quote:scale-110 transition-all duration-500" />
             <p className="text-sm md:text-base font-bold italic leading-relaxed max-w-3xl mx-auto relative z-10 text-primary">
               "Bridging the gap between theoretical computer science and impactful real-world applications."
             </p>
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-primary/40" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-cyan-600" />
           </motion.blockquote>
         </motion.div>
       </div>
