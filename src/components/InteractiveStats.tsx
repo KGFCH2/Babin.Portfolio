@@ -57,10 +57,10 @@ const InteractiveStats: React.FC = () => {
     const total = stats.length;
 
     return (
-        <div ref={ref} className="py-16 relative overflow-hidden">
+        <div ref={ref} className="-mt-40 md:mt-0 py-8 md:py-16 relative overflow-hidden">
             <StudyBackground />
             <div className="container mx-auto px-4 relative z-10">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8 max-w-6xl mx-auto">
                     {stats.map((stat, index) => (
                         <StatCard
                             key={index}
@@ -141,7 +141,7 @@ const StatCard: React.FC<StatCardProps> = ({ stat, index, totalCount, isVisible 
                 transition: `transform 800ms cubic-bezier(.25,.8,.25,1) ${transitionDelay}ms, opacity 600ms ease ${transitionDelay}ms`,
             }}
         >
-            <div className="relative p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 hover:shadow-[0_20px_10px_rgba(29,78,216,0.3)] dark:hover:shadow-[0_10px_20px_rgba(137,211,189,0.3)] transition-all duration-300 h-40 flex flex-col justify-between">
+            <div className="relative p-4 md:p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 hover:shadow-[0_20px_10px_rgba(29,78,216,0.3)] dark:hover:shadow-[0_10px_20px_rgba(137,211,189,0.3)] transition-all duration-300 h-32 md:h-40 flex flex-col justify-between">
                 <div className="space-y-3">
                     <div className="flex items-center justify-between">
                         <div className="text-3xl md:text-4xl font-bold text-primary transition-all duration-300">
