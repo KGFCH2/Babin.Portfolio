@@ -88,7 +88,6 @@ const Footer = () => {
                   "Projects",
                   "Achievements",
                   "Research",
-                  "Materials",
                   "Contact",
                 ].map((item) => {
                   const href = item === "Achievements" ? "/achievements" : `#${item.toLowerCase()}`;
