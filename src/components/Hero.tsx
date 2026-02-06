@@ -30,13 +30,13 @@ const Hero = () => {
 
   return (
     <section
-      id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-8 scroll-mt-20"
+      id="home" className="min-h-[80vh] md:min-h-screen flex items-center justify-center relative overflow-hidden pt-4 md:pt-8 scroll-mt-20"
     >
       <StudyBackground />
 
-      <div className="container mx-auto px-4 py-12 z-10">
+      <div className="container mx-auto px-4 py-8 md:py-12 z-10">
         <motion.div
-          className="max-w-4xl mx-auto text-center space-y-6"
+          className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
@@ -45,7 +45,7 @@ const Hero = () => {
             <h2 className="text-xl md:text-2xl text-muted-foreground font-medium" role="status" aria-live="polite">
               Hi, I'm
             </h2>
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 max-w-[280px] mx-auto md:max-w-none">
+            <h1 className="text-5xl md:text-5xl font-bold mb-2 md:mb-4 max-w-[280px] mx-auto md:max-w-none">
               <SectionTitle
                 segments={[
                   { text: "Babin", className: "text-sky-600 dark:text-cyan-300" },
@@ -53,7 +53,7 @@ const Hero = () => {
                 ]}
               />
             </h1>
-            <div className="text-2xl md:text-3xl lg:text-3xl font-semibold text-foreground min-h-[140px] md:min-h-[160px] flex items-center justify-center">
+            <div className="text-2xl md:text-3xl lg:text-3xl font-semibold text-foreground min-h-[110px] md:min-h-[160px] flex items-center justify-center">
               <div className="flex flex-col md:flex-row items-center gap-3 max-w-[90vw] md:max-w-none">
                 <div className="flex items-center gap-3">
                   <AnimatedIcon
@@ -133,7 +133,7 @@ const Hero = () => {
             research.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center flex-wrap">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-center flex-wrap">
             <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
               <Button
                 size="lg"
@@ -210,7 +210,7 @@ const Hero = () => {
           </div>
 
           {/* Interactive scroll indicator */}
-          <div className="pt-6 animate-bounce cursor-pointer" onClick={() => scrollToSection('about')}>
+          <div className="pt-4 md:pt-6 animate-bounce cursor-pointer" onClick={() => scrollToSection('about')}>
             <div className="text-center">
               <p className="text-sm text-muted-foreground mb-2">Explore More</p>
               <ChevronDown className="h-6 w-6 text-primary mx-auto" />
