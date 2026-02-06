@@ -1,23 +1,47 @@
-import { useInView } from "react-intersection-observer";
-import { ChevronDown, X, FileText, MessageCircle, Lightbulb, Compass, Palette, Brain, Code, Zap, Rocket, Target, Briefcase, Cog, Globe, Wrench, Sparkles, Award, CheckCircle, Activity, Wind, BookA, CircuitBoard, WholeWord, BookAudio, BookCopy, PlayCircle, GraduationCap, Quote } from "lucide-react";
+import { ChevronDown, X, FileText, MessageCircle, Lightbulb, Compass, Palette, Brain, Code, Zap, Rocket, Target, Briefcase, Cog, Globe, Wrench, Sparkles, Award, CheckCircle, Activity, Wind, BookA, CircuitBoard, WholeWord, BookAudio, BookCopy, PlayCircle, GraduationCap, Quote, Terminal, Layers, Cpu } from "lucide-react";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { previewThenDownload } from "@/lib/utils";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import SectionTitle from "./SectionTitle";
 import AnimatedIcon from "./AnimatedIcon";
 import StudyBackground from "./StudyBackground";
 
 const About = () => {
-  const { ref, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-
   const [openPanel, setOpenPanel] = useState<string | null>(null);
   const [showImageModal, setShowImageModal] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
+
+  // Animation Variants
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    },
+    exit: {
+      opacity: 0,
+      y: 20,
+      transition: { duration: 0.5 }
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+    },
+    exit: {
+      opacity: 0,
+      y: -20,
+      transition: { duration: 0.4 }
+    }
+  };
 
   // Handle closing with animation
   const handleCloseModal = () => {
@@ -29,7 +53,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-12 relative overflow-hidden section-divider-top scroll-mt-20" ref={ref}>
+    <section id="about" className="py-20 relative overflow-hidden section-divider-top scroll-mt-20">
       <StudyBackground />
 
       {/* Background Decorative Elements */}
@@ -40,17 +64,14 @@ const About = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="max-w-6xl mx-auto space-y-8 dark:shadow-[#89D3BD]/20"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.1 }}
+          className="max-w-6xl mx-auto space-y-12"
         >
           <div className="text-center space-y-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ delay: 0.05, duration: 0.4 }}
-            >
+            <motion.div variants={itemVariants}>
               <h2 className="text-4xl md:text-6xl font-black mb-3 tracking-tighter max-w-xs mx-auto md:max-w-none">
                 <SectionTitle
                   segments={[
@@ -67,25 +88,21 @@ const About = () => {
               </h2>
             </motion.div>
             <motion.p
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.1 }}
+              variants={itemVariants}
               className="text-sm md:text-base text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed tracking-wide"
             >
               B.Tech Computer Science & Engineering Undergraduate | Software Developer | AI/ML Enthusiast
             </motion.p>
           </div>
-          <div className="grid lg:grid-cols-12 gap-6 items-center">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
             {/* Left: Professional info */}
-            <div className="lg:col-span-7 space-y-6 order-2 lg:order-1">
+            <motion.div
+              variants={itemVariants}
+              className="lg:col-span-7 space-y-6 order-2 lg:order-1"
+            >
               <div className="space-y-6">
                 <motion.h3
-                  initial={{ opacity: 0 }}
-                  animate={inView ? { opacity: 1 } : {}}
-                  transition={{ delay: 0.2 }}
-                  whileHover={{
-                    scale: 1.05,
-                  }}
+                  whileHover={{ scale: 1.02, x: 5 }}
                   className="text-xl md:text-2xl font-black tracking-tight cursor-default inline-block"
                 >
                   <span className="font-bold text-blue-700 dark:text-[#89D3BD]">
@@ -93,24 +110,20 @@ const About = () => {
                   </span>
                 </motion.h3>
 
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={inView ? { opacity: 1 } : {}}
-                  transition={{ delay: 0.25 }}
-                  className="text-sm text-muted-foreground flex items-center gap-3 font-medium group/edu cursor-default"
-                >
-                  <GraduationCap className="w-5 h-5 text-blue-700 dark:text-[#89D3BD] group-hover/edu:scale-125 group-hover/edu:rotate-12 transition-all duration-300" />
-                  B.Tech In CSE • Adamas University, Kolkata
-                </motion.p>
+                <div className="space-y-4">
+                  <motion.p
+                    className="text-sm text-muted-foreground flex items-center gap-3 font-medium group/edu cursor-default"
+                  >
+                    <GraduationCap className="w-5 h-5 text-blue-700 dark:text-[#89D3BD] group-hover/edu:scale-125 group-hover/edu:rotate-12 transition-all duration-300" />
+                    B.Tech In CSE • Adamas University, Kolkata
+                  </motion.p>
 
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={inView ? { opacity: 1 } : {}}
-                  transition={{ delay: 0.3 }}
-                  className="text-foreground/80 leading-relaxed text-sm font-light italic border-l-4 border-primary/30 pl-6"
-                >
-                  "Aspiring Software Engineer with a passion for building robust and scalable web applications. I bridge the gap between complex mathematical concepts and practical software solutions."
-                </motion.p>
+                  <motion.p
+                    className="text-foreground/80 leading-relaxed text-sm font-light italic border-l-4 border-primary/30 pl-6"
+                  >
+                    "Aspiring Software Engineer with a passion for building robust and scalable web applications. I bridge the gap between complex mathematical concepts and practical software solutions."
+                  </motion.p>
+                </div>
 
                 <div className="flex gap-3 flex-wrap pt-2">
                   {[
@@ -120,9 +133,10 @@ const About = () => {
                   ].map((tag, idx) => (
                     <motion.span
                       key={idx}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={inView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ delay: 0.35 + (idx * 0.02) }}
+                      variants={{
+                        hidden: { opacity: 0, scale: 0.8 },
+                        visible: { opacity: 1, scale: 1 }
+                      }}
                       whileHover={{
                         scale: 1.05,
                         y: -5,
@@ -141,9 +155,6 @@ const About = () => {
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <motion.button
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.4 }}
                     whileHover={{
                       scale: 1.05,
                       y: -5,
@@ -151,19 +162,16 @@ const About = () => {
                       transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-900 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden bg-transparent dark:shadow-cyan-300/20"
+                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-900 dark:border-cyan-300 text-blue-700 dark:text-cyan-300 font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden bg-transparent"
                     onClick={() => previewThenDownload('/Babin_Bid_Resume.pdf', 'Babin_Bid_Resume.pdf')}
                   >
-                    <div className="absolute inset-0 bg-blue-900 dark:bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-blue-900 dark:bg-cyan-300 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                     <span className="relative z-10 flex items-center gap-2 group-hover:text-white dark:group-hover:text-black transition-colors duration-300">
                       <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200" />
                       View Resume
                     </span>
                   </motion.button>
                   <motion.button
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.45 }}
                     whileHover={{
                       scale: 1.05,
                       y: -5,
@@ -171,10 +179,10 @@ const About = () => {
                       transition: { type: "spring", stiffness: 500, damping: 25 }
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-transparent overflow-hidden dark:shadow-cyan-300/20"
+                    className="group relative flex-1 px-5 py-3 rounded-xl border-2 border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] font-black text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-transparent overflow-hidden"
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    <div className="absolute inset-0 bg-blue-700 dark:bg-[#89D3BD] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-blue-700 dark:bg-[#89D3BD] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                     <span className="relative z-10 flex items-center gap-2 group-hover:text-white dark:group-hover:text-black transition-colors duration-300">
                       <MessageCircle className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200" />
                       Get in Touch
@@ -182,51 +190,41 @@ const About = () => {
                   </motion.button>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right: Image */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.1, type: "spring", damping: 25 }}
-                className="group relative"
-              >
+            <motion.div
+              variants={itemVariants}
+              className="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2"
+            >
+              <div className="group relative">
                 {/* Decorative background aura */}
                 <div className="absolute -inset-6 bg-blue-700/10 dark:bg-[#89D3BD]/10 rounded-full opacity-30 group-hover:opacity-50 blur-[60px] transition duration-500" />
 
                 <div className="relative">
                   <motion.div
-                    whileHover={{ scale: 1.01 }}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                    className="relative cursor-pointer"
+                    whileHover={{
+                      scale: 1.02,
+                      boxShadow: "0 20px 60px rgba(0,0,0,0.4)"
+                    }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    className="relative cursor-pointer rounded-[2.5rem]"
                     onClick={() => setShowImageModal(true)}
                   >
-                    <motion.div
-                      className="relative z-10 transition-transform duration-200"
-                    >
-                      <img
-                        src="/Babin_New.jpeg"
-                        alt="Babin Bid"
-                        className="w-56 h-56 md:w-[18rem] md:h-[18rem] rounded-[2.5rem] object-cover shadow-[0_20px_60px_rgba(0,0,0,0.4)] border-[8px] border-background relative"
-                      />
-                    </motion.div>
-
+                    <img
+                      src="/Babin_New.jpeg"
+                      alt="Babin Bid"
+                      className="w-56 h-56 md:w-[18rem] md:h-[18rem] rounded-[2.5rem] object-cover border-[8px] border-background relative z-10"
+                    />
                     {/* Floating Orbits */}
                     <div className="absolute -inset-2 border border-primary/10 rounded-[3rem] animate-[spin_20s_linear_infinite] pointer-events-none" />
                   </motion.div>
 
-                  {/* Enhanced Status Badge */}
+                  {/* Status Badge */}
                   <motion.div
                     animate={{ y: [0, -8, 0] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    whileHover={{
-                      scale: 1.1,
-                      y: -15,
-                      boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.4)",
-                      borderColor: "rgba(16, 185, 129, 0.6)"
-                    }}
-                    className="absolute -bottom-4 -right-4 bg-white/60 dark:bg-black/60 backdrop-blur-xl rounded-2xl p-3 shadow-xl border border-white/20 dark:border-white/10 flex items-center gap-2 z-20 group/badge cursor-default transition-all duration-300"
+                    className="absolute -bottom-4 -right-4 bg-white/80 dark:bg-black/80 backdrop-blur-xl rounded-2xl p-3 shadow-xl border border-white/20 dark:border-white/10 flex items-center gap-2 z-20"
                   >
                     <div className="relative">
                       <div className="w-3 h-3 bg-emerald-500 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.8)]" />
@@ -238,161 +236,136 @@ const About = () => {
                     </div>
                   </motion.div>
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
 
           {/* Stats & Detailed Info */}
-          <div className="grid lg:grid-cols-2 gap-6 pt-2">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 pt-10 items-start">
             {/* Left: Interactive Skills Stack */}
             <motion.div
-              initial={{ x: -10, opacity: 0 }}
-              animate={inView ? { x: 0, opacity: 1 } : {}}
-              transition={{ delay: 0.2 }}
-              className="space-y-4 dark:shadow-[#89D3BD]/20"
+              variants={itemVariants}
+              className="lg:col-span-5 space-y-6"
             >
               <div className="flex items-center justify-between">
-                <motion.h4
-                  whileHover={{ x: 5 }}
-                  className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default text-blue-700 dark:text-[#89D3BD]"
-                >
-                  <div className="w-1.5 h-8 bg-blue-700 dark:bg-[#89D3BD] rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
+                <h4 className="text-lg font-black tracking-tight flex items-center gap-3 text-blue-700 dark:text-[#89D3BD]">
+                  <div className="w-1.5 h-8 bg-blue-700 dark:bg-[#89D3BD] rounded-full" />
                   Core Knowledge
-                </motion.h4>
-                <div className="flex -space-x-2">
-                  {[
-                    { icon: Code, color: "text-blue-700 dark:text-[#89D3BD]" },
-                    { icon: Brain, color: "text-blue-700 dark:text-[#89D3BD]" },
-                    { icon: Rocket, color: "text-blue-700 dark:text-[#89D3BD]" }
-                  ].map((item, i) => (
-                    <div key={i} className="w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center shadow-md">
-                      <item.icon className={`w-3 h-3 ${item.color}`} />
-                    </div>
-                  ))}
-                </div>
+                </h4>
               </div>
 
-              <div className="grid gap-3">
+              <div className="grid gap-4">
                 {[
-                  { name: 'Mathematics & Calculus', val: 95, icon: BookA, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
-                  { name: 'Switching Circuits', val: 95, icon: CircuitBoard, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
-                  { name: 'Frontend Development', val: 92, icon: Cog, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
-                  { name: 'Data Structures & Algorithms', val: 88, icon: Brain, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
-                  { name: 'Python Programming', val: 85, icon: Code, color: 'blue', styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
+                  { name: 'Mathematics & Calculus', val: 90, icon: BookA, styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
+                  { name: 'Switching Circuits', val: 84, icon: CircuitBoard, styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
+                  { name: 'Frontend Development', val: 78, icon: Cog, styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
+                  { name: 'Data Structures & Algorithms', val: 70, icon: Brain, styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
+                  { name: 'Python Programming', val: 70, icon: Code, styles: { bg: 'bg-blue-700 dark:bg-[#89D3BD]', text: 'text-blue-700 dark:text-[#89D3BD]', light: 'bg-blue-700/10 dark:bg-[#89D3BD]/10' } },
                 ].map((skill, i) => (
                   <motion.div
                     key={skill.name}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.25 + (i * 0.02) }}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ delay: i * 0.1 }}
                     whileHover={{
                       scale: 1.02,
                       y: -2,
                       boxShadow: "0 10px 30px -10px var(--shadow-color)",
                     }}
-                    className="group/section relative h-16 bg-white/40 dark:bg-transparent backdrop-blur-md rounded-2xl p-3 transition-all duration-300 border border-white/20 dark:border-white/10 overflow-hidden cursor-default shadow-sm dark:shadow-[#89D3BD]/20 hover:border-blue-700 dark:hover:border-[#89D3BD]"
+                    className="group/skill relative bg-white dark:bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-slate-200 dark:border-white/10 hover:border-blue-700/50 dark:hover:border-[#89D3BD]/50 transition-all duration-300"
                   >
-                    <div className="relative z-10 flex items-center justify-between h-full">
+                    <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-3">
-                        <div className={`p-2 rounded-xl ${skill.styles.light} ${skill.styles.text} shadow-sm transition-all duration-300 group-hover/section:rotate-12 group-hover/section:scale-110`}>
+                        <div className={`p-2 rounded-xl ${skill.styles.light} ${skill.styles.text}`}>
                           <skill.icon className="w-4 h-4" />
                         </div>
-                        <span className="font-bold text-xs md:text-sm">{skill.name}</span>
+                        <span className="font-bold text-sm tracking-tight">{skill.name}</span>
                       </div>
-                      <div className="flex flex-col items-end w-32 md:w-44">
-                        <span className={`text-lg font-black tabular-nums ${skill.styles.text}`}>{skill.val}%</span>
-                        <div className="w-full h-2 bg-secondary/10 rounded-full mt-1 overflow-hidden shadow-inner border border-border/10">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            animate={inView ? { width: `${skill.val}%` } : {}}
-                            transition={{ duration: 0.4, delay: 0.3 + (i * 0.02), ease: "circOut" }}
-                            className={`h-full ${skill.styles.bg} shadow-[0_0_10px_rgba(0,0,0,0.2)]`}
-                          />
-                        </div>
-                      </div>
+                      <span className={`text-sm font-black ${skill.styles.text}`}>{skill.val}%</span>
+                    </div>
+                    <div className="h-2 bg-secondary/20 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.val}%` }}
+                        viewport={{ once: false }}
+                        transition={{ duration: 1, delay: 0.5 + (i * 0.1), ease: "circOut" }}
+                        className={`h-full ${skill.styles.bg} rounded-full`}
+                      />
                     </div>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Right: Dossier / Professional Highlights */}
+            {/* Right: Career Highlights */}
             <motion.div
-              initial={{ x: 10, opacity: 0 }}
-              animate={inView ? { x: 0, opacity: 1 } : {}}
-              transition={{ delay: 0.2 }}
-              className="space-y-4 dark:shadow-[#89D3BD]/20"
+              variants={itemVariants}
+              className="lg:col-span-7 space-y-6"
             >
               <div className="flex items-center justify-between">
-                <motion.h4
-                  whileHover={{ x: 5 }}
-                  className="text-lg font-black tracking-tight flex items-center gap-3 cursor-default text-blue-700 dark:text-[#89D3BD]"
-                >
-                  <div className="w-1.5 h-8 bg-blue-700 dark:bg-[#89D3BD] rounded-full shadow-[0_0_10px_rgba(29,78,216,0.5)]" />
+                <h4 className="text-lg font-black tracking-tight flex items-center gap-3 text-blue-700 dark:text-[#89D3BD]">
+                  <div className="w-1.5 h-8 bg-blue-700 dark:bg-[#89D3BD] rounded-full" />
                   Career Highlights
-                </motion.h4>
-                <div className="flex gap-2 p-1 rounded-full bg-secondary/10 border border-secondary/20">
-                  <GraduationCap className="w-5 h-5 text-blue-700 dark:text-[#89D3BD]" />
-                  <Award className="w-5 h-5 text-blue-700 dark:text-[#89D3BD]" />
-                  <BookCopy className="w-5 h-5 text-blue-700 dark:text-[#89D3BD]" />
-                </div>
+                </h4>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-10 mt-6">
+              <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
                 {[
                   {
                     id: 'knowledge',
                     title: 'Tech Stack',
                     icon: Brain,
-                    color: 'blue',
-                    content: 'C/C++, Python, React, Node.js, Express, Flask, ML (TensorFlow)'
+                    isStack: true,
+                    stacks: [
+                      { content: '<b>Full Stack Web:</b> React, Node.js, FastAPI/Flask, MongoDB/MySQL, TS' },
+                      { content: '<b>AI & Data Science:</b> TensorFlow, Scikit-learn, XGBoost, Pandas, Seaborn' },
+                      { content: '<b>Deployment:</b> Vercel, Netlify, Streamlit' }
+                    ]
                   },
-                  {
-                    id: 'upskilling',
-                    title: 'Certifications',
-                    icon: Rocket,
-                    color: 'emerald',
-                    content: 'AWS, CISCO, Google, Microsoft, IBM, Infosys, Udemy, Scaler, NPTEL, Kaggle, Skill India, GFG, Qualcomm, HackerRank, Saylor, SimpliLearn, HP Life'
-                  },
-                  {
-                    id: 'interests',
-                    title: 'Passions',
-                    icon: Zap,
-                    color: 'red',
-                    content: 'AI/ML, Quantum Computing, Digital Art, Community Learning'
-                  },
-                  {
-                    id: 'focus',
-                    title: 'Current Mission',
-                    icon: Compass,
-                    color: 'orange',
-                    content: 'Actively seeking 2026 SDE Internships & OSS Contribution'
-                  },
+                  { id: 'upskilling', title: 'Certifications', icon: Rocket, content: 'AWS, Google, Microsoft, Cisco, IBM, Kaggle, HackerRank, Qualcomm, Infosys Springboard, SimpliLearn' },
+                  { id: 'interests', title: 'Passions', icon: Zap, content: 'AI/ML, Quantum Computing, Digital Art, Community Learning' },
+                  { id: 'focus', title: 'Current Mission', icon: Compass, content: 'Actively seeking 2026 SDE Internships & OSS Contribution' },
                 ].map((item, i) => (
                   <motion.div
                     key={item.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.3 + (i * 0.02) }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ delay: i * 0.1 }}
                     whileHover={{
                       y: -5,
                       scale: 1.02,
                       boxShadow: "0 20px 40px -10px var(--shadow-color-highlights)",
                       transition: { type: "spring", stiffness: 400, damping: 17 }
                     }}
-                    className="group/section p-4 rounded-[2rem] bg-white/40 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 transition-all duration-300 group cursor-default hover:border-blue-700 dark:hover:border-[#89D3BD]"
+                    className={`p-6 rounded-[2rem] bg-white dark:bg-white/5 backdrop-blur-md border border-slate-200 dark:border-white/10 hover:border-blue-700 dark:hover:border-[#89D3BD] transition-all duration-300 group flex flex-col justify-center min-h-[190px] ${i >= 2 ? 'sm:mt-4 lg:mt-6' : ''}`}
                   >
-                    <div className="w-8 h-8 rounded-xl bg-blue-700/10 dark:bg-[#89D3BD]/10 flex items-center justify-center mb-3 group-hover/section:scale-110 group-hover/section:rotate-[360deg] transition-all duration-500">
-                      <motion.div
-                        whileHover={{ scale: 1.2 }}
-                      >
+                    <div className="flex items-center justify-center gap-4 mb-4">
+                      <div className="w-[2.25rem] h-[2.25rem] rounded-xl bg-blue-700/10 dark:bg-[#89D3BD]/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-[360deg] transition-all duration-500 shrink-0">
                         <item.icon className="w-4 h-4 text-blue-700 dark:text-[#89D3BD]" />
-                      </motion.div>
+                      </div>
+                      <h5 className="text-[1.1rem] font-black text-center group-hover:text-blue-700 dark:group-hover:text-[#89D3BD] transition-colors duration-300">{item.title}</h5>
+                      <div className="w-[2.25rem] h-[2.25rem] rounded-xl bg-blue-700/10 dark:bg-[#89D3BD]/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-[-360deg] transition-all duration-500 shrink-0">
+                        <item.icon className="w-4 h-4 text-blue-700 dark:text-[#89D3BD] -scale-x-100" />
+                      </div>
                     </div>
-                    <h5 className="text-base font-black mb-1 group-hover/section:text-primary transition-colors duration-200">{item.title}</h5>
-                    <p className="text-muted-foreground text-xs font-medium leading-relaxed group-hover/section:text-foreground transition-colors duration-200">
-                      {item.content}
-                    </p>
+
+                    <div className="flex-1 flex flex-col justify-center items-center text-center">
+                      {item.isStack ? (
+                        <div className="space-y-3 w-full">
+                          {item.stacks?.map((stack, idx) => (
+                            <div key={idx} className="space-y-0.5">
+                              <div className="flex items-center justify-center gap-1.5 text-blue-700 dark:text-[#89D3BD]">
+                              </div>
+                              <p className="text-muted-foreground text-sm font-medium leading-relaxed" dangerouslySetInnerHTML={{ __html: stack.content }} />
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="text-muted-foreground text-sm font-medium leading-relaxed max-w-[280px]" dangerouslySetInnerHTML={{ __html: item.content }} />
+                      )}
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -400,17 +373,15 @@ const About = () => {
           </div>
 
           <motion.blockquote
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.4 }}
-            className="mt-6 relative p-6 text-center group/quote"
+            variants={itemVariants}
+            className="mt-12 relative p-8 text-center group"
           >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-cyan-600" />
-            <Quote className="w-6 h-6 text-primary/20 absolute top-2 left-1/2 -translate-x-1/2 -z-10 group-hover/quote:text-primary/40 group-hover/quote:scale-110 transition-all duration-500" />
-            <p className="text-sm md:text-base font-bold italic leading-relaxed max-w-3xl mx-auto relative z-10 text-primary">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-blue-700 dark:via-[#89D3BD] to-transparent" />
+            <Quote className="w-10 h-10 text-primary/10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 group-hover:scale-125 transition-transform duration-500" />
+            <p className="text-lg md:text-xl font-bold italic leading-relaxed max-w-3xl mx-auto relative z-10 text-primary">
               "Bridging the gap between theoretical computer science and impactful real-world applications."
             </p>
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-cyan-600" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-blue-700 dark:via-[#89D3BD] to-transparent" />
           </motion.blockquote>
         </motion.div>
       </div>
