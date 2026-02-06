@@ -141,7 +141,7 @@ const StatCard: React.FC<StatCardProps> = ({ stat, index, totalCount, isVisible 
                 transition: `transform 800ms cubic-bezier(.25,.8,.25,1) ${transitionDelay}ms, opacity 600ms ease ${transitionDelay}ms`,
             }}
         >
-            <div className="relative p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors h-40 flex flex-col justify-between">
+            <div className="relative p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 hover:shadow-[0_20px_10px_rgba(29,78,216,0.3)] dark:hover:shadow-[0_10px_20px_rgba(137,211,189,0.3)] transition-all duration-300 h-40 flex flex-col justify-between">
                 <div className="space-y-3">
                     <div className="flex items-center justify-between">
                         <div className="text-3xl md:text-4xl font-bold text-primary transition-all duration-300">
