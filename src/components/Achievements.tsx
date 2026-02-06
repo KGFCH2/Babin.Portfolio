@@ -198,6 +198,9 @@ const Achievements = () => {
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {category.items.map((item, index) => {
                                         const type = getFileType(item.file);
+                                        // Treat as selected only when modal is open and not closing
+                                        const isSelected = !isClosing && selectedItem?.file === item.file;
+
                                         return (
                                             <Card
                                                 key={index}
@@ -213,7 +216,7 @@ const Achievements = () => {
                                                                     alt={item.title}
                                                                     loading="lazy"
                                                                     decoding="async"
-                                                                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                                                                    className={`w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 ${isSelected ? 'shadow-[0_8px_30px_rgba(29,78,216,0.35)] dark:shadow-[0_8px_30px_rgba(6,182,212,0.35)]' : ''}`}
                                                                     onError={() => handleImageError(item.file)}
                                                                 />
                                                             ) : (
@@ -317,7 +320,7 @@ const Achievements = () => {
                             <img
                                 src={selectedItem.file}
                                 alt="Achievement Full View"
-                                className="relative max-w-[85vw] max-h-[75vh] object-contain rounded-lg shadow-2xl border-2 border-white/10"
+                                className={`relative max-w-[85vw] max-h-[75vh] object-contain rounded-lg transition-all duration-300 ${isClosing ? 'border-0 shadow-none opacity-90' : 'border-2 border-white/10 shadow-[0_12px_40px_rgba(29,78,216,0.5)] dark:shadow-[0_12px_40px_rgba(6,182,212,0.6)]'}`}
                             />
                         </div>
                     </div>
