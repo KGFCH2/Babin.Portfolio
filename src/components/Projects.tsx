@@ -443,8 +443,8 @@ const Projects = () => {
                     </CarouselItem>
                   ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden md:flex border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] bg-transparent hover:bg-blue-700 dark:hover:bg-[#89D3BD] hover:text-white dark:hover:text-black hover:shadow-[0_10px_20px_rgba(6,182,212,0.3)] dark:hover:shadow-[0_10px_20px_rgba(6,182,212,0.3)]" />
-              <CarouselNext className="hidden md:flex border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] bg-transparent hover:bg-blue-700 dark:hover:bg-[#89D3BD] hover:text-white dark:hover:text-black hover:shadow-[0_10px_20px_rgba(6,182,212,0.3)] dark:hover:shadow-[0_10px_20px_rgba(6,182,212,0.3)]" />
+              <CarouselPrevious className="hidden md:flex border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] bg-transparent hover:bg-blue-700 dark:hover:bg-[#89D3BD] hover:text-white dark:hover:text-black hover:shadow-[0_12px_30px_rgba(29,78,216,0.42)] focus-visible:shadow-[0_12px_30px_rgba(29,78,216,0.42)] dark:hover:shadow-[0_10px_20px_rgba(6,182,212,0.32)]" />
+              <CarouselNext className="hidden md:flex border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] bg-transparent hover:bg-blue-700 dark:hover:bg-[#89D3BD] hover:text-white dark:hover:text-black hover:shadow-[0_12px_30px_rgba(29,78,216,0.42)] focus-visible:shadow-[0_12px_30px_rgba(29,78,216,0.42)] dark:hover:shadow-[0_10px_20px_rgba(6,182,212,0.32)]" />
             </Carousel>
           </div>
 
