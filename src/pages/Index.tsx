@@ -40,8 +40,8 @@ const Index = () => {
           <Hero />
           <InteractiveStats />
           <About />
-          <Projects />
           <Skills />
+          <Projects />
           <Research />
           <Materials />
           <Contact />
