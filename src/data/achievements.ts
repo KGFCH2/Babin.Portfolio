@@ -161,6 +161,7 @@ export const achievementsData: AchievementCategory[] = [
             { title: "AWS Academy Graduate - Cloud Data Pipeline Builder Training Badge", file: "/Achievements/AWS/AWS_Academy_Graduate___Cloud_Data_Pipeline_Builder___Training_Badge_Badge20260127-30-l4u2b8.pdf" },
             { title: "AWS Academy Graduate - Microservices and CI/CD Pipeline Builder - Training Badge", file: "/Achievements/AWS/AWS_Academy_Graduate___Microservices_and_CI_CD_Pipeline_Builder___Training_Badge_Badge20260128-33-qtzcax.pdf" },
             { title: "AWS Academy Graduate - Cloud Web Application Builder - Training Badge", file: "/Achievements/AWS/AWS_Academy_Graduate___Cloud_Web_Application_Builder___Training_Badge_Badge20260127-30-fvf8fo.pdf" },
+            { title: "AWS Academy Graduate - Cloud Architecting - Training Badge", file: "/Achievements/AWS/AWS_Academy_Graduate___Cloud_Architecting___Training_Badge_Badge20260205-30-minnwr.pdf" }
         ]
     },
     {
@@ -337,6 +338,7 @@ export const achievementsData: AchievementCategory[] = [
             { title: "Cloud Web Application Builder Badge", file: "/Achievements/AWS/aws-academy-graduate-cloud-web-application-builder-.png" },
             { title: "Microservices and CI/CD Pipeline Badge", file: "/Achievements/AWS/aws-academy-graduate-microservices-and-ci-cd-pipeli.png" },
             { title: "Cloud Computing 101 Badge", file: "/Achievements/AWS/aws-educate-introduction-to-cloud-101-training-badg.png"},
+            { title: "Cloud Architecting Badge", file: "/Achievements/AWS/aws-academy-graduate-cloud-architecting-training-ba.png" },
         ]
     },
     {
