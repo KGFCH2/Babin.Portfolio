@@ -8,7 +8,6 @@ import InteractiveStats from "@/components/InteractiveStats";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Research from "@/components/Research";
-import Materials from "@/components/Materials";
 import Contact from "@/components/Contact";
 import Skills from "@/components/Skills";
 import Footer from "@/components/Footer";
@@ -43,7 +42,6 @@ const Index = () => {
           <Skills />
           <Projects />
           <Research />
-          <Materials />
           <Contact />
         </main>
         <Footer />
