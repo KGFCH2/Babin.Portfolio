@@ -48,8 +48,8 @@ const Hero = () => {
             <h1 className="text-3xl md:text-5xl font-bold mb-4 max-w-[280px] mx-auto md:max-w-none">
               <SectionTitle
                 segments={[
-                  { text: "Babin", className: "text-blue-700 dark:text-cyan-300" },
-                  { text: " Bid", className: "text-blue-700 dark:text-cyan-300" },
+                  { text: "Babin", className: "text-sky-600 dark:text-cyan-300" },
+                  { text: " Bid", className: "text-sky-600 dark:text-cyan-300" },
                 ]}
               />
             </h1>
