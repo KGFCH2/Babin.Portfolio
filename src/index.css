@@ -55,6 +55,7 @@ All colors MUST be HSL.
 
     --shadow-color: rgba(29, 78, 216, 0.3);
     --shadow-color-highlights: rgba(29, 78, 216, 0.2);
+    --shadow-color-contact: rgba(29, 78, 216, 0.3);
 
     --gradient-primary: hsl(var(--primary));
     --gradient-secondary: hsl(var(--secondary));
@@ -106,8 +107,9 @@ All colors MUST be HSL.
     --input: 240 8% 20%;
     --ring: 162 46% 68%;
 
-    --shadow-color: rgba(137, 211, 189, 0.3);
-    --shadow-color-highlights: rgba(137, 211, 189, 0.2);
+    --shadow-color: rgba(34, 211, 238, 0.3);
+    --shadow-color-highlights: rgba(34, 211, 238, 0.2);
+    --shadow-color-contact: rgba(137, 211, 189, 0.3);
 
     --gradient-primary: hsl(var(--primary));
     --gradient-secondary: hsl(var(--secondary));
