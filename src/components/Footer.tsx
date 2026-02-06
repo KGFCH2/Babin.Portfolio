@@ -84,8 +84,8 @@ const Footer = () => {
               <ul className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-4 md:gap-6">
                 {[
                   "About",
-                  "Projects",
                   "Skills",
+                  "Projects",
                   "Achievements",
                   "Research",
                   "Materials",
