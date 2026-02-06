@@ -130,7 +130,7 @@ const Contact = () => {
                   },
                   {
                     text: " In",
-                    className: "text-blue-700 dark:text-cyan-300",
+                    className: "text-blue-900 dark:text-cyan-300",
                   },
                   {
                     text: " Touch",
