@@ -229,7 +229,7 @@ const Skills: React.FC = () => {
                         segments={[
                             {
                                 text: "Technical",
-                                className: "text-blue-700 dark:text-cyan-300",
+                                className: "text-blue-900 dark:text-cyan-300",
                             },
                             {
                                 text: " Skills",
