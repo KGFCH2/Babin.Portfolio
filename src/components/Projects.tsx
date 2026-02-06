@@ -365,7 +365,7 @@ const Projects = () => {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                className="flex-1 h-8 text-xs border-2 border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] bg-transparent hover:bg-blue-700 dark:hover:bg-[#89D3BD] hover:text-white dark:hover:text-black font-black transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-[0_10px_20px_rgba(29,78,216,0.3)] dark:hover:shadow-[0_10px_20px_rgba(137,211,189,0.3)] active:scale-95"
+                                className="flex-1 h-8 text-xs border-2 border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] bg-transparent hover:bg-blue-700 dark:hover:bg-[#89D3BD] hover:text-white dark:hover:text-black font-black transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-[0_10px_20px_rgba(30,58,138,0.3)] dark:hover:shadow-[0_10px_20px_rgba(6,182,212,0.3)] active:scale-95"
                                 asChild
                               >
                                 <a
