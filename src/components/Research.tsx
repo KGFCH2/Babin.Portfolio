@@ -60,11 +60,11 @@ const Research = () => {
               segments={[
                 {
                   text: "Research",
-                  className: "text-blue-700 dark:text-cyan-300",
+                  className: "text-blue-700 dark:text-[#89D3BD]",
                 },
                 {
                   text: " Publications",
-                  className: "text-blue-700 dark:text-[#89D3BD]",
+                  className: "text-blue-900 dark:text-cyan-300",
                 },
               ]}
             />
