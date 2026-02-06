@@ -66,7 +66,7 @@ const Achievements = () => {
 
     if (!allAchievements || allAchievements.length === 0) {
         return (
-            <section id="achievements" className="py-20 relative section-divider-top" ref={ref}>
+            <section id="achievements" className="py-20 relative" ref={ref}>
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-2xl font-bold">No achievements data available.</h2>
                 </div>

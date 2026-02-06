@@ -113,12 +113,15 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-12 md:py-20 relative section-divider-top scroll-mt-20" ref={ref}>
+    <section id="contact" className="py-12 md:py-20 relative scroll-mt-20" ref={ref}>
       <StudyBackground />
       <div className="container mx-auto px-4 relative z-10">
-        <div
-          className={`max-w-6xl mx-auto space-y-8 md:space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
-            }`}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-6xl mx-auto space-y-8 md:space-y-12"
         >
           <div className="text-center space-y-2 md:space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold max-w-[280px] mx-auto md:max-w-none">
@@ -295,7 +298,7 @@ const Contact = () => {
               </form>
             </Card>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

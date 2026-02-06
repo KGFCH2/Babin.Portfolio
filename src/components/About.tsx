@@ -53,7 +53,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden section-divider-top scroll-mt-20">
+    <section id="about" className="py-20 relative overflow-hidden scroll-mt-20">
       <StudyBackground />
 
       {/* Background Decorative Elements */}

@@ -44,14 +44,14 @@ const Research = () => {
   const glowStyles = ``;
 
   return (
-    <section id="research" className="group py-20 relative section-divider-top scroll-mt-20">
+    <section id="research" className="group py-20 relative scroll-mt-20">
       <StudyBackground />
       <div className="container mx-auto px-4 relative z-10">
         <style>{glowStyles}</style>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.1 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -77,7 +77,7 @@ const Research = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.1 }}
           transition={{ duration: 0.8 }}
         >
           <Card className="glass p-8 lg:p-12 transition-all">
