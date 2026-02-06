@@ -356,11 +356,11 @@ const Projects = () => {
                 segments={[
                   {
                     text: "My",
-                    className: "text-blue-700 dark:text-cyan-300",
+                    className: "text-blue-700 dark:text-[#89D3BD]",
                   },
                   {
                     text: " Projects",
-                    className: "text-blue-700 dark:text-[#89D3BD]",
+                    className: "text-blue-900 dark:text-cyan-300",
                   },
                 ]}
               />
@@ -545,7 +545,7 @@ const Projects = () => {
 
       {/* Full-size image modal */}
       <Dialog open={!!selectedImage} onOpenChange={(open) => !open && setSelectedImage(null)}>
-        <DialogContent className="max-w-4xl w-full h-auto max-h-[90vh] flex items-center justify-center p-0 bg-black/95 border-0 overflow-visible [&>button]:text-white [&>button]:opacity-100 [&>button]:bg-white/10 [&>button]:rounded-full [&>button]:p-1">
+        <DialogContent className="max-w-4xl w-full h-auto max-h-[90vh] flex items-center justify-center p-0 bg-black/95 border-0 overflow-visible [&>button]:text-red-500 [&>button]:opacity-100 [&>button]:bg-white/10 [&>button]:rounded-full [&>button]:p-1">
           {selectedImage && (
             <div className="relative w-full h-full flex items-center justify-center p-4">
               <img
