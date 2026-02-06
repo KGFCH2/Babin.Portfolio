@@ -363,7 +363,7 @@ const About = () => {
                           ))}
                         </div>
                       ) : (
-                        <p className="text-muted-foreground text-sm font-medium leading-relaxed max-w-[280px]" dangerouslySetInnerHTML={{ __html: item.content }} />
+                        <p className="text-muted-foreground text-sm font-medium leading-relaxed max-w-[280px]" dangerouslySetInnerHTML={{ __html: item.content || '' }} />
                       )}
                     </div>
                   </motion.div>
