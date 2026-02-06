@@ -124,8 +124,8 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${isScrolled
-        ? "bg-background/80 backdrop-blur-md shadow-card"
-        : "bg-background/50"
+        ? "bg-background/10 backdrop-blur-2xl shadow-card"
+        : "bg-background/02 backdrop-blur-2xl"
         }`}
     >
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -214,7 +214,7 @@ const Header = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div
-          className="md:hidden bg-background/95 backdrop-blur-md border-t border-border animate-fade-in"
+          className="md:hidden bg-background/10 backdrop-blur-2xl border-t border-border animate-fade-in"
           id="mobile-menu"
           role="navigation"
           aria-label="Mobile navigation"
