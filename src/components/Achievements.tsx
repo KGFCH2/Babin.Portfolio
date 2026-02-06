@@ -144,7 +144,7 @@ const Achievements = () => {
     };
 
     return (
-        <section id="achievements" className="py-20 relative min-h-screen" ref={ref}>
+        <section id="achievements" className="py-12 md:py-20 relative min-h-screen" ref={ref}>
             <div className="fixed inset-0 -z-10 w-full h-full">
                 <StudyBackground />
             </div>
@@ -153,8 +153,8 @@ const Achievements = () => {
                     className={`max-w-6xl mx-auto space-y-12 ${inView ? "animate-fade-in-up" : "opacity-0"
                         }`}
                 >
-                    <div className="text-center space-y-4">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-4 max-w-[280px] mx-auto md:max-w-none">
+                    <div className="text-center space-y-4 mt-10 md:mt-0">
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4 max-w-[280px] mx-auto md:max-w-none">
                             <SectionTitle
                                 segments={[
                                     {
