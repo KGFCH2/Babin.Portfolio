@@ -155,7 +155,7 @@ const Contact = () => {
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
                     <Card
-                      className="p-4 md:p-6 bg-card shadow-card hover:shadow-[0_20px_40px_var(--shadow-color)] transition-all duration-300 border-border/50 group cursor-default"
+                      className="p-4 md:p-6 bg-card shadow-card hover:shadow-[0_20px_20px_var(--shadow-color)] focus-visible:shadow-[0_20px_20px_var(--shadow-color)] transition-all duration-300 border-border/50 group cursor-default"
                     >
                       <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 text-center sm:text-left">
                         <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 min-w-0 flex-1">
@@ -267,14 +267,14 @@ const Contact = () => {
                   />
                 </div>
                 <motion.div
-                  whileHover={{ scale: 1.05, y: -5, boxShadow: "0 20px 40px var(--shadow-color)" }}
+                  whileHover={{ scale: 1.05, y: -5, boxShadow: "0 20px 20px var(--shadow-color)" }}
                   transition={{ type: "spring", stiffness: 500, damping: 25 }}
                 >
                   <Button
                     type="submit"
                     disabled={isSubmitting}
                     aria-busy={isSubmitting}
-                    className="w-full bg-blue-700 dark:bg-[#89D3BD] text-white dark:text-black font-black shadow-lg hover:opacity-90 hover:shadow-[0_20px_40px_var(--shadow-color)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 active:scale-95 text-sm md:text-base py-2 md:py-3 h-auto"
+                    className="w-full bg-blue-700 dark:bg-[#89D3BD] text-white dark:text-black font-black shadow-lg hover:opacity-90 hover:shadow-[0_20px_20px_var(--shadow-color)] focus-visible:shadow-[0_20px_20px_var(--shadow-color)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 active:scale-95 text-sm md:text-base py-2 md:py-3 h-auto"
                   >
                     {isSubmitting ? (
                       <>
