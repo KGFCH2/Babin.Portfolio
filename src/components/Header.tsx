@@ -40,7 +40,7 @@ const Header = () => {
 
     // Only observe sections on the home page
     if (location.pathname === "/") {
-      const sections = ["home", "about", "skills", "projects", "research", "materials", "contact"];
+      const sections = ["home", "about", "skills", "projects", "research", "contact"];
       sections.forEach((sectionId) => {
         const element = document.getElementById(sectionId);
         if (element) observer.observe(element);
@@ -57,7 +57,6 @@ const Header = () => {
     { name: "Projects", href: "#projects", type: "section" as const },
     { name: "Achievements", href: "/achievements", type: "route" as const },
     { name: "Research", href: "#research", type: "section" as const },
-    { name: "Materials", href: "#materials", type: "section" as const },
     { name: "Contact", href: "#contact", type: "section" as const },
   ], []);
 
