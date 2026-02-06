@@ -224,7 +224,7 @@ const Skills: React.FC = () => {
         <section id="skills" className="py-20 relative overflow-hidden section-divider-top section-divider-offset-md scroll-mt-20" ref={ref}>
             <StudyBackground />
             <div className={`container mx-auto px-6 relative z-10 ${inView ? "animate-fade-in-up" : "opacity-0"}`}>
-                <h2 className="text-3xl md:text-5xl font-bold text-center mb-4 max-w-[250px] mx-auto md:max-w-none">
+                <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 max-w-[250px] mx-auto md:max-w-none">
                     <SectionTitle
                         segments={[
                             {
