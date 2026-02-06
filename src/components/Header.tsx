@@ -143,7 +143,7 @@ const Header = () => {
               }, 150);
             }
           }}
-          className="text-2xl font-bold text-blue-700 dark:text-[#89D3BD]"
+          className="text-2xl font-bold bg-gradient-to-r from-sky-600 to-blue-700 dark:from-[#89D3BD] dark:to-cyan-400 text-transparent bg-clip-text"
         >
           Babin.Portfolio
         </a>
