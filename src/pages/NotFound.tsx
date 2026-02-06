@@ -75,7 +75,7 @@ const NotFound = () => {
         <div className="mt-12 pt-8 border-t border-border/30">
           <p className="text-sm text-muted-foreground mb-4">Or check out these sections:</p>
           <div className="flex flex-wrap gap-2 justify-center">
-            {['About', 'Projects', 'Skills', 'Research', 'Contact'].map((section) => (
+            {['About', 'Skills', 'Projects', 'Research', 'Contact'].map((section) => (
               <Link
                 key={section}
                 to={`/#${section.toLowerCase()}`}
