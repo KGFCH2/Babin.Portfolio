@@ -55,7 +55,7 @@ const Research = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 max-w-[280px] mx-auto md:max-w-none">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 max-w-[280px] mx-auto md:max-w-none">
             <SectionTitle
               segments={[
                 {
