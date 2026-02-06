@@ -10,6 +10,7 @@ import Projects from "@/components/Projects";
 import Research from "@/components/Research";
 import Contact from "@/components/Contact";
 import Skills from "@/components/Skills";
+import AchievementsPreview from "@/components/AchievementsPreview";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import SkipToContent from "@/components/SkipToContent";
@@ -42,6 +43,7 @@ const Index = () => {
           <Skills />
           <Projects />
           <Research />
+          <AchievementsPreview />
           <Contact />
         </main>
         <Footer />
