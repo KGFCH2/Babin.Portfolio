@@ -8,6 +8,39 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+
+// Lightweight lazy image component to avoid loading large thumbnails until needed
+const LazyImage = ({ src, alt, className, forceLoad, onClick }: { src: string; alt: string; className?: string; forceLoad?: boolean; onClick?: () => void }) => {
+  const { ref, inView } = useInView({ triggerOnce: true, rootMargin: "200px" });
+  const [loaded, setLoaded] = useState(false);
+  const [imgSrc, setImgSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (inView || forceLoad) {
+      setImgSrc(encodeURI(src));
+    }
+  }, [inView, forceLoad, src]);
+
+  return (
+    <div ref={ref} className="w-full h-full" onClick={onClick}>
+      {imgSrc ? (
+        <img
+          src={imgSrc}
+          alt={alt}
+          width={640}
+          height={160}
+          loading="lazy"
+          decoding="async"
+          onLoad={() => setLoaded(true)}
+          className={`${className} ${loaded ? "opacity-100 blur-0 scale-100" : "opacity-0 blur-sm scale-105"} transition-all duration-500 object-contain object-center`}
+        />
+      ) : (
+        // placeholder box to reserve space and avoid layout shifts
+        <div className="w-full h-full bg-muted/10 rounded" />
+      )}
+    </div>
+  );
+};
 import type { EmblaPluginType } from "embla-carousel";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -312,7 +345,7 @@ const Projects = () => {
                 align: "start",
                 loop: true,
               }}
-              plugins={plugins}
+              plugins={carouselInView ? plugins : []}
               className="w-full"
             >
               <CarouselContent>
@@ -326,13 +359,13 @@ const Projects = () => {
                           {/* Light mode gradient overlay on hover (subtle) */}
                           <div className="absolute inset-0 rounded-lg bg-violet-200/10 opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
                           {project.thumbnail ? (
-                            <div className="h-40 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded cursor-pointer" onClick={() => setSelectedImage(project.thumbnail)}>
-                              <img
-                                src={encodeURI(project.thumbnail)}
+                            <div className="h-40 flex items-center justify-center bg-muted/10 p-3 overflow-hidden rounded cursor-pointer">
+                              <LazyImage
+                                src={project.thumbnail}
                                 alt={`${project.title} thumbnail`}
-                                loading="lazy"
-                                decoding="async"
-                                className="w-full h-full object-contain object-center rounded transform transition-transform duration-300 ease-out group-hover:scale-105"
+                                className="w-full h-full rounded transform transition-transform duration-300 ease-out group-hover:scale-105"
+                                forceLoad={selectedImage === project.thumbnail}
+                                onClick={() => setSelectedImage(project.thumbnail)}
                               />
                             </div>
                           ) : (
@@ -365,7 +398,7 @@ const Projects = () => {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                className="flex-1 h-8 text-xs border-2 border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] bg-transparent hover:bg-blue-700 dark:hover:bg-[#89D3BD] hover:text-white dark:hover:text-black font-black transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-[0_10px_20px_rgba(30,58,138,0.3)] dark:hover:shadow-[0_10px_20px_rgba(6,182,212,0.3)] active:scale-95"
+                                className="flex-1 h-8 text-xs border-2 border-blue-700 dark:border-[#89D3BD] text-blue-700 dark:text-[#89D3BD] bg-transparent hover:bg-blue-700 dark:hover:bg-[#89D3BD] hover:text-white dark:hover:text-black font-black transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-[0_12px_30px_rgba(29,78,216,0.42)] focus-visible:shadow-[0_12px_30px_rgba(29,78,216,0.42)] dark:hover:shadow-[0_10px_20px_rgba(6,182,212,0.32)] active:scale-95"
                                 asChild
                               >
                                 <a
