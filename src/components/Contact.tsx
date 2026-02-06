@@ -121,7 +121,7 @@ const Contact = () => {
             }`}
         >
           <div className="text-center space-y-2 md:space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold max-w-[280px] mx-auto md:max-w-none">
+            <h2 className="text-4xl md:text-5xl font-bold max-w-[280px] mx-auto md:max-w-none">
               <SectionTitle
                 segments={[
                   {
