@@ -181,7 +181,6 @@ Babin.Portfolio/
 │   ├── Babin_New.jpeg                  # Profile avatar (primary)
 │   ├── Babin.jpeg                      # Profile avatar (secondary)
 │   ├── Babin_Bid_Resume.pdf            # Resume PDF document
-│   ├── Babin_Favicon_New.png           # Favicon for the website
 │   ├── ML-Based Price Prediction...pdf # Research publication
 │   ├── robots.txt                      # SEO robots.txt
 │   ├── sitemap.xml                     # XML sitemap for SEO
@@ -241,7 +240,7 @@ Babin.Portfolio/
 | 🎭 **Component** | 📋 **Purpose** |
 |------------------|----------------|
 | **🔗 Header.tsx** | Sticky navbar with animated tricolor underline, theme toggle |
-| **� HamburgerMenu.tsx** | Mobile hamburger toggle with animated CSS transitions |
+| **📱 HamburgerMenu.tsx** | Mobile hamburger toggle with animated CSS transitions |
 | **📄 Footer.tsx** | Footer grid with Quick Links, social icons, quote |
 | **🌊 SectionTitle.tsx** | Wave text animations with segment colors (replays on scroll) |
 | **🌙 ThemeToggle.tsx** | Theme toggle with smooth transitions |
@@ -336,7 +335,7 @@ Output: `dist/` folder ready for deployment
 
 **Resume**: Replace `public/Babin_Bid_Resume.pdf` with your resume
 
-**Favicon**: Replace `public/Babin_Favicon_New.png` with your favicon
+**Favicon**: The favicon is loaded from an external CDN. To change it, update the `<link rel="icon">` URL in `index.html`.
 
 ### 2️⃣ Edit Projects
 
