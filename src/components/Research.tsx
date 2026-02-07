@@ -44,7 +44,7 @@ const Research = () => {
   const glowStyles = ``;
 
   return (
-    <section id="research" className="group py-20 relative scroll-mt-20">
+    <section id="research" className="group py-20 relative">
       <StudyBackground />
       <div className="container mx-auto px-4 relative z-10">
         <style>{glowStyles}</style>
