@@ -327,7 +327,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 relative scroll-mt-20" ref={ref}>
+    <section id="projects" className="py-20 relative" ref={ref}>
       <StudyBackground />
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
