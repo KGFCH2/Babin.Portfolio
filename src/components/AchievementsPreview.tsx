@@ -199,7 +199,7 @@ const AchievementsPreview = () => {
             >
               <div className="absolute inset-0 bg-blue-900 dark:bg-cyan-300 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               <span className="relative z-10 flex items-center gap-2 group-hover:text-white dark:group-hover:text-black transition-colors duration-300">
-                <Award className="w-4 h-4 group-hover:rotate-12 transition-transform duration-200" />
+                <Award className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
                 View All Achievements
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </span>
