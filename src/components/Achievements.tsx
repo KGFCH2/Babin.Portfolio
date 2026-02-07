@@ -1,4 +1,5 @@
 import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import SectionTitle from "./SectionTitle";
 import { useState } from "react";
@@ -174,7 +175,13 @@ const Achievements = () => {
                     </div>
 
                     {/* Filter Buttons */}
-                    <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8">
+                    <motion.div
+                        className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
                         {(['All', 'Awards', 'Certificates | Technical Courses', 'Bootcamps | Events | Competitions', 'Internship Certificates', 'Badges | Trophies'] as FilterType[]).map((filter) => (
                             <button
                                 key={filter}
@@ -187,14 +194,27 @@ const Achievements = () => {
                                 {filter}
                             </button>
                         ))}
-                    </div>
+                    </motion.div>
 
                     <div className="space-y-16 animate-slide-show">
                         {filteredAchievements.map((category, catIndex) => (
-                            <div key={catIndex} className="space-y-6">
-                                <h3 className="text-2xl font-bold text-blue-700 dark:text-[#89D3BD] border-l-4 border-primary pl-4 whitespace-normal break-words max-w-full">
+                            <motion.div
+                                key={catIndex}
+                                className="space-y-6"
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, amount: 0.05 }}
+                                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                            >
+                                <motion.h3
+                                    className="text-2xl font-bold text-blue-700 dark:text-[#89D3BD] border-l-4 border-primary pl-4 whitespace-normal break-words max-w-full"
+                                    initial={{ opacity: 0, x: -30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: false, amount: 0.3 }}
+                                    transition={{ duration: 0.5, ease: "easeOut" }}
+                                >
                                     {category.category}
-                                </h3>
+                                </motion.h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {category.items.map((item, index) => {
                                         const type = getFileType(item.file);
@@ -202,8 +222,18 @@ const Achievements = () => {
                                         const isSelected = !isClosing && selectedItem?.file === item.file;
 
                                         return (
-                                            <Card
+                                            <motion.div
                                                 key={index}
+                                                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                                                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                                                viewport={{ once: false, amount: 0.1 }}
+                                                transition={{
+                                                    duration: 0.5,
+                                                    delay: index * 0.08,
+                                                    ease: [0.22, 1, 0.36, 1],
+                                                }}
+                                            >
+                                            <Card
                                                 className="overflow-hidden border border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 backdrop-blur-md shadow-card hover:shadow-glow transition-all duration-300 group cursor-pointer flex flex-col h-full hover:-translate-y-2 hover:scale-[1.02]"
                                                 onClick={() => handleItemClick(item.file)}
                                             >
@@ -248,10 +278,11 @@ const Achievements = () => {
                                                     )}
                                                 </div>
                                             </Card>
+                                            </motion.div>
                                         );
                                     })}
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
