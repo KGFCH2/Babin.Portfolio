@@ -30,10 +30,10 @@ const ThemeToggle = () => {
       onClick={handleToggle}
       className={`relative w-12 h-12 rounded-full overflow-hidden transition-all duration-500 ease-out group
         ${isDark
-          ? 'bg-slate-800 shadow-lg shadow-purple-800/70'
+          ? 'bg-slate-800 shadow-lg shadow-primary/70'
           : 'bg-yellow-300 shadow-lg shadow-red-400/80'}
         hover:scale-110 hover:rotate-12 hover:rotate-y-12 hover:-rotate-x-6
-        hover:shadow-2xl hover:shadow-purple-500/80 dark:hover:shadow-purple-500/50
+        hover:shadow-2xl hover:shadow-primary/80 dark:hover:shadow-primary/50
         transform-gpu perspective-1000
         ${isToggling ? 'scale-90 rotate-180' : 'scale-100 rotate-0'}
       `}
@@ -88,13 +88,13 @@ const ThemeToggle = () => {
 
       {/* Animated glow ring on hover */}
       <div className={`absolute inset-[-2px] rounded-full border-2 transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:scale-110 group-hover:rotate-12
-        ${isDark ? 'border-purple-400/60 shadow-lg shadow-purple-400/30' : 'border-red-300/70 shadow-lg shadow-red-300/40'}`}
+        ${isDark ? 'border-primary/60 shadow-lg shadow-primary/30' : 'border-red-300/70 shadow-lg shadow-red-300/40'}`}
       />
 
       {/* Inner glow effect */}
       <div className={`absolute inset-0 rounded-full transition-opacity duration-300
         ${isDark
-          ? 'bg-purple-500/10'
+          ? 'bg-primary/10'
           : 'bg-red-500/10'}`}
       />
 
