@@ -87,7 +87,7 @@ const AchievementsPreview = () => {
   };
 
   return (
-    <section id="achievements-preview" className="py-20 relative overflow-hidden scroll-mt-20">
+    <section id="achievements-preview" className="py-20 relative overflow-hidden">
       <StudyBackground />
 
       {/* Background Decorative Elements */}
@@ -173,7 +173,7 @@ const AchievementsPreview = () => {
                 {/* Content */}
                 <div className="p-5">
                   <div className="flex items-start gap-3">
-                    <div className="p-2 rounded-xl bg-blue-700/10 dark:bg-[#89D3BD]/10 shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                    <div className="p-2 rounded-xl bg-blue-700/10 dark:bg-[#89D3BD]/10 shrink-0 group-hover:scale-110 transition-all duration-300">
                       <achievement.icon className="w-4 h-4 text-blue-700 dark:text-[#89D3BD]" />
                     </div>
                     <h3 className="text-sm font-bold leading-snug group-hover:text-blue-700 dark:group-hover:text-[#89D3BD] transition-colors duration-300">
