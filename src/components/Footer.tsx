@@ -17,7 +17,7 @@ const Footer = () => {
       if (location.pathname === "/") {
         const element = document.querySelector("#home");
         if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
           window.history.pushState(null, "", "/");
         }
       } else {
@@ -33,14 +33,14 @@ const Footer = () => {
         setTimeout(() => {
           const element = document.querySelector(href);
           if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
             window.history.pushState(null, "", href);
           }
         }, 150);
       } else {
         const element = document.querySelector(href);
         if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
           window.history.pushState(null, "", href);
         }
       }
@@ -86,11 +86,11 @@ const Footer = () => {
                   "About",
                   "Skills",
                   "Projects",
-                  "Achievements",
                   "Research",
+                  "Achievements",
                   "Contact",
                 ].map((item) => {
-                  const href = item === "Achievements" ? "/achievements" : `#${item.toLowerCase()}`;
+                  const href = item === "Achievements" ? "#achievements-preview" : `#${item.toLowerCase()}`;
                   return (
                     <motion.li
                       key={item}
