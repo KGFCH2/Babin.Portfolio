@@ -86,6 +86,18 @@ const Header = () => {
     }
   }, [activeSection, navItems, location.pathname]);
 
+  const HEADER_OFFSET = 10; // px gap above section heading
+
+  const smoothScrollTo = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      const top = element.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+      window.scrollTo({ top, behavior: "smooth" });
+      setActiveSection(href.slice(1));
+      window.history.pushState(null, "", href);
+    }
+  };
+
   const scrollToSection = (href: string) => {
     setIsMobileMenuOpen(false);
 
@@ -95,24 +107,9 @@ const Header = () => {
       if (location.pathname !== "/") {
         navigate("/");
         // Wait for navigation to complete before scrolling
-        setTimeout(() => {
-          const element = document.querySelector(href);
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth", block: "start" });
-            setActiveSection(href.slice(1));
-            // Update URL hash
-            window.history.pushState(null, "", href);
-          }
-        }, 150);
+        setTimeout(() => smoothScrollTo(href), 500);
       } else {
-        // We're already on home page, just scroll
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-          setActiveSection(href.slice(1));
-          // Update URL hash
-          window.history.pushState(null, "", href);
-        }
+        smoothScrollTo(href);
       }
     } else {
       // If it's a route link (like /achievements)
@@ -120,11 +117,17 @@ const Header = () => {
     }
   };
 
+  const isHomePage = location.pathname === "/" || location.pathname === "/achievements";
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${isScrolled
-        ? "bg-background/10 backdrop-blur-2xl shadow-card"
-        : "bg-background/02 backdrop-blur-2xl"
+        ? isHomePage
+          ? "bg-background/05 backdrop-blur-xl shadow-card"
+          : "bg-background/95 shadow-sm border-b border-border/30"
+        : isHomePage
+          ? "bg-background/02 backdrop-blur-xl"
+          : "bg-background/95"
         }`}
     >
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -178,14 +181,16 @@ const Header = () => {
             ))}
           </ul>
 
-          {/* Animated Line Indicator */}
-          <div
-            className="absolute bottom-0 h-0.5 bg-blue-700 dark:bg-[#89D3BD] transition-all duration-300 ease-out rounded-full"
-            style={{
-              width: `${lineStyle.width}px`,
-              left: `${lineStyle.left}px`,
-            }}
-          />
+          {/* Animated Line Indicator — only visible on homepage */}
+          {location.pathname === "/" && (
+            <div
+              className="absolute bottom-0 h-0.5 bg-blue-700 dark:bg-[#89D3BD] transition-all duration-300 ease-out rounded-full"
+              style={{
+                width: `${lineStyle.width}px`,
+                left: `${lineStyle.left}px`,
+              }}
+            />
+          )}
         </div>
 
         <div className="flex items-center gap-2">
