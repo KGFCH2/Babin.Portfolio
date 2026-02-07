@@ -61,7 +61,7 @@ const Splash: React.FC<SplashProps> = ({ durationMs = 3500, onFinish }) => {
             <div className="splash__bg" />
 
             <svg className="splash__grid" width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="none" aria-hidden>
-                <rect width="100%" height="100%" fill="#0D0D0D" />
+                <rect width="100%" height="100%" fill="transparent" />
                 <g className="grid-lines" stroke="rgba(255,255,255,0.03)" strokeWidth="1">
                     {Array.from({ length: 12 }).map((_, i) => (
                         <line key={i} x1={0} x2={800} y1={(i + 1) * 50} y2={(i + 1) * 50} />
