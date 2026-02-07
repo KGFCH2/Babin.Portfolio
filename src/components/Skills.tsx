@@ -109,7 +109,7 @@ const Skills: React.FC = () => {
     ];
 
     return (
-        <section id="skills" className="py-20 relative overflow-hidden scroll-mt-20" ref={ref}>
+        <section id="skills" className="py-20 relative overflow-hidden" ref={ref}>
             <StudyBackground />
             <motion.div
                 initial={{ opacity: 0, y: 60 }}
@@ -143,30 +143,40 @@ const Skills: React.FC = () => {
                             viewport={{ once: false }}
                             transition={{ delay: index * 0.03, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                             whileHover={{
-                                scale: 1.2,
-                                y: -8,
+                                scale: 1.1,
+                                y: -5,
                                 transition: { type: "spring", stiffness: 400, damping: 15 },
                             }}
                             className="relative group"
                             onMouseEnter={() => setHoveredSkill(skill)}
                             onMouseLeave={() => setHoveredSkill(null)}
-                            onClick={() => setHoveredSkill(hoveredSkill === skill ? null : skill)}
                         >
-                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10 flex items-center justify-center transition-all duration-300 group-hover:border-blue-700/50 dark:group-hover:border-[#89D3BD]/50 group-hover:shadow-[0_10px_30px_rgba(29,78,216,0.2)] dark:group-hover:shadow-[0_10px_30px_rgba(137,211,189,0.2)] cursor-pointer">
-                                {getSkillIcon(skill)}
+                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10 flex items-center justify-center transition-all duration-300 group-hover:border-blue-700/50 dark:group-hover:border-[#89D3BD]/50 group-hover:shadow-[0_10px_30px_rgba(29,78,216,0.2)] dark:group-hover:shadow-[0_10px_30px_rgba(137,211,189,0.2)] cursor-pointer overflow-hidden relative">
+                                {/* Icon - visible by default */}
+                                <div
+                                    className={`transition-all duration-300 ${
+                                        hoveredSkill === skill
+                                            ? 'opacity-0 scale-75'
+                                            : 'opacity-100 scale-100'
+                                    }`}
+                                >
+                                    {getSkillIcon(skill)}
+                                </div>
+
+                                {/* Skill name - appears on hover */}
+                                <div
+                                    className={`absolute inset-0 flex items-center justify-center bg-blue-700/90 dark:bg-[#89D3BD]/90 rounded-2xl transition-all duration-300 ${
+                                        hoveredSkill === skill
+                                            ? 'opacity-100 scale-100'
+                                            : 'opacity-0 scale-75'
+                                    }`}
+                                >
+                                    <span className="text-white dark:text-black text-[10px] md:text-xs font-extrabold text-center leading-tight px-1">
+                                        {skill}
+                                    </span>
+                                </div>
                             </div>
 
-                            {/* Tooltip - skill name on hover */}
-                            <div
-                                className={`absolute -bottom-9 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg bg-blue-700 dark:bg-[#89D3BD] text-white dark:text-black text-xs font-bold whitespace-nowrap z-20 pointer-events-none transition-all duration-200 ${
-                                    hoveredSkill === skill
-                                        ? 'opacity-100 translate-y-0'
-                                        : 'opacity-0 translate-y-2'
-                                }`}
-                            >
-                                {skill}
-                                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-blue-700 dark:bg-[#89D3BD] rotate-45" />
-                            </div>
                         </motion.div>
                     ))}
                 </div>
