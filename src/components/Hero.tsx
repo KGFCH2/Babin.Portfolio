@@ -30,7 +30,7 @@ const Hero = () => {
 
   return (
     <section
-      id="home" className="min-h-[80vh] md:min-h-screen flex items-center justify-center relative overflow-hidden pt-4 md:pt-8 scroll-mt-20"
+      id="home" className="min-h-[80vh] md:min-h-screen flex items-center justify-center relative overflow-hidden pt-4 md:pt-8"
     >
       <StudyBackground />
 
