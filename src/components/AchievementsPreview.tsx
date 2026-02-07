@@ -14,9 +14,9 @@ interface FeaturedAchievement {
 
 const featuredAchievements: FeaturedAchievement[] = [
   {
-    title: "SSWC'25 Best Paper Award",
+    title: "Best Paper Award in SSWC-2025",
     category: "Awards & Recognitions",
-    file: "/Achievements/SSWC'2025/SSWC'25_Best_Paper_Award.jpg",
+    file: "/Achievements/SSWC'2025/SSWC'2025_Award.jpeg",
     icon: Trophy,
   },
   {
@@ -38,16 +38,16 @@ const featuredAchievements: FeaturedAchievement[] = [
     icon: Award,
   },
   {
-    title: "5-Day AI Agents Intensive Course with Google",
-    category: "Kaggle",
-    file: "/Achievements/Kaggle/5-Day_AI_Agents_Intensive_Course_with_Google.png",
-    icon: Star,
+    title: "Merit Certificate for Academic Excellence (2023)",
+    category: "Awards & Recognitions",
+    file: "/Achievements/Babin_Bid_Merit_Scholarship_2023.jpeg",
+    icon: Medal,
   },
   {
-    title: "Awards and Certificates in SSWC-2025",
-    category: "Awards & Recognitions",
-    file: "/Achievements/SSWC'2025/Awards_and_Certificates_in_SSWC-2025.png",
-    icon: Trophy,
+    title: "Gemini Certified Student",
+    category: "Google Certified",
+    file: "/Achievements/Google/Gemini_Certified_Student.png",
+    icon: Star,
   },
 ];
 
