@@ -113,7 +113,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-12 md:py-20 relative scroll-mt-20" ref={ref}>
+    <section id="contact" className="py-12 md:py-20 relative" ref={ref}>
       <StudyBackground />
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
