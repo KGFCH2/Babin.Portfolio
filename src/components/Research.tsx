@@ -78,6 +78,7 @@ const Research = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: false, amount: 0.1 }}
+          className="-mt-14"
           transition={{ duration: 0.8 }}
         >
           <Card className="glass p-8 lg:p-12 transition-all">
@@ -100,10 +101,6 @@ const Research = () => {
                   <p className="flex items-start gap-2">
                     <span className="font-semibold text-foreground">Conference:</span>
                     <span>2nd International Conference on Smart Systems and Wireless Communication (SSWC2025)</span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="font-semibold text-foreground">Status:</span>
-                    <span className="text-blue-700 dark:text-[#89D3BD] font-semibold">Accepted for oral presentation</span>
                   </p>
                 </div>
 
