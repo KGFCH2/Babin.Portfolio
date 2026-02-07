@@ -35,7 +35,8 @@ const Skills: React.FC = () => {
 
     // Function to get skill icon
     const getSkillIcon = (skillName: string) => {
-        const iconMap: Record<string, { icon: React.ComponentType<any>; color: string } | { image: string; alt: string }> = {
+        type IconComponent = React.ComponentType<{ size?: number; color?: string; className?: string }>;
+        const iconMap: Record<string, { icon: IconComponent; color: string } | { image: string; alt: string }> = {
             'C': { image: 'https://icon.icepanel.io/Technology/svg/C.svg', alt: 'C' },
             'C++': { icon: SiCplusplus, color: '#00599C' },
             'Java': { image: 'https://icon.icepanel.io/Technology/svg/Java.svg', alt: 'Java' },

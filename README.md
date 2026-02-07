@@ -13,6 +13,8 @@
 
 ---
 
+**Last Updated: February 7, 2026**
+
 ## 🚀 Overview
 
 A **cutting-edge, production-ready** personal portfolio website built with modern web technologies:
@@ -104,7 +106,7 @@ Well-organized, scalable architecture following React best practices:
 Babin.Portfolio/
 │
 ├── 📁 src/
-│   ├── 📁 components/              # React Components (23 main + supporting)
+│   ├── 📁 components/              # React Components (26 main + supporting)
 │   │   ├── Hero.tsx                # Hero section with TypeAnimation (3-line typing effect)
 │   │   ├── About.tsx               # About intro with avatar glow & 4-panel accordion
 │   │   ├── Projects.tsx            # Embla carousel with 10 projects + glowing hover effects
@@ -430,12 +432,12 @@ Edit section heading text in each component file using `SectionTitle` component:
 | Metric | Value | Notes |
 |--------|-------|-------|
 | **Code Volume** | 4000+ lines | React TSX + utilities |
-| **Components** | 73+ total | 23 main + 50 UI components |
+| **Components** | 76+ total | 26 main + 50 UI components |
 | **Type Coverage** | 100% | Full TypeScript strict mode |
 | **Production Deps** | 31 | Carefully curated packages |
 | **Dev Dependencies** | 14 | Build & linting tools |
-| **Bundle Size** | ~666 KB | Minified, gzipped |
-| **Build Time** | <15 seconds | Vite with SWC optimization |
+| **Bundle Size** | ~450 KB | Minified, gzipped ~125 KB |
+| **Build Time** | <10 seconds | Vite with SWC optimization |
 | **Animations** | 15+ keyframes | CSS + Framer Motion |
 | **Accessibility** | WCAG 2.1 | Full keyboard navigation |
 | **Responsive Points** | 4+ breakpoints | Mobile-first design |
