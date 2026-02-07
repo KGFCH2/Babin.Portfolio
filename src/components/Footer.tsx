@@ -100,7 +100,7 @@ const Footer = () => {
                       <a
                         href={href}
                         onClick={(e) => handleSectionClick(e, href)}
-                        className="text-muted-foreground hover:text-blue-700 dark:hover:text-[#89D3BD] transition-smooth nav-underline text-sm md:text-base font-medium"
+                        className="text-muted-foreground hover:text-blue-700 dark:hover:text-[#89D3BD] transition-smooth nav-underline text-base md:text-lg font-bold"
                       >
                         {item}
                       </a>
