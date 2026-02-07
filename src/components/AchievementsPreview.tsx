@@ -190,7 +190,6 @@ const AchievementsPreview = () => {
             <motion.button
               whileHover={{
                 scale: 1.05,
-                y: -5,
                 boxShadow: "0 20px 40px var(--shadow-color)",
                 transition: { type: "spring", stiffness: 500, damping: 25 },
               }}
