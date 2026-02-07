@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from "react";
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import ThemeToggle from "./ThemeToggle";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
+import HamburgerMenu from "./HamburgerMenu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -197,21 +196,10 @@ const Header = () => {
           <ThemeToggle />
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden p-2 min-h-[48px] min-w-[48px]"
+          <HamburgerMenu
+            isOpen={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="mobile-menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
+          />
         </div>
       </nav>
 
