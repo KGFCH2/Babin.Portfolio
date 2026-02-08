@@ -46,7 +46,7 @@ const InteractiveStats: React.FC = () => {
         },
         {
             label: 'Code Commits',
-            value: 2000,
+            value: 2500,
             suffix: '+',
             description: 'Across multiple repositories',
             Icon: GitBranch,
