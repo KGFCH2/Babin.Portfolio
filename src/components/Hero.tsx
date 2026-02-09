@@ -34,31 +34,20 @@ const Hero = () => {
     >
       <StudyBackground />
 
-      {/* Persistent Background Typewriter Indicator */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center opacity-[0.03] dark:opacity-[0.07] pointer-events-none select-none">
-        <motion.div
-          key={currentIcon.toString()}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1.2 }}
-          transition={{ duration: 1 }}
-          className="text-[20vw] font-black uppercase text-blue-700 dark:text-[#89D3BD] whitespace-nowrap"
-        >
-          {currentIcon === Code && "Dev"}
-          {currentIcon === Globe && "Web"}
-          {currentIcon === Compass && "Math"}
-          {currentIcon === Puzzle && "Solver"}
-          {currentIcon === Microscope && "Focus"}
-          {currentIcon === Zap && "Tech"}
-          {currentIcon === Brain && "Think"}
-          {currentIcon === Users && "Work"}
-          {currentIcon === Bot && "AI"}
-          {currentIcon === Atom && "Edge"}
-          {currentIcon === FlaskConical && "Science"}
-          {currentIcon === BarChart3 && "Data"}
-          {currentIcon === Rocket && "Build"}
-          {currentIcon === Search && "Next"}
-        </motion.div>
+      {/* Persistent Background Typewriter Effect */}
+      <div className="absolute inset-0 z-0 opacity-[0.04] dark:opacity-[0.08] pointer-events-none select-none flex flex-col justify-around py-20 overflow-hidden font-black">
+        <div className="flex whitespace-nowrap animate-pulse text-blue-700 dark:text-[#89D3BD] text-5xl md:text-8xl justify-center items-center h-full">
+           <TypeAnimation
+             sequence={[
+               'INNOVATION', 2000, 
+               'COLLABORATION', 2000, 
+               'EXCELLENCE', 2000,
+               'RESEARCH', 2000,
+             ]}
+             repeat={Infinity}
+             cursor={false}
+           />
+        </div>
       </div>
 
       <div className="container mx-auto px-4 py-8 md:py-12 z-10">
@@ -141,7 +130,6 @@ const Hero = () => {
                     wrapper="span"
                     speed={50}
                     repeat={Infinity}
-                    preRenderFirstString={true}
                   />
                 </div>
                 <AnimatedIcon
