@@ -16,15 +16,6 @@ const Splash: React.FC<SplashProps> = ({ durationMs = 3500, onFinish }) => {
         let duration = durationMs;
         if (prefersReduced) duration = 600;
 
-        const onVisibilityChange = () => {
-            if (document.hidden) {
-                setPercent(100);
-                triggerFinish();
-            }
-        };
-
-        document.addEventListener('visibilitychange', onVisibilityChange);
-
         const step = (t: number) => {
             if (!startRef.current) startRef.current = t;
             const elapsed = t - (startRef.current || 0);
@@ -41,7 +32,6 @@ const Splash: React.FC<SplashProps> = ({ durationMs = 3500, onFinish }) => {
 
         return () => {
             if (rafRef.current) cancelAnimationFrame(rafRef.current);
-            document.removeEventListener('visibilitychange', onVisibilityChange);
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [durationMs]);
