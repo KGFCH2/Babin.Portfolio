@@ -55,9 +55,8 @@ For detailed information on how to clone, set up, and customize this portfolio, 
 
 ## 🔗 Quick Links
 
-- 🌐 **Live Demo**: [https://babinbid.vercel.app](https://babinbid.vercel.app)
-- 👔 **LinkedIn**: [Babin Bid](https://linkedin.com/in/babin-bid)
-- 📝 **Resume**: [Click to Download](https://babinbid.vercel.app/Babin_Bid_Resume.pdf)
+- 🌐 **Live Demo**: [Babin.Portfolio](https://babin-portfolio.vercel.app/)
+- 👔 **LinkedIn**: [Babin Bid](https://www.linkedin.com/in/babinbid123/)
 
 ---
 
