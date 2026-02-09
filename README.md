@@ -49,7 +49,7 @@ A **cutting-edge, production-ready** personal portfolio website built with moder
 
 For detailed information on how to clone, set up, and customize this portfolio, please refer to our dedicated guide:
 
-👉 **[INSTRUCTIONS.md](INSTRUCTIONS.md)**
+👉 **[INSTRUCTIONS.md](https://github.com/KGFCH2/Babin.Portfolio/blob/main/INSTRUCTIONS.md)**
 
 ---
 
