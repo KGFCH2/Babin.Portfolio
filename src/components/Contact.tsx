@@ -255,7 +255,7 @@ const Contact = () => {
                   />
                 </div>
                 <motion.div
-                  whileHover={{ scale: 1.05, y: -5, boxShadow: "0 20px 20px var(--shadow-color)" }}
+                  whileHover={{ scale: 1.02, y: -2, boxShadow: "0 20px 20px var(--shadow-color)" }}
                   transition={{ type: "spring", stiffness: 500, damping: 25 }}
                 >
                   <Button
