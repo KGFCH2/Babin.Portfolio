@@ -65,7 +65,7 @@ const Skills: React.FC = () => {
             'TensorFlow': { image: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg', alt: 'TensorFlow' },
             'Vercel': { icon: SiVercel, color: '#000000' },
             'Streamlit': { image: 'https://images.seeklogo.com/logo-png/44/2/streamlit-logo-png_seeklogo-441815.png', alt: 'Streamlit' },
-            'Netlify': { image: 'https://www.netlify.com/v3/img/components/logomark.png', alt: 'Netlify' },
+            'Netlify': { image: 'https://cdn.brandfetch.io/idoW6GB9ca/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B', alt: 'Netlify' },
             'VS Code': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png', alt: 'VS Code' },
             'GitHub': { icon: SiGithub, color: '#181717' },
             'Git': { icon: SiGit, color: '#F05032' },
