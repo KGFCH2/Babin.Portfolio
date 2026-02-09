@@ -50,12 +50,19 @@ npm install
 ```
 
 ### 3. Environment Configuration
-Create a `.env` file in the root directory (you can use `.env.local` for local testing):
+Create a `.env.local` file in the root directory by copying `.env.example`:
 
 ```env
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-app-specific-password
-RECEIVER_EMAIL=your-receiver-email@gmail.com
+# Copy this file to .env.local and fill in your actual values
+
+# Gmail Configuration for Contact Form
+EMAIL_USER=your-gmail@gmail.com
+EMAIL_PASS=your-gmail-app-password
+
+# Instructions:
+# 1. Copy this file to .env.local
+# 2. Replace the placeholder values with your actual Gmail credentials
+# 3. For EMAIL_PASS, use a Gmail App Password (not your regular password)
 ```
 > **Note:** For Gmail, you must use an [App Password](https://support.google.com/accounts/answer/185833).
 
