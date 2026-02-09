@@ -255,14 +255,15 @@ const Contact = () => {
                   />
                 </div>
                 <motion.div
-                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 >
                   <Button
                     type="submit"
                     disabled={isSubmitting}
                     aria-busy={isSubmitting}
-                    className="w-full bg-blue-700 dark:bg-[#89D3BD] text-white dark:text-black font-black shadow-[0_0_20px_rgba(29,78,216,0.3)] dark:shadow-[0_0_20px_rgba(137,211,189,0.3)] hover:opacity-90 hover:shadow-[0_0_30px_rgba(29,78,216,0.4)] dark:hover:shadow-[0_0_30px_rgba(137,211,189,0.4)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 active:scale-95 text-sm md:text-base py-2 md:py-3 h-auto"
+                    className="w-full bg-blue-700 dark:bg-[#89D3BD] text-white dark:text-black font-black shadow-glow hover:opacity-90 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed text-sm md:text-base py-2 md:py-3 h-auto"
                   >
                     {isSubmitting ? (
                       <>
