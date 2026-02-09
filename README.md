@@ -109,6 +109,9 @@ Well-organized, scalable architecture following React best practices:
 ```
 Babin.Portfolio/
 │
+├── 📁 api/                         # Vercel Serverless Functions
+│   └── send-email.js               # Nodemailer email handler
+│
 ├── 📁 src/
 │   ├── 📁 components/                  # React Components (26 main + 50 UI)
 │   │   ├── Hero.tsx                    # Hero section with TypeAnimation (14-line typing effect)
@@ -392,11 +395,7 @@ const allCategories = Array.from(new Set(skills.map(s => s.category)));
 
 ### 5️⃣ Setup Contact Form
 
-📬 Add `.env.local` in root:
-
-```env
-VITE_CONTACT_ENDPOINT=https://your-api-endpoint.com/contact
-```
+The contact form uses **Nodemailer** with **Vercel Serverless Functions**. To set it up, you need to configure your Gmail credentials in the **Environment Variables** section at the bottom of this README.
 
 ### 6️⃣ Update Social Links
 
