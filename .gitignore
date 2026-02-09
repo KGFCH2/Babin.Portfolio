@@ -13,3 +13,5 @@ public/Achievements/
 
 # Editor settings (personal)
 .vscode/
+.vercel
+.env
