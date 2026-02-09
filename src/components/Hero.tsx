@@ -31,26 +31,7 @@ const Hero = () => {
   return (
     <section
       id="home" className="min-h-[80vh] md:min-h-screen flex items-center justify-center relative overflow-hidden pt-4 md:pt-8"
-    >
-      <StudyBackground />
-
-      {/* Persistent Background Typewriter Effect */}
-      <div className="absolute inset-0 z-0 opacity-[0.04] dark:opacity-[0.08] pointer-events-none select-none flex flex-col justify-around py-20 overflow-hidden font-black">
-        <div className="flex whitespace-nowrap animate-pulse text-blue-700 dark:text-[#89D3BD] text-5xl md:text-8xl justify-center items-center h-full">
-           <TypeAnimation
-             sequence={[
-               'INNOVATION', 2000, 
-               'COLLABORATION', 2000, 
-               'EXCELLENCE', 2000,
-               'RESEARCH', 2000,
-             ]}
-             repeat={Infinity}
-             cursor={false}
-           />
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-8 md:py-12 z-10">
+    >      <div className="container mx-auto px-4 py-8 md:py-12 z-10">
         <motion.div
           className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6"
           initial={{ opacity: 0, y: 12 }}
