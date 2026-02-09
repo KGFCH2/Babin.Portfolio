@@ -13,13 +13,13 @@
 
 ---
 
-**Last Updated: February 7, 2026**
+**Last Updated: February 9, 2026**
 
 ## 🚀 Overview
 
 A **cutting-edge, production-ready** personal portfolio website built with modern web technologies:
 
-**React 18** • **TypeScript** • **Vite** • **Tailwind CSS** • **Framer Motion** • **Shadcn/UI**
+**React 18** • **TypeScript** • **Vite** • **Tailwind CSS** • **Framer Motion** • **Shadcn/UI** • **Nodemailer**
 
 ### Showcase Sections
 
@@ -30,7 +30,7 @@ A **cutting-edge, production-ready** personal portfolio website built with moder
 - 🏆 **Achievements** — Comprehensive achievements system (230+ items across 37 categories) with filtering, zoom lightbox, and PDF support
 - 📚 **Research Publications** — Academic research papers with detailed information and animations
 - 📦 **Learning Materials** — Study resources and knowledge repository
-- 📞 **Contact System** — Validated contact form with multiple channels and social integration
+- 📞 **Contact System** — Secure contact form with **Nodemailer and Vercel Serverless Functions**
 - 🌊 **Smooth Animations** — Wave animations, fade-ins, slide-ins with 0.8s timing for premium feel
 
 **Modern Design** • **Fully Responsive** • **Accessibility-First** • **100% Type-Safe** • **Production-Grade Performance**
@@ -93,6 +93,7 @@ A carefully curated selection of industry-standard tools for maximum performance
 | 📈 **Data Viz** | Recharts 2.15.4, React Day Picker 8.10.1 |
 | 🎠 **Carousel** | Embla Carousel 8.6.0 with autoplay plugin |
 | 🖥️ **3D & Graphics** | Three.js 0.182.0, OGL 1.0.11 |
+| 📧 **Email API** | Nodemailer 8.0.1 (Vercel Serverless Functions) |
 | ⌨️ **Typing Effect** | react-type-animation 3.2.0 |
 | 👁️ **Scroll Detection** | react-intersection-observer 9.16.0 |
 | 🔧 **Utilities** | clsx 2.1.1, class-variance-authority 0.7.1, tailwind-merge 2.6.0, date-fns 3.6.0, cmdk 1.1.1 |
@@ -534,22 +535,61 @@ npm run build
 
 ## 📝 Environment Variables
 
-Create `.env.local` for sensitive data:
+Create `.env.local` for local development. Never commit this file to Git!
 
 ```env
-# Contact form endpoint (optional)
-VITE_CONTACT_ENDPOINT=https://your-api.com/contact
-
-# Analytics (optional)
-VITE_GA_ID=your-google-analytics-id
-
-# API endpoints (if needed)
-VITE_API_URL=https://your-api.com
+# Gmail Configuration for Contact Form
+EMAIL_USER=your-gmail@gmail.com
+EMAIL_PASS=your-gmail-app-password
 ```
+
+### 🗝️ How to get `EMAIL_PASS`
+1. Go to your **Google Account Settings**
+2. Enable **2-Factor Authentication**
+3. Navigate to **Security** → **App passwords**
+4. Generate a new app password for "Mail"
+5. Copy the **16-character code** and paste it as `EMAIL_PASS` (remove spaces)
 
 ---
 
-## 📬 Contact Information
+## 🛠️ Local Development
+
+### 1. Installation
+```bash
+git clone https://github.com/KGFCH2/Babin.Portfolio.git
+cd Babin.Portfolio
+npm install
+```
+
+### 2. Configure Environment
+Copy the example file and add your credentials:
+```bash
+cp .env.example .env.local
+```
+
+### 3. Running Locally
+To test the API functionality, use the **Vercel CLI**:
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Run development server with API support
+vercel dev
+```
+The app will be available at `http://localhost:3000`.
+
+---
+
+## 🚀 Deployment
+
+The project is optimized for **Vercel**:
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Add Environment Variables in Vercel Dashboard:
+   - `EMAIL_USER`
+   - `EMAIL_PASS`
+4. Deploy! 🎉
 
 👨‍💻 **Babin Bid**  
 📧 **Email**: [babinbid05@gmail.com](mailto:babinbid05@gmail.com)  
