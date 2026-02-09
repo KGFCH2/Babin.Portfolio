@@ -47,40 +47,25 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const endpoint = import.meta.env.VITE_CONTACT_ENDPOINT as string | undefined;
-
     const payload = {
-      name: formData.name,
       email: formData.email,
-      message: formData.message,
+      message: `Name: ${formData.name}\n\n${formData.message}`,
     };
 
-    if (endpoint) {
-      try {
-        const res = await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-        if (!res.ok) throw new Error("Network response was not ok");
-        toast({ title: "Message Sent!", description: "Thank you for reaching out. I'll get back to you soon!" });
-        setFormData({ name: "", email: "", message: "" });
-      } catch (err) {
-        console.error(err);
-        toast({ title: "Send failed", description: "Could not send message. You can also email me directly." });
-      } finally {
-        setIsSubmitting(false);
-      }
-    } else {
-      // Fallback to mailto if no endpoint configured
-      const mailto = `mailto:babinbid05@gmail.com?subject=${encodeURIComponent(
-        `Portfolio contact from ${formData.name}`
-      )}&body=${encodeURIComponent(formData.message + "\n\nFrom: " + formData.email)}`;
-      window.location.href = mailto;
-      // optimistic toast and clear form fields since user was redirected to their mail client
-      toast({ title: "Opening mail client", description: "Your mail client will open so you can send the message." });
+      if (!res.ok) throw new Error("Network response was not ok");
+      toast({ title: "Message Sent!", description: "Thank you for reaching out. I'll get back to you soon!" });
       setFormData({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      toast({ title: "Send failed", description: "Could not send message. You can also email me directly." });
+    } finally {
       setIsSubmitting(false);
     }
   };
