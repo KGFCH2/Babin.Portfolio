@@ -72,6 +72,31 @@ npm run dev
 ```
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
+#### 4a. Start the API Server (Vercel) 🔧
+The contact API lives in `api/send-email.js` and runs as a Vercel Serverless Function. To run it locally, set your environment variables and start the Vercel dev server.
+
+- Set environment variables (PowerShell):
+```powershell
+$env:EMAIL_USER='your-gmail@gmail.com'
+$env:EMAIL_PASS='your-app-password'
+$env:PORT='3001' # optional — the test script uses port 3001 by default
+```
+
+- Start the API server (recommended):
+```powershell
+npm run dev:api
+```
+
+Or, without npm script:
+```powershell
+# using local vercel package via npx
+npx vercel dev --listen 3001
+# or, if you have vercel installed globally
+vercel dev --listen 3001
+```
+
+The function will be available at `http://localhost:3001/api/send-email` when using port `3001`.
+
 ---
 
 ## 📧 Contact Form System
@@ -90,9 +115,12 @@ The contact form uses **Nodemailer** integrated with **Vercel Serverless Functio
 | Command | Description |
 |:---|:---|
 | `npm run dev` | Starts the development server with Hot Module Replacement (HMR). |
+| `npm run dev:api` | Starts the Vercel development server for local API testing. |
 | `npm run build` | Compiles the project into the `dist/` folder for production. |
+| `npm run build:dev` | Compiles the project in development mode. |
 | `npm run lint` | Runs ESLint to find and fix code style issues. |
 | `npm run preview` | Locally previews the production build. |
+| `npm run deploy` | Deploys the project to GitHub Pages. |
 
 ---
 
