@@ -62,7 +62,7 @@ export default async function handler(req, res) {
         const mailOptions = {
             from: `"Babin Bid" <${process.env.EMAIL_USER}>`,
             to: process.env.EMAIL_USER,
-            subject: `🚀 Portfolio Contact: New Message from ${email}`,
+            subject: `Portfolio Contact ~ New Message from ${email}`,
             html: `
                 <!DOCTYPE html>
                 <html lang="en">
@@ -103,7 +103,7 @@ export default async function handler(req, res) {
                         <div style="background: linear-gradient(135deg, #2563eb 0%, #0891b2 100%); padding: 48px 32px; text-align: center;" class="header">
                             <img src="https://avatars.githubusercontent.com/KGFCH2" alt="Babin" style="width: 72px; height: 72px; border-radius: 50%; border: 3px solid rgba(255, 255, 255, 0.3); margin-bottom: 16px; background-color: white;">
                             <h1 style="color: white; margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.025em; text-transform: uppercase;">BABIN BID</h1>
-                            <p style="color: rgba(255, 255, 255, 0.8); margin: 4px 0 0 0; font-size: 14px; font-weight: 500;">SYSTEM NOTIFICATION: NEW CONTACT INBOUND</p>
+                            <p style="color: rgba(255, 255, 255, 0.8); margin: 4px 0 0 0; font-size: 14px; font-weight: 500;">SYSTEM NOTIFICATION ~~ NEW CONTACT INBOUND</p>
                         </div>
 
                         <!-- Main Content Body -->
@@ -113,7 +113,7 @@ export default async function handler(req, res) {
                             <div style="margin-bottom: 32px; text-align: center;">
                                 <div style="display: inline-block; padding: 8px 16px; background-color: #ecfeff; color: #0891b2; border-radius: 9999px; font-size: 12px; font-weight: 700; margin-bottom: 16px;">NEW INQUIRY</div>
                                 <div style="display: block; margin-bottom: 12px;">
-                                    <img src="https://cdn-icons-png.flaticon.com/128/953/953831.png" alt="Inquiry" style="width: 32px; height: 32px; margin-bottom: 8px;">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/10677/10677796.png" alt="Inquiry" style="width: 32px; height: 32px; margin-bottom: 8px;">
                                     <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #1e293b;" class="content-title">Message Received</h2>
                                 </div>
                                 <p style="margin: 8px 0 0 0; color: #64748b; font-size: 15px;">A visitor has reached out through your professional portfolio website.</p>
@@ -122,7 +122,7 @@ export default async function handler(req, res) {
                             <!-- Section: Sender Profile -->
                             <div style="background-color: #f0f9ff; border-radius: 12px; padding: 24px; margin-bottom: 24px; text-align: center;" class="info-box">
                                 <div style="display: block; margin-bottom: 20px;">
-                                    <img src="https://cdn-icons-png.flaticon.com/128/1077/1077063.png" alt="User" style="width: 24px; height: 24px; margin-bottom: 8px;">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/9187/9187532.png" alt="User" style="width: 24px; height: 24px; margin-bottom: 8px;">
                                     <h3 style="margin: 0; font-size: 16px; font-weight: 700; color: #1e293b;" class="content-title">Sender Identification</h3>
                                 </div>
                                 
@@ -141,7 +141,7 @@ export default async function handler(req, res) {
                             <!-- Section: Message Content -->
                             <div style="margin-bottom: 24px;">
                                 <div style="display: block; margin-bottom: 16px; text-align: center;">
-                                    <img src="https://cdn-icons-png.flaticon.com/128/2462/2462719.png" alt="Message" style="width: 24px; height: 24px; margin-bottom: 8px;">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/16751/16751818.png" alt="Message" style="width: 24px; height: 24px; margin-bottom: 8px;">
                                     <h3 style="margin: 0; font-size: 16px; font-weight: 700; color: #1e293b;" class="content-title">Communication Details</h3>
                                     <div style="margin-top: 12px;">
                                         <div style="font-size: 11px; font-weight: 700; color: #0891b2; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Sender Name</div>
@@ -154,7 +154,7 @@ export default async function handler(req, res) {
 
                         <!-- Footer Section -->
                         <div style="padding: 24px; text-align: center; border-top: 1px solid #f1f5f9; color: #94a3b8; font-size: 12px;" class="footer">
-                            <p style="margin: 0;">Automated Dispatch from <strong>Babin Bid v2.0</strong></p>
+                            <p style="margin: 0;">Automated Dispatch from <strong>Babin.Portfolio v1.0</strong></p>
                             <p style="margin: 4px 0 0 0;">&copy; ${new Date().getFullYear()} Babin Bid. All systems operational.</p>
                         </div>
                     </div>
