@@ -21,15 +21,19 @@ A **cutting-edge, production-ready** personal portfolio website built with moder
 
 ## ✨ Key Features
 
-- 🎯 **Dynamic Hero Section** — Interactive animations and a professional summary.
+- 🎯 **Dynamic Hero Section** — Interactive animations and a professional summary with typing effects.
 - 👤 **Interactive About Me** — Deep dive into my background with accordion-style panels.
 - 💼 **Project Showcase** — Beautifully animated gallery with live demos and repository links.
 - 🏆 **Achievement Hub** — 230+ certificates and awards with smart filtering and light-box previews.
 - 🛠️ **Skills Matrix** — Over 40 technical skills categorized for easy navigation.
 - 📚 **Research & Materials** — Academic publications and study resources repository.
-- 📧 **Secure Contact** — Functional contact form powered by Nodemailer and serverless functions.
+- 📧 **Enhanced Contact Form** — Functional contact form with name extraction and styled email notifications.
 - 🌙 **Dark/Light Themes** — Seamless theme switching with system preference detection.
+- 🎨 **Particle Backgrounds** — Dynamic particle animations powered by tsparticles.
+- 📊 **Interactive Charts** — Data visualization components using Recharts.
+- 🎭 **3D Elements** — Three.js integration for immersive experiences.
 - 📱 **Mobile-First Design** — Fully responsive and optimized for all screen sizes.
+- ♿ **Accessibility** — WCAG compliant with keyboard navigation and screen reader support.
 
 ---
 
@@ -37,11 +41,15 @@ A **cutting-edge, production-ready** personal portfolio website built with moder
 
 | 📋 Category | 🔧 Technologies |
 |:---|:---|
-| **Frontend** | React 18, TypeScript, Framer Motion |
-| **Styling** | Tailwind CSS, Shadcn/UI, Radix UI |
-| **Icons** | Lucide React, React Icons |
+| **Frontend** | React 18, TypeScript, Vite, React Router |
+| **Styling** | Tailwind CSS, Shadcn/UI, Radix UI, Framer Motion |
+| **State Management** | TanStack Query, React Hook Form, Zod |
+| **Icons & UI** | Lucide React, React Icons, Radix UI Components |
 | **Backend** | Nodemailer, Vercel Serverless Functions |
-| **Build Tool** | Vite |
+| **Animations** | Framer Motion, Three.js, TSParticles |
+| **Charts & Data** | Recharts, React Intersection Observer |
+| **Build Tool** | Vite, ESLint, TypeScript |
+| **Deployment** | Vercel, GitHub Pages |
 
 ---
 
