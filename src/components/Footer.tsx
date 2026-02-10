@@ -57,14 +57,22 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 mb-6 md:mb-8 relative z-10">
             <div className="space-y-3 md:space-y-6 text-center md:text-left">
-              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-start gap-2 group cursor-default">
-                <motion.div whileHover={{ scale: 1.15, y: -6 }} className="transition-transform duration-300 group-hover:scale-125 group-hover:-translate-y-1">
+              <motion.h3
+                whileHover="hover"
+                className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-start gap-2 group cursor-default"
+              >
+                <motion.div
+                  variants={{
+                    hover: { y: -8, scale: 1.2, transition: { type: "tween", duration: 0.4, repeat: Infinity, repeatType: 'reverse' } }
+                  }}
+                  className="transition-transform duration-300"
+                >
                   <Terminal className="h-6 w-6 text-blue-700 dark:text-[#89D3BD]" />
                 </motion.div>
                 <span className="text-blue-700 dark:text-[#89D3BD]">
                   Babin.Portfolio
                 </span>
-              </h3>
+              </motion.h3>
               <p className="text-foreground text-sm md:text-lg leading-relaxed font-medium">
                 B.Tech Student at Adamas University,
                 <br />passionate about <b className="text-blue-700 dark:text-[#89D3BD]">Technology</b>
@@ -73,14 +81,22 @@ const Footer = () => {
             </div>
 
             <div className="space-y-3 md:space-y-6 text-center relative z-10">
-              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center gap-2 group cursor-default">
-                <motion.div whileHover={{ scale: 1.15, y: -6 }} className="transition-transform duration-300 group-hover:scale-125 group-hover:-translate-y-1">
+              <motion.h3
+                whileHover="hover"
+                className="text-2xl md:text-2xl font-bold flex items-center justify-center gap-2 group cursor-default"
+              >
+                <motion.div
+                  variants={{
+                    hover: { y: -8, scale: 1.2, transition: { type: "tween", duration: 0.4, repeat: Infinity, repeatType: 'reverse' } }
+                  }}
+                  className="transition-transform duration-300"
+                >
                   <LinkIcon className="h-6 w-6 text-blue-700 dark:text-[#89D3BD]" />
                 </motion.div>
                 <span className="text-blue-700 dark:text-[#89D3BD]">
                   Quick Links
                 </span>
-              </h3>
+              </motion.h3>
               <ul className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-4 md:gap-6">
                 {[
                   "About",
@@ -111,14 +127,22 @@ const Footer = () => {
             </div>
 
             <div className="space-y-3 md:space-y-6 text-center md:text-right relative z-10">
-              <h3 className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-end gap-2 group cursor-default">
-                <motion.div whileHover={{ scale: 1.15, y: -6 }} className="transition-transform duration-300 group-hover:scale-125 group-hover:-translate-y-1">
+              <motion.h3
+                whileHover="hover"
+                className="text-2xl md:text-2xl font-bold flex items-center justify-center md:justify-end gap-2 group cursor-default"
+              >
+                <motion.div
+                  variants={{
+                    hover: { y: -8, scale: 1.2, transition: { type: "tween", duration: 0.4, repeat: Infinity, repeatType: 'reverse' } }
+                  }}
+                  className="transition-transform duration-300"
+                >
                   <MessageSquare className="h-6 w-6 text-blue-700 dark:text-[#89D3BD]" />
                 </motion.div>
                 <span className="text-blue-700 dark:text-[#89D3BD]">
                   Let's Connect
                 </span>
-              </h3>
+              </motion.h3>
               <div className="flex justify-center md:justify-end mt-4 md:mt-8">
                 <div className="md:translate-x-0">
                   <SocialIcons />
