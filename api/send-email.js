@@ -59,6 +59,11 @@ export default async function handler(req, res) {
         // Compute a base URL for static assets so email clients can fetch images
         const baseUrl = process.env.SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `http://localhost:${process.env.PORT || 3000}`);
 
+        // Get current time in IST
+        const now = new Date();
+        const istTime = now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+        const istTimeFull = now.toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'short', timeZone: 'Asia/Kolkata' });
+
         const mailOptions = {
             from: `"Babin Bid" <${process.env.EMAIL_USER}>`,
             to: process.env.EMAIL_USER,
@@ -133,7 +138,7 @@ export default async function handler(req, res) {
                                     </div>
                                     <div>
                                         <div style="font-size: 11px; font-weight: 700; color: #0369a1; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;" class="info-label">Submission Timestamp</div>
-                                        <div style="font-size: 15px; font-weight: 600; color: #1d4ed8;" class="info-value">${new Date().toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'short' })}</div>
+                                        <div style="font-size: 15px; font-weight: 600; color: #1d4ed8;" class="info-value">${istTimeFull}</div>
                                     </div>
                                 </div>
                             </div>
@@ -167,7 +172,7 @@ export default async function handler(req, res) {
 👤 Sender Information:
 • Name: ${senderName || 'Not Provided'}
 • Email: ${email}
-• Date: ${new Date().toLocaleString()}
+• Date: ${istTime}
 
 💬 Message Content:
 ${messageBody}
