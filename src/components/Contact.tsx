@@ -143,7 +143,7 @@ const Contact = () => {
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
                     <Card
-                      className="p-4 md:p-6 bg-card shadow-card hover:shadow-[0_20px_20px_var(--shadow-color)] focus-visible:shadow-[0_20px_20px_var(--shadow-color)] transition-all duration-300 border-border/50 group cursor-default"
+                      className="p-4 md:p-6 bg-card shadow-card hover:shadow-[0_16px_16px_var(--shadow-color)] focus-visible:shadow-[0_200px_1px_var(--shadow-color)] transition-all duration-300 border-border/50 group cursor-default"
                     >
                       <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 text-center sm:text-left">
                         <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 min-w-0 flex-1">
@@ -263,7 +263,7 @@ const Contact = () => {
                     type="submit"
                     disabled={isSubmitting}
                     aria-busy={isSubmitting}
-                    className="w-full bg-blue-700 dark:bg-[#89D3BD] text-white dark:text-black font-black shadow-glow hover:opacity-90 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed text-sm md:text-base py-2 md:py-3 h-auto"
+                    className="w-full bg-blue-700 dark:bg-[#89D3BD] text-white dark:text-black font-black shadow-glow hover:shadow-[0_20px_28px_var(--shadow-color)] focus-visible:shadow-[0_0_48px_var(--shadow-color),0_0_60px_var(--shadow-color-highlights)] hover:opacity-90 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed text-sm md:text-base py-2 md:py-3 h-auto"
                   >
                     {isSubmitting ? (
                       <>
