@@ -129,6 +129,7 @@ export const achievementsData: AchievementCategory[] = [
             { title: "Screening Quiz -Audit Diwas 2025", file: "/Achievements/MyBharat/Screening_Quiz_-Audit_Diwas_2025.png" },
             { title: "VBYLD Essay 2025", file: "/Achievements/MyBharat/VBYLD_Essay_2025.pdf" },
             { title: "Viksit Bharat Young Leaders Dialogue VBYLD 2026", file: "/Achievements/MyBharat/Viksit_Bharat_Young_Leaders_Dialogue_VBYLD_2026.png" },
+            { title: "Budget Quest 2026", file: "/Achievements/MyBharat/MY_Bharat_Budget_Quest_2026.png" },
         ]
     },
     {
@@ -151,17 +152,20 @@ export const achievementsData: AchievementCategory[] = [
     },
 
     // ==================== CERTIFICATES | TECHNICAL COURSES ====================
-    // Add other bootcamp/event categories below:
-    // - "Unstop", "MyBharat", "myGov" (if needed separately)
 
     {
         category: "AWS",
         items: [
             { title: "Fundamentals of Machine  Learning and Artificial Intelligence", file: "/Achievements/AWS/Fundamentals_of_Machine__Learning_and_Artificial_Intelligence.pdf" },
-            { title: "AWS Academy Graduate - Cloud Data Pipeline Builder Training Badge", file: "/Achievements/AWS/AWS_Academy_Graduate___Cloud_Data_Pipeline_Builder___Training_Badge_Badge20260127-30-l4u2b8.pdf" },
-            { title: "AWS Academy Graduate - Microservices and CI/CD Pipeline Builder - Training Badge", file: "/Achievements/AWS/AWS_Academy_Graduate___Microservices_and_CI_CD_Pipeline_Builder___Training_Badge_Badge20260128-33-qtzcax.pdf" },
-            { title: "AWS Academy Graduate - Cloud Web Application Builder - Training Badge", file: "/Achievements/AWS/AWS_Academy_Graduate___Cloud_Web_Application_Builder___Training_Badge_Badge20260127-30-fvf8fo.pdf" },
-            { title: "AWS Academy Graduate - Cloud Architecting - Training Badge", file: "/Achievements/AWS/AWS_Academy_Graduate___Cloud_Architecting___Training_Badge_Badge20260205-30-minnwr.pdf" }
+            { title: "AWS Academy Graduate - Cloud Data Pipeline Builder", file: "/Achievements/AWS/AWS_Academy_Graduate___Cloud_Data_Pipeline_Builder___Training_Badge_Badge20260127-30-l4u2b8.pdf" },
+            { title: "AWS Academy Graduate - Microservices and CI/CD Pipeline Builder", file: "/Achievements/AWS/AWS_Academy_Graduate___Microservices_and_CI_CD_Pipeline_Builder___Training_Badge_Badge20260128-33-qtzcax.pdf" },
+            { title: "AWS Academy Graduate - Cloud Web Application Builder", file: "/Achievements/AWS/AWS_Academy_Graduate___Cloud_Web_Application_Builder___Training_Badge_Badge20260127-30-fvf8fo.pdf" },
+            { title: "AWS Academy Graduate - Cloud Architecting", file: "/Achievements/AWS/AWS_Academy_Graduate___Cloud_Architecting___Training_Badge_Badge20260205-30-minnwr.pdf" },
+            { title: "AWS Academy Graduate - Cloud Developing", file: "/Achievements/AWS/AWS_Academy_Graduate___Cloud_Developing___Training_Badge_Badge20260211-32-xm4num.pdf" },
+            { title: "AWS Academy Graduate - Cloud Foundations", file: "/Achievements/AWS/AWS_Academy_Graduate___Cloud_Foundations___Training_Badge_Badge20260210-34-1mcm8o.pdf" },
+            { title: "AWS Academy Graduate - ML for NLP", file: "/Achievements/AWS/AWS_Academy_Graduate___Machine_Learning_for_Natural_Language_Processing___Training_Badge_Badge20260216-31-2cm4c2.pdf"},
+            { title: "AWS Academy Graduate - Machine Learning Foundations", file: "/Achievements/AWS/AWS_Academy_Graduate___Machine_Learning_Foundations___Training_Badge_Badge20260216-32-f6n5i9.pdf"},
+            { title: "AWS Academy Graduate - Generative AI Foundations", file: "/Achievements/AWS/AWSAcademy12NEW20260210-30-ibx8ou.pdf"},
         ]
     },
     {
@@ -207,6 +211,12 @@ export const achievementsData: AchievementCategory[] = [
         items: [
             { title: "SQL Basic Certificate", file: "/Achievements/HackerRank/SQL_Basic_Certificate_Hackerrank.pdf" },
             { title: "SQL Intermediate Certificate", file: "/Achievements/HackerRank/SQL_Intermediate_Certificate_Hackerrank.pdf" },
+        ]
+    },
+    {
+        category: "HCL Guvi",
+        items: [
+            { title: "YUVA AI for ALL", file: "/Achievements/HCL Guvi/HCL_GUVI~~Certification.png"},
         ]
     },
     {
@@ -334,11 +344,16 @@ export const achievementsData: AchievementCategory[] = [
     {
         category: "AWS Badges",
         items: [
-            { title: "Cloud Data Pipeline Builder Badge", file: "/Achievements/AWS/aws-academy-graduate-cloud-data-pipeline-builder-tr.png" },
-            { title: "Cloud Web Application Builder Badge", file: "/Achievements/AWS/aws-academy-graduate-cloud-web-application-builder-.png" },
-            { title: "Microservices and CI/CD Pipeline Badge", file: "/Achievements/AWS/aws-academy-graduate-microservices-and-ci-cd-pipeli.png" },
-            { title: "Cloud Computing 101 Badge", file: "/Achievements/AWS/aws-educate-introduction-to-cloud-101-training-badg.png"},
-            { title: "Cloud Architecting Badge", file: "/Achievements/AWS/aws-academy-graduate-cloud-architecting-training-ba.png" },
+            { title: "Cloud Data Pipeline Builder Training Badge", file: "/Achievements/AWS/aws-academy-graduate-cloud-data-pipeline-builder-tr.png" },
+            { title: "Cloud Web Application Builder  Training Badge", file: "/Achievements/AWS/aws-academy-graduate-cloud-web-application-builder-.png" },
+            { title: "Microservices and CI/CD Pipeline Training Badge", file: "/Achievements/AWS/aws-academy-graduate-microservices-and-ci-cd-pipeli.png" },
+            { title: "Cloud Computing 101 Training Badge", file: "/Achievements/AWS/aws-educate-introduction-to-cloud-101-training-badg.png"},
+            { title: "Cloud Architecting Training Badge", file: "/Achievements/AWS/aws-academy-graduate-cloud-architecting-training-ba.png" },
+            { title: "Cloud Developing Training Badge", file: "/Achievements/AWS/aws-academy-graduate-cloud-developing-training-badg.png"},
+            { title: "Cloud Foundations Training Badge", file: "/Achievements/AWS/aws-academy-graduate-cloud-foundations-training-bad.png" },
+            { title: "Generative AI Foundations Training Badge", file: "/Achievements/AWS/aws-academy-graduate-generative-ai-foundations-trai.png" },
+            { title: "Machine Learning for Natural Language Processing Training Badge", file: "/Achievements/AWS/aws-academy-graduate-machine-learning-for-natural-l.png" },
+            { title: "Machine Learning Foundations Training Badge", file: "/Achievements/AWS/aws-academy-graduate-machine-learning-foundations-t.png" },
         ]
     },
     {
