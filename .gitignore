@@ -16,21 +16,3 @@ public/Achievements/
 .vercel/
 .env
 .env.local
-# Additional files to ignore
-components.json
-eslint.config.js
-INSTRUCTIONS.md
-LICENSE
-package.json
-package-lock.json
-postcss.config.js
-README.md
-tailwind.config.ts
-tsconfig.app.json
-tsconfig.json
-tsconfig.node.json
-vercel.json
-vite.config.ts
-.env.example
-.markdownlint.json
-.github/
