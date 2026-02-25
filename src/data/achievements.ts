@@ -54,7 +54,7 @@ export const achievementsData: AchievementCategory[] = [
             { title: "Poster Competition on Engineers Day", file: "/Achievements/Babin_Bid__Poster_Competition_on_Engineers_Day.png" },
             { title: "GDSC Cloud Campaign", file: "/Achievements/GDSC_Cloud_Campaign.jpeg" },
             { title: "NSHM Hackathon", file: "/Achievements/NSHM_Hackathon.jpeg" },
-            { title: "Hack Defence Summit 2026", file: "/Achievements/Hack_Defence_Summit_2026.png" },
+            { title: "Hack Defence Summit 2026", file: "/Achievements/Hack_Defence_Summit_2026.png" }
         ]
     },
     {
