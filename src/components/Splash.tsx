@@ -10,6 +10,7 @@ const Splash: React.FC<SplashProps> = ({ durationMs = 3500, onFinish }) => {
     const [exploding, setExploding] = useState(false);
     const rafRef = useRef<number | null>(null);
     const startRef = useRef<number | null>(null);
+    const isFinishingRef = useRef(false);
     const prefersReduced = typeof window !== 'undefined' && window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
 
     useEffect(() => {
@@ -37,69 +38,79 @@ const Splash: React.FC<SplashProps> = ({ durationMs = 3500, onFinish }) => {
     }, [durationMs]);
 
     function triggerFinish() {
-        if (exploding) return;
-        setExploding(true);
+        if (isFinishingRef.current) return;
+        isFinishingRef.current = true;
+
+        // Pause for 2 seconds at 100% so the user can read the code
         setTimeout(() => {
-            onFinish?.();
-        }, 750);
+            setExploding(true);
+            setTimeout(() => {
+                onFinish?.();
+            }, 800);
+        }, 2000);
     }
 
-    const particles = Array.from({ length: 28 });
+    // Calculate how many characters to show based on percentage
+    const codeString = `import { Developer } from '@babin/core';
+
+const <span class="highlight">Babin</span> = await Developer.awaken({
+  role: 'Full Stack Engineer',
+  weapons: ['React', 'TypeScript', 'UI/UX'],
+  superpower: 'Turning coffee into code',
+  systemStatus: 'Booting...',
+  progress: ${percent}%
+});
+
+<span class="highlight">Babin.deployPortfolio();</span>`;
+
+    const charsToShow = Math.floor((percent / 100) * codeString.length);
+    const visibleCode = codeString.substring(0, charsToShow);
 
     return (
-        <div className={`splash ${exploding ? 'splash--exploding' : ''}`} aria-hidden={false}>
-            <div className="splash__bg" />
-
-            <svg className="splash__grid" width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="none" aria-hidden>
-                <rect width="100%" height="100%" fill="transparent" />
-                <g className="grid-lines" stroke="rgba(255,255,255,0.03)" strokeWidth="1">
-                    {Array.from({ length: 12 }).map((_, i) => (
-                        <line key={i} x1={0} x2={800} y1={(i + 1) * 50} y2={(i + 1) * 50} />
-                    ))}
-                </g>
-            </svg>
-
-            <div className="splash__center">
-                <div className="splash__ring" aria-hidden>
-                    <div className="splash__shape" />
-                    {/* Decorative hero image: put your attachment into public/preloader-hero.png */}
-                    <img
-                        src="/Babin_New.jpeg"
-                        alt="Babin avatar"
-                        className="splash__hero"
-                        aria-hidden="true"
-                        onError={(e) => {
-                            // hide image if it fails to load in production (case/casing/path issues)
-                            const el = e.currentTarget as HTMLImageElement;
-                            el.style.display = 'none';
-                        }}
-                    />
+        <div className={`splash ide-splash ${exploding ? 'splash--exploding' : ''}`} aria-hidden="false">
+            <div className="ide-window">
+                <div className="ide-header">
+                    <div className="ide-buttons">
+                        <span className="ide-btn close"></span>
+                        <span className="ide-btn minimize"></span>
+                        <span className="ide-btn maximize"></span>
+                    </div>
+                    <div className="ide-title">Developer.ts — <span className="title-highlight">Babin.Portfolio</span></div>
                 </div>
-
-                <div className="splash__percent" aria-live="polite">{percent}%</div>
-
-                <div className="splash__text" aria-hidden>
-                    <span className="typewriter">Babin.Portfolio&nbsp;Loading...</span>
-                </div>
-            </div>
-
-            <div className="splash__particles" aria-hidden>
-                {particles.map((_, i) => {
-                    // generate per-particle offsets (kept deterministic-ish via index seed)
-                    const tx = Math.round((Math.random() * 2 - 1) * 220); // px
-                    const ty = Math.round((Math.random() * 2 - 1) * 160); // px
-                    return (
-                        <span
-                            className="splash__particle"
-                            key={i}
-                            style={{
-                                '--i': i,
-                                '--tx': `${tx}px`,
-                                '--ty': `${ty}px`,
-                            } as React.CSSProperties}
+                <div className="ide-body">
+                    <div className="ide-avatar-container">
+                        <img
+                            src="/Babin_New.jpeg"
+                            alt="Babin"
+                            className={`ide-avatar ${percent === 100 ? 'ide-avatar--loaded' : ''}`}
+                            onError={(e) => {
+                                const el = e.currentTarget as HTMLImageElement;
+                                el.style.display = 'none';
+                            }}
                         />
-                    );
-                })}
+                        <div
+                            className="ide-avatar-ring"
+                            ref={(el) => {
+                                if (el) {
+                                    el.style.setProperty('--progress', `${percent}%`);
+                                }
+                            }}
+                        ></div>
+                    </div>
+                    <div className="ide-content">
+                        <div className="ide-line-numbers">
+                            {codeString.split('\n').map((_, i) => (
+                                <div key={i}>{i + 1}</div>
+                            ))}
+                        </div>
+                        <div className="ide-code">
+                            <pre>
+                                <code dangerouslySetInnerHTML={{ __html: visibleCode }}></code>
+                                <span className="ide-cursor"></span>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
