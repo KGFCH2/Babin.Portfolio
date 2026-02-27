@@ -903,9 +903,7 @@ All colors MUST be HSL.
 }
 
 /* =========================
-   Futuristic Splash Styles
-   Scoped and lightweight. Keeps animations CSS-first and respects
-   prefers-reduced-motion. Used by src/components/Splash.tsx
+   IDE Code Reveal Splash Styles
    ========================= */
 
 @layer utilities {
@@ -916,228 +914,187 @@ All colors MUST be HSL.
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #1e1e1e;
+    /* VS Code dark background */
     overflow: hidden;
     -webkit-tap-highlight-color: transparent;
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
 
-  .splash__bg {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom right, #0f172a 0%, #1e3a8a 50%, #164e63 100%);
+  .splash--exploding {
+    opacity: 0;
+    transform: scale(1.05);
     pointer-events: none;
-    will-change: transform, opacity;
   }
 
-  .splash__grid {
+  .ide-window {
+    width: 90%;
+    max-width: 700px;
+    background-color: #252526;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ide-header {
+    height: 36px;
+    background-color: #323233;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    position: relative;
+  }
+
+  .ide-buttons {
+    display: flex;
+    gap: 8px;
+  }
+
+  .ide-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .ide-btn.close {
+    background-color: #ff5f56;
+  }
+
+  .ide-btn.minimize {
+    background-color: #ffbd2e;
+  }
+
+  .ide-btn.maximize {
+    background-color: #27c93f;
+  }
+
+  .ide-title {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.7;
-    mix-blend-mode: overlay;
-    pointer-events: none;
-    transform: translateZ(0);
+    left: 50%;
+    transform: translateX(-50%);
+    color: #969696;
+    font-size: 0.85rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
-  .splash__center {
+  .ide-body {
+    display: flex;
+    padding: 16px 0;
+    background-color: #1e1e1e;
+    min-height: 240px;
+  }
+
+  .ide-sidebar {
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 8px;
+    border-right: 1px solid #333;
+  }
+
+  .ide-avatar-container {
     position: relative;
-    width: min(44vw, 420px);
-    height: min(44vw, 420px);
-    display: grid;
-    place-items: center;
-    gap: 1rem;
-    z-index: 10;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .splash__ring {
-    width: 60%;
-    height: 60%;
-    border-radius: 9999px;
-    display: grid;
-    place-items: center;
-    position: relative;
-    filter: drop-shadow(0 12px 40px rgba(29, 78, 216, 0.16));
-    background: rgba(103, 232, 249, 0.06);
-    --ring-border: 6px;
+  .ide-avatar-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    z-index: 1;
+    background: conic-gradient(#007acc var(--progress, 0%), transparent var(--progress, 0%));
+    transition: background 0.1s linear;
   }
 
-  .splash__ring::after {
+  .ide-avatar-ring::after {
     content: '';
     position: absolute;
-    inset: calc(var(--ring-border) * -1px);
-    border-radius: 9999px;
-    padding: 6px;
-    background: #1d4ed8;
-    filter: blur(10px) saturate(140%);
-    opacity: .95;
-    transform: scale(1.02);
-    animation: ring-rotate 3.6s linear infinite;
-    pointer-events: none;
-  }
-
-  @keyframes ring-rotate {
-    from {
-      transform: scale(1.02) rotate(0deg);
-    }
-
-    to {
-      transform: scale(1.02) rotate(360deg);
-    }
-  }
-
-  .splash__shape {
-    width: 52%;
-    height: 52%;
-    border-radius: 18% 32% 28% 22% / 30% 25% 35% 40%;
-    background: #67e8f9;
-    position: relative;
-    transform: translateZ(0);
-    animation: shape-morph 3.5s cubic-bezier(.2, .9, .2, 1) infinite;
-    box-shadow: 0 8px 40px rgba(29, 78, 216, 0.18), 0 0 80px rgba(103, 232, 249, 0.06) inset;
-  }
-
-  .dark .splash__ring::after {
-    background: #67e8f9;
-  }
-
-  .dark .splash__shape {
-    background: #1d4ed8;
-  }
-
-  @keyframes shape-morph {
-    0% {
-      border-radius: 18% 32% 28% 22% / 30% 25% 35% 40%;
-      filter: drop-shadow(0 24px 60px rgba(0, 255, 255, 0.06));
-      transform: scale(1);
-    }
-
-    33% {
-      border-radius: 32% 18% 40% 20% / 20% 40% 22% 30%;
-      filter: drop-shadow(0 30px 70px rgba(138, 43, 226, 0.08));
-      transform: scale(1.06) rotate(6deg);
-    }
-
-    66% {
-      border-radius: 22% 42% 20% 34% / 40% 22% 30% 25%;
-      filter: drop-shadow(0 18px 48px rgba(255, 105, 180, 0.06));
-      transform: scale(.98) rotate(-6deg);
-    }
-
-    100% {
-      border-radius: 18% 32% 28% 22% / 30% 25% 35% 40%;
-      transform: scale(1);
-    }
-  }
-
-  .splash__percent {
-    position: absolute;
-    bottom: 12%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-weight: 700;
-    color: #FFFFFF;
-    font-size: clamp(1rem, 2.8vw, 1.25rem);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-  }
-
-  .splash__text {
-    position: absolute;
-    top: 74%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #FFFFFF;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Roboto Mono', 'Courier New', monospace;
-    letter-spacing: 0.02em;
-    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-    font-size: 0.92rem;
-  }
-
-  /* white loader text in both modes */
-  .dark .splash__percent {
-    color: #FFFFFF;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-  }
-
-  .dark .splash__text {
-    color: #FFFFFF;
-  }
-
-  /* small neon particles that drift — used for the explode transition */
-  .splash__particles {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 8;
-  }
-
-  .splash__particle {
-    --size: calc(4px + (var(--i) * 0.3px));
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: var(--size);
-    height: var(--size);
-    background: rgba(0, 255, 255, 0.98);
+    inset: 2px;
+    background-color: #1e1e1e;
     border-radius: 50%;
-    transform-origin: center;
-    opacity: 0;
-    will-change: transform, opacity;
-    transition: opacity .5s ease;
+    z-index: 2;
   }
 
-  /* explode animation triggered by .splash--exploding */
-  .splash--exploding .splash__particle {
-    animation: explode 0.75s cubic-bezier(.2, .9, .2, 1) forwards;
+  .ide-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 3;
+    filter: grayscale(100%) contrast(1.2);
+    opacity: 0.5;
+    transition: all 0.5s ease;
   }
 
-  @keyframes explode {
-    0% {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    100% {
-      opacity: 0;
-      transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0.6);
-    }
-  }
-
-  /* create per-particle random offsets via inline style --tx and --ty set in JS via CSS custom properties */
-  .splash--exploding .splash__particle {
+  .ide-avatar--loaded {
+    filter: grayscale(0%) contrast(1);
     opacity: 1;
+    box-shadow: 0 0 20px rgba(0, 122, 204, 0.4);
   }
 
-  /* Typewriter fallback/control — already in file; ensure visible on splash */
-  .splash .typewriter {
-    border-right: .12em solid rgba(255, 255, 255, 0.12);
+  .ide-content {
+    display: flex;
+    flex-grow: 1;
   }
 
-  /* Respect reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-
-    .splash__shape,
-    .splash__ring::after {
-      animation: none !important;
-    }
-
-    .splash__grid {
-      opacity: 0.5;
-    }
+  .ide-line-numbers {
+    padding: 0 16px;
+    color: #858585;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.6;
+    text-align: right;
+    user-select: none;
+    border-right: 1px solid #404040;
   }
 
-  /* Small screens — simplify visuals */
-  @media (max-width: 640px) {
-    .splash__center {
-      width: 72vw;
-      height: 72vw;
+  .ide-code {
+    padding: 0 16px;
+    flex-grow: 1;
+  }
+
+  .ide-code pre {
+    margin: 0;
+  }
+
+  .ide-code code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #569cd6;
+    /* VS Code blue for keywords */
+    white-space: pre-wrap;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .ide-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.2em;
+    background-color: #007acc;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+
+    0%,
+    100% {
+      opacity: 1;
     }
 
-    .splash__ring::after {
-      display: none;
-    }
-
-    .splash__grid {
-      display: none;
+    50% {
+      opacity: 0;
     }
   }
 }
