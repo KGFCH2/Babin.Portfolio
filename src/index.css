@@ -923,7 +923,7 @@ All colors MUST be HSL.
   .splash__bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, #1e1b4b 0%, #000000 100%);
+    background: linear-gradient(to bottom right, #0f172a 0%, #1e3a8a 50%, #164e63 100%);
     pointer-events: none;
     will-change: transform, opacity;
   }
@@ -1154,7 +1154,7 @@ All colors MUST be HSL.
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: red !important;
+    background: linear-gradient(to bottom right, #0f172a 0%, #1e3a8a 50%, #164e63 100%) !important;
     overflow: hidden !important;
   }
 
