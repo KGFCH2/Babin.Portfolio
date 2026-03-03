@@ -22,6 +22,7 @@ import {
     SiVercel,
     SiGithub,
     SiGit,
+    SiNextdotjs,
 } from 'react-icons/si';
 
 const Skills: React.FC = () => {
@@ -38,7 +39,7 @@ const Skills: React.FC = () => {
         type IconComponent = React.ComponentType<{ size?: number; color?: string; className?: string }>;
         const iconMap: Record<string, { icon: IconComponent; color: string } | { image: string; alt: string }> = {
             'C': { image: 'https://icon.icepanel.io/Technology/svg/C.svg', alt: 'C' },
-            'C++': { icon: SiCplusplus, color: '#00599C' },
+            'C++': { image: 'https://icon.icepanel.io/Technology/svg/C%2B%2B-%28CPlusPlus%29.svg', alt: 'C++' },
             'Java': { image: 'https://icon.icepanel.io/Technology/svg/Java.svg', alt: 'Java' },
             'Python': { image: 'https://icon.icepanel.io/Technology/svg/Python.svg', alt: 'Python' },
             'JavaScript': { icon: SiJavascript, color: '#F7DF1E' },
@@ -47,7 +48,7 @@ const Skills: React.FC = () => {
             'TypeScript': { icon: SiTypescript, color: '#3178C6' },
             'React': { icon: SiReact, color: '#61DAFB' },
             'Vite': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/1200px-Vitejs-logo.svg.png', alt: 'Vite' },
-            'Tailwind': { icon: SiTailwindcss, color: '#06B6D4' },
+            'Tailwind CSS': { icon: SiTailwindcss, color: '#06B6D4' },
             'Framer Motion': { image: 'https://cdn.worldvectorlogo.com/logos/framer-motion.svg', alt: 'Framer Motion' },
             'Node.js': { icon: SiNodedotjs, color: '#339933' },
             'Flask': { icon: SiFlask, color: '#000000' },
@@ -66,17 +67,20 @@ const Skills: React.FC = () => {
             'Vercel': { icon: SiVercel, color: '#000000' },
             'Streamlit': { image: 'https://images.seeklogo.com/logo-png/44/2/streamlit-logo-png_seeklogo-441815.png', alt: 'Streamlit' },
             'Netlify': { image: 'https://cdn.brandfetch.io/idoW6GB9ca/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B', alt: 'Netlify' },
-            'VS Code': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png', alt: 'VS Code' },
+            'Visual Studio Code': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png', alt: 'Visual Studio Code' },
             'GitHub': { icon: SiGithub, color: '#181717' },
             'Git': { icon: SiGit, color: '#F05032' },
-            'Canva': { image: 'https://public.canva.site/logo/media/dfb96cc174513093cd6ed61489ccb750.svg', alt: 'Canva' },
-            'MS Word': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg/1990px-Microsoft_Office_Word_%282025%E2%80%93present%29.svg.png', alt: 'MS Word' },
-            'MS PowerPoint': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg/1200px-Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg.png', alt: 'MS PowerPoint' },
-            'MS Excel': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg/1166px-Microsoft_Office_Excel_%282025%E2%80%93present%29.svg.png', alt: 'MS Excel' },
-            'Paint': { image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Microsoft_Paint.svg/2048px-Microsoft_Paint.svg.png', alt: 'Paint' },
             'LeetCode': { image: 'https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png', alt: 'LeetCode' },
-            'Hackerrank': { image: 'https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png', alt: 'Hackerrank' },
+            'HackerRank': { image: 'https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png', alt: 'HackerRank' },
             'Codolio': { image: 'https://codolio-pt.vercel.app/codolio_assets/gif-owl-transparent.GIF', alt: 'Codolio' },
+            'Firebase': { image: 'https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg', alt: 'Firebase' },
+            'Amazon Web Services': { image: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg', alt: 'Amazon Web Services' },
+            'Microsoft Azure': { image: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg', alt: 'Microsoft Azure' },
+            'Google Cloud': { image: 'https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg', alt: 'Google Cloud' },
+            'Docker': { image: 'https://www.vectorlogo.zone/logos/docker/docker-icon.svg', alt: 'Docker' },
+            'Next.js': { icon: SiNextdotjs, color: '#000000' },
+            'Linux': { image: 'https://www.vectorlogo.zone/logos/linux/linux-icon.svg', alt: 'Linux' },
+            'Network Fundamentals': { image: 'https://img.icons8.com/color/512/network.png', alt: 'Network Fundamentals' },
         };
 
         const iconConfig = iconMap[skillName];
@@ -96,30 +100,36 @@ const Skills: React.FC = () => {
         }
 
         const IconComponent = iconConfig.icon;
-        
+
         // Special handling for dark mode colors
         let finalColor = iconConfig.color;
         if (theme === 'dark') {
-            if (skillName === 'Flask' || skillName === 'Vercel') {
-                finalColor = '#FFFFFF'; // White for Flask and Vercel in dark mode
+            if (skillName === 'Flask' || skillName === 'Vercel' || skillName === 'Next.js') {
+                finalColor = '#FFFFFF'; // White for Flask, Vercel and Next.js in dark mode
             } else if (skillName === 'GitHub') {
                 finalColor = '#FFFFFF'; // White for GitHub in dark mode
             }
         }
-        
+
         return <IconComponent size={40} color={finalColor} className="drop-shadow-sm" />;
     };
 
     const skillCategories: Record<string, string[]> = {
-        'Languages': ['C', 'C++', 'Java', 'Python', 'JavaScript'],
-        'Frontend': ['HTML', 'CSS', 'TypeScript', 'React', 'Vite', 'Tailwind', 'Framer Motion'],
+        'Languages': ['C', 'C++', 'Java', 'Python', 'JavaScript', 'TypeScript'],
+        'Frontend': ['HTML', 'CSS', 'React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Vite'],
         'Backend': ['Node.js', 'Flask', 'FastAPI'],
-        'Database': ['MySQL', 'SQLite', 'MongoDB'],
-        'Data Science & ML': ['NumPy', 'Pandas', 'Matplotlib', 'Seaborn', 'Plotly', 'Scikit-learn', 'XGBoost', 'TensorFlow'],
-        'Deployment': ['Vercel', 'Streamlit', 'Netlify'],
-        'Tools': ['VS Code', 'GitHub', 'Git', 'Canva', 'MS Word', 'MS PowerPoint', 'MS Excel', 'Paint'],
-        'Coding Platforms': ['LeetCode', 'Hackerrank', 'Codolio'],
+        'Database': ['MySQL', 'MongoDB', 'SQLite', 'Firebase'],
+        'AI & ML': ['NumPy', 'Pandas', 'Matplotlib', 'Seaborn', 'Plotly', 'Scikit-learn', 'XGBoost', 'TensorFlow'],
+        'Cloud & DevOps': ['Amazon Web Services', 'Microsoft Azure', 'Google Cloud', 'Docker', 'Linux'],
+        'Deployment': ['Vercel', 'Netlify', 'Streamlit'],
+        'Tools': ['Git', 'GitHub', 'Visual Studio Code'],
     };
+
+    const codingProfiles = [
+        { name: 'LeetCode', url: 'https://leetcode.com/u/Babin123/' },
+        { name: 'HackerRank', url: 'https://www.hackerrank.com/profile/babinbid05' },
+        { name: 'Codolio', url: 'https://codolio.com/profile/Babin_KGF' },
+    ];
 
     const filterOptions = ['All', ...Object.keys(skillCategories)];
 
@@ -194,22 +204,20 @@ const Skills: React.FC = () => {
                             <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10 flex items-center justify-center transition-all duration-300 group-hover:border-blue-700/50 dark:group-hover:border-[#89D3BD]/50 group-hover:shadow-[0_10px_30px_rgba(29,78,216,0.2)] dark:group-hover:shadow-[0_10px_30px_rgba(137,211,189,0.2)] cursor-pointer overflow-hidden relative">
                                 {/* Icon - visible by default */}
                                 <div
-                                    className={`transition-all duration-300 ${
-                                        hoveredSkill === skill
-                                            ? 'opacity-0 scale-75'
-                                            : 'opacity-100 scale-100'
-                                    }`}
+                                    className={`transition-all duration-300 ${hoveredSkill === skill
+                                        ? 'opacity-0 scale-75'
+                                        : 'opacity-100 scale-100'
+                                        }`}
                                 >
                                     {getSkillIcon(skill)}
                                 </div>
 
                                 {/* Skill name - appears on hover */}
                                 <div
-                                    className={`absolute inset-0 flex items-center justify-center bg-blue-700/90 dark:bg-[#89D3BD]/90 rounded-2xl transition-all duration-300 ${
-                                        hoveredSkill === skill
-                                            ? 'opacity-100 scale-100'
-                                            : 'opacity-0 scale-75'
-                                    }`}
+                                    className={`absolute inset-0 flex items-center justify-center bg-blue-700/90 dark:bg-[#89D3BD]/90 rounded-2xl transition-all duration-300 ${hoveredSkill === skill
+                                        ? 'opacity-100 scale-100'
+                                        : 'opacity-0 scale-75'
+                                        }`}
                                 >
                                     <span className="text-white dark:text-black text-[10px] md:text-xs font-extrabold text-center leading-tight px-1">
                                         {skill}
@@ -219,6 +227,40 @@ const Skills: React.FC = () => {
 
                         </motion.div>
                     ))}
+                </motion.div>
+
+                {/* Coding Profiles Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="mt-16 text-center"
+                >
+                    <h3 className="text-xl md:text-2xl font-bold mb-6 text-blue-900 dark:text-cyan-300">Coding Profiles</h3>
+                    <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+                        {codingProfiles.map((profile, index) => (
+                            <motion.a
+                                key={profile.name}
+                                href={profile.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                                whileHover={{ scale: 1.05, y: -2 }}
+                                className="flex items-center gap-3 px-6 py-3 rounded-xl bg-white/50 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-[#89D3BD]/50 transition-all duration-300 shadow-sm hover:shadow-md backdrop-blur-sm group"
+                            >
+                                <div className="p-1.5 rounded-lg bg-slate-100 dark:bg-white/5 group-hover:scale-110 transition-transform duration-300">
+                                    {getSkillIcon(profile.name)}
+                                </div>
+                                <span className="font-semibold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-[#89D3BD]">
+                                    {profile.name}
+                                </span>
+                            </motion.a>
+                        ))}
+                    </div>
                 </motion.div>
 
                 {/* Decorative Elements */}
