@@ -218,6 +218,7 @@ export const achievementsData: AchievementCategory[] = [
         category: "HCL Guvi",
         items: [
             { title: "YUVA AI for ALL", file: "/Achievements/HCL Guvi/HCL_GUVI~~Certification.png"},
+            { title: "India AI Impact Buildathon", file: "/Achievements/HCL Guvi/India_AI_Impact_Buildathon.png" },
         ]
     },
     {
