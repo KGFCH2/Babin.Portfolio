@@ -505,7 +505,7 @@ All colors MUST be HSL.
   body {
     background: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'Cambria Math', serif;
+    font-family: 'Comic Sans MS', 'Cambria Math', sans-serif;
   }
 
   html {
@@ -1229,7 +1229,7 @@ All colors MUST be HSL.
     font-size: 1.1rem;
     font-weight: 600;
     color: #FFFFFF;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+    font-family: 'Cosmic Sans MS', 'Comic Sans MS', 'Cambria Math', sans-serif;
     letter-spacing: 0.08em;
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   }
