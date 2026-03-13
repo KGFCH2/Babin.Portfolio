@@ -33,7 +33,7 @@ const Hero = () => {
       id="home" className="min-h-[80vh] md:min-h-screen flex items-center justify-center relative overflow-hidden pt-4 md:pt-8"
     >      <div className="container mx-auto px-4 py-8 md:py-12 z-10">
         <motion.div
-          className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6"
+          className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6 mt-6 md:mt-12"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
@@ -105,7 +105,7 @@ const Hero = () => {
                       'Always Eager to Learn, Collaborate & Innovate',
                       1600,
                       () => setCurrentIcon(Search),
-                      'Open to Internships, Projects, Papers & Opportunities',
+                      'Open to Internships, Papers & Opportunities',
                       2200,
                     ]}
                     wrapper="span"
