@@ -691,7 +691,10 @@ All colors MUST be HSL.
     right: 0;
     top: 0;
     height: 1.5px;
-    background: linear-gradient(to right, #FF9933 45%, #FFFFFF 45%, #FFFFFF 55%, #138808 55%);
+    /* Use a single theme-aware color for the divider line.
+       `--primary` is blue in light mode and cyan in dark mode, so
+       the divider will be blue in light and cyan in dark automatically. */
+    background: hsl(var(--primary));
     overflow: visible;
     /* distance from the top of the section to the divider line; components can override this variable */
     --section-divider-offset: 1rem;
