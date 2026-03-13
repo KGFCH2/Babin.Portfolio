@@ -135,13 +135,6 @@ const StatCard: React.FC<StatCardProps> = ({ stat, index, totalCount, isVisible 
     return (
         <div
             className={`relative group/section transition-all duration-300 transform-gpu ${isVisible ? 'translate-x-0 scale-100 opacity-100' : 'opacity-0 scale-75'}`}
-            style={{
-                '--tx': isVisible ? '0px' : `${translateX}px`,
-                '--sc': isVisible ? '1' : `${scale}`,
-                '--del': `${transitionDelay}ms`,
-                transform: 'translateX(var(--tx)) scale(var(--sc))',
-                transition: 'transform 800ms cubic-bezier(.25,.8,.25,1) var(--del), opacity 600ms ease var(--del)'
-            } as React.CSSProperties}
         >
             <div className="relative p-4 md:p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 hover:shadow-[0_20px_10px_rgba(29,78,216,0.3)] dark:hover:shadow-[0_10px_20px_rgba(137,211,189,0.3)] transition-all duration-300 h-32 md:h-40 flex flex-col justify-between">
                 <div className="space-y-3">
