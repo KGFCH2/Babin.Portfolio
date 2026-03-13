@@ -87,10 +87,7 @@ const SectionTitle = ({ text, segments, className = "" }: SectionTitleProps) => 
                             key={index}
                             className={`inline-block will-change-transform ${charClass} ${isAnimating ? "animate-wave" : "opacity-0 translate-y-6"
                                 } [animation-fill-mode:both] [animation-timing-function:cubic-bezier(0.34,1.56,0.64,1)]`}
-                            style={{
-                                '--delay': `${index * 45}ms`,
-                                animationDelay: 'var(--delay)'
-                            } as React.CSSProperties}
+                            data-index={index}
                         >
                             {char}
                         </span>
