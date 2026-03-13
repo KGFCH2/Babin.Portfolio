@@ -10,21 +10,29 @@ A high-level overview of the workspace organization:
 
 ```text
 .
-├── api/                # Vercel Serverless Functions (Backend)
-│   └── send-email.js   # Nodemailer contact form logic
+├── api/                # Vercel Serverless Functions
+│   └── send-email.js   # Nodemailer contact form logic (handles email delivery)
 ├── public/             # Static assets (images, fonts, metadata)
-│   ├── Achievements/   # All certificate and award images
-│   ├── projects/       # Project showcase images
-│   └── particles/      # Particle configuration files
-├── src/                # Frontend Source Code
-│   ├── components/     # Reusable React components (UI & Layout)
-│   ├── data/           # Application data (achievements, projects)
-│   ├── hooks/          # Custom React hooks
-│   ├── lib/            # Utility functions (shadcn/ui configuration)
-│   ├── pages/          # Full page layouts (Home, Achievements, etc.)
-│   └── main.tsx        # Application entry point
-├── package.json        # Dependencies and scripts
-└── tailwind.config.ts  # Design system configuration
+│   ├── Achievements/   # Hierarchical certificate storage (AWS, Cisco, IBM, etc.)
+│   ├── projects/       # Project showcase thumbnails and screenshots
+│   ├── particles/      # JSON configuration files for tsparticles
+│   ├── manifest.json   # Progressive Web App (PWA) configuration
+│   └── sitemap.xml     # Search engine optimization (SEO) mapping
+├── src/                # Frontend Source Code (React + TypeScript)
+│   ├── components/     # Application-specific UI components
+│   │   ├── ui/         # Base Shadcn/UI primitives (buttons, inputs, cards)
+│   │   ├── Hero.tsx    # Animated landing section with typing effects
+│   │   └── ...         # Feature components (About, Projects, Skills, etc.)
+│   ├── pages/          # Router-level page views (Home, About, Achievements)
+│   ├── data/           # Structured application data (achievements.ts)
+│   ├── hooks/          # Custom React hooks (use-mobile, use-toast)
+│   ├── lib/            # Shared utilities and Shadcn/UI helper (utils.ts)
+│   ├── animations.css  # Global Framer Motion and Keyframe definitions
+│   ├── App.tsx         # Main application shell and routing logic
+│   └── main.tsx        # React DOM entry point
+├── package.json        # Project dependencies, metadata, and scripts
+├── tailwind.config.ts  # Tailwind CSS theme and design system configuration
+└── vercel.json         # Vercel deployment and routing configuration
 ```
 
 ---

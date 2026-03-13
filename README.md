@@ -19,6 +19,16 @@ A **cutting-edge, production-ready** personal portfolio website built with moder
 
 ---
 
+## 🏗️ Technical Deep Dive
+
+- **🎨 Design System** — Built on **Shadcn/UI** with customized **Tailwind CSS** variables for smooth theme transitions.
+- **⚡ Frontend Engine** — Powered by **Vite** for lightning-fast HMR and optimized production builds.
+- **📩 Email Server** — A decoupled **Vercel Serverless Function** using **Nodemailer** to handle secure, rate-limited email delivery.
+- **🔄 State & Validation** — Uses **React Hook Form** for efficient user inputs and **Zod** for schema-based validation.
+- **♿ Standardized UI** — Implements **Radix UI** primitives to ensure full keyboard accessibility and screen reader support.
+
+---
+
 ## ✨ Key Features
 
 - 🎯 **Dynamic Hero Section** — Interactive animations and a professional summary with typing effects.
