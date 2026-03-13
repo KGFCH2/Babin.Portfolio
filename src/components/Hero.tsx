@@ -30,10 +30,10 @@ const Hero = () => {
 
   return (
     <section
-      id="home" className="min-h-[80vh] md:min-h-screen flex items-center justify-center relative overflow-hidden pt-4 md:pt-8"
+      id="home" className="min-h-[80vh] md:min-h-screen flex items-center justify-center relative overflow-hidden pt-10 md:pt-16"
     >      <div className="container mx-auto px-4 py-8 md:py-12 z-10">
         <motion.div
-          className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6 mt-6 md:mt-12"
+          className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6 mt-4 md:mt-12"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
@@ -124,7 +124,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed -mt-2 md:-mt-4">
             B.Tech 3rd Year Student at Adamas University, Kolkata, India. Passionate
             about building innovative solutions and contributing to cutting-edge
             research.
