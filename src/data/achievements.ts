@@ -1,4 +1,3 @@
-
 interface AchievementItem {
     title: string;
     file: string;

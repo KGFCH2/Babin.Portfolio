@@ -209,7 +209,7 @@ const Hero = () => {
           {/* Interactive scroll indicator */}
           <div className="pt-4 md:pt-6 animate-bounce cursor-pointer" onClick={() => scrollToSection('about')}>
             <div className="text-center">
-              <p className="text-sm text-muted-foreground mb-2">Explore More</p>
+              <p className="text-sm text-muted-foreground mb-0">Explore More</p>
               <ChevronDown className="h-6 w-6 text-primary mx-auto" />
             </div>
           </div>
