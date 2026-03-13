@@ -133,8 +133,31 @@ const StatCard: React.FC<StatCardProps> = ({ stat, index, totalCount, isVisible 
     const transitionDelay = isVisible ? enterDelay : exitDelay;
 
     return (
-        <div
-            className={`relative group/section transition-all duration-300 transform-gpu ${isVisible ? 'translate-x-0 scale-100 opacity-100' : 'opacity-0 scale-75'}`}
+        <motion.div
+            className="relative group/section"
+            initial={false}
+            animate={{
+                x: isVisible ? 0 : offset * spreadDistance,
+                scale: isVisible ? 1 : 0.8,
+                opacity: isVisible ? 1 : 0,
+            }}
+            transition={{
+                x: {
+                    duration: 0.8,
+                    ease: [0.25, 0.8, 0.25, 1],
+                    delay: transitionDelay / 1000,
+                },
+                opacity: {
+                    duration: 0.6,
+                    ease: "easeOut",
+                    delay: transitionDelay / 1000,
+                },
+                scale: {
+                    duration: 0.8,
+                    ease: [0.25, 0.8, 0.25, 1],
+                    delay: transitionDelay / 1000,
+                },
+            }}
         >
             <div className="relative p-4 md:p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 hover:shadow-[0_20px_10px_rgba(29,78,216,0.3)] dark:hover:shadow-[0_10px_20px_rgba(137,211,189,0.3)] transition-all duration-300 h-32 md:h-40 flex flex-col justify-between">
                 <div className="space-y-3">
@@ -152,7 +175,7 @@ const StatCard: React.FC<StatCardProps> = ({ stat, index, totalCount, isVisible 
                 </div>
                 <div className="absolute inset-x-0 bottom-0 h-1 bg-primary scale-x-0 group-hover/section:scale-x-100 transition-transform duration-500 origin-left rounded-full" />
             </div>
-        </div>
+        </motion.div>
     );
 };
 
