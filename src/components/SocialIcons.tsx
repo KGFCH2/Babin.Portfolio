@@ -46,7 +46,8 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    /* slightly lower the icons under the "Let's Connect" heading */
+    margin-top: 14px;
   }
   .example-2 .icon-content {
     margin: 0 8px;
