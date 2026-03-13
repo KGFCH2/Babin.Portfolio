@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Code2, Zap, Clock, GitBranch, LucideIcon } from 'lucide-react';
 import AnimatedIcon from './AnimatedIcon';
