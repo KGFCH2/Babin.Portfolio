@@ -6,6 +6,7 @@ import { useState } from "react";
 import { X, FileText, ExternalLink, ZoomIn, ZoomOut, Download, RotateCcw } from "lucide-react";
 import { achievementsData } from "../data/achievements";
 import StudyBackground from "./StudyBackground";
+import styles from './Achievements.module.css';
 
 type FilterType = 'All' | 'Awards' | 'Certificates | Technical Courses' | 'Bootcamps | Events | Competitions' | 'Internship Certificates' | 'Badges | Trophies';
 
@@ -42,7 +43,7 @@ const Achievements = () => {
         const certificateCategories = ["AWS", "CISCO", "Cognitive Class", "GeeksforGeeks", "Google", "GTech Learn", "HackerRank", "HCL Guvi", "HP Life", "IBM", "Infosys Springboard", "Microsoft", "Pantech e Learning", "Qualcomm", "Saylor Academy", "Scaler", "SimpliLearn", "Skill Nation", "Udemy"];
         const bootcampCategories = ["Events & Hackathons", "Hack2Skill", "Kaggle", "Let's Upgrade", "MyBharat", "myGov", "Skill India", "Unstop"];
         const internshipCategories = ["Oasis Infobyte", "Infosys Springboard Internships", "The Developers Arena"];
-        const badgeCategories = ["AWS Badges", "Google Badges", "Holopin Badges", "HP Life Badges", "Microsoft Badges & Trophies", "Microsoft Trophies", "Qualcomm Badges"];
+        const badgeCategories = ["AWS Badges", "GFG Badges", "Google Badges", "Holopin Badges", "HP Life Badges", "Microsoft Badges & Trophies", "Microsoft Trophies", "Qualcomm Badges"];
 
         switch (filter) {
             case 'All':
@@ -233,51 +234,51 @@ const Achievements = () => {
                                                     ease: [0.22, 1, 0.36, 1],
                                                 }}
                                             >
-                                            <Card
-                                                className="overflow-hidden border border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 backdrop-blur-md shadow-card hover:shadow-glow transition-all duration-300 group cursor-pointer flex flex-col h-full hover:-translate-y-2 hover:scale-[1.02]"
-                                                onClick={() => handleItemClick(item.file)}
-                                            >
-                                                <div className="h-48 overflow-hidden bg-muted/10 relative flex items-center justify-center p-4">
-                                                    {type === 'image' ? (
-                                                        <>
-                                                            {!imageErrors.has(item.file) ? (
-                                                                <img
-                                                                    src={item.file}
-                                                                    alt={item.title}
-                                                                    loading="lazy"
-                                                                    decoding="async"
-                                                                    className={`w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 ${isSelected ? 'shadow-[0_8px_30px_rgba(29,78,216,0.35)] dark:shadow-[0_8px_30px_rgba(6,182,212,0.35)]' : ''}`}
-                                                                    onError={() => handleImageError(item.file)}
-                                                                />
-                                                            ) : (
-                                                                <div className="text-muted-foreground flex flex-col items-center justify-center gap-2">
-                                                                    <FileText className="w-12 h-12" />
-                                                                    <span className="text-xs">Image unavailable</span>
-                                                                </div>
-                                                            )}
-                                                        </>
-                                                    ) : (
-                                                        <div className="text-primary/50 group-hover:text-primary transition-colors">
-                                                            <FileText className="w-16 h-16" />
-                                                        </div>
-                                                    )}
+                                                <Card
+                                                    className="overflow-hidden border border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 backdrop-blur-md shadow-card hover:shadow-glow transition-all duration-300 group cursor-pointer flex flex-col h-full hover:-translate-y-2 hover:scale-[1.02]"
+                                                    onClick={() => handleItemClick(item.file)}
+                                                >
+                                                    <div className="h-48 overflow-hidden bg-muted/10 relative flex items-center justify-center p-4">
+                                                        {type === 'image' ? (
+                                                            <>
+                                                                {!imageErrors.has(item.file) ? (
+                                                                    <img
+                                                                        src={item.file}
+                                                                        alt={item.title}
+                                                                        loading="lazy"
+                                                                        decoding="async"
+                                                                        className={`w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 ${isSelected ? 'shadow-[0_8px_30px_rgba(29,78,216,0.35)] dark:shadow-[0_8px_30px_rgba(6,182,212,0.35)]' : ''}`}
+                                                                        onError={() => handleImageError(item.file)}
+                                                                    />
+                                                                ) : (
+                                                                    <div className="text-muted-foreground flex flex-col items-center justify-center gap-2">
+                                                                        <FileText className="w-12 h-12" />
+                                                                        <span className="text-xs">Image unavailable</span>
+                                                                    </div>
+                                                                )}
+                                                            </>
+                                                        ) : (
+                                                            <div className="text-primary/50 group-hover:text-primary transition-colors">
+                                                                <FileText className="w-16 h-16" />
+                                                            </div>
+                                                        )}
 
-                                                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                                        <p className="text-white font-semibold text-lg flex items-center gap-2">
-                                                            {type === 'pdf' ? <ExternalLink className="w-5 h-5" /> : null}
-                                                            {type === 'pdf' ? 'Open PDF' : 'View Image'}
-                                                        </p>
+                                                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                                            <p className="text-white font-semibold text-lg flex items-center gap-2">
+                                                                {type === 'pdf' ? <ExternalLink className="w-5 h-5" /> : null}
+                                                                {type === 'pdf' ? 'Open PDF' : 'View Image'}
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div className="p-4 flex-grow flex flex-col justify-center items-center text-center">
-                                                    <h4 className="text-lg font-semibold text-foreground leading-tight mb-2">{item.title}</h4>
-                                                    {type === 'pdf' && (
-                                                        <p className="text-xs text-muted-foreground flex items-center gap-1">
-                                                            <FileText className="w-3 h-3" /> PDF Document
-                                                        </p>
-                                                    )}
-                                                </div>
-                                            </Card>
+                                                    <div className="p-4 flex-grow flex flex-col justify-center items-center text-center">
+                                                        <h4 className="text-lg font-semibold text-foreground leading-tight mb-2">{item.title}</h4>
+                                                        {type === 'pdf' && (
+                                                            <p className="text-xs text-muted-foreground flex items-center gap-1">
+                                                                <FileText className="w-3 h-3" /> PDF Document
+                                                            </p>
+                                                        )}
+                                                    </div>
+                                                </Card>
                                             </motion.div>
                                         );
                                     })}
@@ -344,8 +345,7 @@ const Achievements = () => {
                             className={`transition-all duration-300 ease-out ${isClosing
                                 ? 'animate-close-image'
                                 : ''
-                                }`}
-                            style={{ transform: `scale(${zoomLevel})` }}
+                                } zoom-level-${zoomLevel.toString().replace('.', '-')}`}
                             onClick={(e) => e.stopPropagation()}
                         >
                             <img
