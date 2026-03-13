@@ -25,18 +25,15 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isOpen, onClick }) => {
       <div className="relative w-6 h-6">
         {/* Top line */}
         <span
-          className={`absolute left-0 top-1 w-6 h-0.5 bg-primary transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45 top-2.5' : 'rotate-0 top-1'
-            }`}
+          className={`absolute left-0 top-1/2 w-6 h-0.5 bg-primary origin-center transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45' : '-translate-y-2'}`}
         />
         {/* Middle line */}
         <span
-          className={`absolute left-0 top-2.5 w-6 h-0.5 bg-primary transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
-            }`}
+          className={`absolute left-0 top-1/2 w-6 h-0.5 bg-primary origin-center transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0' : '-translate-y-0.25'}`}
         />
         {/* Bottom line */}
         <span
-          className={`absolute left-0 top-4 w-6 h-0.5 bg-primary transition-all duration-300 ease-in-out ${isOpen ? '-rotate-45 top-2.5' : 'rotate-0 top-4'
-            }`}
+          className={`absolute left-0 top-1/2 w-6 h-0.5 bg-primary origin-center transition-all duration-300 ease-in-out ${isOpen ? '-rotate-45' : 'translate-y-2'}`}
         />
       </div>
     </button>
