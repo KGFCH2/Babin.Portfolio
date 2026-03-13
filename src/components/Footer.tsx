@@ -108,19 +108,17 @@ const Footer = () => {
                 ].map((item) => {
                   const href = item === "Achievements" ? "#achievements-preview" : `#${item.toLowerCase()}`;
                   return (
-                    <motion.li
-                      key={item}
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      className="inline-block"
-                    >
-                      <a
-                        href={href}
-                        onClick={(e) => handleSectionClick(e, href)}
-                        className="text-muted-foreground hover:text-blue-700 dark:hover:text-[#89D3BD] transition-smooth nav-underline text-base md:text-lg font-bold"
-                      >
-                        {item}
-                      </a>
-                    </motion.li>
+                    <li key={item} className="inline-block">
+                      <motion.div whileHover={{ scale: 1.1, y: -2 }}>
+                        <a
+                          href={href}
+                          onClick={(e) => handleSectionClick(e, href)}
+                          className="text-muted-foreground hover:text-blue-700 dark:hover:text-[#89D3BD] transition-smooth nav-underline text-base md:text-lg font-bold"
+                        >
+                          {item}
+                        </a>
+                      </motion.div>
+                    </li>
                   );
                 })}
               </ul>
