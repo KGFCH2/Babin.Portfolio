@@ -25,48 +25,26 @@ const AnimatedIcon: React.FC<AnimatedIconProps> = ({
         scale: 'group-hover/section:scale-125 group-hover/icon:scale-125',
     }[animationType];
 
+    // Map dynamic glowColor to one of two supported classes to avoid inline styles
+    const glowClass = glowColor === 'transparent' ? 'ai--glow-none' : 'ai--glow-default';
+
     return (
         <span
-            className={`group/icon inline-block relative transition-all duration-300 ${className} ${animationClass}`}
-            style={{
-                filter: 'drop-shadow(0 0 0 transparent)',
-                color: color || 'inherit'
-            }}
+            className={`ai ${glowClass} group/icon inline-block relative transition-all duration-300 ${className} ${animationClass}`}
         >
             {/* Outer glow halo - large blur */}
-            <div
-                className="absolute inset-0 rounded-full opacity-0 group-hover/section:opacity-80 group-hover/icon:opacity-80 blur-2xl transition-all duration-300 -z-20 pointer-events-none"
-                style={{
-                    backgroundColor: glowColor,
-                    transform: 'scale(2)',
-                }}
-            />
+            <div className="ai__halo-lg group-hover/section:opacity-80 group-hover/icon:opacity-80" />
 
             {/* Middle glow - medium blur */}
-            <div
-                className="absolute inset-0 rounded-full opacity-0 group-hover/section:opacity-60 group-hover/icon:opacity-60 blur-xl transition-all duration-300 -z-10 pointer-events-none"
-                style={{
-                    backgroundColor: glowColor,
-                    transform: 'scale(1.5)',
-                }}
-            />
+            <div className="ai__halo-md group-hover/section:opacity-60 group-hover/icon:opacity-60" />
 
             {/* Close glow - small blur */}
-            <div
-                className="absolute inset-0 rounded-full opacity-0 group-hover/section:opacity-40 group-hover/icon:opacity-40 blur-md transition-all duration-300 -z-10 pointer-events-none"
-                style={{
-                    backgroundColor: glowColor,
-                    transform: 'scale(1.1)',
-                }}
-            />
+            <div className="ai__halo-sm group-hover/section:opacity-40 group-hover/icon:opacity-40" />
 
             {/* Icon with animation and color transition */}
             <Icon
                 size={size}
-                className={`transition-all duration-300 ${animationClass} group-hover/icon:drop-shadow-lg`}
-                style={{
-                    filter: 'drop-shadow(0 0 8px ' + glowColor + ')',
-                }}
+                className={`ai__icon transition-all duration-300 ${animationClass} group-hover/icon:drop-shadow-lg`}
             />
         </span>
     );
