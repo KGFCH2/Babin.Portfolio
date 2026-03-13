@@ -49,15 +49,21 @@ const Header = () => {
     return () => observer.disconnect();
   }, [location.pathname]);
 
-  const navItems = useMemo(() => [
-    { name: "Home", href: "#home", type: "section" as const },
-    { name: "About", href: "#about", type: "section" as const },
-    { name: "Skills", href: "#skills", type: "section" as const },
-    { name: "Projects", href: "#projects", type: "section" as const },
-    { name: "Research", href: "#research", type: "section" as const },
-    { name: "Achievements", href: "#achievements-preview", type: "section" as const },
-    { name: "Contact", href: "#contact", type: "section" as const },
+  const navItems = useMemo<{
+    name: string;
+    href: string;
+    type: "section" | "route";
+  }[]>(() => [
+    { name: "Home", href: "#home", type: "section" },
+    { name: "About", href: "#about", type: "section" },
+    { name: "Skills", href: "#skills", type: "section" },
+    { name: "Projects", href: "#projects", type: "section" },
+    { name: "Research", href: "#research", type: "section" },
+    { name: "Achievements", href: "#achievements-preview", type: "section" },
+    { name: "Contact", href: "#contact", type: "section" },
   ], []);
+
+  const lineRef = useRef<HTMLDivElement | null>(null);
 
   // Update line position when active section changes or on mount
   useEffect(() => {
@@ -82,6 +88,10 @@ const Header = () => {
         width: linkRect.width,
         left: linkRect.left - listRect.left,
       });
+      if (lineRef.current) {
+        lineRef.current.style.width = `${linkRect.width}px`;
+        lineRef.current.style.left = `${linkRect.left - listRect.left}px`;
+      }
     }
   }, [activeSection, navItems, location.pathname]);
 
@@ -183,11 +193,8 @@ const Header = () => {
           {/* Animated Line Indicator — only visible on homepage */}
           {location.pathname === "/" && (
             <div
+              ref={lineRef}
               className="absolute bottom-0 h-0.5 bg-blue-700 dark:bg-[#89D3BD] transition-all duration-300 ease-out rounded-full"
-              style={{
-                width: `${lineStyle.width}px`,
-                left: `${lineStyle.left}px`,
-              }}
             />
           )}
         </div>
@@ -204,47 +211,45 @@ const Header = () => {
       </nav>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div
-          className="md:hidden bg-background/10 backdrop-blur-2xl border-t border-border animate-fade-in"
-          id="mobile-menu"
-          role="navigation"
-          aria-label="Mobile navigation"
-        >
-          <ul className="container mx-auto px-4 py-4 flex flex-col gap-1">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                {item.type === "route" ? (
-                  <Link
-                    to={item.href}
-                    className={`text-base px-4 py-3 min-h-[48px] rounded-lg transition-colors flex items-center font-medium ${location.pathname === item.href
-                      ? "bg-primary/10 text-primary"
-                      : "text-foreground/80 hover:text-primary hover:bg-primary/5"
-                      }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
-                  <a
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(item.href);
-                    }}
-                    className={`text-base px-4 py-3 min-h-[48px] rounded-lg transition-colors flex items-center font-medium ${activeSection === item.href.slice(1) && location.pathname === "/"
-                      ? "bg-primary/10 text-primary"
-                      : "text-foreground/80 hover:text-primary hover:bg-primary/5"
-                      }`}
-                  >
-                    {item.name}
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div
+        className={`${isMobileMenuOpen ? '' : 'hidden'} md:hidden bg-background/10 backdrop-blur-2xl border-t border-border animate-fade-in`}
+        id="mobile-menu"
+        role="navigation"
+        aria-label="Mobile navigation"
+      >
+        <ul className="container mx-auto px-4 py-4 flex flex-col gap-1">
+          {navItems.map((item) => (
+            <li key={item.name}>
+              {item.type === "route" ? (
+                <Link
+                  to={item.href}
+                  className={`text-base px-4 py-3 min-h-[48px] rounded-lg transition-colors flex items-center font-medium ${location.pathname === item.href
+                    ? "bg-primary/10 text-primary"
+                    : "text-foreground/80 hover:text-primary hover:bg-primary/5"
+                    }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.href);
+                  }}
+                  className={`text-base px-4 py-3 min-h-[48px] rounded-lg transition-colors flex items-center font-medium ${activeSection === item.href.slice(1) && location.pathname === "/"
+                    ? "bg-primary/10 text-primary"
+                    : "text-foreground/80 hover:text-primary hover:bg-primary/5"
+                    }`}
+                >
+                  {item.name}
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
   );
 };
