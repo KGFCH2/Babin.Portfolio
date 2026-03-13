@@ -85,7 +85,7 @@ const Skills: React.FC = () => {
 
         const iconConfig = iconMap[skillName];
         if (!iconConfig) {
-            return <AnimatedIcon Icon={Zap} size={24} color="#eab308" glowColor="transparent" animationType="pulse" />;
+            return <AnimatedIcon Icon={Zap} size={24} glowColor="transparent" animationType="pulse" className="text-amber-500" />;
         }
 
         if ('image' in iconConfig) {
