@@ -134,10 +134,9 @@ const StatCard: React.FC<StatCardProps> = ({ stat, index, totalCount, isVisible 
 
     return (
         <div
-            className="relative group/section"
+            className={`relative group/section transition-all duration-300 transform-gpu ${isVisible ? 'translate-x-0 scale-100 opacity-100' : 'opacity-0 scale-75'}`}
             style={{
-                transform: `translateX(${translateX}px) scale(${scale})`,
-                opacity,
+                transform: isVisible ? 'none' : `translateX(${translateX}px) scale(${scale})`,
                 transition: `transform 800ms cubic-bezier(.25,.8,.25,1) ${transitionDelay}ms, opacity 600ms ease ${transitionDelay}ms`,
             }}
         >

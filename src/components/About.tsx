@@ -59,7 +59,7 @@ const About = () => {
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-16 w-72 h-72 bg-blue-700/10 dark:bg-[#89D3BD]/10 rounded-full blur-[80px] animate-pulse" />
-        <div className="absolute bottom-1/4 -right-16 w-72 h-72 bg-blue-700/10 dark:bg-[#89D3BD]/10 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-1/4 -right-16 w-72 h-72 bg-blue-700/10 dark:bg-[#89D3BD]/10 rounded-full blur-[80px] animate-pulse delay-1000" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

@@ -34,10 +34,9 @@ const ThemeToggle = () => {
           : 'bg-yellow-300 shadow-lg shadow-red-400/80'}
         hover:scale-110 hover:rotate-12 hover:rotate-y-12 hover:-rotate-x-6
         hover:shadow-2xl hover:shadow-primary/80 dark:hover:shadow-primary/50
-        transform-gpu perspective-1000
+        transform-gpu perspective-1000 will-change-transform transform-style-3d
         ${isToggling ? 'scale-90 rotate-180' : 'scale-100 rotate-0'}
       `}
-      style={{ willChange: 'transform, opacity', transformStyle: 'preserve-3d' }}
       title={`Switch to ${isDark ? "light" : "dark"} mode`}
       aria-label="Toggle theme"
     >

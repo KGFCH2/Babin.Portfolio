@@ -93,7 +93,7 @@ const AchievementsPreview = () => {
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/3 -left-20 w-80 h-80 bg-blue-700/10 dark:bg-[#89D3BD]/10 rounded-full blur-[100px] animate-pulse" />
-        <div className="absolute bottom-1/3 -right-20 w-80 h-80 bg-blue-700/10 dark:bg-[#89D3BD]/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "1.5s" }} />
+        <div className="absolute bottom-1/3 -right-20 w-80 h-80 bg-blue-700/10 dark:bg-[#89D3BD]/10 rounded-full blur-[100px] animate-pulse [animation-delay:1.5s]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
