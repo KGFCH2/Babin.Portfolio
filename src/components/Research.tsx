@@ -40,6 +40,19 @@ const Research = () => {
     }
   };
 
+  const getHighlightClass = (label: string) => {
+    switch (label) {
+      case 'Conference':
+        return 'text-amber-500';
+      case 'Authors':
+        return 'text-cyan-400';
+      case 'Status':
+        return 'text-emerald-500';
+      default:
+        return 'text-primary';
+    }
+  };
+
   // glow styles removed for Task 5
   const glowStyles = ``;
 
@@ -174,10 +187,9 @@ const Research = () => {
                           <AnimatedIcon
                             Icon={Icon}
                             size={32}
-                            color={getHighlightColor(item.label)}
                             glowColor="transparent"
                             animationType="scale"
-                            className="group-hover/section:-translate-y-1"
+                            className={`${getHighlightClass(item.label)} group-hover/section:-translate-y-1`}
                           />
                         </div>
                         <div className="mb-2 text-[10px] uppercase tracking-widest text-muted-foreground font-black">{item.label}</div>
@@ -189,7 +201,7 @@ const Research = () => {
 
                 <Card className="group/section bg-primary/5 p-6">
                   <h4 className="font-bold text-lg mb-3 flex items-center gap-2">
-                    <AnimatedIcon Icon={Wrench} size={20} color="hsl(var(--primary) / 1)" glowColor="transparent" animationType="scale" className="group-hover/section:-translate-y-1" />
+                    <AnimatedIcon Icon={Wrench} size={20} glowColor="transparent" animationType="scale" className="text-primary group-hover/section:-translate-y-1" />
                     Tech Stack
                   </h4>
                   <div className="flex flex-wrap gap-2">
@@ -208,7 +220,7 @@ const Research = () => {
 
                 <Card className="group/section bg-gradient-to-r from-blue-700/5 to-emerald-400/5 dark:from-[#89D3BD]/10 dark:to-emerald-700/10 p-6">
                   <h4 className="font-bold text-lg mb-3 flex items-center gap-2">
-                    <AnimatedIcon Icon={Leaf} size={20} color="#10B981" glowColor="transparent" animationType="scale" className="group-hover/section:-translate-y-2" />
+                    <AnimatedIcon Icon={Leaf} size={20} glowColor="transparent" animationType="scale" className="text-emerald-500 group-hover/section:-translate-y-2" />
                     Seasonal Coverage
                   </h4>
                   <div className="space-y-2 text-sm">
