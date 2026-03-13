@@ -34,22 +34,26 @@ A high-level overview of the workspace organization:
 Follow these steps to get the project running on your machine:
 
 ### Prerequisites
+
 - [Node.js](https://nodejs.org/) (v18.x or higher)
 - [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.io/)
 - A terminal (PowerShell, Bash, or Zsh)
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/KGFCH2/Babin.Portfolio.git
 cd Babin.Portfolio
 ```
 
 ### 2. Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### 3. Environment Configuration
+
 Create a `.env.local` file in the root directory by copying `.env.example`:
 
 ```env
@@ -63,19 +67,25 @@ EMAIL_PASS=your-gmail-app-password
 # 1. Copy this file to .env.local
 # 2. Replace the placeholder values with your actual Gmail credentials
 # 3. For EMAIL_PASS, use a Gmail App Password (not your regular password)
+
 ```
+
 > **Note:** For Gmail, you must use an [App Password](https://support.google.com/accounts/answer/185833).
 
 ### 4. Run the Development Server
+
 ```bash
 npm run dev
 ```
+
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 #### 4a. Start the API Server (Vercel) 🔧
+
 The contact API lives in `api/send-email.js` and runs as a Vercel Serverless Function. To run it locally, set your environment variables and start the Vercel dev server.
 
 - Set environment variables (PowerShell):
+
 ```powershell
 $env:EMAIL_USER='your-gmail@gmail.com'
 $env:EMAIL_PASS='your-app-password'
@@ -83,11 +93,13 @@ $env:PORT='3001' # optional — the test script uses port 3001 by default
 ```
 
 - Start the API server (recommended):
+
 ```powershell
 npm run dev:api
 ```
 
 Or, without npm script:
+
 ```powershell
 # using local vercel package via npx
 npx vercel dev --listen 3001
@@ -104,6 +116,7 @@ The function will be available at `http://localhost:3001/api/send-email` when us
 The contact form uses **Nodemailer** integrated with **Vercel Serverless Functions**.
 
 ### How it works:
+
 1. **Frontend**: The form in `src/components/Contact.tsx` uses `react-hook-form` and `zod` for validation.
 2. **Backend**: `api/send-email.js` receives the POST request and sends the email via SMTP.
 3. **Security**: Ensure your credentials are set as environment variables in your deployment platform (e.g., Vercel Dashboard).
@@ -127,12 +140,15 @@ The contact form uses **Nodemailer** integrated with **Vercel Serverless Functio
 ## 🌐 Deployment
 
 ### Vercel (Recommended)
+
 This project is optimized for Vercel.
+
 1. Connect your GitHub repository to [Vercel](https://vercel.com).
 2. Add your environment variables (`EMAIL_USER`, etc.) in the Vercel project settings.
 3. Vercel will automatically detect the Vite config and deploy.
 
 ### GitHub Pages
+
 1. run `npm run build`.
 2. run `npm run deploy` (if configured with `gh-pages` package).
 
@@ -141,9 +157,11 @@ This project is optimized for Vercel.
 ## 🔧 Customization Guide
 
 ### Updating Achievements
+
 Add new entries to [src/data/achievements.ts](src/data/achievements.ts). Make sure to place the images in the corresponding folder within `public/Achievements/`.
 
 ### Modifying Theme & Colors
+
 You can tweak the design in [tailwind.config.ts](tailwind.config.ts) and [src/index.css](src/index.css). The project uses **Shadcn/UI**, so you can also update components in `src/components/ui/`.
 
 ---
