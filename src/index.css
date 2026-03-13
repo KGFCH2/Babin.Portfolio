@@ -647,6 +647,66 @@ All colors MUST be HSL.
     transform: translateZ(0);
   }
 
+  /* AnimatedIcon utilities */
+  .ai {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+    --ai-glow: hsl(var(--primary) / 0.6);
+  }
+
+  .ai--glow-default {
+    --ai-glow: hsl(var(--primary) / 0.6);
+  }
+
+  .ai--glow-none {
+    --ai-glow: transparent;
+  }
+
+  .ai__halo-lg {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    opacity: 0;
+    transform: scale(2);
+    pointer-events: none;
+    filter: blur(20px);
+    transition: opacity .28s ease, transform .28s ease;
+    background: var(--ai-glow);
+    z-index: -20;
+  }
+
+  .ai__halo-md {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    opacity: 0;
+    transform: scale(1.5);
+    pointer-events: none;
+    filter: blur(12px);
+    transition: opacity .28s ease, transform .28s ease;
+    background: var(--ai-glow);
+    z-index: -10;
+  }
+
+  .ai__halo-sm {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    opacity: 0;
+    transform: scale(1.1);
+    pointer-events: none;
+    filter: blur(6px);
+    transition: opacity .28s ease, transform .28s ease;
+    background: var(--ai-glow);
+    z-index: -5;
+  }
+
+  .ai__icon {
+    transition: filter .28s ease, transform .28s ease;
+    filter: drop-shadow(0 0 8px var(--ai-glow));
+  }
+
   /* darker subtle mandala when in dark mode */
   .dark .glass::before {
     filter: brightness(0.9) contrast(1.05) hue-rotate(-10deg);
