@@ -189,6 +189,7 @@ export const achievementsData: AchievementCategory[] = [
         category: "GeeksforGeeks",
         items: [
             { title: "Al agent using Agentforce", file: "/Achievements/gfg/Al_agent_using_Agentforce.png" },
+            { title: "MongoDB Overview: Core Concepts and Architecture", file: "/Achievements/gfg/SkillsCert20260313-33-z7zluy.pdf" },
         ]
     },
     {
@@ -359,7 +360,12 @@ export const achievementsData: AchievementCategory[] = [
         ]
     },
     {
-
+        category: "GFG Badges",
+        items: [
+            { title: "MongoDB Overview Badge", file: "/Achievements/gfg/mongodb-overview-core-concepts-and-architecture.png" },
+        ]
+    },
+    {
         category: "Google Badges",
         items: [
             { title: "Gemini Certified Student", file: "/Achievements/Google/Gemini_Certified_Student.png" },
