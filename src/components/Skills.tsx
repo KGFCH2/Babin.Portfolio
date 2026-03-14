@@ -71,7 +71,7 @@ const Skills: React.FC = () => {
             'GitHub': { icon: SiGithub, color: '#181717' },
             'Git': { icon: SiGit, color: '#F05032' },
             'LeetCode': { image: 'https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png', alt: 'LeetCode' },
-            'HackerRank': { image: 'https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png', alt: 'HackerRank' },
+            'HackerRank': { image: 'https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png', alt: 'HackerRank' },
             'Codolio': { image: 'https://codolio-pt.vercel.app/codolio_assets/gif-owl-transparent.GIF', alt: 'Codolio' },
             'Firebase': { image: 'https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg', alt: 'Firebase' },
             'Amazon Web Services': { image: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg', alt: 'Amazon Web Services' },
