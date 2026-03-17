@@ -219,7 +219,7 @@ export const achievementsData: AchievementCategory[] = [
         items: [
             { title: "YUVA AI for ALL", file: "/Achievements/HCL Guvi/HCL_GUVI~~Certification.png"},
             { title: "India AI Impact Buildathon", file: "/Achievements/HCL Guvi/India_AI_Impact_Buildathon.png" },
-            { title: "HCL GUVI Certification - Begin Your Full Stack Journey Webinar", file: "/Achievements/HCL Guvi/HCL_GUVI_Certification__Begin-Your-Full-Stack-Journey.png"},
+            { title: "Begin Your Full Stack Journey Webinar", file: "/Achievements/HCL Guvi/HCL_GUVI_Certification__Begin-Your-Full-Stack-Journey.png"},
         ]
     },
     {
